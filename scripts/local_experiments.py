@@ -210,6 +210,9 @@ def main():
       versions=sql("SELECT version(); SELECT extversion FROM pg_extension WHERE extname='citus';"),
       dimensions=DEFS, workload_weights=WEIGHTS, log_sample_rate=1.0,
       docker=run(['docker','info','--format','{{.Architecture}} {{.NCPU}} CPUs {{.MemTotal}} bytes']).stdout.strip())
+    environment['git_commit']=run(['git','rev-parse','HEAD']).stdout.strip()
+    environment['harness_sha256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    environment['image_digest']='sha256:100bb457c798d7b50de1ece819fad7109744c0ed812dc63fb76a90e99767602f'
     (output/'environment.json').write_text(json.dumps(environment,indent=2)+'\n')
     for expt in args.experiments:
         for clients in args.clients:
