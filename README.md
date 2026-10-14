@@ -38,6 +38,8 @@ installation is PostgreSQL 18.6. Full raw pilot logs are retained.
 Clone or copy this repository into a **separate directory** from Dessi's existing
 `~/citus_project`. Reuse `~/pgsql`; do not rerun the destructive installer.
 Check the live experiment folders with teammates before adopting a101–a108.
+From the Mac, `bash scripts/upload_cluster.sh` sends the committed files to a new
+isolated directory without putting GitHub credentials on the shared cluster account.
 
 ```sh
 # On xlogin, from this repo. Smoke-test first, inspect results, then full suite.
