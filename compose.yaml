@@ -1,0 +1,30 @@
+name: cs5424-hikaru
+x-db: &db
+  image: citusdata/citus:14.1.0@sha256:100bb457c798d7b50de1ece819fad7109744c0ed812dc63fb76a90e99767602f
+  environment:
+    POSTGRES_HOST_AUTH_METHOD: trust
+  shm_size: 512mb
+  command: [postgres, -c, shared_preload_libraries=citus, -c, shared_buffers=256MB, -c, work_mem=32MB, -c, default_transaction_isolation=serializable, -c, citus.enable_repartition_joins=on, -c, citus.max_adaptive_executor_pool_size=4]
+  volumes:
+    - .:/workspace
+  healthcheck:
+    test: [CMD-SHELL, pg_isready -h localhost -U postgres]
+    interval: 2s
+    timeout: 2s
+    retries: 30
+services:
+  coordinator:
+    <<: *db
+    hostname: coordinator
+  worker1:
+    <<: *db
+    hostname: worker1
+  worker2:
+    <<: *db
+    hostname: worker2
+  worker3:
+    <<: *db
+    hostname: worker3
+  worker4:
+    <<: *db
+    hostname: worker4

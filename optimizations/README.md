@@ -1,0 +1,51 @@
+# Hikaru's five Task 2 designs
+
+| Angle | Experiment | Implementation |
+|---|---|---|
+| Data placement | a101 | Five tables share merchant_id distribution; keys and joins include merchant_id. |
+| Lookup indexes | a102 | orders(merchant_id,customer_id,created_at DESC), order_items(order_id), inventory(product_id). |
+| Transaction execution | a103 | T1 uses one coordinator function call; pgbench retries serialization failures. |
+| Repeated calculations | a104 | Exact daily sales totals, synchronously updated by T1, with raw reads for partial days. |
+| Resource usage | a105/a106/a107 | Separately test work_mem=64MB and executor pool limits 2/8 against baseline 32MB/4. |
+| Combination | a108 | Colocation, indexes, one-call T1 and exact sales summary. |
+
+No change is assumed to improve performance. Compare each individual version to
+a0, then a108 to the components. Settings remain one-variable experiments; the
+combined design keeps baseline memory/pool settings until evidence supports tuning.
+
+## Correctness details
+
+- **T1:** all inventory deductions, order rows and item rows are atomic. The
+  function catches only business rejection (`no_data_found`); deadlocks and
+  serialization failures reach pgbench. Duplicate products are processed in
+  input order. Sequences remain on the coordinator and preserve globally unique
+  generated IDs. No worker-delegated function is assumed to support these sequences.
+- **Colocation:** primary keys include merchant_id as required by Citus.
+  Globally unique IDs still come from the unchanged generator/coordinator
+  sequences. This schema does not enforce cross-merchant uniqueness of manually
+  supplied IDs. T5's ID-only access and T7's cross-merchant work retain their
+  semantics; they may still touch multiple shards and must be included in results.
+- **T3:** preserves the supplied SQL's `LIMIT 20` on joined rows. The brief says
+  20 orders, which differs when an order has several items. This existing baseline
+  discrepancy needs course clarification; an optimization must not quietly alter
+  the meaning of the benchmark.
+- **Sales totals:** initialized after every data reload, then updated inside the
+  same successful T1 transaction. T5 only changes status; the report counts all
+  statuses. Future delete/amount/time-changing transactions would also need
+  summary maintenance. Full days use the summary; partial start/end days use
+  base rows in the same statement snapshot. No asynchronous/stale cache is used.
+- **Comparability:** keep A's nine weights, input/skew distributions, hardware,
+  isolation, logging and data scale fixed within each environment. Count failures,
+  report tail latency and investigate nonzero pgbench exits. pgbench TPS counts
+  completed scripts, including expected business rollbacks; it is not an order
+  acceptance rate. A stored-function rejection has no committed data changes.
+
+## Sources
+
+- [Citus data placement](https://docs.citusdata.com/en/stable/sharding/data_modeling.html)
+- [Citus constraints](https://docs.citusdata.com/en/stable/develop/reference_ddl.html)
+- [PostgreSQL multicolumn indexes](https://www.postgresql.org/docs/18/indexes-multicolumn.html)
+- [Citus functions](https://docs.citusdata.com/en/stable/develop/api_udf.html#create-distributed-function)
+- [Citus aggregation background](https://www.citusdata.com/blog/2018/06/14/scalable-incremental-data-aggregation/)
+- [Citus executor settings](https://docs.citusdata.com/en/stable/develop/api_guc.html)
+- [PostgreSQL memory settings](https://www.postgresql.org/docs/18/runtime-config-resource.html)
