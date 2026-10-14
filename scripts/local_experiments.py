@@ -35,9 +35,11 @@ def extract_function(script, name):
 
 
 def initialize_cluster():
+    run(COMPOSE + ['build','coordinator'], check=True)
     run(COMPOSE + ['up', '-d', '--wait'], check=True)
     for service in ['coordinator','worker1','worker2','worker3','worker4']:
         run(COMPOSE + ['exec','-T',service,'psql','-U','postgres','-c','CREATE EXTENSION IF NOT EXISTS citus;'])
+    sql("SELECT citus_set_coordinator_host('coordinator',5432);")
     for worker in ['worker1','worker2','worker3','worker4']:
         sql(f"SELECT citus_add_node('{worker}',5432);")
 
@@ -207,12 +209,15 @@ def main():
     environment=dict(environment='LOCAL DOCKER PILOT — not SoC Slurm', scale=.01, workers=4,
       shared_buffers='256MB', work_mem_default='32MB', isolation='serializable',
       default_pool=4, seed=args.seed, warmup_seconds=5, measured_seconds=args.duration,
-      versions=sql("SELECT version(); SELECT extversion FROM pg_extension WHERE extname='citus';"),
+      versions=sql("SELECT version(); SELECT citus_version();"),
       dimensions=DEFS, workload_weights=WEIGHTS, log_sample_rate=1.0,
       docker=run(['docker','info','--format','{{.Architecture}} {{.NCPU}} CPUs {{.MemTotal}} bytes']).stdout.strip())
     environment['git_commit']=run(['git','rev-parse','HEAD']).stdout.strip()
     environment['harness_sha256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
-    environment['image_digest']='sha256:100bb457c798d7b50de1ece819fad7109744c0ed812dc63fb76a90e99767602f'
+    container=run(COMPOSE+['ps','-q','coordinator']).stdout.strip()
+    environment['image_id']=run(['docker','inspect','--format','{{.Image}}',container]).stdout.strip()
+    environment['dockerfile_sha256']=hashlib.sha256((ROOT/'docker/Dockerfile').read_bytes()).hexdigest()
+    environment['server_settings']=json.loads(sql("SELECT json_object_agg(name,setting) FROM pg_settings WHERE name IN ('shared_buffers','work_mem','max_connections','citus.shard_count','citus.max_shared_pool_size','citus.max_adaptive_executor_pool_size','default_transaction_isolation','TimeZone','jit');"))
     (output/'environment.json').write_text(json.dumps(environment,indent=2)+'\n')
     for expt in args.experiments:
         for clients in args.clients:

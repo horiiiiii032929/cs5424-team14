@@ -1,0 +1,670 @@
+worker2-1  | 
+worker2-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+worker2-1  | 
+worker2-1  | 2026-10-14 11:55:06.359 UTC [1] LOG:  There is no designated Main database.
+worker2-1  | 2026-10-14 11:55:06.365 UTC [1] LOG:  number of prepared transactions has not been configured, overriding
+worker2-1  | 2026-10-14 11:55:06.365 UTC [1] DETAIL:  max_prepared_transactions is now set to 200
+worker2-1  | 2026-10-14 11:55:06.660 UTC [1] LOG:  starting PostgreSQL 18.4 (Debian 18.4-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+worker2-1  | 2026-10-14 11:55:06.672 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+worker2-1  | 2026-10-14 11:55:06.672 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+worker2-1  | 2026-10-14 11:55:06.688 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+worker2-1  | 2026-10-14 11:55:06.754 UTC [31] LOG:  database system was interrupted; last known up at 2026-10-14 11:50:59 UTC
+worker2-1  | 2026-10-14 11:55:07.218 UTC [31] LOG:  database system was not properly shut down; automatic recovery in progress
+worker2-1  | 2026-10-14 11:55:07.233 UTC [31] LOG:  redo starts at 0/A889B08
+worker2-1  | 2026-10-14 11:55:08.710 UTC [31] LOG:  invalid record length at 0/126B8EC0: expected at least 24, got 0
+worker2-1  | 2026-10-14 11:55:08.710 UTC [31] LOG:  redo done at 0/126B8E88 system usage: CPU: user: 0.86 s, system: 0.59 s, elapsed: 1.47 s
+worker2-1  | 2026-10-14 11:55:08.715 UTC [29] LOG:  checkpoint starting: end-of-recovery immediate wait
+worker2-1  | 2026-10-14 11:55:08.784 UTC [29] LOG:  checkpoint complete: wrote 817 buffers (2.5%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 8 recycled; write=0.038 s, sync=0.019 s, total=0.068 s; sync files=278, longest=0.006 s, average=0.001 s; distance=129212 kB, estimate=129212 kB; lsn=0/126B8EC0, redo lsn=0/126B8EC0
+worker2-1  | 2026-10-14 11:55:08.798 UTC [1] LOG:  database system is ready to accept connections
+worker2-1  | 2026-10-14 11:55:11.530 UTC [43] LOG:  starting maintenance daemon on database 5 user 10
+worker2-1  | 2026-10-14 11:55:11.530 UTC [43] CONTEXT:  Citus maintenance daemon for database 5 user 10
+worker2-1  | 2026-10-14 11:55:18.230 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker2-1  | 2026-10-14 11:55:18.231 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker2-1  | 2026-10-14 11:55:18.232 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker2-1  | 2026-10-14 11:56:24.074 UTC [480] ERROR:  could not serialize access due to concurrent update
+worker2-1  | 2026-10-14 11:56:24.074 UTC [480] STATEMENT:  WITH reserved AS (UPDATE public.inventory_103801 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 7), updated_at = '2026-10-14 11:56:23.763325'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 7)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+worker2-1  | 2026-10-14 11:56:40.773 UTC [1] LOG:  received SIGHUP, reloading configuration files
+coordinator-1  | 
+coordinator-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+coordinator-1  | 
+coordinator-1  | 2026-10-14 11:55:06.376 UTC [1] LOG:  There is no designated Main database.
+coordinator-1  | 2026-10-14 11:55:06.381 UTC [1] LOG:  number of prepared transactions has not been configured, overriding
+coordinator-1  | 2026-10-14 11:55:06.381 UTC [1] DETAIL:  max_prepared_transactions is now set to 200
+coordinator-1  | 2026-10-14 11:55:06.791 UTC [1] LOG:  starting PostgreSQL 18.4 (Debian 18.4-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+coordinator-1  | 2026-10-14 11:55:06.798 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+coordinator-1  | 2026-10-14 11:55:06.800 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+coordinator-1  | 2026-10-14 11:55:06.819 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+coordinator-1  | 2026-10-14 11:55:06.880 UTC [33] LOG:  database system was shut down at 2026-10-14 11:55:03 UTC
+coordinator-1  | 2026-10-14 11:55:06.955 UTC [1] LOG:  database system is ready to accept connections
+coordinator-1  | 2026-10-14 11:55:11.104 UTC [52] LOG:  starting maintenance daemon on database 5 user 10
+coordinator-1  | 2026-10-14 11:55:11.104 UTC [52] CONTEXT:  Citus maintenance daemon for database 5 user 10
+coordinator-1  | 2026-10-14 11:55:16.061 UTC [1] LOG:  received SIGHUP, reloading configuration files
+coordinator-1  | 2026-10-14 11:55:16.062 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+coordinator-1  | 2026-10-14 11:55:16.062 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+coordinator-1  | 2026-10-14 11:56:24.075 UTC [788] ERROR:  could not serialize access due to concurrent update
+coordinator-1  | 2026-10-14 11:56:24.075 UTC [788] CONTEXT:  while executing command on worker2:5432
+coordinator-1  | 2026-10-14 11:56:24.075 UTC [788] STATEMENT:  WITH reserved AS (
+coordinator-1  | 	  UPDATE inventory
+coordinator-1  | 	  SET quantity = quantity - (7)::integer,
+coordinator-1  | 	      updated_at = CURRENT_TIMESTAMP
+coordinator-1  | 	  WHERE inventory_id = (1)::bigint
+coordinator-1  | 	    AND merchant_id = (1)::bigint
+coordinator-1  | 	    AND product_id = (1)::bigint
+coordinator-1  | 	    AND quantity >= (7)::integer
+coordinator-1  | 	  RETURNING 1
+coordinator-1  | 	)
+coordinator-1  | 	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+coordinator-1  | 	            THEN 1 ELSE 0 END AS stock_ok
+coordinator-1  | 	
+coordinator-1  | 2026-10-14 11:56:38.517 UTC [1] LOG:  received SIGHUP, reloading configuration files
+coordinator-1  | 2026-10-14 11:56:38.518 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+coordinator-1  | 2026-10-14 11:56:38.518 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+coordinator-1  | 2026-10-14 11:57:38.330 UTC [1637] ERROR:  could not serialize access due to concurrent update
+coordinator-1  | 2026-10-14 11:57:38.330 UTC [1637] CONTEXT:  while executing command on worker2:5432
+coordinator-1  | 2026-10-14 11:57:38.330 UTC [1637] STATEMENT:  WITH reserved AS (
+coordinator-1  | 	  UPDATE inventory
+coordinator-1  | 	  SET quantity = quantity - (7)::integer,
+coordinator-1  | 	      updated_at = CURRENT_TIMESTAMP
+coordinator-1  | 	  WHERE inventory_id = (1)::bigint
+coordinator-1  | 	    AND merchant_id = (1)::bigint
+coordinator-1  | 	    AND product_id = (1)::bigint
+coordinator-1  | 	    AND quantity >= (7)::integer
+coordinator-1  | 	  RETURNING 1
+coordinator-1  | 	)
+coordinator-1  | 	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+coordinator-1  | 	            THEN 1 ELSE 0 END AS stock_ok
+coordinator-1  | 	
+coordinator-1  | 2026-10-14 11:57:53.352 UTC [1] LOG:  received SIGHUP, reloading configuration files
+coordinator-1  | 2026-10-14 11:57:53.353 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+coordinator-1  | 2026-10-14 11:57:53.353 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker3-1      | 
+worker3-1      | PostgreSQL Database directory appears to contain a database; Skipping initialization
+worker3-1      | 
+worker3-1      | 2026-10-14 11:55:06.312 UTC [1] LOG:  There is no designated Main database.
+worker3-1      | 2026-10-14 11:55:06.317 UTC [1] LOG:  number of prepared transactions has not been configured, overriding
+worker3-1      | 2026-10-14 11:55:06.317 UTC [1] DETAIL:  max_prepared_transactions is now set to 200
+worker3-1      | 2026-10-14 11:55:06.712 UTC [1] LOG:  starting PostgreSQL 18.4 (Debian 18.4-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+worker3-1      | 2026-10-14 11:55:06.731 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+worker3-1      | 2026-10-14 11:55:06.731 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+worker3-1      | 2026-10-14 11:55:06.771 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+worker3-1      | 2026-10-14 11:55:06.849 UTC [33] LOG:  database system was shut down at 2026-10-14 11:55:04 UTC
+worker3-1      | 2026-10-14 11:55:06.899 UTC [1] LOG:  database system is ready to accept connections
+worker3-1      | 2026-10-14 11:55:11.820 UTC [45] LOG:  starting maintenance daemon on database 5 user 10
+worker3-1      | 2026-10-14 11:55:11.820 UTC [45] CONTEXT:  Citus maintenance daemon for database 5 user 10
+worker3-1      | 2026-10-14 11:55:19.261 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker3-1      | 2026-10-14 11:55:19.263 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker3-1      | 2026-10-14 11:55:19.263 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker3-1      | 2026-10-14 11:56:41.987 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker3-1      | 2026-10-14 11:56:41.989 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker4-1      | 
+worker4-1      | PostgreSQL Database directory appears to contain a database; Skipping initialization
+worker4-1      | 
+worker4-1      | 2026-10-14 11:55:06.302 UTC [1] LOG:  There is no designated Main database.
+worker4-1      | 2026-10-14 11:55:06.306 UTC [1] LOG:  number of prepared transactions has not been configured, overriding
+worker4-1      | 2026-10-14 11:55:06.306 UTC [1] DETAIL:  max_prepared_transactions is now set to 200
+worker4-1      | 2026-10-14 11:55:06.722 UTC [1] LOG:  starting PostgreSQL 18.4 (Debian 18.4-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+worker4-1      | 2026-10-14 11:55:06.732 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+worker4-1      | 2026-10-14 11:55:06.734 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+worker4-1      | 2026-10-14 11:55:06.775 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+worker4-1      | 2026-10-14 11:55:06.861 UTC [31] LOG:  database system was shut down at 2026-10-14 11:55:04 UTC
+worker4-1      | 2026-10-14 11:55:06.906 UTC [1] LOG:  database system is ready to accept connections
+worker4-1      | 2026-10-14 11:55:11.643 UTC [44] LOG:  starting maintenance daemon on database 5 user 10
+worker4-1      | 2026-10-14 11:55:11.643 UTC [44] CONTEXT:  Citus maintenance daemon for database 5 user 10
+worker4-1      | 2026-10-14 11:55:20.410 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker4-1      | 2026-10-14 11:55:20.412 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker4-1      | 2026-10-14 11:55:20.412 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker4-1      | 2026-10-14 11:56:43.058 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker4-1      | 2026-10-14 11:56:43.059 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker4-1      | 2026-10-14 11:56:43.059 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker4-1      | 2026-10-14 11:57:57.652 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker4-1      | 2026-10-14 11:57:57.653 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker4-1      | 2026-10-14 11:57:57.653 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker4-1      | 2026-10-14 11:59:25.048 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker4-1      | 2026-10-14 11:59:25.053 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker4-1      | 2026-10-14 11:59:25.053 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker4-1      | 2026-10-14 12:00:06.078 UTC [29] LOG:  checkpoint starting: time
+worker4-1      | 2026-10-14 12:01:07.852 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker4-1      | 2026-10-14 12:01:07.853 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker4-1      | 2026-10-14 12:01:07.853 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker4-1      | 2026-10-14 12:01:26.066 UTC [29] LOG:  checkpoint complete: wrote 619 buffers (1.9%), wrote 3 SLRU buffers; 0 WAL file(s) added, 1 removed, 0 recycled; write=79.620 s, sync=0.323 s, total=79.986 s; sync files=2097, longest=0.014 s, average=0.001 s; distance=11545 kB, estimate=11545 kB; lsn=0/B21ECC0, redo lsn=0/ADB93A0
+worker4-1      | 2026-10-14 12:02:48.963 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker4-1      | 2026-10-14 12:02:48.965 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker4-1      | 2026-10-14 12:02:48.965 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker4-1      | 2026-10-14 12:03:30.716 UTC [1] LOG:  untracked child process (PID 3223) exited with exit code 0
+worker4-1      | 2026-10-14 12:03:41.908 UTC [1] LOG:  untracked child process (PID 3337) exited with exit code 0
+worker4-1      | 2026-10-14 12:03:59.332 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker4-1      | 2026-10-14 12:03:59.334 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker4-1      | 2026-10-14 12:03:59.334 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker4-1      | 2026-10-14 12:04:20.470 UTC [3630] ERROR:  could not serialize access due to read/write dependencies among transactions
+worker4-1      | 2026-10-14 12:04:20.470 UTC [3630] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+worker4-1      | 2026-10-14 12:04:20.470 UTC [3630] HINT:  The transaction might succeed if retried.
+worker4-1      | 2026-10-14 12:04:20.470 UTC [3630] STATEMENT:  WITH reserved AS (UPDATE public.inventory_104855 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-14 12:04:20.170257'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '240'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '10'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '240'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+worker1-1      | 
+worker1-1      | PostgreSQL Database directory appears to contain a database; Skipping initialization
+worker1-1      | 
+worker1-1      | 2026-10-14 11:55:06.303 UTC [1] LOG:  There is no designated Main database.
+worker1-1      | 2026-10-14 11:55:06.306 UTC [1] LOG:  number of prepared transactions has not been configured, overriding
+worker1-1      | 2026-10-14 11:55:06.306 UTC [1] DETAIL:  max_prepared_transactions is now set to 200
+worker1-1      | 2026-10-14 11:55:06.693 UTC [1] LOG:  starting PostgreSQL 18.4 (Debian 18.4-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+worker1-1      | 2026-10-14 11:55:06.701 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+worker1-1      | 2026-10-14 11:55:06.701 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+worker1-1      | 2026-10-14 11:55:06.714 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+worker1-1      | 2026-10-14 11:55:06.787 UTC [32] LOG:  database system was interrupted; last known up at 2026-10-14 11:50:58 UTC
+worker1-1      | 2026-10-14 11:55:07.213 UTC [32] LOG:  database system was not properly shut down; automatic recovery in progress
+worker1-1      | 2026-10-14 11:55:07.221 UTC [32] LOG:  redo starts at 0/9E4F948
+worker1-1      | 2026-10-14 11:55:08.558 UTC [32] LOG:  invalid record length at 0/112BD650: expected at least 24, got 0
+worker1-1      | 2026-10-14 11:55:08.558 UTC [32] LOG:  redo done at 0/112BD618 system usage: CPU: user: 0.79 s, system: 0.54 s, elapsed: 1.33 s
+worker1-1      | 2026-10-14 11:55:08.570 UTC [30] LOG:  checkpoint starting: end-of-recovery immediate wait
+worker1-1      | 2026-10-14 11:55:08.647 UTC [30] LOG:  checkpoint complete: wrote 835 buffers (2.5%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 8 recycled; write=0.034 s, sync=0.025 s, total=0.076 s; sync files=280, longest=0.008 s, average=0.001 s; distance=119223 kB, estimate=119223 kB; lsn=0/112BD650, redo lsn=0/112BD650
+worker1-1      | 2026-10-14 11:55:08.665 UTC [1] LOG:  database system is ready to accept connections
+worker1-1      | 2026-10-14 11:55:11.560 UTC [52] LOG:  starting maintenance daemon on database 5 user 10
+worker1-1      | 2026-10-14 11:55:11.560 UTC [52] CONTEXT:  Citus maintenance daemon for database 5 user 10
+worker1-1      | 2026-10-14 11:55:17.148 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker1-1      | 2026-10-14 11:55:17.150 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker1-1      | 2026-10-14 11:55:17.150 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker1-1      | 2026-10-14 11:56:39.640 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker1-1      | 2026-10-14 11:56:39.642 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker1-1      | 2026-10-14 11:56:39.642 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker1-1      | 2026-10-14 11:57:54.405 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker1-1      | 2026-10-14 11:57:54.407 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker1-1      | 2026-10-14 11:57:54.407 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker1-1      | 2026-10-14 11:59:21.129 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker1-1      | 2026-10-14 11:59:21.131 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker1-1      | 2026-10-14 11:59:21.131 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker1-1      | 2026-10-14 12:00:08.148 UTC [30] LOG:  checkpoint starting: time
+worker1-1      | 2026-10-14 12:01:04.054 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker1-1      | 2026-10-14 12:01:04.056 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker1-1      | 2026-10-14 12:01:04.056 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker1-1      | 2026-10-14 12:01:34.218 UTC [30] LOG:  checkpoint complete: wrote 599 buffers (1.8%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=85.442 s, sync=0.571 s, total=86.073 s; sync files=2103, longest=0.039 s, average=0.001 s; distance=12528 kB, estimate=108553 kB; lsn=0/12400B00, redo lsn=0/11EF9940
+worker1-1      | 2026-10-14 12:02:45.842 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker1-1      | 2026-10-14 12:02:45.843 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker1-1      | 2026-10-14 12:02:45.843 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker1-1      | 2026-10-14 12:03:55.872 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker1-1      | 2026-10-14 12:03:55.875 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker1-1      | 2026-10-14 12:03:55.875 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker1-1      | 2026-10-14 12:04:26.115 UTC [1] LOG:  untracked child process (PID 3646) exited with exit code 0
+worker1-1      | 2026-10-14 12:04:36.791 UTC [1] LOG:  untracked child process (PID 3742) exited with exit code 0
+worker1-1      | 2026-10-14 12:04:41.485 UTC [1] LOG:  untracked child process (PID 3782) exited with exit code 0
+worker1-1      | 2026-10-14 12:04:48.501 UTC [1] LOG:  untracked child process (PID 3854) exited with exit code 0
+worker1-1      | 2026-10-14 12:04:52.288 UTC [1] LOG:  untracked child process (PID 3821) exited with exit code 0
+worker1-1      | 2026-10-14 12:04:53.683 UTC [3629] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+worker1-1      | 2026-10-14 12:04:53.683 UTC [3629] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90211090434_12_4']::text[],'worker4',5432) bytes
+worker1-1      | 2026-10-14 12:04:53.751 UTC [3626] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+worker1-1      | 2026-10-14 12:04:53.751 UTC [3626] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90227867719_8_4']::text[],'worker4',5432) bytes
+worker2-1      | 2026-10-14 11:56:40.779 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker2-1      | 2026-10-14 11:56:40.779 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker2-1      | 2026-10-14 11:57:38.329 UTC [972] ERROR:  could not serialize access due to concurrent update
+worker2-1      | 2026-10-14 11:57:38.329 UTC [972] STATEMENT:  WITH reserved AS (UPDATE public.inventory_103961 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 7), updated_at = '2026-10-14 11:57:38.104053'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 7)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+worker2-1      | 2026-10-14 11:57:55.470 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker2-1      | 2026-10-14 11:57:55.471 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker2-1      | 2026-10-14 11:57:55.471 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker2-1      | 2026-10-14 11:59:00.293 UTC [1488] ERROR:  could not serialize access due to concurrent update
+worker2-1      | 2026-10-14 11:59:00.293 UTC [1488] STATEMENT:  UPDATE public.inventory_104121 inventory SET quantity = (quantity OPERATOR(pg_catalog.-) ('{7}'::integer[])[1]), updated_at = '2026-10-14 11:58:59.886977'::timestamp without time zone WHERE ((merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory_id OPERATOR(pg_catalog.=) ('{1}'::bigint[])[1]) AND (product_id OPERATOR(pg_catalog.=) ('{1}'::bigint[])[1]) AND (quantity OPERATOR(pg_catalog.>=) ('{7}'::integer[])[1]))
+worker2-1      | 2026-10-14 11:59:22.242 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker2-1      | 2026-10-14 11:59:22.244 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker2-1      | 2026-10-14 11:59:22.244 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker2-1      | 2026-10-14 12:00:08.269 UTC [29] LOG:  checkpoint starting: time
+worker2-1      | 2026-10-14 12:00:41.834 UTC [2065] ERROR:  could not serialize access due to concurrent update
+worker2-1      | 2026-10-14 12:00:41.834 UTC [2065] STATEMENT:  WITH reserved AS (UPDATE public.inventory_104281 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 7), updated_at = '2026-10-14 12:00:41.454873'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 7)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+worker2-1      | 2026-10-14 12:01:05.304 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker2-1      | 2026-10-14 12:01:05.306 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker2-1      | 2026-10-14 12:01:05.306 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker2-1      | 2026-10-14 12:01:32.658 UTC [29] LOG:  checkpoint complete: wrote 599 buffers (1.8%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=84.135 s, sync=0.206 s, total=84.390 s; sync files=2099, longest=0.005 s, average=0.001 s; distance=12107 kB, estimate=117502 kB; lsn=0/13762AA0, redo lsn=0/1328BAD8
+worker2-1      | 2026-10-14 12:02:18.035 UTC [2670] ERROR:  could not serialize access due to concurrent update
+worker2-1      | 2026-10-14 12:02:18.035 UTC [2670] STATEMENT:  UPDATE public.inventory_104473 inventory SET quantity = (quantity OPERATOR(pg_catalog.-) ('{7}'::integer[])[1]), updated_at = '2026-10-14 12:02:17.811659'::timestamp without time zone WHERE ((merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory_id OPERATOR(pg_catalog.=) ('{1}'::bigint[])[1]) AND (product_id OPERATOR(pg_catalog.=) ('{1}'::bigint[])[1]) AND (quantity OPERATOR(pg_catalog.>=) ('{7}'::integer[])[1]))
+worker2-1      | 2026-10-14 12:02:46.895 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker2-1      | 2026-10-14 12:02:46.897 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker2-1      | 2026-10-14 12:02:46.897 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker2-1      | 2026-10-14 12:03:31.403 UTC [1] LOG:  untracked child process (PID 3310) exited with exit code 0
+worker2-1      | 2026-10-14 12:03:45.692 UTC [1] LOG:  untracked child process (PID 3483) exited with exit code 0
+worker2-1      | 2026-10-14 12:03:57.057 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker2-1      | 2026-10-14 12:03:57.059 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker2-1      | 2026-10-14 12:03:57.059 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker2-1      | 2026-10-14 12:04:32.188 UTC [1] LOG:  untracked child process (PID 3763) exited with exit code 0
+worker2-1      | 2026-10-14 12:04:32.506 UTC [3839] LOG:  could not accept SSL connection: unexpected eof while reading
+worker2-1      | 2026-10-14 12:04:33.260 UTC [1] LOG:  untracked child process (PID 3816) exited with exit code 0
+worker2-1      | 2026-10-14 12:04:37.411 UTC [1] LOG:  untracked child process (PID 3866) exited with exit code 0
+worker2-1      | 2026-10-14 12:04:44.111 UTC [3959] LOG:  could not accept SSL connection: unexpected eof while reading
+worker2-1      | 2026-10-14 12:04:47.325 UTC [1] LOG:  untracked child process (PID 3917) exited with exit code 0
+worker2-1      | 2026-10-14 12:04:49.970 UTC [1] LOG:  untracked child process (PID 3986) exited with exit code 0
+worker2-1      | 2026-10-14 12:04:53.961 UTC [3782] WARNING:  SSL error: unexpected eof while reading
+worker2-1      | 2026-10-14 12:04:53.961 UTC [3782] CONTEXT:  while executing command on worker4:5432
+worker2-1      | 2026-10-14 12:04:53.973 UTC [3782] ERROR:  connection to the remote node postgres@worker4:5432 failed with the following error: SSL error: unexpected eof while reading
+worker2-1      | 2026-10-14 12:04:53.973 UTC [3782] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90194313248_12_0']::text[],'worker4',5432) bytes
+worker2-1      | 2026-10-14 12:04:54.025 UTC [3744] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+worker2-1      | 2026-10-14 12:04:54.025 UTC [3744] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90177536017_24_7']::text[],'worker4',5432) bytes
+worker2-1      | 2026-10-14 12:04:54.020 UTC [3766] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+worker2-1      | 2026-10-14 12:04:54.020 UTC [3766] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90194313248_16_0']::text[],'worker4',5432) bytes
+worker2-1      | 2026-10-14 12:04:54.472 UTC [3732] ERROR:  server closed the connection unexpectedly
+worker2-1      | 		This probably means the server terminated abnormally
+worker2-1      | 		before or while processing the request.
+worker2-1      | 	server closed the connection unexpectedly
+worker2-1      | 		This probably means the server terminated abnormally
+worker2-1      | 		before or while processing the request.
+worker2-1      | 2026-10-14 12:04:54.472 UTC [3732] CONTEXT:  while executing command on worker4:5432
+worker2-1      | 2026-10-14 12:04:54.472 UTC [3732] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90211090434_12_5']::text[],'worker4',5432) bytes
+worker2-1      | 2026-10-14 12:04:54.474 UTC [3823] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+worker2-1      | 2026-10-14 12:04:54.474 UTC [3823] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90227867719_4_5']::text[],'worker4',5432) bytes
+worker2-1      | 2026-10-14 12:04:54.602 UTC [4049] LOG:  could not accept SSL connection: unexpected eof while reading
+worker2-1      | 2026-10-14 12:04:54.618 UTC [4026] LOG:  SSL error: unexpected eof while reading
+worker2-1      | 2026-10-14 12:04:54.619 UTC [4026] LOG:  could not receive data from client: Connection reset by peer
+worker2-1      | 2026-10-14 12:04:54.619 UTC [4026] LOG:  unexpected EOF on client connection with an open transaction
+worker2-1      | 2026-10-14 12:04:54.665 UTC [4036] LOG:  SSL error: unexpected eof while reading
+worker2-1      | 2026-10-14 12:04:54.685 UTC [4036] LOG:  could not receive data from client: Connection reset by peer
+worker2-1      | 2026-10-14 12:04:54.750 UTC [46] LOG:  SSL error: unexpected eof while reading
+worker2-1      | 2026-10-14 12:04:54.764 UTC [46] LOG:  could not receive data from client: Connection reset by peer
+worker2-1      | 2026-10-14 12:04:54.771 UTC [43] WARNING:  SSL error: unexpected eof while reading
+worker2-1      | 2026-10-14 12:04:54.771 UTC [43] CONTEXT:  while executing command on worker4:5432
+worker2-1      | 	Citus maintenance daemon for database 5 user 10
+worker2-1      | 2026-10-14 12:04:54.809 UTC [3737] ERROR:  canceling statement due to user request
+worker2-1      | 2026-10-14 12:04:54.809 UTC [3737] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90227867719_2_5']::text[],'worker2',5432) bytes
+worker2-1      | 2026-10-14 12:04:54.926 UTC [3732] LOG:  could not send data to client: Connection reset by peer
+worker2-1      | 2026-10-14 12:04:54.926 UTC [3732] FATAL:  connection to client lost
+worker2-1      | 2026-10-14 12:04:55.071 UTC [4018] LOG:  SSL error: unexpected eof while reading
+worker2-1      | 2026-10-14 12:04:55.071 UTC [4018] LOG:  could not receive data from client: Connection reset by peer
+worker2-1      | 2026-10-14 12:04:55.071 UTC [4018] LOG:  unexpected EOF on client connection with an open transaction
+worker2-1      | 2026-10-14 12:04:55.117 UTC [4038] ERROR:  could not open file "base/pgsql_job_cache/10_0_400/repartition_90227867719_6_4.data": No such file or directory
+worker2-1      | 2026-10-14 12:04:55.117 UTC [4038] STATEMENT:  COPY "repartition_90227867719_6_4" TO STDOUT WITH (format result)
+worker2-1      | 2026-10-14 12:04:55.183 UTC [1] LOG:  untracked child process (PID 3954) exited with exit code 2
+worker2-1      | 2026-10-14 12:04:55.183 UTC [1] LOG:  terminating any other active server processes
+worker2-1      | 2026-10-14 12:04:55.187 UTC [4051] LOG:  could not accept SSL connection: unexpected eof while reading
+worker2-1      | 2026-10-14 12:04:55.241 UTC [4038] LOG:  could not send data to client: Connection reset by peer
+worker2-1      | 2026-10-14 12:04:55.307 UTC [4029] LOG:  could not send data to client: Connection reset by peer
+worker2-1      | 2026-10-14 12:04:55.515 UTC [1] LOG:  all server processes terminated; reinitializing
+worker2-1      | 2026-10-14 12:04:55.682 UTC [4072] LOG:  PID 3795 in cancel request did not match any process
+worker2-1      | 2026-10-14 12:04:55.702 UTC [4073] LOG:  PID 3744 in cancel request did not match any process
+worker2-1      | 2026-10-14 12:04:55.723 UTC [4074] LOG:  PID 3782 in cancel request did not match any process
+worker2-1      | 2026-10-14 12:04:55.722 UTC [4069] LOG:  database system was interrupted; last known up at 2026-10-14 12:01:32 UTC
+worker2-1      | 2026-10-14 12:04:55.985 UTC [4076] LOG:  PID 3823 in cancel request did not match any process
+worker2-1      | 2026-10-14 12:04:56.012 UTC [4077] LOG:  PID 3752 in cancel request did not match any process
+worker2-1      | 2026-10-14 12:04:56.024 UTC [4075] FATAL:  the database system is in recovery mode
+worker2-1      | 2026-10-14 12:04:56.041 UTC [1] LOG:  untracked child process (PID 4052) exited with exit code 1
+worker2-1      | 2026-10-14 12:04:56.187 UTC [4078] FATAL:  the database system is in recovery mode
+worker2-1      | 2026-10-14 12:04:56.211 UTC [1] LOG:  untracked child process (PID 4020) exited with exit code 1
+worker2-1      | 2026-10-14 12:04:56.549 UTC [4069] LOG:  database system was not properly shut down; automatic recovery in progress
+worker2-1      | 2026-10-14 12:04:56.553 UTC [4069] LOG:  redo starts at 0/1328BAD8
+worker2-1      | 2026-10-14 12:04:57.482 UTC [4086] FATAL:  the database system is not yet accepting connections
+worker2-1      | 2026-10-14 12:04:57.482 UTC [4086] DETAIL:  Consistent recovery state has not been yet reached.
+worker2-1      | 2026-10-14 12:04:57.558 UTC [4069] LOG:  invalid record length at 0/15D40F20: expected at least 24, got 0
+worker2-1      | 2026-10-14 12:04:57.558 UTC [4069] LOG:  redo done at 0/15D40EE8 system usage: CPU: user: 0.54 s, system: 0.29 s, elapsed: 1.00 s
+worker2-1      | 2026-10-14 12:04:57.574 UTC [4070] LOG:  checkpoint starting: end-of-recovery immediate wait
+worker2-1      | 2026-10-14 12:04:57.691 UTC [4070] LOG:  checkpoint complete: wrote 1715 buffers (5.2%), wrote 3 SLRU buffers; 0 WAL file(s) added, 2 removed, 0 recycled; write=0.047 s, sync=0.045 s, total=0.118 s; sync files=312, longest=0.022 s, average=0.001 s; distance=43733 kB, estimate=43733 kB; lsn=0/15D40F20, redo lsn=0/15D40F20
+worker2-1      | 2026-10-14 12:04:57.712 UTC [1] LOG:  database system is ready to accept connections
+coordinator-1  | 2026-10-14 11:59:00.330 UTC [2515] ERROR:  could not serialize access due to concurrent update
+worker2-1      | 2026-10-14 12:04:58.105 UTC [4092] LOG:  starting maintenance daemon on database 5 user 10
+worker2-1      | 2026-10-14 12:04:58.105 UTC [4092] CONTEXT:  Citus maintenance daemon for database 5 user 10
+coordinator-1  | 2026-10-14 11:59:00.330 UTC [2515] CONTEXT:  while executing command on worker2:5432
+coordinator-1  | 	SQL statement "UPDATE inventory SET quantity=quantity-p_quantities[j], updated_at=CURRENT_TIMESTAMP
+coordinator-1  | 	      WHERE merchant_id=p_merchant AND inventory_id=p_products[j]
+coordinator-1  | 	        AND product_id=p_products[j] AND quantity>=p_quantities[j]"
+coordinator-1  | 	PL/pgSQL function place_order(bigint,bigint,bigint[],integer[],boolean) line 34 at SQL statement
+coordinator-1  | 2026-10-14 11:59:00.330 UTC [2515] STATEMENT:  SELECT place_order((1)::bigint, (1)::bigint,
+coordinator-1  | 	    (ARRAY[1,0,0,0,0]::bigint[])[1: 1],
+coordinator-1  | 	    (ARRAY[7,0,0,0,0]::integer[])[1: 1],
+coordinator-1  | 	    false);
+coordinator-1  | 2026-10-14 11:59:16.766 UTC [2708] ERROR:  Invalid order arrays
+coordinator-1  | 2026-10-14 11:59:16.766 UTC [2708] CONTEXT:  PL/pgSQL function place_order(bigint,bigint,bigint[],integer[],boolean) line 15 at RAISE
+coordinator-1  | 2026-10-14 11:59:16.766 UTC [2708] STATEMENT:  SELECT place_order(1,1,NULL,NULL);
+coordinator-1  | 2026-10-14 11:59:17.139 UTC [2715] ERROR:  Invalid order arrays
+coordinator-1  | 2026-10-14 11:59:17.139 UTC [2715] CONTEXT:  PL/pgSQL function place_order(bigint,bigint,bigint[],integer[],boolean) line 15 at RAISE
+coordinator-1  | 2026-10-14 11:59:17.139 UTC [2715] STATEMENT:  SELECT place_order(1,1,ARRAY[]::bigint[],ARRAY[]::integer[]);
+coordinator-1  | 2026-10-14 11:59:17.587 UTC [2722] ERROR:  Invalid order arrays
+coordinator-1  | 2026-10-14 11:59:17.587 UTC [2722] CONTEXT:  PL/pgSQL function place_order(bigint,bigint,bigint[],integer[],boolean) line 15 at RAISE
+coordinator-1  | 2026-10-14 11:59:17.587 UTC [2722] STATEMENT:  SELECT place_order(1,1,ARRAY[1,11]::bigint[],ARRAY[1]::integer[]);
+coordinator-1  | 2026-10-14 11:59:19.543 UTC [1] LOG:  received SIGHUP, reloading configuration files
+coordinator-1  | 2026-10-14 11:59:19.544 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+coordinator-1  | 2026-10-14 11:59:19.544 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+coordinator-1  | 2026-10-14 12:00:06.620 UTC [31] LOG:  checkpoint starting: time
+coordinator-1  | 2026-10-14 12:00:39.808 UTC [31] LOG:  checkpoint complete: wrote 322 buffers (1.0%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=32.879 s, sync=0.287 s, total=33.188 s; sync files=300, longest=0.036 s, average=0.001 s; distance=3659 kB, estimate=3659 kB; lsn=0/2880DE0, redo lsn=0/2874F00
+coordinator-1  | 2026-10-14 12:00:41.835 UTC [3501] ERROR:  could not serialize access due to concurrent update
+worker4-1      | 2026-10-14 12:04:24.627 UTC [1] LOG:  untracked child process (PID 3662) exited with exit code 0
+worker4-1      | 2026-10-14 12:04:29.953 UTC [1] LOG:  untracked child process (PID 3707) exited with exit code 0
+worker4-1      | 2026-10-14 12:04:40.992 UTC [1] LOG:  untracked child process (PID 3751) exited with exit code 0
+worker4-1      | 2026-10-14 12:04:45.569 UTC [1] LOG:  untracked child process (PID 3794) exited with exit code 0
+worker4-1      | 2026-10-14 12:04:53.541 UTC [1] LOG:  untracked child process (PID 3834) exited with exit code 2
+worker4-1      | 2026-10-14 12:04:53.664 UTC [1] LOG:  terminating any other active server processes
+worker4-1      | 2026-10-14 12:04:54.226 UTC [3935] FATAL:  the database system is in recovery mode
+worker4-1      | 2026-10-14 12:04:54.385 UTC [1] LOG:  all server processes terminated; reinitializing
+worker4-1      | 2026-10-14 12:04:54.723 UTC [1] LOG:  untracked child process (PID 3870) exited with exit code 1
+worker4-1      | 2026-10-14 12:04:54.731 UTC [3942] LOG:  PID 3641 in cancel request did not match any process
+worker4-1      | 2026-10-14 12:04:54.736 UTC [3939] LOG:  database system was interrupted; last known up at 2026-10-14 12:01:26 UTC
+worker4-1      | 2026-10-14 12:04:55.036 UTC [3944] LOG:  PID 3661 in cancel request did not match any process
+worker4-1      | 2026-10-14 12:04:55.121 UTC [3945] LOG:  PID 3632 in cancel request did not match any process
+worker4-1      | 2026-10-14 12:04:55.336 UTC [3946] LOG:  PID 3634 in cancel request did not match any process
+worker4-1      | 2026-10-14 12:04:55.481 UTC [3943] FATAL:  the database system is in recovery mode
+worker4-1      | 2026-10-14 12:04:55.544 UTC [3948] LOG:  PID 3660 in cancel request did not match any process
+worker4-1      | 2026-10-14 12:04:55.573 UTC [1] LOG:  untracked child process (PID 3898) exited with exit code 1
+worker4-1      | 2026-10-14 12:04:55.581 UTC [3949] LOG:  PID 3635 in cancel request did not match any process
+worker3-1      | 2026-10-14 11:56:41.989 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker3-1      | 2026-10-14 11:57:56.568 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker3-1      | 2026-10-14 11:57:56.570 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker3-1      | 2026-10-14 11:57:56.570 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker1-1      | 2026-10-14 12:04:53.980 UTC [3921] LOG:  could not accept SSL connection: Connection reset by peer
+worker1-1      | 2026-10-14 12:04:54.260 UTC [3687] WARNING:  SSL error: unexpected eof while reading
+worker1-1      | 2026-10-14 12:04:54.260 UTC [3687] CONTEXT:  while executing command on worker4:5432
+worker1-1      | 2026-10-14 12:04:54.262 UTC [3645] ERROR:  could not open file "base/pgsql_job_cache/10_0_390/repartition_90177536017_27_6.data": No such file or directory
+worker1-1      | 2026-10-14 12:04:54.262 UTC [3645] CONTEXT:  while executing command on worker3:5432
+worker1-1      | 2026-10-14 12:04:54.262 UTC [3645] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90177536017_27_6']::text[],'worker3',5432) bytes
+worker1-1      | 2026-10-14 12:04:54.277 UTC [3924] LOG:  could not accept SSL connection: Connection reset by peer
+worker1-1      | 2026-10-14 12:04:54.305 UTC [3929] LOG:  could not accept SSL connection: Connection reset by peer
+worker1-1      | 2026-10-14 12:04:54.440 UTC [3623] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+worker4-1      | 2026-10-14 12:04:55.622 UTC [3950] LOG:  PID 3636 in cancel request did not match any process
+worker4-1      | 2026-10-14 12:04:55.658 UTC [3951] LOG:  PID 3637 in cancel request did not match any process
+worker4-1      | 2026-10-14 12:04:55.707 UTC [3952] LOG:  PID 3676 in cancel request did not match any process
+worker4-1      | 2026-10-14 12:04:55.753 UTC [3953] LOG:  PID 3688 in cancel request did not match any process
+worker4-1      | 2026-10-14 12:04:55.771 UTC [3954] LOG:  PID 3689 in cancel request did not match any process
+worker3-1      | 2026-10-14 11:59:23.346 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker3-1      | 2026-10-14 11:59:23.348 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker3-1      | 2026-10-14 11:59:23.348 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker3-1      | 2026-10-14 12:00:06.358 UTC [31] LOG:  checkpoint starting: time
+worker3-1      | 2026-10-14 12:01:06.585 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker4-1      | 2026-10-14 12:04:55.923 UTC [3956] LOG:  PID 3714 in cancel request did not match any process
+worker4-1      | 2026-10-14 12:04:55.946 UTC [3947] FATAL:  the database system is in recovery mode
+worker4-1      | 2026-10-14 12:04:55.948 UTC [3957] LOG:  PID 3643 in cancel request did not match any process
+worker4-1      | 2026-10-14 12:04:55.954 UTC [3955] FATAL:  the database system is in recovery mode
+worker4-1      | 2026-10-14 12:04:56.011 UTC [1] LOG:  untracked child process (PID 3928) exited with exit code 1
+worker4-1      | 2026-10-14 12:04:56.065 UTC [3958] LOG:  PID 3650 in cancel request did not match any process
+worker4-1      | 2026-10-14 12:04:57.031 UTC [3966] FATAL:  the database system is in recovery mode
+worker1-1      | 2026-10-14 12:04:54.440 UTC [3623] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90211090434_8_4']::text[],'worker4',5432) bytes
+worker1-1      | 2026-10-14 12:04:54.450 UTC [55] LOG:  SSL error: unexpected eof while reading
+worker1-1      | 2026-10-14 12:04:54.507 UTC [55] LOG:  could not receive data from client: Connection reset by peer
+worker1-1      | 2026-10-14 12:04:54.514 UTC [3628] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+coordinator-1  | 2026-10-14 12:00:41.835 UTC [3501] CONTEXT:  while executing command on worker2:5432
+coordinator-1  | 2026-10-14 12:00:41.835 UTC [3501] STATEMENT:  WITH reserved AS (
+coordinator-1  | 	  UPDATE inventory
+coordinator-1  | 	  SET quantity = quantity - (7)::integer,
+coordinator-1  | 	      updated_at = CURRENT_TIMESTAMP
+coordinator-1  | 	  WHERE inventory_id = (1)::bigint
+worker3-1      | 2026-10-14 12:01:06.587 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker3-1      | 2026-10-14 12:01:06.587 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker3-1      | 2026-10-14 12:01:25.917 UTC [31] LOG:  checkpoint complete: wrote 617 buffers (1.9%), wrote 3 SLRU buffers; 0 WAL file(s) added, 1 removed, 0 recycled; write=79.299 s, sync=0.213 s, total=79.560 s; sync files=2097, longest=0.003 s, average=0.001 s; distance=11337 kB, estimate=11337 kB; lsn=0/B04A4F0, redo lsn=0/ABF2380
+worker3-1      | 2026-10-14 12:02:47.933 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker3-1      | 2026-10-14 12:02:47.934 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker4-1      | 2026-10-14 12:04:57.050 UTC [3967] FATAL:  the database system is in recovery mode
+worker4-1      | 2026-10-14 12:04:57.166 UTC [3939] LOG:  database system was not properly shut down; automatic recovery in progress
+coordinator-1  | 	    AND merchant_id = (1)::bigint
+coordinator-1  | 	    AND product_id = (1)::bigint
+coordinator-1  | 	    AND quantity >= (7)::integer
+coordinator-1  | 	  RETURNING 1
+coordinator-1  | 	)
+coordinator-1  | 	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+coordinator-1  | 	            THEN 1 ELSE 0 END AS stock_ok
+coordinator-1  | 	
+coordinator-1  | 2026-10-14 12:01:02.693 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker3-1      | 2026-10-14 12:02:47.934 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker3-1      | 2026-10-14 12:03:41.619 UTC [1] LOG:  untracked child process (PID 3348) exited with exit code 0
+worker3-1      | 2026-10-14 12:03:58.218 UTC [1] LOG:  received SIGHUP, reloading configuration files
+worker3-1      | 2026-10-14 12:03:58.219 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+worker3-1      | 2026-10-14 12:03:58.220 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+worker3-1      | 2026-10-14 12:04:26.796 UTC [1] LOG:  untracked child process (PID 3679) exited with exit code 0
+worker3-1      | 2026-10-14 12:04:31.394 UTC [1] LOG:  untracked child process (PID 3722) exited with exit code 0
+worker3-1      | 2026-10-14 12:04:35.487 UTC [1] LOG:  untracked child process (PID 3766) exited with exit code 0
+worker3-1      | 2026-10-14 12:04:44.723 UTC [1] LOG:  untracked child process (PID 3810) exited with exit code 0
+worker3-1      | 2026-10-14 12:04:48.094 UTC [1] LOG:  untracked child process (PID 3845) exited with exit code 0
+worker3-1      | 2026-10-14 12:04:52.988 UTC [1] LOG:  untracked child process (PID 3882) exited with exit code 0
+worker3-1      | 2026-10-14 12:04:53.796 UTC [3646] WARNING:  SSL error: unexpected eof while reading
+worker3-1      | 2026-10-14 12:04:53.796 UTC [3646] CONTEXT:  while executing command on worker4:5432
+worker3-1      | 2026-10-14 12:04:53.798 UTC [3678] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+worker3-1      | 2026-10-14 12:04:53.798 UTC [3678] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90194313248_20_1']::text[],'worker4',5432) bytes
+worker3-1      | 2026-10-14 12:04:53.799 UTC [3699] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+worker3-1      | 2026-10-14 12:04:53.799 UTC [3699] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90227867719_4_6']::text[],'worker4',5432) bytes
+worker3-1      | 2026-10-14 12:04:53.809 UTC [3646] ERROR:  connection to the remote node postgres@worker4:5432 failed with the following error: SSL error: unexpected eof while reading
+worker3-1      | 2026-10-14 12:04:53.809 UTC [3646] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90211090434_8_6']::text[],'worker4',5432) bytes
+coordinator-1  | 2026-10-14 12:01:02.695 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+coordinator-1  | 2026-10-14 12:01:02.695 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+coordinator-1  | 2026-10-14 12:02:18.047 UTC [4497] ERROR:  could not serialize access due to concurrent update
+coordinator-1  | 2026-10-14 12:02:18.047 UTC [4497] CONTEXT:  while executing command on worker2:5432
+coordinator-1  | 	SQL statement "UPDATE inventory SET quantity=quantity-p_quantities[j], updated_at=CURRENT_TIMESTAMP
+coordinator-1  | 	      WHERE merchant_id=p_merchant AND inventory_id=p_products[j]
+coordinator-1  | 	        AND product_id=p_products[j] AND quantity>=p_quantities[j]"
+coordinator-1  | 	PL/pgSQL function place_order(bigint,bigint,bigint[],integer[],boolean) line 34 at SQL statement
+coordinator-1  | 2026-10-14 12:02:18.047 UTC [4497] STATEMENT:  SELECT place_order((1)::bigint, (1)::bigint,
+coordinator-1  | 	    (ARRAY[1,0,0,0,0]::bigint[])[1: 1],
+worker1-1      | 2026-10-14 12:04:54.514 UTC [3628] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90177536017_24_6']::text[],'worker4',5432) bytes
+worker1-1      | 2026-10-14 12:04:54.556 UTC [3687] ERROR:  connection to the remote node postgres@worker4:5432 failed with the following error: SSL error: unexpected eof while reading
+worker1-1      | 2026-10-14 12:04:54.556 UTC [3687] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90227867719_4_4']::text[],'worker4',5432) bytes
+worker1-1      | 2026-10-14 12:04:54.473 UTC [3627] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+worker1-1      | 2026-10-14 12:04:54.473 UTC [3627] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90194313248_16_3']::text[],'worker4',5432) bytes
+worker1-1      | 2026-10-14 12:04:54.615 UTC [3624] ERROR:  could not open file "base/pgsql_job_cache/10_0_381/repartition_90211090434_11_4.data": No such file or directory
+coordinator-1  | 	    (ARRAY[7,0,0,0,0]::integer[])[1: 1],
+coordinator-1  | 	    true);
+coordinator-1  | 2026-10-14 12:02:36.426 UTC [4739] ERROR:  Invalid order arrays
+coordinator-1  | 2026-10-14 12:02:36.426 UTC [4739] CONTEXT:  PL/pgSQL function place_order(bigint,bigint,bigint[],integer[],boolean) line 15 at RAISE
+coordinator-1  | 2026-10-14 12:02:36.426 UTC [4739] STATEMENT:  SELECT place_order(1,1,NULL,NULL);
+coordinator-1  | 2026-10-14 12:02:36.755 UTC [4746] ERROR:  Invalid order arrays
+coordinator-1  | 2026-10-14 12:02:36.755 UTC [4746] CONTEXT:  PL/pgSQL function place_order(bigint,bigint,bigint[],integer[],boolean) line 15 at RAISE
+coordinator-1  | 2026-10-14 12:02:36.755 UTC [4746] STATEMENT:  SELECT place_order(1,1,ARRAY[]::bigint[],ARRAY[]::integer[]);
+coordinator-1  | 2026-10-14 12:02:37.108 UTC [4753] ERROR:  Invalid order arrays
+coordinator-1  | 2026-10-14 12:02:37.108 UTC [4753] CONTEXT:  PL/pgSQL function place_order(bigint,bigint,bigint[],integer[],boolean) line 15 at RAISE
+coordinator-1  | 2026-10-14 12:02:37.108 UTC [4753] STATEMENT:  SELECT place_order(1,1,ARRAY[1,11]::bigint[],ARRAY[1]::integer[]);
+coordinator-1  | 2026-10-14 12:02:44.516 UTC [1] LOG:  received SIGHUP, reloading configuration files
+coordinator-1  | 2026-10-14 12:02:44.517 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+coordinator-1  | 2026-10-14 12:02:44.518 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+coordinator-1  | 2026-10-14 12:03:54.778 UTC [1] LOG:  received SIGHUP, reloading configuration files
+coordinator-1  | 2026-10-14 12:03:54.779 UTC [1] LOG:  parameter "shared_buffers" cannot be changed without restarting the server
+coordinator-1  | 2026-10-14 12:03:54.780 UTC [1] LOG:  configuration file "/var/lib/postgresql/18/docker/postgresql.conf" contains errors; unaffected changes were applied
+coordinator-1  | 2026-10-14 12:04:20.471 UTC [5378] ERROR:  could not serialize access due to read/write dependencies among transactions
+coordinator-1  | 2026-10-14 12:04:20.471 UTC [5378] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+coordinator-1  | 2026-10-14 12:04:20.471 UTC [5378] HINT:  The transaction might succeed if retried.
+coordinator-1  | 2026-10-14 12:04:20.471 UTC [5378] CONTEXT:  while executing command on worker4:5432
+coordinator-1  | 2026-10-14 12:04:20.471 UTC [5378] STATEMENT:  WITH reserved AS (
+coordinator-1  | 	  UPDATE inventory
+worker4-1      | 2026-10-14 12:04:57.171 UTC [3939] LOG:  redo starts at 0/ADB93A0
+worker4-1      | 2026-10-14 12:04:57.333 UTC [3968] FATAL:  the database system is not yet accepting connections
+worker4-1      | 2026-10-14 12:04:57.333 UTC [3968] DETAIL:  Consistent recovery state has not been yet reached.
+worker4-1      | 2026-10-14 12:04:57.709 UTC [3939] LOG:  invalid record length at 0/D83DB78: expected at least 24, got 0
+worker4-1      | 2026-10-14 12:04:57.709 UTC [3939] LOG:  redo done at 0/D83DB40 system usage: CPU: user: 0.37 s, system: 0.10 s, elapsed: 0.53 s
+coordinator-1  | 	  SET quantity = quantity - (2)::integer,
+coordinator-1  | 	      updated_at = CURRENT_TIMESTAMP
+coordinator-1  | 	  WHERE inventory_id = (240)::bigint
+coordinator-1  | 	    AND merchant_id = (10)::bigint
+coordinator-1  | 	    AND product_id = (240)::bigint
+coordinator-1  | 	    AND quantity >= (2)::integer
+coordinator-1  | 	  RETURNING 1
+worker4-1      | 2026-10-14 12:04:57.718 UTC [3940] LOG:  checkpoint starting: end-of-recovery immediate wait
+worker4-1      | 2026-10-14 12:04:57.803 UTC [3940] LOG:  checkpoint complete: wrote 1719 buffers (5.2%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 3 recycled; write=0.051 s, sync=0.023 s, total=0.087 s; sync files=312, longest=0.012 s, average=0.001 s; distance=43537 kB, estimate=43537 kB; lsn=0/D83DB78, redo lsn=0/D83DB78
+worker4-1      | 2026-10-14 12:04:57.811 UTC [1] LOG:  database system is ready to accept connections
+worker4-1      | 2026-10-14 12:04:58.106 UTC [3974] LOG:  starting maintenance daemon on database 5 user 10
+worker4-1      | 2026-10-14 12:04:58.106 UTC [3974] CONTEXT:  Citus maintenance daemon for database 5 user 10
+worker1-1      | 2026-10-14 12:04:54.615 UTC [3624] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90211090434_11_4']::text[],'worker3',5432) bytes
+worker1-1      | 2026-10-14 12:04:54.621 UTC [52] WARNING:  SSL error: unexpected eof while reading
+worker1-1      | 2026-10-14 12:04:54.621 UTC [52] CONTEXT:  while executing command on worker4:5432
+worker1-1      | 	Citus maintenance daemon for database 5 user 10
+worker1-1      | 2026-10-14 12:04:54.636 UTC [3651] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+worker1-1      | 2026-10-14 12:04:54.636 UTC [3651] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90177536017_28_6']::text[],'worker4',5432) bytes
+worker1-1      | 2026-10-14 12:04:54.661 UTC [3926] LOG:  SSL error: unexpected eof while reading
+worker1-1      | 2026-10-14 12:04:54.699 UTC [3926] LOG:  could not receive data from client: Connection reset by peer
+worker1-1      | 2026-10-14 12:04:54.780 UTC [3628] LOG:  could not send data to client: Connection reset by peer
+worker1-1      | 2026-10-14 12:04:54.780 UTC [3628] FATAL:  connection to client lost
+worker1-1      | 2026-10-14 12:04:54.846 UTC [3911] ERROR:  could not open file "base/pgsql_job_cache/10_0_381/repartition_90211090434_13_5.data": No such file or directory
+worker1-1      | 2026-10-14 12:04:54.846 UTC [3911] STATEMENT:  COPY "repartition_90211090434_13_5" TO STDOUT WITH (format result)
+worker1-1      | 2026-10-14 12:04:54.865 UTC [3627] LOG:  could not send data to client: Broken pipe
+worker1-1      | 2026-10-14 12:04:54.865 UTC [3627] FATAL:  connection to client lost
+worker1-1      | 2026-10-14 12:04:55.055 UTC [3625] ERROR:  canceling statement due to user request
+worker1-1      | 2026-10-14 12:04:55.055 UTC [3625] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90211090434_10_4']::text[],'worker2',5432) bytes
+worker3-1      | 2026-10-14 12:04:54.134 UTC [3641] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+worker3-1      | 2026-10-14 12:04:54.134 UTC [3641] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90177536017_28_4']::text[],'worker4',5432) bytes
+worker3-1      | 2026-10-14 12:04:54.259 UTC [3941] ERROR:  could not open file "base/pgsql_job_cache/10_0_390/repartition_90177536017_27_6.data": No such file or directory
+worker3-1      | 2026-10-14 12:04:54.259 UTC [3941] STATEMENT:  COPY "repartition_90177536017_27_6" TO STDOUT WITH (format result)
+worker3-1      | 2026-10-14 12:04:54.290 UTC [48] LOG:  SSL error: unexpected eof while reading
+worker3-1      | 2026-10-14 12:04:54.309 UTC [48] LOG:  could not receive data from client: Connection reset by peer
+worker3-1      | 2026-10-14 12:04:54.402 UTC [3925] LOG:  SSL error: unexpected eof while reading
+worker3-1      | 2026-10-14 12:04:54.417 UTC [3925] LOG:  could not receive data from client: Connection reset by peer
+worker3-1      | 2026-10-14 12:04:54.427 UTC [3925] LOG:  unexpected EOF on client connection with an open transaction
+worker3-1      | 2026-10-14 12:04:54.638 UTC [3643] ERROR:  canceling statement due to user request
+worker1-1      | 2026-10-14 12:04:55.095 UTC [3927] ERROR:  could not open file "base/pgsql_job_cache/10_0_390/repartition_90177536017_29_4.data": No such file or directory
+worker1-1      | 2026-10-14 12:04:55.095 UTC [3927] STATEMENT:  COPY "repartition_90177536017_29_4" TO STDOUT WITH (format result)
+worker1-1      | 2026-10-14 12:04:55.122 UTC [3625] LOG:  could not send data to client: Connection reset by peer
+worker1-1      | 2026-10-14 12:04:55.124 UTC [3625] FATAL:  connection to client lost
+worker1-1      | 2026-10-14 12:04:55.153 UTC [1] LOG:  untracked child process (PID 3890) exited with exit code 0
+coordinator-1  | 	)
+coordinator-1  | 	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+coordinator-1  | 	            THEN 1 ELSE 0 END AS stock_ok
+coordinator-1  | 	
+coordinator-1  | 2026-10-14 12:04:53.714 UTC [5377] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+coordinator-1  | 2026-10-14 12:04:53.714 UTC [5377] CONTEXT:  while executing command on worker1:5432
+coordinator-1  | 2026-10-14 12:04:53.714 UTC [5377] STATEMENT:  SELECT
+worker1-1      | 2026-10-14 12:04:55.154 UTC [3688] ERROR:  could not open file "base/pgsql_job_cache/10_0_400/repartition_90227867719_6_4.data": No such file or directory
+worker1-1      | 2026-10-14 12:04:55.154 UTC [3688] CONTEXT:  while executing command on worker2:5432
+worker1-1      | 2026-10-14 12:04:55.154 UTC [3688] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90227867719_6_4']::text[],'worker2',5432) bytes
+worker1-1      | 2026-10-14 12:04:55.163 UTC [3932] ERROR:  could not open file "base/pgsql_job_cache/10_0_400/repartition_90227867719_5_5.data": No such file or directory
+worker1-1      | 2026-10-14 12:04:55.163 UTC [3932] STATEMENT:  COPY "repartition_90227867719_5_5" TO STDOUT WITH (format result)
+worker1-1      | 2026-10-14 12:04:55.220 UTC [3932] LOG:  could not receive data from client: Connection reset by peer
+coordinator-1  | 	  o.order_id,
+coordinator-1  | 	  o.order_status,
+coordinator-1  | 	  o.total_amount,
+coordinator-1  | 	  o.created_at,
+coordinator-1  | 	  oi.product_id,
+coordinator-1  | 	  oi.quantity,
+coordinator-1  | 	  oi.unit_price
+coordinator-1  | 	FROM orders AS o
+coordinator-1  | 	JOIN order_items AS oi
+coordinator-1  | 	  ON oi.order_id = o.order_id
+coordinator-1  | 	WHERE o.merchant_id = (4)::bigint
+worker3-1      | 2026-10-14 12:04:54.638 UTC [3643] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90211090434_10_6']::text[],'worker2',5432) bytes
+worker3-1      | 2026-10-14 12:04:54.694 UTC [3643] LOG:  could not send data to client: Connection reset by peer
+worker3-1      | 2026-10-14 12:04:54.694 UTC [3643] FATAL:  connection to client lost
+worker3-1      | 2026-10-14 12:04:54.731 UTC [3645] ERROR:  canceling statement due to user request
+worker3-1      | 2026-10-14 12:04:54.731 UTC [3645] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90211090434_9_6']::text[],'worker1',5432) bytes
+worker3-1      | 2026-10-14 12:04:54.920 UTC [45] WARNING:  SSL error: unexpected eof while reading
+worker3-1      | 2026-10-14 12:04:54.920 UTC [45] CONTEXT:  while executing command on worker4:5432
+worker3-1      | 	Citus maintenance daemon for database 5 user 10
+worker3-1      | 2026-10-14 12:04:54.947 UTC [3665] ERROR:  canceling statement due to user request
+worker3-1      | 2026-10-14 12:04:54.947 UTC [3665] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90194313248_18_1']::text[],'worker2',5432) bytes
+worker1-1      | 2026-10-14 12:04:55.228 UTC [3644] ERROR:  canceling statement due to user request
+worker1-1      | 2026-10-14 12:04:55.228 UTC [3644] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90177536017_26_6']::text[],'worker2',5432) bytes
+worker1-1      | 2026-10-14 12:04:55.318 UTC [3674] ERROR:  cannot connect to worker2:5432 to fetch intermediate results
+worker1-1      | 2026-10-14 12:04:55.318 UTC [3674] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90194313248_18_3']::text[],'worker2',5432) bytes
+worker1-1      | 2026-10-14 12:04:55.335 UTC [53] LOG:  SSL error: unexpected eof while reading
+coordinator-1  | 	  AND o.customer_id = (1854)::bigint
+coordinator-1  | 	ORDER BY o.created_at DESC
+worker1-1      | 2026-10-14 12:04:55.367 UTC [53] LOG:  could not receive data from client: Connection reset by peer
+worker1-1      | 2026-10-14 12:04:55.417 UTC [3933] ERROR:  could not open file "base/pgsql_job_cache/10_0_400/repartition_90227867719_9_4.data": No such file or directory
+worker1-1      | 2026-10-14 12:04:55.417 UTC [3933] STATEMENT:  COPY "repartition_90227867719_9_4" TO STDOUT WITH (format result)
+worker1-1      | 2026-10-14 12:04:55.423 UTC [3911] LOG:  could not receive data from client: Connection reset by peer
+worker3-1      | 2026-10-14 12:04:55.002 UTC [3935] ERROR:  could not open file "base/pgsql_job_cache/10_0_390/repartition_90177536017_27_4.data": No such file or directory
+worker3-1      | 2026-10-14 12:04:55.002 UTC [3935] STATEMENT:  COPY "repartition_90177536017_27_4" TO STDOUT WITH (format result)
+worker3-1      | 2026-10-14 12:04:55.045 UTC [3665] LOG:  could not send data to client: Connection reset by peer
+worker3-1      | 2026-10-14 12:04:55.045 UTC [3665] FATAL:  connection to client lost
+worker3-1      | 2026-10-14 12:04:55.075 UTC [3654] ERROR:  could not open file "base/pgsql_job_cache/10_0_390/repartition_90177536017_27_4.data": No such file or directory
+worker3-1      | 2026-10-14 12:04:55.075 UTC [3654] CONTEXT:  while executing command on worker3:5432
+worker1-1      | 2026-10-14 12:04:55.423 UTC [3714] ERROR:  could not open file "base/pgsql_job_cache/10_0_400/repartition_90227867719_9_4.data": No such file or directory
+worker1-1      | 2026-10-14 12:04:55.423 UTC [3714] CONTEXT:  while executing command on worker1:5432
+worker1-1      | 2026-10-14 12:04:55.423 UTC [3714] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90227867719_9_4']::text[],'worker1',5432) bytes
+worker3-1      | 2026-10-14 12:04:55.075 UTC [3654] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90177536017_27_4']::text[],'worker3',5432) bytes
+worker3-1      | 2026-10-14 12:04:55.133 UTC [3666] ERROR:  canceling statement due to user request
+worker1-1      | 2026-10-14 12:04:56.150 UTC [1] LOG:  untracked child process (PID 3925) exited with exit code 0
+worker1-1      | 2026-10-14 12:04:57.056 UTC [52] WARNING:  connection to the remote node postgres@worker4:5432 failed with the following error: FATAL:  the database system is in recovery mode
+worker1-1      | 2026-10-14 12:04:57.056 UTC [52] CONTEXT:  Citus maintenance daemon for database 5 user 10
+worker1-1      | 2026-10-14 12:04:57.057 UTC [52] WARNING:  SSL error: unexpected eof while reading
+worker1-1      | 2026-10-14 12:04:57.057 UTC [52] CONTEXT:  while executing command on worker2:5432
+worker1-1      | 	Citus maintenance daemon for database 5 user 10
+worker1-1      | 2026-10-14 12:04:57.057 UTC [52] WARNING:  FATAL:  the database system is in recovery mode
+worker1-1      | 2026-10-14 12:04:57.057 UTC [52] CONTEXT:  while executing command on worker4:5432
+worker1-1      | 	Citus maintenance daemon for database 5 user 10
+worker1-1      | 2026-10-14 12:05:08.892 UTC [30] LOG:  checkpoint starting: time
+coordinator-1  | 	LIMIT 20;
+coordinator-1  | 2026-10-14 12:04:53.757 UTC [5378] ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+coordinator-1  | 2026-10-14 12:04:53.757 UTC [5378] CONTEXT:  while executing command on worker1:5432
+coordinator-1  | 2026-10-14 12:04:53.757 UTC [5378] STATEMENT:  SELECT
+coordinator-1  | 	  p.product_id,
+coordinator-1  | 	  p.product_name,
+coordinator-1  | 	  p.category,
+coordinator-1  | 	  p.price,
+coordinator-1  | 	  i.quantity
+coordinator-1  | 	FROM products AS p
+coordinator-1  | 	JOIN inventory AS i
+coordinator-1  | 	  ON i.product_id = p.product_id
+coordinator-1  | 	 AND i.merchant_id = p.merchant_id
+coordinator-1  | 	WHERE p.merchant_id = (5)::bigint
+coordinator-1  | 	  AND p.product_id = (4465)::bigint;
+coordinator-1  | 2026-10-14 12:04:53.780 UTC [52] WARNING:  SSL error: unexpected eof while reading
+coordinator-1  | 2026-10-14 12:04:53.780 UTC [52] CONTEXT:  while executing command on worker4:5432
+coordinator-1  | 	Citus maintenance daemon for database 5 user 10
+coordinator-1  | 2026-10-14 12:04:53.853 UTC [5375] WARNING:  terminating connection because of crash of another server process
+coordinator-1  | 	DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+coordinator-1  | 	HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+coordinator-1  | 2026-10-14 12:04:53.853 UTC [5375] DETAIL:  from worker4:5432
+coordinator-1  | 2026-10-14 12:04:53.869 UTC [5376] ERROR:  connection to the remote node postgres@worker4:5432 failed with the following error: connection not open
+coordinator-1  | 2026-10-14 12:04:53.869 UTC [5376] STATEMENT:  SELECT
+coordinator-1  | 	  o.order_id,
+coordinator-1  | 	  o.order_status,
+worker3-1      | 2026-10-14 12:04:55.133 UTC [3666] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90194313248_22_1']::text[],'worker2',5432) bytes
+worker3-1      | 2026-10-14 12:04:55.145 UTC [3933] ERROR:  could not open file "base/pgsql_job_cache/10_0_392/repartition_90194313248_15_0.data": No such file or directory
+worker3-1      | 2026-10-14 12:04:55.145 UTC [3933] STATEMENT:  COPY "repartition_90194313248_15_0" TO STDOUT WITH (format result)
+worker3-1      | 2026-10-14 12:04:55.150 UTC [3661] ERROR:  could not open file "base/pgsql_job_cache/10_0_390/repartition_90177536017_29_4.data": No such file or directory
+worker3-1      | 2026-10-14 12:04:55.150 UTC [3661] CONTEXT:  while executing command on worker1:5432
+worker3-1      | 2026-10-14 12:04:55.150 UTC [3661] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90177536017_29_4']::text[],'worker1',5432) bytes
+worker3-1      | 2026-10-14 12:04:55.260 UTC [3653] ERROR:  cannot connect to worker2:5432 to fetch intermediate results
+worker3-1      | 2026-10-14 12:04:55.260 UTC [3653] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90177536017_30_4']::text[],'worker2',5432) bytes
+worker3-1      | 2026-10-14 12:04:55.372 UTC [46] LOG:  SSL error: unexpected eof while reading
+worker3-1      | 2026-10-14 12:04:55.374 UTC [46] LOG:  could not receive data from client: Connection reset by peer
+worker3-1      | 2026-10-14 12:04:55.379 UTC [3933] LOG:  could not receive data from client: Connection reset by peer
+worker3-1      | 2026-10-14 12:04:55.406 UTC [3698] ERROR:  canceling statement due to user request
+worker3-1      | 2026-10-14 12:04:55.406 UTC [3698] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90227867719_6_6']::text[],'worker2',5432) bytes
+worker3-1      | 2026-10-14 12:04:55.480 UTC [3938] LOG:  could not receive data from client: Connection reset by peer
+worker3-1      | 2026-10-14 12:04:55.567 UTC [3698] LOG:  could not send data to client: Broken pipe
+worker3-1      | 2026-10-14 12:04:55.567 UTC [3698] FATAL:  connection to client lost
+worker3-1      | 2026-10-14 12:04:55.569 UTC [3647] ERROR:  SSL error: unexpected eof while reading
+worker3-1      | 2026-10-14 12:04:55.569 UTC [3647] CONTEXT:  while executing command on worker2:5432
+coordinator-1  | 	  o.total_amount,
+coordinator-1  | 	  o.created_at,
+coordinator-1  | 	  oi.product_id,
+coordinator-1  | 	  oi.quantity,
+coordinator-1  | 	  oi.unit_price
+coordinator-1  | 	FROM orders AS o
+coordinator-1  | 	JOIN order_items AS oi
+coordinator-1  | 	  ON oi.order_id = o.order_id
+coordinator-1  | 	WHERE o.merchant_id = (1)::bigint
+worker3-1      | 2026-10-14 12:04:55.569 UTC [3647] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_90211090434_6_6']::text[],'worker2',5432) bytes
+worker3-1      | 2026-10-14 12:04:56.011 UTC [1] LOG:  untracked child process (PID 3907) exited with exit code 0
+worker3-1      | 2026-10-14 12:04:56.183 UTC [1] LOG:  untracked child process (PID 3940) exited with exit code 0
+worker3-1      | 2026-10-14 12:04:57.053 UTC [45] WARNING:  connection to the remote node postgres@worker4:5432 failed with the following error: FATAL:  the database system is in recovery mode
+worker3-1      | 2026-10-14 12:04:57.053 UTC [45] CONTEXT:  Citus maintenance daemon for database 5 user 10
+worker3-1      | 2026-10-14 12:04:57.054 UTC [45] WARNING:  SSL error: unexpected eof while reading
+worker3-1      | 2026-10-14 12:04:57.054 UTC [45] CONTEXT:  while executing command on worker2:5432
+worker3-1      | 	Citus maintenance daemon for database 5 user 10
+worker3-1      | 2026-10-14 12:04:57.054 UTC [45] WARNING:  FATAL:  the database system is in recovery mode
+worker3-1      | 2026-10-14 12:04:57.054 UTC [45] CONTEXT:  while executing command on worker4:5432
+worker3-1      | 	Citus maintenance daemon for database 5 user 10
+worker3-1      | 2026-10-14 12:05:06.255 UTC [31] LOG:  checkpoint starting: time
+coordinator-1  | 	  AND o.customer_id = (7551)::bigint
+coordinator-1  | 	ORDER BY o.created_at DESC
+coordinator-1  | 	LIMIT 20;
+coordinator-1  | 2026-10-14 12:04:53.890 UTC [5375] ERROR:  connection to the remote node postgres@worker4:5432 failed with the following error: connection not open
+coordinator-1  | 2026-10-14 12:04:53.890 UTC [5375] STATEMENT:  SELECT
+coordinator-1  | 	  p.product_id,
+coordinator-1  | 	  p.product_name,
+coordinator-1  | 	  p.category,
+coordinator-1  | 	  p.price,
+coordinator-1  | 	  i.quantity
+coordinator-1  | 	FROM products AS p
+coordinator-1  | 	JOIN inventory AS i
+coordinator-1  | 	  ON i.product_id = p.product_id
+coordinator-1  | 	 AND i.merchant_id = p.merchant_id
+coordinator-1  | 	WHERE p.merchant_id = (9)::bigint
+coordinator-1  | 	  AND p.product_id = (4619)::bigint;
+coordinator-1  | 2026-10-14 12:04:55.718 UTC [5377] WARNING:  SSL error: unexpected eof while reading
+coordinator-1  | 	invalid socket
+coordinator-1  | 2026-10-14 12:04:55.718 UTC [5377] CONTEXT:  while executing command on worker2:5432
+coordinator-1  | 2026-10-14 12:04:55.958 UTC [52] WARNING:  connection to the remote node postgres@worker4:5432 failed with the following error: FATAL:  the database system is in recovery mode
+coordinator-1  | 2026-10-14 12:04:55.958 UTC [52] CONTEXT:  Citus maintenance daemon for database 5 user 10
+coordinator-1  | 2026-10-14 12:04:55.959 UTC [52] WARNING:  SSL error: unexpected eof while reading
+coordinator-1  | 2026-10-14 12:04:55.959 UTC [52] CONTEXT:  while executing command on worker2:5432
+coordinator-1  | 	Citus maintenance daemon for database 5 user 10
+coordinator-1  | 2026-10-14 12:04:55.959 UTC [52] WARNING:  FATAL:  the database system is in recovery mode
+coordinator-1  | 2026-10-14 12:04:55.959 UTC [52] CONTEXT:  while executing command on worker4:5432
+coordinator-1  | 	Citus maintenance daemon for database 5 user 10
+coordinator-1  | 2026-10-14 12:04:56.005 UTC [5378] WARNING:  server closed the connection unexpectedly
+coordinator-1  | 		This probably means the server terminated abnormally
+coordinator-1  | 		before or while processing the request.
+coordinator-1  | 	server closed the connection unexpectedly
+coordinator-1  | 		This probably means the server terminated abnormally
+coordinator-1  | 		before or while processing the request.
+coordinator-1  | 	invalid socket
+coordinator-1  | 2026-10-14 12:04:56.005 UTC [5378] CONTEXT:  while executing command on worker2:5432
+coordinator-1  | 2026-10-14 12:04:56.075 UTC [5375] WARNING:  SSL error: unexpected eof while reading
+coordinator-1  | 	invalid socket
+coordinator-1  | 2026-10-14 12:04:56.075 UTC [5375] CONTEXT:  while executing command on worker2:5432
+coordinator-1  | 2026-10-14 12:05:06.850 UTC [31] LOG:  checkpoint starting: time
+coordinator-1  | 2026-10-14 12:05:32.762 UTC [31] LOG:  checkpoint complete: wrote 252 buffers (0.8%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=25.867 s, sync=0.023 s, total=25.912 s; sync files=243, longest=0.006 s, average=0.001 s; distance=2868 kB, estimate=3580 kB; lsn=0/2B433A0, redo lsn=0/2B421E0

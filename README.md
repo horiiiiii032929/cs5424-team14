@@ -30,8 +30,10 @@ docker compose down
 
 The local pilot uses scale 0.01, 5-second warmup and 20-second measurements.
 It is a quick implementation check, not a substitute for the course's scale-1
-Slurm results. The image is pinned to Citus 14.1.0 / PostgreSQL 18.4; the course
-installation is PostgreSQL 18.6. Full raw pilot logs are retained.
+Slurm results. The native ARM fixture builds Citus 14.1.0 from a checksum-verified
+source archive on a pinned PostgreSQL 18.6 image. First startup builds the image.
+It was prepared for this Apple Silicon Mac; use the Slurm scripts for the course
+cluster. Full raw pilot logs are retained.
 
 ## Run on the course cluster
 

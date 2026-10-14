@@ -1,6 +1,6 @@
 name: cs5424-hikaru
 x-db: &db
-  image: citusdata/citus:14.1.0@sha256:100bb457c798d7b50de1ece819fad7109744c0ed812dc63fb76a90e99767602f
+  image: cs5424-citus-native:14.1.0-pg18.6
   environment:
     POSTGRES_HOST_AUTH_METHOD: trust
   shm_size: 512mb
@@ -15,6 +15,8 @@ x-db: &db
 services:
   coordinator:
     <<: *db
+    build:
+      context: ./docker
     hostname: coordinator
   worker1:
     <<: *db

@@ -1,0 +1,99 @@
+pgbench (18.4 (Debian 18.4-1.pgdg13+1))
+transaction type: multiple scripts
+scaling factor: 1
+query mode: simple
+number of clients: 4
+number of threads: 4
+maximum number of tries: 3
+duration: 5 s
+number of transactions actually processed: 19
+number of failed transactions: 0 (0.000%)
+number of serialization failures: 0 (0.000%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 1 (5.263%)
+total number of retries: 1
+latency average = 7562.838 ms
+initial connection time = 60.845 ms
+tps = 0.528902 (without initial connection time)
+SQL script 1: /workspace/citus_project_team_14/expt_a0/transactions/T1_place_order.sql
+ - weight: 36 (targets 36.0% of total)
+ - 10 transactions (52.6% of total)
+ - number of transactions actually processed: 10 (tps = 0.278369)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 1 (10.000%)
+ - total number of retries: 1
+ - latency average = 813.703 ms
+ - latency stddev = 793.977 ms
+SQL script 2: /workspace/citus_project_team_14/expt_a0/transactions/T2_update_inventory.sql
+ - weight: 20 (targets 20.0% of total)
+ - 6 transactions (31.6% of total)
+ - number of transactions actually processed: 6 (tps = 0.167022)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 93.248 ms
+ - latency stddev = 91.779 ms
+SQL script 3: /workspace/citus_project_team_14/expt_a0/transactions/T3_order_history.sql
+ - weight: 10 (targets 10.0% of total)
+ - 0 transactions (0.0% of total)
+SQL script 4: /workspace/citus_project_team_14/expt_a0/transactions/T4_product_lookup.sql
+ - weight: 10 (targets 10.0% of total)
+ - 0 transactions (0.0% of total)
+SQL script 5: /workspace/citus_project_team_14/expt_a0/transactions/T5_update_order_status.sql
+ - weight: 10 (targets 10.0% of total)
+ - 2 transactions (10.5% of total)
+ - number of transactions actually processed: 2 (tps = 0.055674)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 24.420 ms
+ - latency stddev = 8.674 ms
+SQL script 6: /workspace/citus_project_team_14/expt_a0/transactions/T6_global_sales.sql
+ - weight: 5 (targets 5.0% of total)
+ - 0 transactions (0.0% of total)
+SQL script 7: /workspace/citus_project_team_14/expt_a0/transactions/T7_inventory_transfer.sql
+ - weight: 5 (targets 5.0% of total)
+ - 0 transactions (0.0% of total)
+SQL script 8: /workspace/citus_project_team_14/expt_a0/transactions/T8_update_customer.sql
+ - weight: 2 (targets 2.0% of total)
+ - 0 transactions (0.0% of total)
+SQL script 9: /workspace/citus_project_team_14/expt_a0/transactions/T9_update_product.sql
+ - weight: 2 (targets 2.0% of total)
+ - 1 transactions (5.3% of total)
+ - number of transactions actually processed: 1 (tps = 0.027837)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 30.693 ms
+ - latency stddev = 0.000 ms
+pgbench: setting random seed to 42
+WARNING:  terminating connection because of crash of another server process
+DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+DETAIL:  from worker4:5432
+WARNING:  SSL error: unexpected eof while reading
+invalid socket
+pgbench: error: client 2 script 2 aborted in command 12 query 0: ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+CONTEXT:  while executing command on worker1:5432
+pgbench: error: client 3 script 2 aborted in command 12 query 0: ERROR:  connection to the remote node postgres@worker4:5432 failed with the following error: connection not open
+WARNING:  server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+invalid socket
+pgbench: error: client 1 script 3 aborted in command 12 query 0: ERROR:  cannot connect to worker4:5432 to fetch intermediate results
+CONTEXT:  while executing command on worker1:5432
+WARNING:  SSL error: unexpected eof while reading
+invalid socket
+pgbench: error: client 0 script 3 aborted in command 12 query 0: ERROR:  connection to the remote node postgres@worker4:5432 failed with the following error: connection not open
+pgbench: error: Run was aborted; the above results are incomplete.
