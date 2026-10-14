@@ -1,0 +1,101 @@
+pgbench (18.6 (Debian 18.6-1.pgdg13+2))
+transaction type: multiple scripts
+scaling factor: 1
+query mode: simple
+number of clients: 4
+number of threads: 4
+maximum number of tries: 3
+duration: 20 s
+number of transactions actually processed: 43
+number of failed transactions: 0 (0.000%)
+number of serialization failures: 0 (0.000%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 2 (4.651%)
+total number of retries: 2
+latency average = 2574.490 ms
+initial connection time = 6.417 ms
+tps = 1.553706 (without initial connection time)
+SQL script 1: /workspace/citus_project_team_14/expt_a105/transactions/T1_place_order.sql
+ - weight: 36 (targets 36.0% of total)
+ - 18 transactions (41.9% of total)
+ - number of transactions actually processed: 18 (tps = 0.650388)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 1 (5.556%)
+ - total number of retries: 1
+ - latency average = 121.716 ms
+ - latency stddev = 71.941 ms
+SQL script 2: /workspace/citus_project_team_14/expt_a105/transactions/T2_update_inventory.sql
+ - weight: 20 (targets 20.0% of total)
+ - 8 transactions (18.6% of total)
+ - number of transactions actually processed: 8 (tps = 0.289062)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 18.323 ms
+ - latency stddev = 13.946 ms
+SQL script 3: /workspace/citus_project_team_14/expt_a105/transactions/T3_order_history.sql
+ - weight: 10 (targets 10.0% of total)
+ - 4 transactions (9.3% of total)
+ - number of transactions actually processed: 4 (tps = 0.144531)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 13002.261 ms
+ - latency stddev = 2312.551 ms
+SQL script 4: /workspace/citus_project_team_14/expt_a105/transactions/T4_product_lookup.sql
+ - weight: 10 (targets 10.0% of total)
+ - 6 transactions (14.0% of total)
+ - number of transactions actually processed: 6 (tps = 0.216796)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 8598.959 ms
+ - latency stddev = 2269.431 ms
+SQL script 5: /workspace/citus_project_team_14/expt_a105/transactions/T5_update_order_status.sql
+ - weight: 10 (targets 10.0% of total)
+ - 5 transactions (11.6% of total)
+ - number of transactions actually processed: 5 (tps = 0.180663)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 25.890 ms
+ - latency stddev = 17.967 ms
+SQL script 6: /workspace/citus_project_team_14/expt_a105/transactions/T6_global_sales.sql
+ - weight: 5 (targets 5.0% of total)
+ - 0 transactions (0.0% of total)
+SQL script 7: /workspace/citus_project_team_14/expt_a105/transactions/T7_inventory_transfer.sql
+ - weight: 5 (targets 5.0% of total)
+ - 1 transactions (2.3% of total)
+ - number of transactions actually processed: 1 (tps = 0.036133)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 1 (100.000%)
+ - total number of retries: 1
+ - latency average = 127.990 ms
+ - latency stddev = 0.000 ms
+SQL script 8: /workspace/citus_project_team_14/expt_a105/transactions/T8_update_customer.sql
+ - weight: 2 (targets 2.0% of total)
+ - 0 transactions (0.0% of total)
+SQL script 9: /workspace/citus_project_team_14/expt_a105/transactions/T9_update_product.sql
+ - weight: 2 (targets 2.0% of total)
+ - 1 transactions (2.3% of total)
+ - number of transactions actually processed: 1 (tps = 0.036133)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 14.736 ms
+ - latency stddev = 0.000 ms
+pgbench: setting random seed to 42

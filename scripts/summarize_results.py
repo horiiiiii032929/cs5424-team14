@@ -58,7 +58,8 @@ exploratory only. Failed runs have no valid throughput and must not be ranked.**
         def fmt(v): return f'{v:.2f}' if v is not None else 'NA'
         ratio=fmt(r['relative_to_baseline'])+'x' if r['relative_to_baseline'] is not None else 'NA'
         count=str(r['count']) if r['status']!='FAILED' else 'NA'
-        content+=f"| {r['experiment']} | {r['clients']} | {count} | {r['transaction_types_seen']} | {fmt(r['pgbench_tps'])} | {ratio} | {fmt(r['p95_ms'])} | {r['status']} |\n"
+        p95=fmt(r['p95_ms']) if r['status']!='FAILED' else 'NA'
+        content+=f"| {r['experiment']} | {r['clients']} | {count} | {r['transaction_types_seen']} | {fmt(r['pgbench_tps'])} | {ratio} | {p95} | {r['status']} |\n"
     content+='''
 The next decision requires scale-1 Slurm repeats at 1, 4, 8, 16, 32 and 64 clients
 under identical settings. Retain slower variants as experimental evidence. Do not

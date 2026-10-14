@@ -7,6 +7,11 @@ This repository holds Dessi's preserved A/B baseline snapshots and Hikaru's
 implementations of five proposed Task 2 designs. The proposed work split is
 Hikaru + Kelvin on A and Dessi + Xincheng on B.
 
+**14 October status:** all five designs implemented; 138 distributed correctness
+checks passed. The local pilot completed 16 of 18 cases; two concurrent runs
+aborted. See [results and next steps](results/README.md). Course-cluster runs are
+pending SSH access. Teammate repository access is pending their GitHub usernames.
+
 ## Start here
 
 - [Experiments](citus_project_team_14/README.md): complete Slurm scripts and SQL.
@@ -24,7 +29,8 @@ and four Citus workers. It exposes no host ports and uses only its own container
 ```sh
 python3 scripts/build_experiments.py
 python3 scripts/check_correctness.py --output results/my-correctness-run
-python3 scripts/local_experiments.py --output results/my-local-pilot
+python3 scripts/local_experiments.py --output results/my-local-pilot --continue-on-error
+python3 scripts/summarize_results.py results/my-local-pilot
 docker compose down
 ```
 
@@ -34,6 +40,9 @@ Slurm results. The native ARM fixture builds Citus 14.1.0 from a checksum-verifi
 source archive on a pinned PostgreSQL 18.6 image. First startup builds the image.
 It was prepared for this Apple Silicon Mac; use the Slurm scripts for the course
 cluster. Full raw pilot logs are retained.
+`--continue-on-error` preserves a `failure.json` for failed warmups/measurements
+and continues the matrix. The report labels those cases FAILED and excludes their
+throughput from ranking.
 
 ## Run on the course cluster
 
@@ -55,6 +64,8 @@ for existing team jobs. Coordinate with teammates before anyone submits further
 jobs independently. The full suite retains the original six client counts,
 600-second runs, 60-second warmup, workload mix, isolation and full log sampling.
 Use job IDs in each folder to distinguish smoke from full runs.
+Inspect `summary.csv`'s `pgbench_exit_code`, retry/failure counts and `validation.log`;
+Slurm COMPLETED alone does not mean every measured client count succeeded.
 
 ## Work together
 
