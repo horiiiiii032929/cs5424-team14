@@ -95,6 +95,10 @@ psqlx() { psql -X -v ON_ERROR_STOP=1 -U postgres -h coordinator "$@"; }
     (output/'fixture.json').write_text(json.dumps(dict(merchants=10,customers=1000 if small else 10000,
         products=500 if small else 5000,orders=500 if small else 50000,items=1500 if small else 150000),indent=2)+'\n')
     (output/'effective-settings.txt').write_text(sql('SHOW work_mem; SHOW citus.max_adaptive_executor_pool_size; SHOW default_transaction_isolation; SHOW shared_buffers;')+'\n')
+    effective=sql('SHOW work_mem; SHOW citus.max_adaptive_executor_pool_size;').splitlines()
+    expected=[manifest.get('work_mem','32MB'),str(manifest.get('pool',4))]
+    if effective!=expected:
+        raise AssertionError(f'{experiment}: effective settings {effective} != intended {expected}')
     return manifest
 
 
@@ -103,8 +107,8 @@ def verify(summary=False, prefix=''):
         'nonnegative_inventory': 'SELECT count(*) FROM inventory WHERE quantity<0',
         'unique_order_ids': 'SELECT count(*) FROM (SELECT order_id FROM orders GROUP BY order_id HAVING count(*)>1) s',
         'unique_item_ids': 'SELECT count(*) FROM (SELECT order_item_id FROM order_items GROUP BY order_item_id HAVING count(*)>1) s',
-        'items_have_matching_orders': '''SELECT count(*) FROM order_items i LEFT JOIN orders o
-          ON i.merchant_id=o.merchant_id AND i.order_id=o.order_id WHERE o.order_id IS NULL''',
+        'items_have_matching_orders': '''SELECT count(*) FROM
+          (SELECT merchant_id,order_id FROM order_items EXCEPT SELECT merchant_id,order_id FROM orders) missing''',
         'matching_order_totals': '''SELECT count(*) FROM orders o LEFT JOIN
           (SELECT merchant_id,order_id,sum(quantity*unit_price)::numeric(12,2) amount FROM order_items GROUP BY merchant_id,order_id) x
           ON o.order_id=x.order_id AND o.merchant_id=x.merchant_id

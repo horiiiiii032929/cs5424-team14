@@ -4,7 +4,7 @@ x-db: &db
   environment:
     POSTGRES_HOST_AUTH_METHOD: trust
   shm_size: 512mb
-  command: [postgres, -c, shared_preload_libraries=citus, -c, shared_buffers=256MB, -c, work_mem=32MB, -c, default_transaction_isolation=serializable, -c, citus.enable_repartition_joins=on, -c, citus.max_adaptive_executor_pool_size=4]
+  command: [postgres, -c, shared_preload_libraries=citus, -c, shared_buffers=256MB, -c, default_transaction_isolation=serializable, -c, citus.enable_repartition_joins=on]
   volumes:
     - .:/workspace
   healthcheck:
