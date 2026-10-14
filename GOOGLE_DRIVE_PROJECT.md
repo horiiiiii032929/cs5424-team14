@@ -6,6 +6,10 @@ Account: hori0329@gmail.com
 Created 14 October 2026 and made public at Hikaru’s request. Anyone can view and
 clone it; GitHub usernames are needed only for direct push access.
 
+Updated 15 October 2026 through `hori0329@gmail.com`: the hub, shared ideas,
+A/B plans, schedule, report checklist and AI usage log now link to the public
+repository and verified local results, with remaining course-cluster work stated.
+
 [Project folder](https://drive.google.com/drive/folders/11cOQSSKCsp04XmKZAnHBSxZh5WTIQnLX)
 
 - [Our Optimization Ideas and Plan](https://docs.google.com/document/d/1OnjeyIoiXQpPWMFnOJerrP6eLZtnRzWuPm8XigARjgs/edit?usp=drivesdk)

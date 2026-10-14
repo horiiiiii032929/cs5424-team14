@@ -1,8 +1,11 @@
 # Team 14 project update — 15 October 2026
 
-Prepared for the Project Hub, Our Optimization Ideas and Plan, and Workload A
-planning Google Docs. This update is saved in GitHub; it has **not yet been added
-to those Google Docs** because the currently connected account cannot access them.
+Applied to the existing Drive planning documents on 15 October 2026 using
+`hori0329@gmail.com`: Project Hub, Our Optimization Ideas and Plan, Workload A
+plan, Workload B plan, Project Schedule, Report Checklist and AI Usage Log.
+The saved Drive content was checked after editing. Teammates' original ideas and
+image references were retained. This file is the general update summary; each
+Drive document also contains relevant details and corrections to stale fields.
 
 ## Code and results
 
