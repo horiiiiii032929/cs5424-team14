@@ -17,11 +17,14 @@ def main():
         row['status']='passed' if row['verified'] else 'incomplete'
         if path.with_name('failure.json').exists():
             row['status']='FAILED'
-            row['pgbench_tps']=None
+            for key in ['pgbench_tps','successful_tps_by_duration','avg_ms','p95_ms','p99_ms']:
+                row[key]=None
         row['transaction_types_seen']=sum(x['count']>0 for x in row['transactions'].values())
         row['sample_warning']='small sample' if row['count']<100 else ''
         if row['transaction_types_seen']<9:
             row['sample_warning']+='; incomplete transaction-type coverage'
+        if row['status']=='FAILED':
+            row['sample_warning']='Aborted measurement; partial performance metrics excluded'
         rows.append(row)
     for path in sorted(args.directory.glob('expt_*/c*/failure.json')):
         if path.with_name('metrics.json').exists(): continue
@@ -35,7 +38,7 @@ def main():
     fields=['experiment','clients','count','transaction_types_seen','sample_warning','pgbench_tps','successful_tps_by_duration','relative_to_baseline',
             'avg_ms','p95_ms','p99_ms','failed_logs','exit_code','verified','status']
     with (args.directory/'comparison.csv').open('w',newline='') as f:
-        w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore'); w.writeheader()
+        w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore',lineterminator='\n'); w.writeheader()
         for r in rows:
             b=baseline.get(r['clients'])
             r['relative_to_baseline']=r['pgbench_tps']/b if b and r['pgbench_tps'] is not None else None
