@@ -83,7 +83,7 @@ Next: review baseline failures before optimization comparisons. A has non-zero f
 
 ## 14 October implementation update
 
-Hikaru's private repository is https://github.com/horiiiiii032929/cs5424-team14.
+Hikaru's public repository is https://github.com/horiiiiii032929/cs5424-team14.
 The latest connection attempts timed out before authentication; the verified
 remote information above is the earlier snapshot, not a fresh inspection.
 

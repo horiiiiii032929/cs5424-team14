@@ -2,8 +2,9 @@
 
 Account: hori0329@gmail.com
 
-[Private team code repository](https://github.com/horiiiiii032929/cs5424-team14)
-Created 14 October 2026. Teammate GitHub usernames are still needed to grant access.
+[Public team code repository](https://github.com/horiiiiii032929/cs5424-team14)
+Created 14 October 2026 and made public at Hikaru’s request. Anyone can view and
+clone it; GitHub usernames are needed only for direct push access.
 
 [Project folder](https://drive.google.com/drive/folders/11cOQSSKCsp04XmKZAnHBSxZh5WTIQnLX)
 

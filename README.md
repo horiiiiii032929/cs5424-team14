@@ -10,7 +10,7 @@ Hikaru + Kelvin on A and Dessi + Xincheng on B.
 **14 October status:** all five designs implemented; 138 distributed correctness
 checks passed. The local pilot completed 16 of 18 cases; two concurrent runs
 aborted. See [results and next steps](results/README.md). Course-cluster runs are
-pending SSH access. Teammate repository access is pending their GitHub usernames.
+pending SSH access. The repository is public; teammates can view and clone it.
 
 ## Start here
 
@@ -69,13 +69,16 @@ Slurm COMPLETED alone does not mean every measured client count succeeded.
 
 ## Work together
 
-The repository is private. Teammates need GitHub access before cloning:
+The repository is public. Anyone can view and clone it:
 
 ```sh
 git clone https://github.com/horiiiiii032929/cs5424-team14.git
 cd cs5424-team14
 git switch -c your-name/your-optimization
 ```
+
+Teammates can fork the repository and open pull requests. Direct push access
+requires a collaborator invitation using their GitHub usernames.
 
 Use separate experiment folders, preserve `expt_a0`/`expt_b0`, record settings and
 results, and open a pull request. Never commit `.env`, passwords or SSH keys.

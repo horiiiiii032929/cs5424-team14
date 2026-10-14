@@ -9,7 +9,8 @@ Tool: OpenAI Codex. Team 14; work attributed to Hikaru for team review.
   repository documentation and result analysis at Hikaru's request.
   Ran 138 passing native distributed correctness checks and an 18-case local
   pilot (16 completed, two aborted), preserved raw evidence, and created the
-  private team GitHub repository. No new course-cluster experiments were run.
+  team GitHub repository, initially private and subsequently made public at
+  Hikaru’s request. No new course-cluster experiments were run.
 
 Keep the conversation export with prompts and outputs for the required
 `14_ai_tool.zip` reports. This short record is an index, not a replacement for
