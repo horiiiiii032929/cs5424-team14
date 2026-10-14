@@ -202,6 +202,7 @@ def main():
     parser.add_argument('--seed',type=int,default=42)
     parser.add_argument('--output',required=True)
     parser.add_argument('--setup-only',action='store_true')
+    parser.add_argument('--continue-on-error',action='store_true',help='Record failed cases and continue the suite; never treat their throughput as valid.')
     args=parser.parse_args()
     output=ROOT/args.output
     output.mkdir(parents=True,exist_ok=True)
@@ -225,6 +226,9 @@ def main():
             if (target/'verification.json').exists():
                 print(f'{expt} c{clients}: already complete',flush=True)
                 continue
+            if (target/'failure.json').exists():
+                print(f'{expt} c{clients}: prior failure retained; use a fresh output directory to retry',flush=True)
+                continue
             if target.exists() and any(target.iterdir()):
                 raise RuntimeError(f'Result directory already has data: {target}. Use a fresh --output.')
             print(f'{expt} c{clients}: setting up',flush=True)
@@ -235,8 +239,19 @@ def main():
                 print(f'{expt}: setup checks passed',flush=True)
                 continue
             print(f'{expt} c{clients}: benchmarking',flush=True)
-            result=benchmark(expt,target,clients,args.duration,args.seed)
-            checks.update(verify(manifest.get('summary',False),'after_'))
+            try:
+                result=benchmark(expt,target,clients,args.duration,args.seed)
+                checks.update(verify(manifest.get('summary',False),'after_'))
+            except Exception as error:
+                failure=dict(experiment=expt,clients=clients,status='FAILED',error=str(error))
+                try:
+                    failure['post_failure_checks']=verify(manifest.get('summary',False),'after_failure_')
+                except Exception as check_error:
+                    failure['post_failure_check_error']=str(check_error)
+                (target/'failure.json').write_text(json.dumps(failure,indent=2)+'\n')
+                print(f'{expt} c{clients}: FAILED (see failure.json)',flush=True)
+                if args.continue_on_error: continue
+                raise
             (target/'verification.json').write_text(json.dumps(checks,indent=2)+'\n')
             print(f'{expt} c{clients}: {result["pgbench_tps"]} TPS, checks passed',flush=True)
 

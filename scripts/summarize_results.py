@@ -14,10 +14,26 @@ def main():
         row=json.loads(path.read_text())
         verified=path.with_name('verification.json')
         row['verified']=verified.exists() and all(json.loads(verified.read_text()).values())
+        row['status']='passed' if row['verified'] else 'incomplete'
+        if path.with_name('failure.json').exists():
+            row['status']='FAILED'
+            row['pgbench_tps']=None
+        row['transaction_types_seen']=sum(x['count']>0 for x in row['transactions'].values())
+        row['sample_warning']='small sample' if row['count']<100 else ''
+        if row['transaction_types_seen']<9:
+            row['sample_warning']+='; incomplete transaction-type coverage'
         rows.append(row)
+    for path in sorted(args.directory.glob('expt_*/c*/failure.json')):
+        if path.with_name('metrics.json').exists(): continue
+        failure=json.loads(path.read_text())
+        rows.append(dict(experiment=failure['experiment'],clients=failure['clients'],status='FAILED',
+          count=0,transaction_types_seen=0,sample_warning='Warmup failed; no measured result',
+          pgbench_tps=None,successful_tps_by_duration=None,avg_ms=None,p95_ms=None,p99_ms=None,
+          failed_logs=None,exit_code=None,verified=False))
+    rows.sort(key=lambda r:(r['experiment'],r['clients']))
     baseline={r['clients']:r['pgbench_tps'] for r in rows if r['experiment']=='expt_a0'}
-    fields=['experiment','clients','pgbench_tps','successful_tps_by_duration','relative_to_baseline',
-            'avg_ms','p95_ms','p99_ms','failed_logs','exit_code','verified']
+    fields=['experiment','clients','count','transaction_types_seen','sample_warning','pgbench_tps','successful_tps_by_duration','relative_to_baseline',
+            'avg_ms','p95_ms','p99_ms','failed_logs','exit_code','verified','status']
     with (args.directory/'comparison.csv').open('w',newline='') as f:
         w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore'); w.writeheader()
         for r in rows:
@@ -32,14 +48,17 @@ Check environment.json, each experiment's settings, source hashes and raw logs.
 TPS below uses pgbench's elapsed-time denominator; comparison.csv also preserves
 the starter-style count / configured-duration metric. Expected business rollbacks
 count as completed scripts. One short run cannot establish statistical confidence.
+**Small baseline samples and missing transaction types make speedup ratios
+exploratory only. Failed runs have no valid throughput and must not be ranked.**
 
-| Experiment | Clients | TPS | vs local baseline | Avg ms | p95 ms | Failed logs | Checks |
+| Experiment | Clients | Completed scripts | Types seen / 9 | TPS | vs baseline | p95 ms | Status |
 |---|---:|---:|---:|---:|---:|---:|---|
 '''
     for r in rows:
         def fmt(v): return f'{v:.2f}' if v is not None else 'NA'
         ratio=fmt(r['relative_to_baseline'])+'x' if r['relative_to_baseline'] is not None else 'NA'
-        content+=f"| {r['experiment']} | {r['clients']} | {fmt(r['pgbench_tps'])} | {ratio} | {fmt(r['avg_ms'])} | {fmt(r['p95_ms'])} | {r['failed_logs']} | {'passed' if r['verified'] else 'incomplete'} |\n"
+        count=str(r['count']) if r['status']!='FAILED' else 'NA'
+        content+=f"| {r['experiment']} | {r['clients']} | {count} | {r['transaction_types_seen']} | {fmt(r['pgbench_tps'])} | {ratio} | {fmt(r['p95_ms'])} | {r['status']} |\n"
     content+='''
 The next decision requires scale-1 Slurm repeats at 1, 4, 8, 16, 32 and 64 clients
 under identical settings. Retain slower variants as experimental evidence. Do not
