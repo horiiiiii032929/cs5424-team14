@@ -33,7 +33,9 @@ for expt in "${experiments[@]}"; do
   elif [[ "$mode" == diagnostic ]]; then
     # Preserve the course-sized data and original warmup, but use a short
     # four-client measurement to diagnose failures before a full matrix.
-    args+=("--export=ALL,SCALE=1,DURATION=60,WARMUP_DURATION=60,CLIENT_COUNTS=4,PROGRESS_INTERVAL=10")
+    # There is only one client count. The initial data load is already fresh;
+    # a second identical load before it adds cost without separating any runs.
+    args+=("--export=ALL,SCALE=1,DURATION=60,WARMUP_DURATION=60,CLIENT_COUNTS=4,PROGRESS_INTERVAL=10,RESET_BETWEEN_CLIENT_COUNTS=0")
   else
     args+=("--export=ALL,SCALE=1,DURATION=600,WARMUP_DURATION=60,CLIENT_COUNTS=1 4 8 16 32 64")
   fi

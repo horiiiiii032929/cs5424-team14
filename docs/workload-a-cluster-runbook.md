@@ -49,6 +49,8 @@ bash scripts/submit_cluster.sh diagnostic expt_a101 expt_a111 expt_a112
 
 This uses scale 1 and the original 60-second warmup, followed by a 60-second
 measurement at four clients. It is a diagnostic, not the final 600-second result.
+It uses the fresh initial load and skips a redundant reload for this single
+client count. Smoke/full matrices retain their original reset behavior.
 Do not promote a design with an aborted diagnostic into a full performance claim.
 
 Select the candidates supported by smoke/correctness results. For example:
