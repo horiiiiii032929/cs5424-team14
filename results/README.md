@@ -1,4 +1,19 @@
-# Results — 14 October 2026
+# Results
+
+## 19 October follow-up
+
+Kelvin reports a102 cluster job 965657, unchanged from 82058e6, with improved
+throughput and passing validation. His raw result files have not been fetched
+here because SSH still times out. [Attribution and full follow-up](followup-20261019/README.md).
+
+Four new variants a109–a112 passed **122 additional correctness checks**. All six
+local four-client stress cases (a101/a108/a109/a110/a111/a112) aborted; read-only
+declarations and the B-style join placement did not resolve this local failure.
+Failed performance metrics are excluded. No new Slurm jobs or final A selection.
+See the [A report draft](../docs/workload-a-report-draft.md) and
+[cluster runbook](../docs/workload-a-cluster-runbook.md).
+
+## Original results — 14 October 2026
 
 All five of Hikaru's Workload A proposals are implemented. They produce seven
 individual experiments and one combined experiment. The local distributed
