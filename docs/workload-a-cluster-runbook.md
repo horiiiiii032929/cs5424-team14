@@ -9,7 +9,11 @@ The revised deployment is `/home/stuproj/cs14/citus_hikaru_20261019-172259_cf48c
 Scale-1 diagnostics a111/a112/a113 (977617/977618/977619) completed cleanly,
 including exact validation. Full control a0 977740 and candidate a112 977773
 completed on xcnf0–4 (see `results/cluster-full-20261019/`). Repeat a112 978177
-uses PGBENCH_SEED=7 on the same nodes; do not resubmit while it is active.
+uses PGBENCH_SEED=7 on the same nodes and completed (64-client warmup abort flagged).
+20 October: a114/a115 deployed to `/home/stuproj/cs14/citus_hikaru_20261020-002025_57576ae`.
+Diagnostics 979865 (a114) and 979866 (a115) completed; see
+`results/cluster-diagnostic-t6-20261020/`. Full a115 runs 979909 (seed 42) and
+979910 (seed 7) are queued on xcnf0–4; do not resubmit while they are active.
 Import finished jobs with
 `python3 scripts/import_cluster_jobs.py <deployment> <out_dir> expt_aN:JOB ...`.
 
