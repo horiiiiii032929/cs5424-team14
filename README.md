@@ -19,7 +19,8 @@ completed cleanly at 89.9/92.4/90.6 TPS. The matched full comparison on xcnf0–
 then completed cleanly: a112 ran 54.2–90.8 TPS versus 3.2–3.6 TPS for fresh a0
 (17–28×), with zero failed transactions and passing validation at all six client
 counts ([full results](results/cluster-full-20261019/README.md)). a112 is the
-provisional A selection; a seed-7 repeat (job 978177) is running.
+provisional A selection; a seed-7 repeat (job 978177) agreed within 2.5% (its
+64-client warmup aborted once, flagged).
 See [cluster evidence](results/cluster/README.md).
 See [results and next steps](results/README.md), the [A report draft](docs/workload-a-report-draft.md)
 and [cluster runbook](docs/workload-a-cluster-runbook.md).

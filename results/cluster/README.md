@@ -22,7 +22,7 @@ Source, topology, settings, versions, raw logs and validation were reviewed.
 | Original dependent diagnostics | a111 977469; a112 977470 | Cancelled before starting to replace the validator. |
 | Revised scale-1 diagnostics | a111 977617; a112 977618; a113 977619 | All warmups/measurements completed; zero measured failures/retries; exact validation passed. |
 | Full scale-1 matrix | a0 977740; a112 977773 | Both completed on xcnf0–4 with all 12 exits zero. a0 3.2–3.6 TPS; a112 54.2–90.8 TPS, zero failed transactions, six passing validations. See [full results](../cluster-full-20261019/README.md). |
-| Full repeat (pgbench seed 7) | a112 978177 | Submitted after 977773 on the same nodes; ledger `full-repeat-seed7-submission-20261019.tsv`. |
+| Full repeat (pgbench seed 7) | a112 978177 | Completed; within 2.5% of seed 42, zero measured failures, six passing validations. 64-client warmup exit 2 (Citus-wrapped commit-time serialization conflict); flagged. Ledger `full-repeat-seed7-submission-20261019.tsv`. |
 
 The [smoke evidence](../cluster-smoke-20261019/README.md) and
 [original diagnostic evidence](../cluster-diagnostic-original-20261019/README.md)

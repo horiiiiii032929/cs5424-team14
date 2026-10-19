@@ -1,7 +1,7 @@
 # Draft report sections 2–3: Workload A
 
-Prepared 19 October 2026. This is a working draft; a112 is the provisional design;
-its repeat and team review remain open. Kelvin's a102/a10/a11/a12/a14 source update is
+Prepared 19 October 2026. This is a working draft; a112 is the provisional design
+(repeated on two seeds); team review and the a114 diagnostic remain open. Kelvin's a102/a10/a11/a12/a14 source update is
 preserved in `results/team-update-20261019/kelvin-update.json`. After SSH access
 was restored, his raw folders were retrieved and reviewed in
 `results/cluster-import-20261019/`. New diagnostic jobs are recorded in `results/cluster/`.
@@ -253,14 +253,22 @@ clients T3's mean rises to 1.69 s. T6 is the next optimization target; a104's
 exact daily sales summaries address it, but the combined a108 aborted locally,
 so any a112 + summaries variant needs separate correctness and stress testing.
 
-These are single 600-second observations per client count. A repeat of a112 with
-pgbench seed 7 (job 978177, same nodes) has been submitted to check stability.
+A repeat of a112 with pgbench seed 7 (job 978177, same nodes and settings)
+reproduced the result within 2.5% at every client count: 52.970/82.947/86.530/
+89.152/90.105/91.123 TPS, zero failed measured transactions and six passing
+validations. Its 64-client warmup, however, aborted one client: a single-shard
+T1 COMMIT on worker xcnf2 was cancelled by SERIALIZABLE as a dependency pivot,
+and the Citus coordinator reported it as a generic shard-commit failure rather
+than a serialization failure, so pgbench did not retry it. That case is flagged
+and excluded, consistent with a102/c16. The same wrapped commit-time conflict
+likely explains the local four-client aborts at higher contention; it is a
+residual risk of a112 under heavy load, not a correctness violation.
 Pending candidate 977741 was replaced before starting to correct its node request.
 
 **Provisional selection:** a112 (a102 lookup indexes + join-key colocation of
 inventory/products and order_items/orders + READ ONLY T3/T4/T6) is the leading
-Workload A design, subject to the seed-7 repeat and Kelvin's agreement before the
-23 October cutoff. Local timing and teammate-reported cluster numbers remain
+Workload A design. Two matched seeds agree; final selection awaits Kelvin's
+agreement and the a114 (T6 summary) diagnostic before the 23 October cutoff. Local timing and teammate-reported cluster numbers remain
 separate from these independently verified measurements.
 
 ## Sources to retain in the final report

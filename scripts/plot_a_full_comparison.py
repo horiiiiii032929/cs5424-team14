@@ -13,6 +13,7 @@ from matplotlib.text import Text
 ROOT = Path(__file__).resolve().parents[1]
 FULL = ROOT / 'results/cluster-full-20261019'
 JOBS = [('Baseline a0', 'expt_a0', 977740), ('Colocated a112', 'expt_a112', 977773)]
+REPEAT = ('expt_a112', 978177)  # pgbench seed 7; c64 warmup aborted, measurement completed
 OUT = ROOT / 'docs/figures'
 STEM = 'workload-a-full-matched'
 
@@ -33,6 +34,9 @@ def main():
         cases = [r for r in review if r['experiment'] == expt and int(r['job_id']) == job]
         assert [int(r['clients']) for r in cases] == [1, 4, 8, 16, 32, 64]
         assert all(r['eligible'] == 'True' for r in cases), expt
+    repeat_cases = [r for r in review if r['experiment'] == REPEAT[0] and int(r['job_id']) == REPEAT[1]]
+    assert [r['clients'] for r in repeat_cases if r['eligible'] != 'True'] == ['64']
+    repeat = [int(r['successful_scripts']) / 600 for r in repeat_cases]
     summaries = {expt: rows(folder(expt, job) / 'summary.csv') for _, expt, job in JOBS}
     clients = [int(r['clients']) for r in summaries['expt_a0']]
     tps = {expt: [int(r['successful_transactions']) / 600 for r in s] for expt, s in summaries.items()}
@@ -51,14 +55,14 @@ def main():
         renderer='Matplotlib; PNG and SVG exports',
         matplotlib_version=matplotlib.__version__,
         families=['ordered numeric line (log y)', '100% stacked horizontal bar'],
-        sufficiency='Six client counts per design, one 600 s observation each on the same xcnf0-4 nodes; no confidence intervals.',
+        sufficiency='Six client counts; a0 once, a112 twice (seeds 42 and 7) for 600 s each on the same xcnf0-4 nodes; no confidence intervals.',
         palette_policy='Blue/gold/teal plus neutrals; dashed/square versus solid/circle distinguishes designs without color.',
         footprint_inches=[6.5, 6.5],
         google_docs_width_pt=420,
         sources=[str(folder(e, j).relative_to(ROOT)) for _, e, j in JOBS],
     )
     (OUT / f'{STEM}.contract.json').write_text(json.dumps(contract, indent=2) + '\n')
-    (OUT / f'{STEM}.data.json').write_text(json.dumps(dict(clients=clients, tps=tps, one_client_time_shares=shares), indent=2) + '\n')
+    (OUT / f'{STEM}.data.json').write_text(json.dumps(dict(clients=clients, tps=tps, repeat_seed7_tps=repeat, one_client_time_shares=shares), indent=2) + '\n')
     blue, gold, teal, ink, grey = '#2864B4', '#E3B34D', '#2A9D8F', '#252B33', '#66717F'
     plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 11.5,
                          'axes.labelcolor': ink, 'text.color': ink,
@@ -70,6 +74,8 @@ def main():
     ax = fig.add_axes([.12, .535, .82, .29])
     ax.plot(clients, tps['expt_a0'], '--s', color=grey, markerfacecolor='white', markersize=5, linewidth=1.5, label='a0 baseline')
     ax.plot(clients, tps['expt_a112'], '-o', color=blue, markersize=5, linewidth=1.5, label='a112 colocated')
+    ax.scatter(clients[:-1], repeat[:-1], marker='o', facecolor='white', edgecolor=blue, linewidth=1.2, s=90, zorder=1.5, label='a112 repeat (seed 7)')
+    ax.scatter([clients[-1]], [repeat[-1]], marker='D', facecolor='white', edgecolor=blue, linewidth=1.2, s=110, zorder=1.5, label='Repeat warmup aborted')
     for x, y0, y1 in zip(clients, tps['expt_a0'], tps['expt_a112']):
         ax.annotate(f'{y1 / y0:.0f}×', (x, y1), textcoords='offset points', xytext=(0, 7), ha='center', fontsize=11.5, color=blue)
     ax.set_xscale('log', base=2)
@@ -85,7 +91,7 @@ def main():
     ax.set_title('Completed-script throughput', loc='left', fontsize=12, pad=8)
     ax.grid(axis='y', color='#DDE1E7', linewidth=.6)
     ax.spines[['top', 'right']].set_visible(False)
-    ax.legend(loc='center right', ncol=1, fontsize=11.5, frameon=False)
+    ax.legend(loc='center right', ncol=1, fontsize=10.5, frameon=False)
     bar = fig.add_axes([.27, .23, .67, .15])
     left = [0., 0.]
     for key, color, text_color in [('T3', blue, 'white'), ('T4', gold, ink), ('T6', teal, 'white'), ('Other', '#D9DEE5', ink)]:
@@ -105,8 +111,8 @@ def main():
     bar.legend(loc='upper center', bbox_to_anchor=(.45, -.03), ncol=4, frameon=False, fontsize=11.5)
     fig.text(.08, .14, 'Time share = completed count × mean latency; shares rounded.', fontsize=11.5)
     fig.text(.08, .095, 'a0: 2/20/64/59 serialization failures at 8/16/32/64 clients.', fontsize=11.5)
-    fig.text(.08, .055, 'a112: 0 failures (≤16 retried); validation passed at every count.', fontsize=11.5)
-    fig.text(.08, .015, 'TPS = count / 600 s. Jobs 977740 (a0), 977773 (a112), seed 42.', fontsize=11.5)
+    fig.text(.08, .055, 'a112: 0 measured failures; validation passed in both runs.', fontsize=11.5)
+    fig.text(.08, .015, 'TPS = count / 600 s. Jobs 977740, 977773 (seed 42), 978177 (seed 7).', fontsize=11.5)
     fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
     for text in fig.findobj(match=Text):

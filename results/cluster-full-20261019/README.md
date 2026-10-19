@@ -37,7 +37,26 @@ differences are −3.1% to +5.5% rather than the earlier 49–57%; its clear
 benefits remain zero serialization failures and faster T7. The nodes are not
 identical, so neither comparison is a matched a102 result.
 
-## Pending
+## Repeat: a112 with pgbench seed 7 (job 978177)
 
-Repeat a112 with pgbench seed 7 (job 978177, same nodes, queued after 977773)
-was submitted to check run-to-run stability. Its results are not in this table.
+Same nodes, settings and data seed; only `PGBENCH_SEED=7` differs.
+
+| Clients | Seed 42 TPS | Seed 7 TPS | Difference | Seed 7 retried | Seed 7 warmup exit |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 54.238 | 52.970 | −2.3% | 0 | 0 |
+| 4 | 85.042 | 82.947 | −2.5% | 0 | 0 |
+| 8 | 87.378 | 86.530 | −1.0% | 1 | 0 |
+| 16 | 88.073 | 89.152 | +1.2% | 2 | 0 |
+| 32 | 90.660 | 90.105 | −0.6% | 6 | 0 |
+| 64* | 90.788 | 91.123 | +0.4% | 23 | **2** |
+
+All six measured exits are zero with zero failed transactions, and all six
+validations passed. *The 64-client **warmup** aborted one client at 21:48:14:
+a single-shard T1 COMMIT on worker xcnf2 was cancelled by SERIALIZABLE
+("identification as a pivot, during commit attempt"), but the coordinator
+reported it as `could not commit transaction for shard 102093 on at least one
+active node`. pgbench retries only serialization/deadlock SQLSTATEs, so the
+wrapped error aborted that client. The measurement after the reset completed;
+like Kelvin's a102/c16, this case is flagged and excluded from clean-run
+comparisons. This wrapped commit-time conflict is the likely mechanism behind
+the local four-client aborts at smaller scale, where contention is higher.

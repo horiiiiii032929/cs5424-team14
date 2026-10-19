@@ -21,7 +21,8 @@ over 60 seconds. The [matched full comparison](cluster-full-20261019/README.md)
 all exits zero: a112 54.2–90.8 TPS versus a0 3.2–3.6 TPS (17–28×), no failed
 transactions, and passing validation at every count. T6 now dominates a112's time.
 See [live cluster work](cluster/README.md).
-a112 is the provisional A selection, pending seed-7 repeat 978177 and Kelvin's review.
+Seed-7 repeat 978177 agreed within 2.5% (64-client warmup abort flagged).
+a112 is the provisional A selection, pending Kelvin's review.
 See the [A report draft](../docs/workload-a-report-draft.md) and
 [cluster runbook](../docs/workload-a-cluster-runbook.md).
 
