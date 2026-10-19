@@ -13,7 +13,11 @@ READ ONLY DEFERRABLE test. Failed performance metrics are excluded.
 The [course smoke suite](cluster-smoke-20261019/README.md) completed five cases
 and aborted three. The [first scale-1 a101 diagnostic](cluster-diagnostic-original-20261019/README.md)
 also aborted. Seven deliberate-corruption tests and a 25.753-second full-data
-check validated an exact, faster post-run validator. See [live cluster work](cluster/README.md).
+check validated an exact, faster post-run validator. The [revised scale-1 diagnostics](cluster-diagnostic-20261019/README.md)
+then completed cleanly: a111/a112/a113 observed 89.9/92.4/90.6 TPS at four clients
+over 60 seconds. Full 600-second/six-client-count jobs are a0 977740 (running)
+and a112 977773 (queued on the same nodes); those results remain pending.
+See [live cluster work](cluster/README.md).
 There is no final A selection yet.
 See the [A report draft](../docs/workload-a-report-draft.md) and
 [cluster runbook](../docs/workload-a-cluster-runbook.md).
@@ -96,9 +100,10 @@ timings for design comparisons.
 3. Choose the final design from that evidence. Retain unsuccessful experiments
    as useful findings and match report experiment IDs to the submitted folders.
 
-SoC SSH timed out before authentication on 14 October. No new Slurm jobs have
-been submitted and no existing team-cluster files were changed. The isolated
-upload and submission commands are in the [main README](../README.md).
+At the 14 October checkpoint, SoC SSH timed out before authentication and no
+new Slurm jobs had been submitted. Access was restored on 19 October; see the
+current follow-up above. Existing team files remain preserved. Isolated upload
+and submission commands are in the [main README](../README.md).
 
 ## Dessi's existing course-cluster baselines
 

@@ -1,0 +1,34 @@
+2026-10-19 17:29:15.196 +08 [3643371] LOG:  There is no designated Main database.
+2026-10-19 17:29:15.196 +08 [3643371] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 17:29:15.196 +08 [3643371] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 17:29:15.348 +08 [3643371] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 17:29:15.348 +08 [3643371] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 17:29:15.348 +08 [3643371] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 17:29:15.349 +08 [3643371] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 17:29:15.354 +08 [3643378] LOG:  database system was shut down at 2026-10-19 17:29:15 +08
+2026-10-19 17:29:15.358 +08 [3643371] LOG:  database system is ready to accept connections
+2026-10-19 17:29:18.027 +08 [3643386] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 17:29:18.027 +08 [3643386] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 17:33:49.386 +08 [3643386] WARNING:  terminating connection due to administrator command
+2026-10-19 17:33:49.386 +08 [3643386] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 17:33:51.396 +08 [3643386] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 17:33:51.396 +08 [3643386] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 17:33:51.396 +08 [3643386] WARNING:  terminating connection due to administrator command
+2026-10-19 17:33:51.396 +08 [3643386] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 17:33:51.396 +08 [3643386] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 17:33:51.396 +08 [3643386] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 17:33:52.686 +08 [3643371] LOG:  received fast shutdown request
+2026-10-19 17:33:52.686 +08 [3643371] LOG:  aborting any active transactions
+2026-10-19 17:33:52.686 +08 [3643427] FATAL:  terminating connection due to administrator command
+2026-10-19 17:33:52.692 +08 [3643371] LOG:  background worker "logical replication launcher" (PID 3643381) exited with exit code 1
+2026-10-19 17:33:52.698 +08 [3643376] LOG:  shutting down
+2026-10-19 17:33:52.698 +08 [3643376] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 17:33:53.851 +08 [3643376] LOG:  checkpoint complete: wrote 122964 buffers (93.8%), wrote 5 SLRU buffers; 0 WAL file(s) added, 0 removed, 139 recycled; write=1.126 s, sync=0.005 s, total=1.154 s; sync files=907, longest=0.001 s, average=0.001 s; distance=2283434 kB, estimate=2283434 kB; lsn=0/8CD49A38, redo lsn=0/8CD49A38
+2026-10-19 17:33:54.184 +08 [3643371] LOG:  database system is shut down

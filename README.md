@@ -13,8 +13,10 @@ but its 16-client warmup aborted; that case is flagged. Clean concurrent cases
 show 49–57% observed gains over a0. The original correctness suite passed 138
 checks; a109–a113 passed 151 follow-up checks. Their local concurrency failures
 remain unresolved. On the cluster, a102 smoke passed; a101/a111/a112 aborted at
-four clients. Scale-1 diagnostics and a faster exact post-run validator are
-recorded in [cluster evidence](results/cluster/README.md). No final A design is selected.
+four clients. After the validator repair, scale-1 diagnostics for a111/a112/a113
+completed cleanly at 89.9/92.4/90.6 TPS. Full baseline job 977740 is running;
+a112 job 977773 is queued on the same xcnf0–4 nodes. Full results are pending.
+See [cluster evidence](results/cluster/README.md). No final A design is selected.
 See [results and next steps](results/README.md), the [A report draft](docs/workload-a-report-draft.md)
 and [cluster runbook](docs/workload-a-cluster-runbook.md).
 

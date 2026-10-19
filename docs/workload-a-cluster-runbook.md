@@ -5,6 +5,11 @@ experiments have been retrieved and reviewed. The isolated deployment is
 `/home/stuproj/cs14/citus_hikaru_20261019-165234_365eafd`.
 Smoke jobs 977432–977435 ran on xcnf0–4. a102 passed at one/four clients;
 a101/a111/a112 passed at one client and aborted at four. Preserve those failures.
+The revised deployment is `/home/stuproj/cs14/citus_hikaru_20261019-172259_cf48c8d`.
+Scale-1 diagnostics a111/a112/a113 (977617/977618/977619) completed cleanly,
+including exact validation. Full control a0 977740 is running; candidate a112
+977773 is queued after it on the same requested xcnf0–4 nodes. Do not resubmit
+these jobs while they remain active. Full results are pending; see `results/cluster/`.
 
 ## Before submission
 
@@ -13,7 +18,8 @@ a101/a111/a112 passed at one client and aborted at four. Preserve those failures
    including config, topology, source hashes, summary, transaction metrics,
    validation, PostgreSQL logs and Slurm output/error. Keep its exact source.
 3. Check the current experiment directories and agree IDs with Kelvin.
-   His update names a10/a11/a12/a14. New a109–a112 are provisional until checked.
+   His update names a10/a11/a12/a14. At the successful inspection a109–a113
+   were unused in the shared project; our copies use isolated directories.
 4. Upload committed files into a fresh directory using `bash scripts/upload_cluster.sh`.
    Reuse ~/pgsql and preserve Dessi's ~/citus_project. Do not run the installer.
 
@@ -44,7 +50,7 @@ Before full runs, distinguish the scale-0.01 contention result from the course
 data size with a short four-client diagnostic:
 
 ```sh
-bash scripts/submit_cluster.sh diagnostic expt_a101 expt_a111 expt_a112
+bash scripts/submit_cluster.sh diagnostic expt_a111 expt_a112 expt_a113
 ```
 
 This uses scale 1 and the original 60-second warmup, followed by a 60-second

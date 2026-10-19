@@ -101,7 +101,9 @@ an invalid experiment. These checks submitted no real jobs.
 
 Initial SSH inspections timed out; access was later restored. a102 job 965657
 and Kelvin's four write-side variants were retrieved. Smoke tests reproduced
-the concurrent failure, so revised scale-1 diagnostics are running before any
-full suite. The [runbook](../../docs/workload-a-cluster-runbook.md)
+the concurrent failure. Revised scale-1 diagnostics a111/a112/a113 subsequently
+completed cleanly at about 90–92 TPS with exact validation. Full a0 977740 is
+running and a112 977773 is queued on the same requested nodes; full results
+remain pending. The [runbook](../../docs/workload-a-cluster-runbook.md)
 and [draft A report sections](../../docs/workload-a-report-draft.md) preserve the
 next steps. The final design and scale-1 comparisons remain pending.

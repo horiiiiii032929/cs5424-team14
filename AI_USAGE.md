@@ -35,6 +35,13 @@ Tool: OpenAI Codex. Team 14; work attributed to Hikaru for team review.
   Cancelled only the affected own jobs and resubmitted diagnostics with the
   replacement. a113 passed 29 correctness checks but its local warmup still
   aborted. Added a reproducible baseline/index figure with the warmup caveat.
+  Reviewed completed scale-1 diagnostics 977617–977619: all phases and exact
+  validators passed, with observed configured-duration TPS 89.917/92.383/90.550.
+  Submitted the original full matrix for a0 control 977740 and a112 candidate
+  977773 on matched xcnf0–4 nodes; replaced only pending candidate 977741 to
+  correct its node request and verified the full settings. Full results remain
+  pending. Inserted and checked the report figure in the shared Google Doc,
+  preserving the B text and all 15 existing tables.
 
 Keep the conversation export with prompts and outputs for the required
 `14_ai_tool.zip` reports. This short record is an index, not a replacement for

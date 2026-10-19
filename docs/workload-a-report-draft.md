@@ -161,7 +161,7 @@ separately from that fixture; these checks do not establish course-cluster speed
 Both a111 and a112 aborted during the local four-client warmup. Together with
 the four merchant-colocation cases above, all six follow-up stress cases failed.
 All 40 post-failure integrity checks passed. No failed TPS is used in a ranking;
-the next decision requires diagnostic cluster runs and review of Kelvin's raw data.
+these local failures remain separate from the subsequent course-scale diagnostics.
 
 ### 3.5 Safe read-only snapshots as a separate test
 
@@ -197,14 +197,28 @@ a111/a112/a113 are jobs 977617/977618/977619. They use the original 60-second
 warmup, a diagnostic 60-second measurement and a fresh initial dataset without
 a redundant reload for the single client count.
 
+All three revised jobs completed both phases with exit zero, no measured failed
+records, serialization failures or retries, and passing exact validation. a111
+completed 5395 scripts (89.917 TPS), a112 5543 (92.383 TPS), and a113 5433
+(90.550 TPS), using completed scripts divided by the configured 60 seconds.
+Their pgbench elapsed-time TPS was 89.347/91.951/89.755 respectively. Runtime
+hashes match the retrieved code. These single short observations show eligibility
+for further testing, not a reliable ranking or a demonstrated general concurrency
+fix. The smaller-fixture failures remain preserved.
+
 ### 3.7 Final comparison still required
 
-Run matched baseline/index/colocation comparisons on xcnf nodes at scale 1 with
-1/4/8/16/32/64 clients, 60-second warmup and 600-second measurements. Retain
+Full a0 control job 977740 is running on xcnf0–4; a112 candidate job 977773 is
+queued after it and explicitly requests the same five nodes. Their scale-1
+matrix restores 1/4/8/16/32/64 clients, 60-second warmups, 600-second measurements,
+data resets between client counts, seed 42 and full log sampling. The baseline
+configuration and candidate Slurm node request have been verified. Pending
+candidate 977741 was replaced before starting to correct its node request.
+Full results remain pending. Retain
 source hashes, actual topology, retries, failed transaction counts, nonzero exits,
 validation and per-transaction latency. Repeat promising variants with recorded
-seeds. Confirm new experiment IDs with Kelvin before uploading into the shared
-account; use an isolated directory.
+seeds. These runs use an isolated directory, preserving the shared team project
+and installation. The internal experiment cutoff remains 23 October.
 
 No final A design or definitive speedup is claimed in this draft. Local timing
 and teammate-reported cluster numbers remain separate from independently
@@ -221,10 +235,11 @@ verified course-cluster measurements.
 
 ## Hikaru contribution draft
 
-Designed and implemented A variants a101–a112 (including adaptation of Dessi's
-B placement design for a111/a112); built experiment generation,
+Designed and implemented A variants a101–a113 (including adaptation of Dessi's
+B placement design for a111–a113); built experiment generation,
 distributed correctness checks, local benchmark infrastructure and submission
 helpers; preserved evidence and failures; established the public team repository;
-drafted A analysis and coordinated packaging. Kelvin ran cluster a102 and owns
+reviewed cluster evidence, repaired exact post-run validation, ran course
+diagnostics, drafted A analysis and coordinated packaging. Kelvin ran cluster a102 and owns
 a10/a11/a12/a14. Dessi supplied original A/B baselines and the B experiment/report
 work. Confirm full names and remaining contributions with the team before submission.

@@ -1,0 +1,24 @@
+2026-10-19 17:29:15.189 +08 [3000173] LOG:  There is no designated Main database.
+2026-10-19 17:29:15.189 +08 [3000173] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 17:29:15.189 +08 [3000173] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 17:29:15.340 +08 [3000173] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 17:29:15.340 +08 [3000173] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 17:29:15.340 +08 [3000173] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 17:29:15.341 +08 [3000173] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 17:29:15.346 +08 [3000180] LOG:  database system was shut down at 2026-10-19 17:29:13 +08
+2026-10-19 17:29:15.350 +08 [3000173] LOG:  database system is ready to accept connections
+2026-10-19 17:29:17.943 +08 [3000188] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 17:29:17.943 +08 [3000188] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 17:33:49.383 +08 [3000188] WARNING:  terminating connection due to administrator command
+2026-10-19 17:33:49.383 +08 [3000188] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 17:33:49.935 +08 [3000173] LOG:  received fast shutdown request
+2026-10-19 17:33:49.935 +08 [3000173] LOG:  aborting any active transactions
+2026-10-19 17:33:49.936 +08 [3000203] FATAL:  terminating connection due to administrator command
+2026-10-19 17:33:49.936 +08 [3000204] FATAL:  terminating connection due to administrator command
+2026-10-19 17:33:49.936 +08 [3000237] FATAL:  terminating connection due to administrator command
+2026-10-19 17:33:49.944 +08 [3000173] LOG:  background worker "logical replication launcher" (PID 3000183) exited with exit code 1
+2026-10-19 17:33:49.948 +08 [3000178] LOG:  shutting down
+2026-10-19 17:33:49.948 +08 [3000178] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 17:33:51.096 +08 [3000178] LOG:  checkpoint complete: wrote 123113 buffers (93.9%), wrote 5 SLRU buffers; 0 WAL file(s) added, 0 removed, 139 recycled; write=1.119 s, sync=0.005 s, total=1.148 s; sync files=907, longest=0.001 s, average=0.001 s; distance=2283708 kB, estimate=2283708 kB; lsn=0/8CD8DF88, redo lsn=0/8CD8DF88
+2026-10-19 17:33:51.430 +08 [3000173] LOG:  database system is shut down

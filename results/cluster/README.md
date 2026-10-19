@@ -20,6 +20,8 @@ Source, topology, settings, versions, raw logs and validation were reviewed.
 | Scale-0.01 smoke | a101 977433; a111 977434; a112 977435 | One client completed; four-client warmup/measurement aborted. |
 | Original scale-1 diagnostic | a101 977468 | Four-client warmup/measurement aborted; original validation was too slow. Independent exact validation passed; job then cancelled. |
 | Original dependent diagnostics | a111 977469; a112 977470 | Cancelled before starting to replace the validator. |
+| Revised scale-1 diagnostics | a111 977617; a112 977618; a113 977619 | All warmups/measurements completed; zero measured failures/retries; exact validation passed. |
+| Full scale-1 matrix | a0 977740; a112 977773 | Baseline running; candidate queued after it, explicitly requesting the same xcnf0–4 nodes. Results pending. |
 
 The [smoke evidence](../cluster-smoke-20261019/README.md) and
 [original diagnostic evidence](../cluster-diagnostic-original-20261019/README.md)
@@ -49,6 +51,18 @@ initial data load (no redundant second load for this single client count).
 See `revised-diagnostic-submission-20261019.txt` for job IDs. These are diagnostic
 measurements, not the final six-client 600-second benchmark matrix.
 
-No final A winner is selected. Full runs require review of these diagnostic exits,
-warmup, validation and failure logs. Repeat the strongest eligible design under
-the original full benchmark protocol before final selection.
+All three revised diagnostics completed cleanly. Their configured-duration TPS
+was 89.917/92.383/90.550 for a111/a112/a113; one 60-second observation per variant
+does not establish a ranking. [Complete source and raw evidence](../cluster-diagnostic-20261019/README.md)
+includes zero warmup/measurement exits and passing exact validation.
+
+The full comparison advances a112 against a fresh original a0 control. It restores
+all six client counts, 60-second warmups, 600-second measurements, per-count
+data resets, seed 42, SERIALIZABLE isolation and full log sampling. Baseline
+977740 is running on xcnf0–4. Candidate 977773 explicitly requests those nodes
+and depends on the baseline. Pending candidate 977741 was cancelled and replaced
+before starting because the initial environment-variable node request was not
+recognized; `full-node-pin-correction-20261019.json` preserves the correction.
+`full-protocol-verification-20261019.json` records the checked baseline settings
+and candidate Slurm node request. No full performance results or final A winner
+are claimed. Review every phase, validation and failure log, then assess repeats.

@@ -3,12 +3,16 @@
 Account: hori0329@gmail.com
 
 19 October update: the shared ideas document's Report tab now contains Hikaru's
-draft sections 2–3, including the preserved A baseline, Kelvin's attributed cluster
-update, and the follow-up's 122 passing correctness checks/six aborted local stress
-cases. The B report text and 15 existing tables were preserved and verified.
-The ideas tab also has a dated status update. Code/evidence are in
+draft sections 2–3, including the preserved A baseline, independently reviewed
+Kelvin results (with a102's 16-client warmup caveat), 151 follow-up correctness
+checks, seven local stress failures and seven validator regression checks.
+The reproducible baseline/index figure fits the native report text width.
+The B report text and 15 existing tables were preserved and verified.
+The ideas tab also has dated status updates. Code/evidence are in
 [draft PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1).
-New cluster work remains blocked by SSH; no final A design is selected.
+SSH is restored. Three revised scale-1 diagnostics completed cleanly at about
+90–92 TPS. Full control a0 977740 is running and candidate a112 977773 is queued
+on the same xcnf0–4 nodes; full results and final A selection remain pending.
 
 [Public team code repository](https://github.com/horiiiiii032929/cs5424-team14)
 Created 14 October 2026 and made public at Hikaru’s request. Anyone can view and
