@@ -1,7 +1,10 @@
 # Workload A follow-up runs
 
-19 October 2026. New cluster work is blocked by SSH timing out before login.
-No new jobs have been submitted by this follow-up. Job 965657 was run by Kelvin.
+19 October 2026. SSH access is restored. Kelvin's job 965657 and write-side
+experiments have been retrieved and reviewed. The isolated deployment is
+`/home/stuproj/cs14/citus_hikaru_20261019-165234_365eafd`.
+Smoke jobs 977432–977435 ran on xcnf0–4. a102 passed at one/four clients;
+a101/a111/a112 passed at one client and aborted at four. Preserve those failures.
 
 ## Before submission
 
@@ -36,6 +39,17 @@ the narrower join-key placement in a111/a112. Retain the failed variants as
 evidence; reproduce them on the cluster only when useful to the diagnosis.
 
 ## Full comparison after reviewing smoke results
+
+Before full runs, distinguish the scale-0.01 contention result from the course
+data size with a short four-client diagnostic:
+
+```sh
+bash scripts/submit_cluster.sh diagnostic expt_a101 expt_a111 expt_a112
+```
+
+This uses scale 1 and the original 60-second warmup, followed by a 60-second
+measurement at four clients. It is a diagnostic, not the final 600-second result.
+Do not promote a design with an aborted diagnostic into a full performance claim.
 
 Select the candidates supported by smoke/correctness results. For example:
 

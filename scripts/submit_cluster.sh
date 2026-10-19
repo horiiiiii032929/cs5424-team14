@@ -3,7 +3,7 @@
 set -euo pipefail
 root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 mode="${1:-smoke}"
-case "$mode" in smoke|full) ;; *) echo 'Usage: scripts/submit_cluster.sh smoke|full [expt_aN ...]' >&2; exit 2;; esac
+case "$mode" in smoke|diagnostic|full) ;; *) echo 'Usage: scripts/submit_cluster.sh smoke|diagnostic|full [expt_aN ...]' >&2; exit 2;; esac
 if (( $# )); then shift; fi
 experiments=("$@")
 if (( ${#experiments[@]} == 0 )); then
@@ -30,6 +30,10 @@ for expt in "${experiments[@]}"; do
   if [[ "$mode" == smoke ]]; then
     # One client alone misses the known concurrent commit failures.
     args+=("--export=ALL,SCALE=0.01,DURATION=20,WARMUP_DURATION=5,CLIENT_COUNTS=1 4,PROGRESS_INTERVAL=5")
+  elif [[ "$mode" == diagnostic ]]; then
+    # Preserve the course-sized data and original warmup, but use a short
+    # four-client measurement to diagnose failures before a full matrix.
+    args+=("--export=ALL,SCALE=1,DURATION=60,WARMUP_DURATION=60,CLIENT_COUNTS=4,PROGRESS_INTERVAL=10")
   else
     args+=("--export=ALL,SCALE=1,DURATION=600,WARMUP_DURATION=60,CLIENT_COUNTS=1 4 8 16 32 64")
   fi
