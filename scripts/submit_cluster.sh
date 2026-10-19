@@ -26,6 +26,9 @@ for expt in "${experiments[@]}"; do
   dir="$root/citus_project_team_14/$expt"
   bash -n "$dir/run.sh"
   args=(--parsable --mail-type=NONE --constraint=xcnf --job-name="team14-hikaru-$mode")
+  if [[ -n "${BENCHMARK_NODELIST:-}" ]]; then
+    args+=("--nodelist=$BENCHMARK_NODELIST")
+  fi
   if [[ -n "$dependency" ]]; then args+=(--dependency="$dependency_kind:$dependency"); fi
   if [[ "$mode" == smoke ]]; then
     # One client alone misses the known concurrent commit failures.

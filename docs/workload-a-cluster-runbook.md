@@ -59,6 +59,11 @@ Select the candidates supported by smoke/correctness results. For example:
 bash scripts/submit_cluster.sh full expt_a0 expt_a102 expt_a111 expt_a112
 ```
 
+For a matched hardware comparison, explicitly pin the same five nodes with
+`BENCHMARK_NODELIST='xcnf[0-4]' bash scripts/submit_cluster.sh full expt_a0 expt_a112`.
+The helper passes this as sbatch's --nodelist option. Confirm ReqNodeList/NodeList
+with scontrol rather than relying on an assumed Slurm environment-variable name.
+
 Use the listed full matrix only if all of those comparisons remain useful after
 review. Fresh matched a0/a102 controls are useful when topology or environment
 differs from Kelvin's existing run; do not rerun them merely to duplicate evidence.
