@@ -1,9 +1,10 @@
 # Draft report sections 2–3: Workload A
 
-Prepared 19 October 2026. This is a working draft; the final design and cluster
-comparisons remain open. Kelvin's a102/a10/a11/a12/a14 update is recorded in
-`results/team-update-20261019/kelvin-update.json` as teammate-reported evidence.
-Its raw cluster files have not yet been retrieved and checked here.
+Prepared 19 October 2026. This is a working draft; the final design and repeated
+cluster comparisons remain open. Kelvin's a102/a10/a11/a12/a14 source update is
+preserved in `results/team-update-20261019/kelvin-update.json`. After SSH access
+was restored, his raw folders were retrieved and reviewed in
+`results/cluster-import-20261019/`. New diagnostic jobs are recorded in `results/cluster/`.
 
 ## 2. Task 1: Baseline design for workload A
 
@@ -75,28 +76,53 @@ The original short local pilot completed 16 of 18 cases. a101 aborted during
 four-client warmup and a108 during four-client measurement. Their partial
 performance measurements are excluded from comparisons.
 
-### 3.2 Course-cluster evidence reported by Kelvin
+### 3.2 Verified course-cluster evidence from Kelvin's experiments
 
 Kelvin ran a102 unchanged from commit 82058e6 as job 965657, with results under
-`/home/stuproj/cs14/citus_project/expt_a102`. He reports 3.25 TPS at one client
-and 3.40 TPS at 64 clients, versus 3.220 and 2.283 in the preserved baseline.
-These endpoints imply approximately 0.9% and 48.9% higher throughput respectively;
-they are single-run observations, not confidence estimates. Kelvin reports
-40–65% improvement from four clients upward, zero serialization failures, and
-passing verify.sql at every client count. The full six-client matrix, node
-topology, raw logs and source hashes still require independent review here.
+`/home/stuproj/cs14/citus_project/expt_a102`. On retrieval, all 12 source files
+matched that version and the saved runtime hashes. The topology was xcnf1
+coordinator and xcnf2–5 workers, with recorded PostgreSQL 18.6/Citus 14.1.0,
+scale 1 and the original benchmark settings. All six measured-phase pgbench
+exits are zero, with zero measured serialization failures and six passing core
+validation records. The 16-client warmup nevertheless exited 2; that observation
+is flagged and excluded from clean-run comparisons. Other a102 warmups exited zero.
 
-He reports T7's one-client average latency falling from about 51 to 14 ms,
-but T3/T4 remaining about 2.67 s / 454 ms and together roughly 94% of time.
+| Clients | a0 TPS | a102 TPS | Observed gain |
+|---:|---:|---:|---:|
+| 1 | 3.220 | 3.250 | 0.93% |
+| 4 | 2.283 | 3.453 | 51.25% |
+| 8 | 2.285 | 3.543 | 55.05% |
+| 16* | 2.368 | 3.320 | 40.20% |
+| 32 | 2.405 | 3.782 | 57.26% |
+| 64 | 2.283 | 3.398 | 48.84% |
+
+*The 16-client measurement completed after an aborted warmup. These are
+single-run observations, not confidence estimates. The observed range
+from four clients upward is 40–57%, refining the approximate teammate-reported
+40–65%. Nodes differ within the same xcnf family; matched repetitions are still needed.
+
+![Workload A baseline and lookup-index throughput, with recorded time shares](figures/workload-a-baseline-indexes.png)
+
+The hollow point flags the completed 16-client measurement after an aborted
+warmup. Clean concurrent observations (4/8/32/64 clients) show 49–57% gains.
+The figure is reproducible with `python3 scripts/plot_a_baseline_comparison.py`;
+the SVG, reviewed data and chart contract are retained beside the PNG.
+
+The retrieved T7 one-client average latency falls from 51.114 to 13.709 ms,
+but T3/T4 remain 2668.472/454.362 ms. Weighting completed counts by mean latency,
+those two transactions account for 94.05% of recorded time at one client.
 This supports testing colocation as the next step rather than expecting lookup
 indexes alone to remove distributed joins.
 
 Kelvin's separate experiments on top of a102 are a10 (autocommit T2/T5/T8/T9),
 a11 (fillfactor 80), a12 (synchronous_commit off), and a14 (VACUUM only).
-He reports no material overall TPS gains. a10 had a T1 client abort at 32
-clients; its affected measurement must not be treated as a valid full-client
-performance result. a11's zero-retry observation needs repetition. These are
-Kelvin's experiments and should be attributed accordingly in contributions.
+The downloaded full matrices show no consistent material overall TPS gain.
+a10's 32-client measurement has pgbench exit 2 and is excluded from eligible TPS.
+a11's zero-retry observation needs repetition. a14 records one serialization
+failure at 32 clients. These are Kelvin's experiments and should be attributed
+accordingly in contributions. All 30 imported cases are indexed in case-review.csv;
+six core validation records per job do not make the aborted a10 case or the
+a102/c16 aborted warmup eligible for clean-run comparison.
 
 ### 3.3 Follow-up: read-only access declarations
 
@@ -137,7 +163,41 @@ the four merchant-colocation cases above, all six follow-up stress cases failed.
 All 40 post-failure integrity checks passed. No failed TPS is used in a ranking;
 the next decision requires diagnostic cluster runs and review of Kelvin's raw data.
 
-### 3.5 Final comparison still required
+### 3.5 Safe read-only snapshots as a separate test
+
+a113 adds READ ONLY DEFERRABLE to a112's T3/T4/T6, without changing their query
+bodies or lowering isolation. PostgreSQL permits these read-only transactions
+to wait for a safe snapshot. This mode was tested separately from a109–a112.
+a113 passed 29 correctness checks, but the four-client local warmup still
+aborted, including a T2 shard-commit failure. All five post-failure integrity
+checks passed. No performance gain or general fix is claimed.
+
+### 3.6 Course diagnostics and validation cost
+
+The xcnf smoke suite tested a102/a101/a111/a112 at one/four clients. Five cases
+completed both phases; all three optimized placement variants aborted at four
+clients, while the a102 control completed. All eight post-measurement core
+validation records passed. These tests use scale 0.01 and short durations and
+must remain separate from full results.
+
+a101 then ran at scale 1/four clients with 60-second warmup and measurement
+(job 977468). Both phases aborted. Its original global-ID validation remained
+active on the coordinator for over eleven minutes after worker aggregation had
+finished. The query plan underestimates the final number of global-ID groups.
+An equivalent exact COUNT(DISTINCT) validator checked the same full dataset in
+25.753 seconds. Seven regression checks demonstrated acceptance of valid data,
+rejection of duplicate global order/item IDs and wrong totals, and acceptance
+after restoration. The original job was cancelled only after independent exact
+validation passed; dependent jobs were cancelled before starting.
+
+This repair affects post-measurement validation only. Benchmark SQL, isolation,
+workload mix, retries and timing are unchanged. Runtime hashes identify the
+validator used in each attempt. Revised scale-1/four-client diagnostics for
+a111/a112/a113 are jobs 977617/977618/977619. They use the original 60-second
+warmup, a diagnostic 60-second measurement and a fresh initial dataset without
+a redundant reload for the single client count.
+
+### 3.7 Final comparison still required
 
 Run matched baseline/index/colocation comparisons on xcnf nodes at scale 1 with
 1/4/8/16/32/64 clients, 60-second warmup and 600-second measurements. Retain

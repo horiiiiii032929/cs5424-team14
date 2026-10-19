@@ -1,0 +1,197 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Custom Scan",
+      "Custom Plan Provider": "Citus Adaptive",
+      "Parallel Aware": false,
+      "Async Capable": false,
+      "Startup Cost": 0.00,
+      "Total Cost": 0.00,
+      "Plan Rows": 0,
+      "Plan Width": 0,
+      "Disabled": false,
+      "Output": ["remote_scan.\"exists\""],
+      "Distributed Query": {
+        "Subplans": [
+          {
+            "PlannedStmt": [
+              {
+                "Plan": {
+                  "Node Type": "Custom Scan",
+                  "Custom Plan Provider": "Citus Adaptive",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Startup Cost": 0.00,
+                  "Total Cost": 0.00,
+                  "Plan Rows": 100000,
+                  "Plan Width": 4,
+                  "Disabled": false,
+                  "Output": ["remote_scan.\"?column?\""],
+                  "Distributed Query": {
+                    "Job": {
+                      "Task Count": 32,
+                      "Tasks Shown": "One of 32",
+                      "Tasks": [
+                        {
+                          "Query": "SELECT 1 AS \"?column?\" FROM (SELECT FROM (public.orders_102104 o LEFT JOIN (SELECT order_items.merchant_id, order_items.order_id, (sum(((order_items.quantity)::numeric OPERATOR(pg_catalog.*) order_items.unit_price)))::numeric(12,2) AS amount FROM public.order_items_102136 order_items GROUP BY order_items.merchant_id, order_items.order_id) x ON (((o.order_id OPERATOR(pg_catalog.=) x.order_id) AND (o.merchant_id OPERATOR(pg_catalog.=) x.merchant_id)))) WHERE (o.total_amount IS DISTINCT FROM COALESCE(x.amount, (0)::numeric))) worker_subquery",
+                          "Node": "host=xcnf1 port=5446 dbname=project-977468",
+                          "Remote Plan": [
+                            [
+                              {
+                                "Plan": {
+                                  "Node Type": "Hash Join",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Join Type": "Left",
+                                  "Startup Cost": 18382.35,
+                                  "Total Cost": 23118.03,
+                                  "Plan Rows": 135910,
+                                  "Plan Width": 4,
+                                  "Disabled": false,
+                                  "Output": ["1"],
+                                  "Inner Unique": true,
+                                  "Hash Cond": "((o.order_id = x.order_id) AND (o.merchant_id = x.merchant_id))",
+                                  "Filter": "(o.total_amount IS DISTINCT FROM COALESCE(x.amount, '0'::numeric))",
+                                  "Plans": [
+                                    {
+                                      "Node Type": "Seq Scan",
+                                      "Parent Relationship": "Outer",
+                                      "Parallel Aware": false,
+                                      "Async Capable": false,
+                                      "Relation Name": "orders_102104",
+                                      "Schema": "public",
+                                      "Alias": "o",
+                                      "Startup Cost": 0.00,
+                                      "Total Cost": 4022.13,
+                                      "Plan Rows": 135913,
+                                      "Plan Width": 22,
+                                      "Disabled": false,
+                                      "Output": ["o.order_id", "o.merchant_id", "o.customer_id", "o.order_status", "o.total_amount", "o.created_at"]
+                                    },
+                                    {
+                                      "Node Type": "Hash",
+                                      "Parent Relationship": "Inner",
+                                      "Parallel Aware": false,
+                                      "Async Capable": false,
+                                      "Startup Cost": 16362.30,
+                                      "Total Cost": 16362.30,
+                                      "Plan Rows": 134670,
+                                      "Plan Width": 32,
+                                      "Disabled": false,
+                                      "Output": ["x.amount", "x.order_id", "x.merchant_id"],
+                                      "Plans": [
+                                        {
+                                          "Node Type": "Subquery Scan",
+                                          "Parent Relationship": "Outer",
+                                          "Parallel Aware": false,
+                                          "Async Capable": false,
+                                          "Alias": "x",
+                                          "Startup Cost": 12995.55,
+                                          "Total Cost": 16362.30,
+                                          "Plan Rows": 134670,
+                                          "Plan Width": 32,
+                                          "Disabled": false,
+                                          "Output": ["x.amount", "x.order_id", "x.merchant_id"],
+                                          "Plans": [
+                                            {
+                                              "Node Type": "Aggregate",
+                                              "Strategy": "Hashed",
+                                              "Partial Mode": "Simple",
+                                              "Parent Relationship": "Subquery",
+                                              "Parallel Aware": false,
+                                              "Async Capable": false,
+                                              "Startup Cost": 12995.55,
+                                              "Total Cost": 15015.60,
+                                              "Plan Rows": 134670,
+                                              "Plan Width": 32,
+                                              "Disabled": false,
+                                              "Output": ["order_items.merchant_id", "order_items.order_id", "(sum(((order_items.quantity)::numeric * order_items.unit_price)))::numeric(12,2)"],
+                                              "Group Key": ["order_items.merchant_id", "order_items.order_id"],
+                                              "Planned Partitions": 0,
+                                              "Plans": [
+                                                {
+                                                  "Node Type": "Seq Scan",
+                                                  "Parent Relationship": "Outer",
+                                                  "Parallel Aware": false,
+                                                  "Async Capable": false,
+                                                  "Relation Name": "order_items_102136",
+                                                  "Schema": "public",
+                                                  "Alias": "order_items",
+                                                  "Startup Cost": 0.00,
+                                                  "Total Cost": 7894.69,
+                                                  "Plan Rows": 408069,
+                                                  "Plan Width": 27,
+                                                  "Disabled": false,
+                                                  "Output": ["order_items.order_item_id", "order_items.merchant_id", "order_items.order_id", "order_items.product_id", "order_items.quantity", "order_items.unit_price"]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "Job": {
+          "Task Count": 1,
+          "Tasks Shown": "All",
+          "Tasks": [
+            {
+              "Query": "SELECT (EXISTS (SELECT intermediate_result.\"?column?\" FROM read_intermediate_result('1_1'::text, 'binary'::citus_copy_format) intermediate_result(\"?column?\" integer))) AS \"exists\"",
+              "Node": "host=localhost port=5446 dbname=project-977468",
+              "Remote Plan": [
+                [
+                  {
+                    "Plan": {
+                      "Node Type": "Result",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Startup Cost": 0.01,
+                      "Total Cost": 0.02,
+                      "Plan Rows": 1,
+                      "Plan Width": 1,
+                      "Disabled": false,
+                      "Output": ["(InitPlan 1).col1"],
+                      "Plans": [
+                        {
+                          "Node Type": "Function Scan",
+                          "Parent Relationship": "InitPlan",
+                          "Subplan Name": "InitPlan 1",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Function Name": "read_intermediate_result",
+                          "Schema": "pg_catalog",
+                          "Alias": "intermediate_result",
+                          "Startup Cost": 0.00,
+                          "Total Cost": 10.00,
+                          "Plan Rows": 1000,
+                          "Plan Width": 0,
+                          "Disabled": false,
+                          "Function Call": "read_intermediate_result('1_1'::text, 'binary'::citus_copy_format)"
+                        }
+                      ]
+                    }
+                  }
+                ]
+
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "experiment": "expt_a113",
+  "clients": 4,
+  "status": "FAILED",
+  "error": "expt_a113 warmup failed:\npgbench: setting random seed to 42\nWARNING:  could not serialize access due to read/write dependencies among transactions\nDETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.\nHINT:  The transaction might succeed if retried.\nWARNING:  failed to commit transaction on worker3:5432\npgbench: error: client 2 script 1 aborted in command 15 query 0: ERROR:  could not commit transaction for shard 102239 on at least one active node\nWARNING:  could not serialize access due to read/write dependencies among transactions\nDETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.\nHINT:  The transaction might succeed if retried.\nWARNING:  connection to the remote node postgres@worker1:5432 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions\nDETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.\nHINT:  The transaction might succeed if retried.\nanother command is already in progress\npgbench: error: Run was aborted; the above results are incomplete.\n",
+  "post_failure_checks": {
+    "after_failure_nonnegative_inventory": true,
+    "after_failure_unique_order_ids": true,
+    "after_failure_unique_item_ids": true,
+    "after_failure_items_have_matching_orders": true,
+    "after_failure_matching_order_totals": true
+  }
+}

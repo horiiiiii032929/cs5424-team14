@@ -2,14 +2,19 @@
 
 ## 19 October follow-up
 
-Kelvin reports a102 cluster job 965657, unchanged from 82058e6, with improved
-throughput and passing validation. His raw result files have not been fetched
-here because SSH still times out. [Attribution and full follow-up](followup-20261019/README.md).
+Kelvin's a102/job 965657 source and raw results are now verified, along with his
+write-side runs. All six a102 measurements completed, but its 16-client warmup
+aborted and is flagged. Clean concurrent observations show 49–57% gains over a0.
+See the [verified import](cluster-import-20261019/README.md).
 
-Four new variants a109–a112 passed **122 additional correctness checks**. All six
-local four-client stress cases (a101/a108/a109/a110/a111/a112) aborted; read-only
-declarations and the B-style join placement did not resolve this local failure.
-Failed performance metrics are excluded. No new Slurm jobs or final A selection.
+Five follow-up variants a109–a113 passed **151 additional correctness checks**.
+All seven local four-client stress cases aborted, including the additional
+READ ONLY DEFERRABLE test. Failed performance metrics are excluded.
+The [course smoke suite](cluster-smoke-20261019/README.md) completed five cases
+and aborted three. The [first scale-1 a101 diagnostic](cluster-diagnostic-original-20261019/README.md)
+also aborted. Seven deliberate-corruption tests and a 25.753-second full-data
+check validated an exact, faster post-run validator. See [live cluster work](cluster/README.md).
+There is no final A selection yet.
 See the [A report draft](../docs/workload-a-report-draft.md) and
 [cluster runbook](../docs/workload-a-cluster-runbook.md).
 

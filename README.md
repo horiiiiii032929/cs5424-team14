@@ -7,14 +7,16 @@ This repository holds Dessi's preserved A/B baseline snapshots and Hikaru's
 implementations of five proposed Task 2 designs. The proposed work split is
 Hikaru + Kelvin on A and Dessi + Xincheng on B.
 
-**19 October status:** the original five designs and four follow-up variants are
-implemented. The original correctness suite passed 138 checks; the new variants
-passed 122 more. Kelvin reports a102 cluster job 965657, whose raw files still
-need review here. All six new four-client local stress cases aborted, including
-the read-only and B-style placement variants. No final A design is selected.
+**19 October status:** SSH is restored and Kelvin's a102/job 965657 plus write-side
+results have been retrieved and reviewed. a102 completed all six measurements,
+but its 16-client warmup aborted; that case is flagged. Clean concurrent cases
+show 49–57% observed gains over a0. The original correctness suite passed 138
+checks; a109–a113 passed 151 follow-up checks. Their local concurrency failures
+remain unresolved. On the cluster, a102 smoke passed; a101/a111/a112 aborted at
+four clients. Scale-1 diagnostics and a faster exact post-run validator are
+recorded in [cluster evidence](results/cluster/README.md). No final A design is selected.
 See [results and next steps](results/README.md), the [A report draft](docs/workload-a-report-draft.md)
-and [cluster runbook](docs/workload-a-cluster-runbook.md). New cluster work from
-this checkout is blocked by SSH access.
+and [cluster runbook](docs/workload-a-cluster-runbook.md).
 
 ## Start here
 

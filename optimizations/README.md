@@ -11,10 +11,17 @@
 | Access-mode follow-up | a109/a110 | Add READ ONLY to T3/T4/T6 relative to a101/a108; isolation unchanged. |
 | Join-key placement | a111 | Adapt Dessi's B b1/b2 placement to A on top of a102: inventory/product and item/order colocation. |
 | Placement + access mode | a112 | Add READ ONLY to T3/T4/T6 relative to a111. |
+| Safe read snapshots | a113 | Add DEFERRABLE to a112's read-only transactions, retaining SERIALIZABLE. |
 
-19 October: a109–a112 passed 122 new correctness checks. All six follow-up
+19 October: a109–a113 passed 151 new correctness checks. All seven follow-up
 four-client local cases aborted, including original a101/a108 controls. These
 experiments do not establish a fix or winner. See [follow-up evidence](../results/followup-20261019/README.md).
+
+The colocation variants now use exact COUNT(DISTINCT) global-ID validation after
+measurement. The original GROUP BY validator spent over eleven minutes on the
+scale-1 coordinator; the equivalent complete check took 25.753 seconds and passed
+seven valid/corrupt-data regression checks. a102's original source stays unchanged.
+Runtime source hashes distinguish older and revised validator versions.
 
 No change is assumed to improve performance. Compare each individual version to
 a0, then a108 to the components. Settings remain one-variable experiments; the

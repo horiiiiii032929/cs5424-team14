@@ -1,0 +1,207 @@
+2026-10-17 23:01:29.146 +08 [2762714] LOG:  There is no designated Main database.
+2026-10-17 23:01:29.146 +08 [2762714] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-17 23:01:29.146 +08 [2762714] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-17 23:01:29.254 +08 [2762714] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-17 23:01:29.255 +08 [2762714] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-17 23:01:29.255 +08 [2762714] LOG:  listening on IPv6 address "::", port 5446
+2026-10-17 23:01:29.255 +08 [2762714] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-17 23:01:29.259 +08 [2762721] LOG:  database system was shut down at 2026-10-17 23:01:28 +08
+2026-10-17 23:01:29.263 +08 [2762714] LOG:  database system is ready to accept connections
+2026-10-17 23:01:31.863 +08 [2762735] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-17 23:01:31.863 +08 [2762735] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:04:26.676 +08 [2762719] LOG:  checkpoint starting: immediate force wait
+2026-10-17 23:04:27.550 +08 [2762719] LOG:  checkpoint complete: wrote 121025 buffers (92.3%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 136 recycled; write=0.847 s, sync=0.004 s, total=0.874 s; sync files=907, longest=0.002 s, average=0.001 s; distance=2229249 kB, estimate=2229249 kB; lsn=0/8985F460, redo lsn=0/8985F408
+2026-10-17 23:07:20.309 +08 [2762719] LOG:  checkpoint starting: immediate force wait
+2026-10-17 23:07:21.163 +08 [2762719] LOG:  checkpoint complete: wrote 119472 buffers (91.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 136 recycled; write=0.795 s, sync=0.004 s, total=0.855 s; sync files=287, longest=0.003 s, average=0.001 s; distance=2220496 kB, estimate=2228373 kB; lsn=1/110D3558, redo lsn=1/110D3500
+2026-10-17 23:19:40.597 +08 [2762735] WARNING:  terminating connection due to administrator command
+2026-10-17 23:19:40.597 +08 [2762735] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:19:40.598 +08 [2762735] WARNING:  could not issue cancel request
+2026-10-17 23:19:40.598 +08 [2762735] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-17 23:19:40.598 +08 [2762735] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:19:41.813 +08 [2762714] LOG:  received fast shutdown request
+2026-10-17 23:19:41.813 +08 [2762714] LOG:  aborting any active transactions
+2026-10-17 23:19:41.813 +08 [2880342] FATAL:  terminating connection due to administrator command
+2026-10-17 23:19:41.817 +08 [2762714] LOG:  background worker "logical replication launcher" (PID 2762724) exited with exit code 1
+2026-10-17 23:19:41.819 +08 [2762719] LOG:  shutting down
+2026-10-17 23:19:41.819 +08 [2762719] LOG:  checkpoint starting: shutdown immediate
+2026-10-17 23:19:41.847 +08 [2762719] LOG:  checkpoint complete: wrote 2609 buffers (2.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.027 s, sync=0.001 s, total=0.029 s; sync files=196, longest=0.001 s, average=0.001 s; distance=17912 kB, estimate=2007327 kB; lsn=1/122518D8, redo lsn=1/122518D8
+2026-10-17 23:19:42.097 +08 [2762714] LOG:  database system is shut down
+2026-10-17 23:19:42.226 +08 [2948549] LOG:  There is no designated Main database.
+2026-10-17 23:19:42.226 +08 [2948549] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-17 23:19:42.226 +08 [2948549] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-17 23:19:42.340 +08 [2948549] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-17 23:19:42.340 +08 [2948549] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-17 23:19:42.340 +08 [2948549] LOG:  listening on IPv6 address "::", port 5446
+2026-10-17 23:19:42.340 +08 [2948549] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-17 23:19:42.344 +08 [2948607] LOG:  database system was shut down at 2026-10-17 23:19:41 +08
+2026-10-17 23:19:42.348 +08 [2948549] LOG:  database system is ready to accept connections
+2026-10-17 23:19:43.308 +08 [2948669] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-17 23:19:43.308 +08 [2948669] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:22:40.502 +08 [2948605] LOG:  checkpoint starting: immediate force wait
+2026-10-17 23:22:41.327 +08 [2948605] LOG:  checkpoint complete: wrote 119334 buffers (91.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 135 recycled; write=0.802 s, sync=0.001 s, total=0.825 s; sync files=287, longest=0.001 s, average=0.001 s; distance=2219736 kB, estimate=2219736 kB; lsn=1/99A07988, redo lsn=1/99A07930
+2026-10-17 23:35:03.899 +08 [2948549] LOG:  received fast shutdown request
+2026-10-17 23:35:03.899 +08 [2948549] LOG:  aborting any active transactions
+2026-10-17 23:35:03.899 +08 [3018818] FATAL:  terminating connection due to administrator command
+2026-10-17 23:35:03.903 +08 [2948549] LOG:  background worker "logical replication launcher" (PID 2948610) exited with exit code 1
+2026-10-17 23:35:03.905 +08 [2948605] LOG:  shutting down
+2026-10-17 23:35:03.905 +08 [2948605] LOG:  checkpoint starting: shutdown immediate
+2026-10-17 23:35:03.934 +08 [2948605] LOG:  checkpoint complete: wrote 2876 buffers (2.2%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.028 s, sync=0.001 s, total=0.030 s; sync files=183, longest=0.001 s, average=0.001 s; distance=19265 kB, estimate=1999689 kB; lsn=1/9ACD7F60, redo lsn=1/9ACD7F60
+2026-10-17 23:35:04.187 +08 [2948549] LOG:  database system is shut down
+2026-10-17 23:35:04.309 +08 [3043753] LOG:  There is no designated Main database.
+2026-10-17 23:35:04.309 +08 [3043753] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-17 23:35:04.309 +08 [3043753] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-17 23:35:04.421 +08 [3043753] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-17 23:35:04.421 +08 [3043753] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-17 23:35:04.421 +08 [3043753] LOG:  listening on IPv6 address "::", port 5446
+2026-10-17 23:35:04.422 +08 [3043753] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-17 23:35:04.426 +08 [3043760] LOG:  database system was shut down at 2026-10-17 23:35:03 +08
+2026-10-17 23:35:04.429 +08 [3043753] LOG:  database system is ready to accept connections
+2026-10-17 23:35:05.398 +08 [3043769] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-17 23:35:05.398 +08 [3043769] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:37:58.405 +08 [3043758] LOG:  checkpoint starting: immediate force wait
+2026-10-17 23:37:59.236 +08 [3043758] LOG:  checkpoint complete: wrote 119741 buffers (91.4%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 136 recycled; write=0.794 s, sync=0.001 s, total=0.832 s; sync files=287, longest=0.001 s, average=0.001 s; distance=2220995 kB, estimate=2220995 kB; lsn=2/225C8F50, redo lsn=2/225C8EF8
+2026-10-17 23:50:24.764 +08 [3043769] WARNING:  terminating connection due to administrator command
+2026-10-17 23:50:24.764 +08 [3043769] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:50:24.764 +08 [3043769] WARNING:  terminating connection due to administrator command
+2026-10-17 23:50:24.764 +08 [3043769] CONTEXT:  while executing command on xcnf13:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:50:24.765 +08 [3043769] WARNING:  could not issue cancel request
+2026-10-17 23:50:24.765 +08 [3043769] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-17 23:50:24.765 +08 [3043769] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:50:24.765 +08 [3043769] WARNING:  could not issue cancel request
+2026-10-17 23:50:24.765 +08 [3043769] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-17 23:50:24.765 +08 [3043769] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:50:25.359 +08 [3043753] LOG:  received fast shutdown request
+2026-10-17 23:50:25.360 +08 [3043753] LOG:  aborting any active transactions
+2026-10-17 23:50:25.360 +08 [3109971] FATAL:  terminating connection due to administrator command
+2026-10-17 23:50:25.365 +08 [3043753] LOG:  background worker "logical replication launcher" (PID 3043763) exited with exit code 1
+2026-10-17 23:50:25.366 +08 [3043758] LOG:  shutting down
+2026-10-17 23:50:25.367 +08 [3043758] LOG:  checkpoint starting: shutdown immediate
+2026-10-17 23:50:25.397 +08 [3043758] LOG:  checkpoint complete: wrote 2855 buffers (2.2%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.030 s, sync=0.001 s, total=0.031 s; sync files=175, longest=0.001 s, average=0.001 s; distance=18638 kB, estimate=2000760 kB; lsn=2/237FC898, redo lsn=2/237FC898
+2026-10-17 23:50:25.645 +08 [3043753] LOG:  database system is shut down
+2026-10-17 23:50:25.768 +08 [3136751] LOG:  There is no designated Main database.
+2026-10-17 23:50:25.768 +08 [3136751] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-17 23:50:25.768 +08 [3136751] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-17 23:50:25.885 +08 [3136751] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-17 23:50:25.885 +08 [3136751] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-17 23:50:25.885 +08 [3136751] LOG:  listening on IPv6 address "::", port 5446
+2026-10-17 23:50:25.886 +08 [3136751] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-17 23:50:25.890 +08 [3136758] LOG:  database system was shut down at 2026-10-17 23:50:25 +08
+2026-10-17 23:50:25.893 +08 [3136751] LOG:  database system is ready to accept connections
+2026-10-17 23:50:26.862 +08 [3136768] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-17 23:50:26.862 +08 [3136768] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:53:16.368 +08 [3136756] LOG:  checkpoint starting: immediate force wait
+2026-10-17 23:53:17.227 +08 [3136756] LOG:  checkpoint complete: wrote 119576 buffers (91.2%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 136 recycled; write=0.829 s, sync=0.002 s, total=0.860 s; sync files=288, longest=0.001 s, average=0.001 s; distance=2220392 kB, estimate=2220392 kB; lsn=2/AB056C68, redo lsn=2/AB056C10
+2026-10-17 23:54:46.478 +08 [3147451] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-17 23:54:46.478 +08 [3147451] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-17 23:54:46.478 +08 [3147451] HINT:  The transaction might succeed if retried.
+2026-10-17 23:54:46.478 +08 [3147451] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-17 23:54:46.100578'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '418365'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-17 23:55:22.769 +08 [3147464] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-17 23:55:22.769 +08 [3147464] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-17 23:55:22.769 +08 [3147464] HINT:  The transaction might succeed if retried.
+2026-10-17 23:55:22.769 +08 [3147464] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-17 23:55:22.152303'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '320941'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-18 00:06:11.224 +08 [3136768] WARNING:  terminating connection due to administrator command
+2026-10-18 00:06:11.224 +08 [3136768] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 00:06:12.540 +08 [3136751] LOG:  received fast shutdown request
+2026-10-18 00:06:12.540 +08 [3136751] LOG:  aborting any active transactions
+2026-10-18 00:06:12.540 +08 [3194580] FATAL:  terminating connection due to administrator command
+2026-10-18 00:06:12.543 +08 [3136751] LOG:  background worker "logical replication launcher" (PID 3136761) exited with exit code 1
+2026-10-18 00:06:12.545 +08 [3136756] LOG:  shutting down
+2026-10-18 00:06:12.546 +08 [3136756] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 00:06:12.575 +08 [3136756] LOG:  checkpoint complete: wrote 2996 buffers (2.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.029 s, sync=0.001 s, total=0.030 s; sync files=175, longest=0.001 s, average=0.001 s; distance=19306 kB, estimate=2000284 kB; lsn=2/AC3314A0, redo lsn=2/AC3314A0
+2026-10-18 00:06:12.830 +08 [3136751] LOG:  database system is shut down
+2026-10-18 00:06:12.951 +08 [3230468] LOG:  There is no designated Main database.
+2026-10-18 00:06:12.951 +08 [3230468] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 00:06:12.951 +08 [3230468] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 00:06:13.063 +08 [3230468] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 00:06:13.063 +08 [3230468] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 00:06:13.063 +08 [3230468] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 00:06:13.064 +08 [3230468] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 00:06:13.067 +08 [3230475] LOG:  database system was shut down at 2026-10-18 00:06:12 +08
+2026-10-18 00:06:13.071 +08 [3230468] LOG:  database system is ready to accept connections
+2026-10-18 00:06:14.050 +08 [3230483] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 00:06:14.050 +08 [3230483] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 00:09:05.438 +08 [3230473] LOG:  checkpoint starting: immediate force wait
+2026-10-18 00:09:06.256 +08 [3230473] LOG:  checkpoint complete: wrote 119674 buffers (91.3%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 135 recycled; write=0.797 s, sync=0.001 s, total=0.818 s; sync files=287, longest=0.001 s, average=0.001 s; distance=2220652 kB, estimate=2220652 kB; lsn=3/33BCC620, redo lsn=3/33BCC5C8
+2026-10-18 00:09:06.571 +08 [3230615] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:09:06.571 +08 [3230615] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:09:06.571 +08 [3230615] HINT:  The transaction might succeed if retried.
+2026-10-18 00:09:06.571 +08 [3230615] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-18 00:09:06.383262'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '361914'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 00:09:06.717 +08 [3230628] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:09:06.717 +08 [3230628] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-18 00:09:06.717 +08 [3230628] HINT:  The transaction might succeed if retried.
+2026-10-18 00:09:06.717 +08 [3230628] STATEMENT:  PREPARE TRANSACTION 'citus_0_583625_87_4'
+2026-10-18 00:09:08.437 +08 [3230668] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:09:08.437 +08 [3230668] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:09:08.437 +08 [3230668] HINT:  The transaction might succeed if retried.
+2026-10-18 00:09:08.437 +08 [3230668] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-18 00:09:07.270033'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '423345'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 00:10:44.407 +08 [3241110] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:10:44.407 +08 [3241110] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:10:44.407 +08 [3241110] HINT:  The transaction might succeed if retried.
+2026-10-18 00:10:44.407 +08 [3241110] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-18 00:10:43.849241'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '297028'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 00:17:00.813 +08 [3241087] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:17:00.813 +08 [3241087] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:17:00.813 +08 [3241087] HINT:  The transaction might succeed if retried.
+2026-10-18 00:17:00.813 +08 [3241087] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-18 00:16:57.944167'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '50222'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 00:22:19.200 +08 [3230483] ERROR:  terminating connection due to administrator command
+2026-10-18 00:22:19.200 +08 [3230483] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 00:22:19.212 +08 [3230468] LOG:  background worker "Citus Maintenance Daemon: 16384/10" (PID 3230483) exited with exit code 1
+2026-10-18 00:22:20.916 +08 [3230468] LOG:  received fast shutdown request
+2026-10-18 00:22:20.916 +08 [3230468] LOG:  aborting any active transactions
+2026-10-18 00:22:20.919 +08 [3230468] LOG:  background worker "logical replication launcher" (PID 3230478) exited with exit code 1
+2026-10-18 00:22:20.921 +08 [3230473] LOG:  shutting down
+2026-10-18 00:22:20.921 +08 [3230473] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 00:22:20.957 +08 [3230473] LOG:  checkpoint complete: wrote 3238 buffers (2.5%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.035 s, sync=0.001 s, total=0.037 s; sync files=191, longest=0.001 s, average=0.001 s; distance=20560 kB, estimate=2000643 kB; lsn=3/34FE0700, redo lsn=3/34FE0700
+2026-10-18 00:22:21.203 +08 [3230468] LOG:  database system is shut down
+2026-10-18 00:22:21.324 +08 [3324712] LOG:  There is no designated Main database.
+2026-10-18 00:22:21.324 +08 [3324712] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 00:22:21.324 +08 [3324712] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 00:22:21.436 +08 [3324712] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 00:22:21.436 +08 [3324712] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 00:22:21.436 +08 [3324712] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 00:22:21.436 +08 [3324712] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 00:22:21.440 +08 [3324719] LOG:  database system was shut down at 2026-10-18 00:22:20 +08
+2026-10-18 00:22:21.444 +08 [3324712] LOG:  database system is ready to accept connections
+2026-10-18 00:22:22.415 +08 [3324728] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 00:22:22.415 +08 [3324728] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 00:25:15.427 +08 [3324717] LOG:  checkpoint starting: immediate force wait
+2026-10-18 00:25:16.263 +08 [3324717] LOG:  checkpoint complete: wrote 119279 buffers (91.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 136 recycled; write=0.815 s, sync=0.001 s, total=0.836 s; sync files=289, longest=0.001 s, average=0.001 s; distance=2219365 kB, estimate=2219365 kB; lsn=3/BC739E20, redo lsn=3/BC739DC8
+2026-10-18 00:25:30.660 +08 [3324923] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:25:30.660 +08 [3324923] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:25:30.660 +08 [3324923] HINT:  The transaction might succeed if retried.
+2026-10-18 00:25:30.660 +08 [3324923] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-18 00:25:24.775417'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '203264'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-18 00:27:46.780 +08 [3340901] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:27:46.780 +08 [3340901] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:27:46.780 +08 [3340901] HINT:  The transaction might succeed if retried.
+2026-10-18 00:27:46.780 +08 [3340901] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-18 00:27:38.352729'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '235573'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 00:29:54.779 +08 [3340837] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:29:54.779 +08 [3340837] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:29:54.779 +08 [3340837] HINT:  The transaction might succeed if retried.
+2026-10-18 00:29:54.779 +08 [3340837] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-18 00:29:48.342882'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '411900'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 00:31:02.707 +08 [3340883] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:31:02.707 +08 [3340883] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:31:02.707 +08 [3340883] HINT:  The transaction might succeed if retried.
+2026-10-18 00:31:02.707 +08 [3340883] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-18 00:30:57.394289'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '424063'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-18 00:32:03.039 +08 [3340829] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:32:03.039 +08 [3340829] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:32:03.039 +08 [3340829] HINT:  The transaction might succeed if retried.
+2026-10-18 00:32:03.039 +08 [3340829] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-18 00:31:51.581161'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '357109'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-18 00:33:01.704 +08 [3340875] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:33:01.704 +08 [3340875] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:33:01.704 +08 [3340875] HINT:  The transaction might succeed if retried.
+2026-10-18 00:33:01.704 +08 [3340875] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-18 00:32:52.54484'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '181908'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-18 00:39:39.094 +08 [3324712] LOG:  received fast shutdown request
+2026-10-18 00:39:39.095 +08 [3324712] LOG:  aborting any active transactions
+2026-10-18 00:39:39.095 +08 [3380409] FATAL:  terminating connection due to administrator command
+2026-10-18 00:39:39.099 +08 [3324712] LOG:  background worker "logical replication launcher" (PID 3324722) exited with exit code 1
+2026-10-18 00:39:39.102 +08 [3324717] LOG:  shutting down
+2026-10-18 00:39:39.103 +08 [3324717] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 00:39:39.136 +08 [3324717] LOG:  checkpoint complete: wrote 2835 buffers (2.2%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.032 s, sync=0.001 s, total=0.034 s; sync files=181, longest=0.001 s, average=0.001 s; distance=17762 kB, estimate=1999205 kB; lsn=3/BD8927B8, redo lsn=3/BD8927B8
+2026-10-18 00:39:39.376 +08 [3324712] LOG:  database system is shut down

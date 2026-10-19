@@ -22,11 +22,19 @@ Tool: OpenAI Codex. Team 14; work attributed to Hikaru for team review.
   without performance rankings. Pinned xcnf submission hardware, added four-client
   smoke coverage and focused experiment selection, and checked scheduling with
   stubs. Drafted A report sections and a cluster runbook. SSH remained unavailable;
-  no new course-cluster jobs were submitted.
+  no new course-cluster jobs were submitted during that initial local phase.
   Added the A draft to sections 2–3 of the shared Google Doc's Report tab and
   appended a dated implementation update to its ideas tab. Readback confirmed
   the A text, unchanged B report text, and all 15 existing tables. Published
   code, evidence and the runbook for review in draft GitHub pull request #1.
+  Later, after access was restored, retrieved and reviewed Kelvin's 30 cases,
+  found a102's previously unreported 16-client warmup abort, preserved four new
+  smoke jobs, and started course-scale diagnostics. Diagnosed an expensive
+  post-run global-ID validator; exact replacement checks passed on the full
+  dataset in 25.753 seconds and in seven deliberate-corruption regression tests.
+  Cancelled only the affected own jobs and resubmitted diagnostics with the
+  replacement. a113 passed 29 correctness checks but its local warmup still
+  aborted. Added a reproducible baseline/index figure with the warmup caveat.
 
 Keep the conversation export with prompts and outputs for the required
 `14_ai_tool.zip` reports. This short record is an index, not a replacement for

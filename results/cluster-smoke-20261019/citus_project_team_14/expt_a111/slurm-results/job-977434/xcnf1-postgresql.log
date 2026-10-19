@@ -1,0 +1,860 @@
+2026-10-19 16:56:34.694 +08 [3027807] LOG:  There is no designated Main database.
+2026-10-19 16:56:34.695 +08 [3027807] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 16:56:34.695 +08 [3027807] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 16:56:34.848 +08 [3027807] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 16:56:34.848 +08 [3027807] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 16:56:34.848 +08 [3027807] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 16:56:34.849 +08 [3027807] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 16:56:34.854 +08 [3027814] LOG:  database system was shut down at 2026-10-19 16:56:32 +08
+2026-10-19 16:56:34.858 +08 [3027807] LOG:  database system is ready to accept connections
+2026-10-19 16:56:37.392 +08 [3027822] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 16:56:37.392 +08 [3027822] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 16:57:09.366 +08 [3027807] LOG:  received fast shutdown request
+2026-10-19 16:57:09.367 +08 [3027807] LOG:  aborting any active transactions
+2026-10-19 16:57:09.367 +08 [3027839] FATAL:  terminating connection due to administrator command
+2026-10-19 16:57:09.367 +08 [3027838] FATAL:  terminating connection due to administrator command
+2026-10-19 16:57:09.367 +08 [3027837] FATAL:  terminating connection due to administrator command
+2026-10-19 16:57:09.372 +08 [3027807] LOG:  background worker "logical replication launcher" (PID 3027817) exited with exit code 1
+2026-10-19 16:57:09.376 +08 [3027812] LOG:  shutting down
+2026-10-19 16:57:09.376 +08 [3027812] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 16:57:09.455 +08 [3027812] LOG:  checkpoint complete: wrote 2889 buffers (2.2%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 3 recycled; write=0.049 s, sync=0.015 s, total=0.079 s; sync files=1050, longest=0.001 s, average=0.001 s; distance=55863 kB, estimate=55863 kB; lsn=0/4DECB40, redo lsn=0/4DECB40
+2026-10-19 16:57:09.519 +08 [3027807] LOG:  database system is shut down
+2026-10-19 16:57:10.501 +08 [3027947] LOG:  There is no designated Main database.
+2026-10-19 16:57:10.501 +08 [3027947] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 16:57:10.501 +08 [3027947] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 16:57:10.653 +08 [3027947] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 16:57:10.654 +08 [3027947] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 16:57:10.654 +08 [3027947] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 16:57:10.654 +08 [3027947] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 16:57:10.659 +08 [3027955] LOG:  database system was shut down at 2026-10-19 16:57:09 +08
+2026-10-19 16:57:10.664 +08 [3027947] LOG:  database system is ready to accept connections
+2026-10-19 16:57:11.569 +08 [3027962] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 16:57:11.569 +08 [3027962] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 16:57:14.304 +08 [3028001] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.304 +08 [3028001] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:14.304 +08 [3028001] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.304 +08 [3028001] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878129_59_11'
+2026-10-19 16:57:14.317 +08 [3027999] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.317 +08 [3027999] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:14.317 +08 [3027999] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.317 +08 [3027999] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102040 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (5)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (1165)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102040 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (5)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (1165)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:14.331 +08 [3027999] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.331 +08 [3027999] DETAIL:  Reason code: Canceled on conflict out to pivot 2064, during read.
+2026-10-19 16:57:14.331 +08 [3027999] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.331 +08 [3027999] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:14.32294'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1165'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '5'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1165'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:14.397 +08 [3028004] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.397 +08 [3028004] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:14.397 +08 [3028004] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.397 +08 [3028004] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102092 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:14.394456'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1722'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '2'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1722'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:14.456 +08 [3028006] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.456 +08 [3028006] DETAIL:  Reason code: Canceled on conflict out to pivot 2088, during read.
+2026-10-19 16:57:14.456 +08 [3028006] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.456 +08 [3028006] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:14.449938'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1321'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1321'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:14.471 +08 [3028004] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.471 +08 [3028004] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:14.471 +08 [3028004] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.471 +08 [3028004] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878132_160_43'
+2026-10-19 16:57:14.478 +08 [3028000] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.478 +08 [3028000] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:14.478 +08 [3028000] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.478 +08 [3028000] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:14.468136'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '658'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '8'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '658'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:14.491 +08 [3028008] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.491 +08 [3028008] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:14.491 +08 [3028008] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.491 +08 [3028008] STATEMENT:  INSERT INTO public.order_items_102136 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('150196'::bigint, '1'::bigint, '50068'::bigint, '2761'::bigint, 2, 644.59::numeric(12,2))
+2026-10-19 16:57:14.492 +08 [3028006] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.492 +08 [3028006] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:14.492 +08 [3028006] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.492 +08 [3028006] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:14.486058'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4721'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4721'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:14.549 +08 [3028008] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.549 +08 [3028008] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:14.549 +08 [3028008] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.549 +08 [3028008] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878132_192_52'
+2026-10-19 16:57:14.569 +08 [3028000] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.569 +08 [3028000] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:14.569 +08 [3028000] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.569 +08 [3028000] STATEMENT:  INSERT INTO public.order_items_102144 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('150237'::bigint, '1'::bigint, '50089'::bigint, '1611'::bigint, 5, 576.09::numeric(12,2))
+2026-10-19 16:57:14.580 +08 [3028006] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.580 +08 [3028006] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:14.580 +08 [3028006] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.580 +08 [3028006] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:14.576749'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3885'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '5'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3885'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:14.609 +08 [3028010] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.609 +08 [3028010] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:14.609 +08 [3028010] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.609 +08 [3028010] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878132_233_55'
+2026-10-19 16:57:14.611 +08 [3027999] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.611 +08 [3027999] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:14.611 +08 [3027999] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.611 +08 [3027999] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878141_237_41'
+2026-10-19 16:57:14.627 +08 [3028012] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.627 +08 [3028012] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:14.627 +08 [3028012] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.627 +08 [3028012] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:14.620955'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4321'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4321'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:14.640 +08 [3028012] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.640 +08 [3028012] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:14.640 +08 [3028012] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.640 +08 [3028012] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878141_246_43'
+2026-10-19 16:57:14.705 +08 [3028010] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.705 +08 [3028010] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:14.705 +08 [3028010] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.705 +08 [3028010] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:14.705433'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '7'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '7'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '7'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:14.712 +08 [3028000] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.712 +08 [3028000] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:14.712 +08 [3028000] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.712 +08 [3028000] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:14.701001'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3741'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3741'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:14.721 +08 [3028000] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.721 +08 [3028000] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:14.721 +08 [3028000] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.721 +08 [3028000] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:14.717856'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3741'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3741'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:14.750 +08 [3028000] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.750 +08 [3028000] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:14.750 +08 [3028000] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.750 +08 [3028000] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878134_304_66'
+2026-10-19 16:57:14.757 +08 [3028006] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.757 +08 [3028006] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:14.757 +08 [3028006] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.757 +08 [3028006] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:14.758849'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2347'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '7'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2347'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:14.797 +08 [3028006] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.797 +08 [3028006] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:14.797 +08 [3028006] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.797 +08 [3028006] STATEMENT:  INSERT INTO public.order_items_102136 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('150401'::bigint, '9'::bigint, '50153'::bigint, '1329'::bigint, 4, 244.51::numeric(12,2))
+2026-10-19 16:57:14.818 +08 [3028010] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:14.818 +08 [3028010] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:14.818 +08 [3028010] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:14.818 +08 [3028010] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:14.818617'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2813'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '3'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2813'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:15.022 +08 [3028010] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.022 +08 [3028010] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:15.022 +08 [3028010] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.022 +08 [3028010] STATEMENT:  INSERT INTO public.order_items_102156 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('150561'::bigint, '8'::bigint, '50212'::bigint, '2028'::bigint, 3, 598.32::numeric(12,2))
+2026-10-19 16:57:15.160 +08 [3028014] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.160 +08 [3028014] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:15.160 +08 [3028014] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.160 +08 [3028014] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102056 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (6)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (736)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102056 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (6)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (736)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:15.163 +08 [3028014] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.163 +08 [3028014] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:15.163 +08 [3028014] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.163 +08 [3028014] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:15.165338'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '946'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '6'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '946'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:15.185 +08 [3028018] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.185 +08 [3028018] DETAIL:  Reason code: Canceled on conflict out to pivot 2249, during read.
+2026-10-19 16:57:15.185 +08 [3028018] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.185 +08 [3028018] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:15.169133'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '52'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '2'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '52'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:15.227 +08 [3028006] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.227 +08 [3028006] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:15.227 +08 [3028006] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.227 +08 [3028006] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:15.211042'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1461'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1461'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:15.320 +08 [3028014] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.320 +08 [3028014] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:15.320 +08 [3028014] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.320 +08 [3028014] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878141_619_139'
+2026-10-19 16:57:15.346 +08 [3028024] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.346 +08 [3028024] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:15.346 +08 [3028024] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.346 +08 [3028024] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878141_632_142'
+2026-10-19 16:57:15.400 +08 [3028018] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.400 +08 [3028018] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:15.400 +08 [3028018] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.400 +08 [3028018] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878134_672_138'
+2026-10-19 16:57:15.441 +08 [3028006] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.441 +08 [3028006] DETAIL:  Reason code: Canceled on conflict out to pivot 2292, during read.
+2026-10-19 16:57:15.441 +08 [3028006] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.441 +08 [3028006] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102096 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:15.434905'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '32'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '2'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '32'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:15.448 +08 [3028006] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.448 +08 [3028006] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:15.448 +08 [3028006] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.448 +08 [3028006] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:15.446798'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '762'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '2'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '762'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:15.467 +08 [3028028] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.467 +08 [3028028] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:15.467 +08 [3028028] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.467 +08 [3028028] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878134_703_149'
+2026-10-19 16:57:15.487 +08 [3028030] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.487 +08 [3028030] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:15.487 +08 [3028030] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.487 +08 [3028030] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878134_710_152'
+2026-10-19 16:57:15.610 +08 [3028032] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.610 +08 [3028032] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:15.610 +08 [3028032] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.610 +08 [3028032] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102068 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (5)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (1805)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102068 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (5)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (1805)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:15.625 +08 [3028032] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.625 +08 [3028032] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:15.625 +08 [3028032] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.625 +08 [3028032] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878134_775_159'
+2026-10-19 16:57:15.652 +08 [3028034] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.652 +08 [3028034] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:15.652 +08 [3028034] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.652 +08 [3028034] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878134_781_162'
+2026-10-19 16:57:15.736 +08 [3028006] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.736 +08 [3028006] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:15.736 +08 [3028006] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.736 +08 [3028006] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878129_839_213'
+2026-10-19 16:57:15.877 +08 [3028026] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:15.877 +08 [3028026] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:15.877 +08 [3028026] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:15.877 +08 [3028026] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878141_909_205'
+2026-10-19 16:57:16.059 +08 [3028038] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:16.059 +08 [3028038] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:16.059 +08 [3028038] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:16.059 +08 [3028038] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:16.052946'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4865'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '5'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4865'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:16.259 +08 [3028010] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:16.259 +08 [3028010] DETAIL:  Reason code: Canceled on conflict out to pivot 2445, during read.
+2026-10-19 16:57:16.259 +08 [3028010] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:16.259 +08 [3028010] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:16.254036'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '402'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '2'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '402'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:16.279 +08 [3028010] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:16.279 +08 [3028010] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:16.279 +08 [3028010] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:16.279 +08 [3028010] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:16.276976'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3911'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3911'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:16.403 +08 [3028038] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:16.403 +08 [3028038] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:16.403 +08 [3028038] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:16.403 +08 [3028038] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878129_1164_304'
+2026-10-19 16:57:16.452 +08 [3028040] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:16.452 +08 [3028040] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:16.452 +08 [3028040] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:16.452 +08 [3028040] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:16.443027'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4831'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4831'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:16.456 +08 [3028042] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:16.456 +08 [3028042] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:16.456 +08 [3028042] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:16.456 +08 [3028042] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102040 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (2)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (1112)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102040 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (2)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (1112)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:16.505 +08 [3028010] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:16.505 +08 [3028010] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:16.505 +08 [3028010] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:16.505 +08 [3028010] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:16.499152'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4803'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '3'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4803'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:16.537 +08 [3028042] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:16.537 +08 [3028042] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:16.537 +08 [3028042] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:16.537 +08 [3028042] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878129_1215_315'
+2026-10-19 16:57:16.590 +08 [3028040] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:16.590 +08 [3028040] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:16.590 +08 [3028040] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:16.590 +08 [3028040] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878141_1235_291'
+2026-10-19 16:57:17.009 +08 [3028010] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:17.009 +08 [3028010] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:17.009 +08 [3028010] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:17.009 +08 [3028010] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878132_1410_367'
+2026-10-19 16:57:17.078 +08 [3028046] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:17.078 +08 [3028046] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:17.078 +08 [3028046] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:17.078 +08 [3028046] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878141_1437_352'
+2026-10-19 16:57:17.148 +08 [3028044] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:17.148 +08 [3028044] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:17.148 +08 [3028044] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:17.148 +08 [3028044] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:17.146898'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2971'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2971'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:17.229 +08 [3028044] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:17.229 +08 [3028044] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:17.229 +08 [3028044] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:17.229 +08 [3028044] STATEMENT:  WITH credit AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-19 16:57:17.228858'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2321'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2321'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 16:57:17.254 +08 [3028050] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:17.254 +08 [3028050] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:17.254 +08 [3028050] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:17.254 +08 [3028050] STATEMENT:  INSERT INTO public.order_items_102144 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('151892'::bigint, '1'::bigint, '50681'::bigint, '2451'::bigint, 1, 95.69::numeric(12,2))
+2026-10-19 16:57:17.283 +08 [3028048] ERROR:  could not serialize access due to concurrent update
+2026-10-19 16:57:17.283 +08 [3028048] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:17.271634'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4711'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4711'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:17.497 +08 [3028052] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:17.497 +08 [3028052] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:17.497 +08 [3028052] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:17.497 +08 [3028052] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878141_1610_407'
+2026-10-19 16:57:17.520 +08 [3028054] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:17.520 +08 [3028054] DETAIL:  Reason code: Canceled on conflict out to pivot 2620, during read.
+2026-10-19 16:57:17.520 +08 [3028054] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:17.520 +08 [3028054] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:17.508462'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1878'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '8'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1878'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:17.648 +08 [3028056] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:17.648 +08 [3028056] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:17.648 +08 [3028056] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:17.648 +08 [3028056] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878141_1673_423'
+2026-10-19 16:57:17.668 +08 [3028044] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:17.668 +08 [3028044] DETAIL:  Reason code: Canceled on conflict out to pivot 2641, during read.
+2026-10-19 16:57:17.668 +08 [3028044] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:17.668 +08 [3028044] STATEMENT:  UPDATE public.inventory_102088 inventory SET quantity = (quantity OPERATOR(pg_catalog.+) 20), updated_at = '2026-10-19 16:57:17.672135'::timestamp without time zone WHERE ((inventory_id OPERATOR(pg_catalog.=) '1871'::bigint) AND (merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (product_id OPERATOR(pg_catalog.=) '1871'::bigint) AND ((quantity OPERATOR(pg_catalog.+) 20) OPERATOR(pg_catalog.>=) 0))
+2026-10-19 16:57:17.701 +08 [3028048] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:17.701 +08 [3028048] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:17.701 +08 [3028048] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:17.701 +08 [3028048] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878132_1690_461'
+2026-10-19 16:57:17.775 +08 [3028064] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:17.775 +08 [3028064] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:17.775 +08 [3028064] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:17.775 +08 [3028064] STATEMENT:  INSERT INTO public.order_items_102140 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('152143'::bigint, '5'::bigint, '50776'::bigint, '2535'::bigint, 4, 747.65::numeric(12,2))
+2026-10-19 16:57:17.897 +08 [3028062] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:17.897 +08 [3028062] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:17.897 +08 [3028062] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:17.897 +08 [3028062] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102092 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:17.898015'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '591'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '591'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:18.170 +08 [3028060] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:18.170 +08 [3028060] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:18.170 +08 [3028060] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:18.170 +08 [3028060] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102096 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:18.160398'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '911'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '911'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:18.218 +08 [3028064] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:18.218 +08 [3028064] DETAIL:  Reason code: Canceled on conflict out to pivot 2741, during read.
+2026-10-19 16:57:18.218 +08 [3028064] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:18.218 +08 [3028064] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:18.216237'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '281'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '281'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:18.320 +08 [3028062] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:18.320 +08 [3028062] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:18.320 +08 [3028062] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:18.320 +08 [3028062] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:18.310396'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '873'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '3'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '873'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:18.464 +08 [3028064] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:18.464 +08 [3028064] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:18.464 +08 [3028064] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:18.464 +08 [3028064] STATEMENT:  PREPARE TRANSACTION 'citus_0_3878132_2033_558'
+2026-10-19 16:57:18.492 +08 [3028062] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:18.492 +08 [3028062] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:18.492 +08 [3028062] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:18.492 +08 [3028062] STATEMENT:  INSERT INTO public.order_items_102136 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('152530'::bigint, '1'::bigint, '50916'::bigint, '991'::bigint, 5, 478.29::numeric(12,2))
+2026-10-19 16:57:18.766 +08 [3028064] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:18.766 +08 [3028064] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:18.766 +08 [3028064] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:18.766 +08 [3028064] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102096 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:18.757764'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1324'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '4'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1324'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:18.778 +08 [3028064] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:18.778 +08 [3028064] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:18.778 +08 [3028064] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:18.778 +08 [3028064] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102064 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (4)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (1324)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102064 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (4)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (1324)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:19.135 +08 [3028064] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.135 +08 [3028064] DETAIL:  Reason code: Canceled on conflict out to pivot 2894, during read.
+2026-10-19 16:57:19.135 +08 [3028064] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.135 +08 [3028064] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:19.120707'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3621'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3621'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.359 +08 [3028070] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.359 +08 [3028070] DETAIL:  Reason code: Canceled on conflict out to pivot 2916, during read.
+2026-10-19 16:57:19.359 +08 [3028070] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.359 +08 [3028070] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:19.354721'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3741'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3741'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.375 +08 [3028067] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.375 +08 [3028067] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:19.375 +08 [3028067] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.375 +08 [3028067] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:19.37102'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4266'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '6'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4266'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.402 +08 [3028068] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.402 +08 [3028068] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:19.402 +08 [3028068] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.402 +08 [3028068] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:19.391379'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1165'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '5'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1165'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.416 +08 [3028068] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.416 +08 [3028068] DETAIL:  Reason code: Canceled on conflict out to pivot 2932, during read.
+2026-10-19 16:57:19.416 +08 [3028068] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.416 +08 [3028068] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:19.407478'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1165'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '5'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1165'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.430 +08 [3028068] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.430 +08 [3028068] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:19.430 +08 [3028068] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.430 +08 [3028068] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:19.421393'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1165'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '5'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1165'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.456 +08 [3028068] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.456 +08 [3028068] DETAIL:  Reason code: Canceled on conflict out to pivot 2939, during read.
+2026-10-19 16:57:19.456 +08 [3028068] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.456 +08 [3028068] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:19.453435'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '844'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '4'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '844'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.476 +08 [3028068] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.476 +08 [3028068] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:19.476 +08 [3028068] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.476 +08 [3028068] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102064 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (4)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (484)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102064 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (4)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (484)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:19.488 +08 [3028068] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.488 +08 [3028068] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:19.488 +08 [3028068] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.488 +08 [3028068] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:19.483994'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1934'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '4'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1934'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.502 +08 [3028068] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.502 +08 [3028068] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:19.502 +08 [3028068] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.502 +08 [3028068] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907689_2452_9'
+2026-10-19 16:57:19.507 +08 [3028067] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.507 +08 [3028067] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:19.507 +08 [3028067] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.507 +08 [3028067] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907687_2458_31'
+2026-10-19 16:57:19.528 +08 [3028074] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.528 +08 [3028074] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:19.528 +08 [3028074] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.528 +08 [3028074] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:19.517694'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1321'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1321'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.545 +08 [3028070] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.545 +08 [3028070] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:19.545 +08 [3028070] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.545 +08 [3028070] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907684_2477_41'
+2026-10-19 16:57:19.563 +08 [3028076] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.563 +08 [3028076] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:19.563 +08 [3028076] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.563 +08 [3028076] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:19.556389'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2979'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '9'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2979'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.564 +08 [3028069] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.564 +08 [3028069] DETAIL:  Reason code: Canceled on conflict out to pivot 2968, during read.
+2026-10-19 16:57:19.564 +08 [3028069] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.564 +08 [3028069] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:19.559163'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '658'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '8'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '658'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.573 +08 [3028069] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.573 +08 [3028069] DETAIL:  Reason code: Canceled on conflict out to pivot 2970, during read.
+2026-10-19 16:57:19.573 +08 [3028069] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.573 +08 [3028069] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:19.569503'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '658'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '8'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '658'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.647 +08 [3028073] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.647 +08 [3028073] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:19.647 +08 [3028073] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.647 +08 [3028073] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:19.642104'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '274'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '4'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '274'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.676 +08 [3028069] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.676 +08 [3028069] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:19.676 +08 [3028069] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.676 +08 [3028069] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_2552_42'
+2026-10-19 16:57:19.701 +08 [3028078] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.701 +08 [3028078] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:19.701 +08 [3028078] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.701 +08 [3028078] STATEMENT:  INSERT INTO public.order_items_102148 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('153158'::bigint, '1'::bigint, '51143'::bigint, '1661'::bigint, 3, 535.59::numeric(12,2))
+2026-10-19 16:57:19.712 +08 [3028076] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.712 +08 [3028076] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:19.712 +08 [3028076] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.712 +08 [3028076] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907684_2570_57'
+2026-10-19 16:57:19.712 +08 [3028074] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.712 +08 [3028074] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:19.712 +08 [3028074] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.712 +08 [3028074] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102096 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:19.702814'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '911'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '911'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.737 +08 [3028080] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.737 +08 [3028080] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:19.737 +08 [3028080] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.737 +08 [3028080] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907684_2579_60'
+2026-10-19 16:57:19.820 +08 [3028074] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.820 +08 [3028074] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:19.820 +08 [3028074] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.820 +08 [3028074] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907687_2628_65'
+2026-10-19 16:57:19.857 +08 [3028082] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.857 +08 [3028082] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:19.857 +08 [3028082] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.857 +08 [3028082] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907684_2652_80'
+2026-10-19 16:57:19.879 +08 [3028086] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.879 +08 [3028086] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:19.879 +08 [3028086] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.879 +08 [3028086] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:19.880739'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2461'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2461'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.893 +08 [3028084] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.893 +08 [3028084] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:19.893 +08 [3028084] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.893 +08 [3028084] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:19.886944'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '434'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '4'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '434'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.907 +08 [3028086] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.907 +08 [3028086] DETAIL:  Reason code: Canceled on conflict out to pivot 3052, during read.
+2026-10-19 16:57:19.907 +08 [3028086] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.907 +08 [3028086] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:19.896692'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3059'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '9'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3059'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.929 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.929 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:19.929 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.929 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:19.917406'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1299'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '9'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1299'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:19.942 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:19.942 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:19.942 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:19.942 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:19.934953'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3059'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '9'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3059'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.016 +08 [3028078] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.016 +08 [3028078] DETAIL:  Reason code: Canceled on conflict out to pivot 3079, during read.
+2026-10-19 16:57:20.016 +08 [3028078] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.016 +08 [3028078] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:20.016933'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '528'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '8'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '528'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.017 +08 [3028084] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.017 +08 [3028084] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:20.017 +08 [3028084] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.017 +08 [3028084] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907687_2736_94'
+2026-10-19 16:57:20.182 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.182 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:20.182 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.182 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:20.171088'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4241'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4241'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.312 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.312 +08 [3028088] DETAIL:  Reason code: Canceled on conflict out to pivot 3128, during read.
+2026-10-19 16:57:20.312 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.312 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:20.304222'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1461'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1461'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.396 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.396 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:20.396 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.396 +08 [3028088] STATEMENT:  INSERT INTO public.order_items_102160 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('153628'::bigint, '2'::bigint, '51313'::bigint, '4192'::bigint, 5, 965.48::numeric(12,2))
+2026-10-19 16:57:20.448 +08 [3028078] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.448 +08 [3028078] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:20.448 +08 [3028078] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.448 +08 [3028078] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_2959_139'
+2026-10-19 16:57:20.515 +08 [3028090] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.515 +08 [3028090] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:20.515 +08 [3028090] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.515 +08 [3028090] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102044 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (4531)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102044 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (4531)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:20.525 +08 [3028090] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.525 +08 [3028090] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:20.525 +08 [3028090] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.525 +08 [3028090] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102064 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (3061)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102064 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (3061)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:20.532 +08 [3028090] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.532 +08 [3028090] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:20.532 +08 [3028090] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.532 +08 [3028090] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:20.53081'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3451'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3451'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.630 +08 [3028094] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.630 +08 [3028094] DETAIL:  Reason code: Canceled on conflict out to pivot 3182, during read.
+2026-10-19 16:57:20.630 +08 [3028094] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.630 +08 [3028094] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:20.622671'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1921'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1921'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.637 +08 [3028094] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.637 +08 [3028094] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:20.637 +08 [3028094] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.637 +08 [3028094] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:20.635265'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1621'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1621'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.646 +08 [3028094] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.646 +08 [3028094] DETAIL:  Reason code: Canceled on conflict out to pivot 3189, during read.
+2026-10-19 16:57:20.646 +08 [3028094] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.646 +08 [3028094] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:20.642253'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3021'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3021'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.668 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.668 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:20.668 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.668 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:20.669425'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2914'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '4'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2914'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.791 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.791 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:20.791 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.791 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:20.782159'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2751'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2751'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.826 +08 [3028090] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.826 +08 [3028090] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:20.826 +08 [3028090] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.826 +08 [3028090] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:20.819819'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1461'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1461'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.840 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.840 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:20.840 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.840 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:20.839362'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4100'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '10'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4100'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.868 +08 [3028096] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.868 +08 [3028096] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:20.868 +08 [3028096] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.868 +08 [3028096] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102040 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (6)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (2926)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102040 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (6)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (2926)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:20.869 +08 [3028090] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.869 +08 [3028090] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:20.869 +08 [3028090] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.869 +08 [3028090] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:20.869841'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2289'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '9'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2289'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:20.949 +08 [3028096] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:20.949 +08 [3028096] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:20.949 +08 [3028096] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:20.949 +08 [3028096] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_3240_189'
+2026-10-19 16:57:21.004 +08 [3028073] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.004 +08 [3028073] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:21.004 +08 [3028073] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.004 +08 [3028073] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102096 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:21.005479'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1030'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '10'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1030'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:21.015 +08 [3028073] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.015 +08 [3028073] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:21.015 +08 [3028073] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.015 +08 [3028073] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102040 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (10)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (1940)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102040 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (10)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (1940)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:21.028 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.028 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:21.028 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.028 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102096 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:21.022302'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1986'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '6'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1986'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:21.114 +08 [3028090] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.114 +08 [3028090] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:21.114 +08 [3028090] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.114 +08 [3028090] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102052 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (4291)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102052 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (4291)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:21.115 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.115 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:21.115 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.115 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:21.108668'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '425'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '5'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '425'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:21.156 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.156 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:21.156 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.156 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:21.149905'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1181'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1181'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:21.165 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.165 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:21.165 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.165 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:21.161733'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '81'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '81'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:21.184 +08 [3028090] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.184 +08 [3028090] DETAIL:  Reason code: Canceled on conflict out to pivot 3304, during read.
+2026-10-19 16:57:21.184 +08 [3028090] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.184 +08 [3028090] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:21.175237'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2823'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '3'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2823'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:21.241 +08 [3028073] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.241 +08 [3028073] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:21.241 +08 [3028073] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.241 +08 [3028073] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:21.241943'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2671'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2671'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:21.310 +08 [3028098] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.310 +08 [3028098] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:21.310 +08 [3028098] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.310 +08 [3028098] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102044 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (2571)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102044 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (2571)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:21.402 +08 [3028090] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.402 +08 [3028090] DETAIL:  Reason code: Canceled on conflict out to pivot 3351, during read.
+2026-10-19 16:57:21.402 +08 [3028090] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.402 +08 [3028090] STATEMENT:  UPDATE public.inventory_102072 inventory SET quantity = (quantity OPERATOR(pg_catalog.+) 19), updated_at = '2026-10-19 16:57:21.406211'::timestamp without time zone WHERE ((inventory_id OPERATOR(pg_catalog.=) '3021'::bigint) AND (merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (product_id OPERATOR(pg_catalog.=) '3021'::bigint) AND ((quantity OPERATOR(pg_catalog.+) 19) OPERATOR(pg_catalog.>=) 0))
+2026-10-19 16:57:21.650 +08 [3028073] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.650 +08 [3028073] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:21.650 +08 [3028073] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.650 +08 [3028073] STATEMENT:  INSERT INTO public.order_items_102156 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('154488'::bigint, '10'::bigint, '51629'::bigint, '380'::bigint, 2, 93.20::numeric(12,2))
+2026-10-19 16:57:21.665 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.665 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:21.665 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.665 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:21.657475'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3652'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '2'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3652'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:21.760 +08 [3028073] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:21.760 +08 [3028073] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:21.760 +08 [3028073] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:21.760 +08 [3028073] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907689_3691_310'
+2026-10-19 16:57:22.026 +08 [3028100] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.026 +08 [3028100] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:22.026 +08 [3028100] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.026 +08 [3028100] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907689_3825_335'
+2026-10-19 16:57:22.127 +08 [3028098] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.127 +08 [3028098] DETAIL:  Reason code: Canceled on conflict out to pivot 3482, during read.
+2026-10-19 16:57:22.127 +08 [3028098] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.127 +08 [3028098] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:22.118486'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '643'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '3'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '643'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:22.133 +08 [3028098] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.133 +08 [3028098] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:22.133 +08 [3028098] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.133 +08 [3028098] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:22.132684'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3753'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '3'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3753'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:22.156 +08 [3028104] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.156 +08 [3028104] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:22.156 +08 [3028104] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.156 +08 [3028104] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907689_3901_343'
+2026-10-19 16:57:22.194 +08 [3028090] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.194 +08 [3028090] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:22.194 +08 [3028090] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.194 +08 [3028090] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102096 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:22.190598'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4594'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '4'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4594'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:22.223 +08 [3028098] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.223 +08 [3028098] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:22.223 +08 [3028098] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.223 +08 [3028098] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:22.217072'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3579'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '9'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3579'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:22.284 +08 [3028098] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.284 +08 [3028098] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:22.284 +08 [3028098] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.284 +08 [3028098] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_3971_351'
+2026-10-19 16:57:22.308 +08 [3028108] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.308 +08 [3028108] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:22.308 +08 [3028108] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.308 +08 [3028108] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:22.294144'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3315'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '5'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3315'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:22.362 +08 [3028108] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.362 +08 [3028108] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:22.362 +08 [3028108] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.362 +08 [3028108] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:22.360533'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2041'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2041'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:22.473 +08 [3028106] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.473 +08 [3028106] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:22.473 +08 [3028106] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.473 +08 [3028106] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907689_4063_389'
+2026-10-19 16:57:22.495 +08 [3028110] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.495 +08 [3028110] DETAIL:  Reason code: Canceled on conflict out to pivot 3554, during read.
+2026-10-19 16:57:22.495 +08 [3028110] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.495 +08 [3028110] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:22.4834'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3451'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3451'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:22.496 +08 [3028110] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.496 +08 [3028110] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:22.496 +08 [3028110] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.496 +08 [3028110] STATEMENT:  COMMIT
+2026-10-19 16:57:22.497 +08 [3028110] WARNING:  there is no transaction in progress
+2026-10-19 16:57:22.766 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.766 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:22.766 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.766 +08 [3028088] STATEMENT:  WITH credit AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-19 16:57:22.766776'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2973'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2973'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 16:57:22.993 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:22.993 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:22.993 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:22.993 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:22.987739'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '164'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '4'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '164'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:23.226 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:23.226 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:23.226 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:23.226 +08 [3028088] STATEMENT:  INSERT INTO public.order_items_102156 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('155268'::bigint, '3'::bigint, '51916'::bigint, '1233'::bigint, 5, 642.27::numeric(12,2))
+2026-10-19 16:57:23.399 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:23.399 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:23.399 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:23.399 +08 [3028088] STATEMENT:  INSERT INTO public.order_items_102148 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('155327'::bigint, '8'::bigint, '51933'::bigint, '4468'::bigint, 5, 821.92::numeric(12,2))
+2026-10-19 16:57:23.474 +08 [3028108] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:23.474 +08 [3028108] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:23.474 +08 [3028108] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:23.474 +08 [3028108] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_4367_517'
+2026-10-19 16:57:23.561 +08 [3028113] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:23.561 +08 [3028113] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:23.561 +08 [3028113] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:23.561 +08 [3028113] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_4385_526'
+2026-10-19 16:57:23.653 +08 [3028115] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:23.653 +08 [3028115] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:23.653 +08 [3028115] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:23.653 +08 [3028115] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_4407_536'
+2026-10-19 16:57:23.765 +08 [3028117] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:23.765 +08 [3028117] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:23.765 +08 [3028117] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:23.765 +08 [3028117] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_4427_545'
+2026-10-19 16:57:24.123 +08 [3028119] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:24.123 +08 [3028119] DETAIL:  Reason code: Canceled on conflict out to pivot 3741, during read.
+2026-10-19 16:57:24.123 +08 [3028119] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:24.123 +08 [3028119] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:24.113895'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1461'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1461'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:24.607 +08 [3028088] ERROR:  could not serialize access due to concurrent update
+2026-10-19 16:57:24.607 +08 [3028088] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:24.602394'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2751'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2751'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:25.107 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:25.107 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:25.107 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:25.107 +08 [3028088] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102040 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (3)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (2003)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102040 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (3)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (2003)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:25.121 +08 [3028119] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:25.121 +08 [3028119] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:25.121 +08 [3028119] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:25.121 +08 [3028119] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:25.11687'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1281'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1281'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:25.204 +08 [3028119] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:25.204 +08 [3028119] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:25.204 +08 [3028119] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:25.204 +08 [3028119] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:25.195717'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1622'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '2'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1622'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:25.639 +08 [3028088] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:25.639 +08 [3028088] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:25.639 +08 [3028088] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:25.639 +08 [3028088] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907684_4903_853'
+2026-10-19 16:57:25.676 +08 [3028119] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:25.676 +08 [3028119] DETAIL:  Reason code: Canceled on conflict out to pivot 3878, during read.
+2026-10-19 16:57:25.676 +08 [3028119] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:25.676 +08 [3028119] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102096 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:25.671731'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3406'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '6'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3406'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:25.980 +08 [3028123] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:25.980 +08 [3028123] DETAIL:  Reason code: Canceled on conflict out to pivot 3900, during read.
+2026-10-19 16:57:25.980 +08 [3028123] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:25.980 +08 [3028123] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:25.971296'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2971'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2971'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:26.513 +08 [3028119] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:26.513 +08 [3028119] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:26.513 +08 [3028119] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:26.513 +08 [3028119] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:26.510822'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4321'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4321'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:26.686 +08 [3028119] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:26.686 +08 [3028119] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:26.686 +08 [3028119] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:26.686 +08 [3028119] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_5128_892'
+2026-10-19 16:57:26.732 +08 [3028123] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:26.732 +08 [3028123] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:26.732 +08 [3028123] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:26.732 +08 [3028123] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907684_5139_994'
+2026-10-19 16:57:27.103 +08 [3028127] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:27.103 +08 [3028127] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:27.103 +08 [3028127] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:27.103 +08 [3028127] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102092 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:27.099949'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4584'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '4'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4584'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:27.329 +08 [3028125] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:27.329 +08 [3028125] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:27.329 +08 [3028125] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:27.329 +08 [3028125] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_5308_992'
+2026-10-19 16:57:27.357 +08 [3028127] ERROR:  could not serialize access due to concurrent update
+2026-10-19 16:57:27.357 +08 [3028127] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102096 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:27.353904'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3981'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3981'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:27.787 +08 [3028129] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:27.787 +08 [3028129] DETAIL:  Reason code: Canceled on conflict out to pivot 4073, during read.
+2026-10-19 16:57:27.787 +08 [3028129] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:27.787 +08 [3028129] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:27.781011'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3041'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3041'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:27.910 +08 [3028129] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:27.910 +08 [3028129] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:27.910 +08 [3028129] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:27.910 +08 [3028129] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_5498_1079'
+2026-10-19 16:57:28.080 +08 [3028127] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:28.080 +08 [3028127] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:28.080 +08 [3028127] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:28.080 +08 [3028127] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:28.07963'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3571'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3571'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:28.148 +08 [3028127] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:28.148 +08 [3028127] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:28.148 +08 [3028127] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:28.148 +08 [3028127] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907684_5555_1183'
+2026-10-19 16:57:28.221 +08 [3028131] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:28.221 +08 [3028131] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:28.221 +08 [3028131] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:28.221 +08 [3028131] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102060 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (71)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102060 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (71)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:28.557 +08 [3028131] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:28.557 +08 [3028131] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:28.557 +08 [3028131] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:28.557 +08 [3028131] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:28.55374'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '232'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '2'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '232'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:28.749 +08 [3028133] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:28.749 +08 [3028133] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:28.749 +08 [3028133] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:28.749 +08 [3028133] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:28.748686'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3147'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '7'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3147'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:28.972 +08 [3028131] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:28.972 +08 [3028131] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:28.972 +08 [3028131] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:28.972 +08 [3028131] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_5807_1231'
+2026-10-19 16:57:29.171 +08 [3028133] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:29.171 +08 [3028133] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:29.171 +08 [3028133] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:29.171 +08 [3028133] STATEMENT:  UPDATE public.inventory_102084 inventory SET quantity = (quantity OPERATOR(pg_catalog.+) 18), updated_at = '2026-10-19 16:57:29.175111'::timestamp without time zone WHERE ((inventory_id OPERATOR(pg_catalog.=) '1572'::bigint) AND (merchant_id OPERATOR(pg_catalog.=) '2'::bigint) AND (product_id OPERATOR(pg_catalog.=) '1572'::bigint) AND ((quantity OPERATOR(pg_catalog.+) 18) OPERATOR(pg_catalog.>=) 0))
+2026-10-19 16:57:29.366 +08 [3028133] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:29.366 +08 [3028133] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:29.366 +08 [3028133] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:29.366 +08 [3028133] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907684_5919_1353'
+2026-10-19 16:57:29.740 +08 [3028135] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:29.740 +08 [3028135] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:29.740 +08 [3028135] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:29.740 +08 [3028135] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:29.73904'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1218'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '8'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1218'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:29.830 +08 [3028137] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:29.830 +08 [3028137] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:29.830 +08 [3028137] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:29.830 +08 [3028137] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:29.825591'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3671'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3671'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:30.037 +08 [3028135] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:30.037 +08 [3028135] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:30.037 +08 [3028135] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:30.037 +08 [3028135] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102048 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (3701)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102048 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (3701)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:31.513 +08 [3028137] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:31.513 +08 [3028137] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:31.513 +08 [3028137] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:31.513 +08 [3028137] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907684_6589_1661'
+2026-10-19 16:57:31.712 +08 [3028142] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:31.712 +08 [3028142] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:31.712 +08 [3028142] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:31.712 +08 [3028142] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:31.709013'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1793'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '3'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1793'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:31.769 +08 [3028135] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:31.769 +08 [3028135] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:31.769 +08 [3028135] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:31.769 +08 [3028135] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:31.767332'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2551'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2551'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:31.780 +08 [3028142] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:31.780 +08 [3028142] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:31.780 +08 [3028142] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:31.780 +08 [3028142] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:31.772367'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1216'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '6'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1216'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:31.800 +08 [3028135] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:31.800 +08 [3028135] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:31.800 +08 [3028135] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:31.800 +08 [3028135] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_6659_1647'
+2026-10-19 16:57:31.817 +08 [3028144] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:31.817 +08 [3028144] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:31.817 +08 [3028144] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:31.817 +08 [3028144] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:31.810767'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1041'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1041'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:32.019 +08 [3028142] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:32.019 +08 [3028142] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:32.019 +08 [3028142] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:32.019 +08 [3028142] STATEMENT:  INSERT INTO public.order_items_102164 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('158179'::bigint, '1'::bigint, '52893'::bigint, '1561'::bigint, 4, 616.59::numeric(12,2))
+2026-10-19 16:57:32.037 +08 [3028142] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:32.037 +08 [3028142] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:32.037 +08 [3028142] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:32.037 +08 [3028142] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907684_6713_1715'
+2026-10-19 16:57:32.519 +08 [3028146] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:32.519 +08 [3028146] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:32.519 +08 [3028146] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:32.519 +08 [3028146] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:32.514259'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1181'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1181'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:32.537 +08 [3028144] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:32.537 +08 [3028144] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:32.537 +08 [3028144] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:32.537 +08 [3028144] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_6830_1724'
+2026-10-19 16:57:32.684 +08 [3028146] ERROR:  could not serialize access due to concurrent update
+2026-10-19 16:57:32.684 +08 [3028146] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:32.673816'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3911'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3911'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:32.905 +08 [3028146] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:32.905 +08 [3028146] DETAIL:  Reason code: Canceled on conflict out to pivot 4592, during read.
+2026-10-19 16:57:32.905 +08 [3028146] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:32.905 +08 [3028146] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:32.900187'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '951'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '951'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:32.915 +08 [3028146] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:32.915 +08 [3028146] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:32.915 +08 [3028146] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:32.915 +08 [3028146] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:32.910833'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '951'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '951'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:33.250 +08 [3028148] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:33.250 +08 [3028148] DETAIL:  Reason code: Canceled on conflict out to pivot 4620, during read.
+2026-10-19 16:57:33.250 +08 [3028148] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:33.250 +08 [3028148] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 16:57:33.247509'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2461'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2461'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:33.977 +08 [3028148] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:33.977 +08 [3028148] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-19 16:57:33.977 +08 [3028148] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:33.977 +08 [3028148] STATEMENT:  INSERT INTO public.order_items_102156 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('158759'::bigint, '1'::bigint, '53083'::bigint, '1791'::bigint, 1, 830.29::numeric(12,2))
+2026-10-19 16:57:34.259 +08 [3028148] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:34.259 +08 [3028148] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:34.259 +08 [3028148] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:34.259 +08 [3028148] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102096 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:34.245734'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '4144'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '4'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '4144'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:34.857 +08 [3028146] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:34.857 +08 [3028146] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:34.857 +08 [3028146] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:34.857 +08 [3028146] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102044 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (9)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (2079)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102044 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (9)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (2079)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:35.360 +08 [3028146] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:35.360 +08 [3028146] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:35.360 +08 [3028146] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:35.360 +08 [3028146] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102060 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (4)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (144)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102060 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (4)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (144)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:35.597 +08 [3028148] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:35.597 +08 [3028148] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:35.597 +08 [3028148] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:35.597 +08 [3028148] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102048 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (551)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102048 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (551)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 16:57:35.866 +08 [3028148] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:35.866 +08 [3028148] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:35.866 +08 [3028148] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:35.866 +08 [3028148] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_7745_2161'
+2026-10-19 16:57:36.012 +08 [3028146] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:36.012 +08 [3028146] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:36.012 +08 [3028146] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:36.012 +08 [3028146] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 16:57:36.006554'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '131'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '131'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:36.498 +08 [3028148] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:36.498 +08 [3028148] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:36.498 +08 [3028148] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:36.498 +08 [3028148] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:36.489624'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '2095'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '5'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '2095'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:36.763 +08 [3028146] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:36.763 +08 [3028146] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:36.763 +08 [3028146] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:36.763 +08 [3028146] STATEMENT:  UPDATE public.inventory_102076 inventory SET quantity = (quantity OPERATOR(pg_catalog.+) 15), updated_at = '2026-10-19 16:57:36.766881'::timestamp without time zone WHERE ((inventory_id OPERATOR(pg_catalog.=) '3593'::bigint) AND (merchant_id OPERATOR(pg_catalog.=) '3'::bigint) AND (product_id OPERATOR(pg_catalog.=) '3593'::bigint) AND ((quantity OPERATOR(pg_catalog.+) 15) OPERATOR(pg_catalog.>=) 0))
+2026-10-19 16:57:36.785 +08 [3028148] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:36.785 +08 [3028148] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:36.785 +08 [3028148] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:36.785 +08 [3028148] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 16:57:36.778788'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '191'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '1'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '191'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:37.110 +08 [3028146] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:37.110 +08 [3028146] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:37.110 +08 [3028146] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:37.110 +08 [3028146] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907684_8114_2385'
+2026-10-19 16:57:37.611 +08 [3028148] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:37.611 +08 [3028148] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 16:57:37.611 +08 [3028148] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:37.611 +08 [3028148] STATEMENT:  PREPARE TRANSACTION 'citus_0_3907697_8277_2413'
+2026-10-19 16:57:37.702 +08 [3028153] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:37.702 +08 [3028153] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 16:57:37.702 +08 [3028153] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:37.702 +08 [3028153] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 16:57:37.698194'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '3264'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '4'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '3264'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:37.732 +08 [3028151] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 16:57:37.732 +08 [3028151] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 16:57:37.732 +08 [3028151] HINT:  The transaction might succeed if retried.
+2026-10-19 16:57:37.732 +08 [3028151] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 16:57:37.728988'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1523'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '3'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1523'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 16:57:40.311 +08 [3027947] LOG:  received fast shutdown request
+2026-10-19 16:57:40.311 +08 [3027947] LOG:  aborting any active transactions
+2026-10-19 16:57:40.311 +08 [3027967] FATAL:  terminating connection due to administrator command
+2026-10-19 16:57:40.311 +08 [3027966] FATAL:  terminating connection due to administrator command
+2026-10-19 16:57:40.311 +08 [3027965] FATAL:  terminating connection due to administrator command
+2026-10-19 16:57:40.311 +08 [3027964] FATAL:  terminating connection due to administrator command
+2026-10-19 16:57:40.317 +08 [3027947] LOG:  background worker "logical replication launcher" (PID 3027958) exited with exit code 1
+2026-10-19 16:57:40.322 +08 [3027953] LOG:  shutting down
+2026-10-19 16:57:40.323 +08 [3027953] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 16:57:40.351 +08 [3027953] LOG:  checkpoint complete: wrote 1764 buffers (1.3%), wrote 5 SLRU buffers; 0 WAL file(s) added, 0 removed, 2 recycled; write=0.022 s, sync=0.002 s, total=0.029 s; sync files=255, longest=0.001 s, average=0.001 s; distance=27420 kB, estimate=27420 kB; lsn=0/68B3E88, redo lsn=0/68B3E88
+2026-10-19 16:57:40.413 +08 [3027947] LOG:  database system is shut down
