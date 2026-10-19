@@ -21,7 +21,8 @@ Source, topology, settings, versions, raw logs and validation were reviewed.
 | Original scale-1 diagnostic | a101 977468 | Four-client warmup/measurement aborted; original validation was too slow. Independent exact validation passed; job then cancelled. |
 | Original dependent diagnostics | a111 977469; a112 977470 | Cancelled before starting to replace the validator. |
 | Revised scale-1 diagnostics | a111 977617; a112 977618; a113 977619 | All warmups/measurements completed; zero measured failures/retries; exact validation passed. |
-| Full scale-1 matrix | a0 977740; a112 977773 | Baseline running; candidate queued after it, explicitly requesting the same xcnf0–4 nodes. Results pending. |
+| Full scale-1 matrix | a0 977740; a112 977773 | Both completed on xcnf0–4 with all 12 exits zero. a0 3.2–3.6 TPS; a112 54.2–90.8 TPS, zero failed transactions, six passing validations. See [full results](../cluster-full-20261019/README.md). |
+| Full repeat (pgbench seed 7) | a112 978177 | Submitted after 977773 on the same nodes; ledger `full-repeat-seed7-submission-20261019.tsv`. |
 
 The [smoke evidence](../cluster-smoke-20261019/README.md) and
 [original diagnostic evidence](../cluster-diagnostic-original-20261019/README.md)
@@ -66,3 +67,6 @@ recognized; `full-node-pin-correction-20261019.json` preserves the correction.
 `full-protocol-verification-20261019.json` records the checked baseline settings
 and candidate Slurm node request. No full performance results or final A winner
 are claimed. Review every phase, validation and failure log, then assess repeats.
+
+Update, 20:45: both full jobs completed and were reviewed with
+`scripts/import_cluster_jobs.py`; see [full results](../cluster-full-20261019/README.md).

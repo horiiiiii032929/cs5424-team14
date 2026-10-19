@@ -42,6 +42,10 @@ Tool: OpenAI Codex. Team 14; work attributed to Hikaru for team review.
   correct its node request and verified the full settings. Full results remain
   pending. Inserted and checked the report figure in the shared Google Doc,
   preserving the B text and all 15 existing tables.
+- 19 October 2026 (evening, Claude Code): monitored and imported full jobs
+  977740/977773 with a new reviewing importer, found the fresh a0 control is
+  faster than preserved job 918524 (revising the a102 gain claim), recorded
+  a112's matched 17–28× result and figure, and submitted seed-7 repeat 978177.
 
 Keep the conversation export with prompts and outputs for the required
 `14_ai_tool.zip` reports. This short record is an index, not a replacement for

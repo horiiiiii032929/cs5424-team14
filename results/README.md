@@ -4,7 +4,8 @@
 
 Kelvin's a102/job 965657 source and raw results are now verified, along with his
 write-side runs. All six a102 measurements completed, but its 16-client warmup
-aborted and is flagged. Clean concurrent observations show 49–57% gains over a0.
+aborted and is flagged. Clean concurrent observations show 49–57% gains over preserved a0 job 918524,
+but only −3% to +6% over the fresh matched-family a0 control 977740.
 See the [verified import](cluster-import-20261019/README.md).
 
 Five follow-up variants a109–a113 passed **151 additional correctness checks**.
@@ -15,10 +16,12 @@ and aborted three. The [first scale-1 a101 diagnostic](cluster-diagnostic-origin
 also aborted. Seven deliberate-corruption tests and a 25.753-second full-data
 check validated an exact, faster post-run validator. The [revised scale-1 diagnostics](cluster-diagnostic-20261019/README.md)
 then completed cleanly: a111/a112/a113 observed 89.9/92.4/90.6 TPS at four clients
-over 60 seconds. Full 600-second/six-client-count jobs are a0 977740 (running)
-and a112 977773 (queued on the same nodes); those results remain pending.
+over 60 seconds. The [matched full comparison](cluster-full-20261019/README.md)
+(a0 977740 and a112 977773, xcnf0–4, 600 s, six client counts) completed with
+all exits zero: a112 54.2–90.8 TPS versus a0 3.2–3.6 TPS (17–28×), no failed
+transactions, and passing validation at every count. T6 now dominates a112's time.
 See [live cluster work](cluster/README.md).
-There is no final A selection yet.
+a112 is the provisional A selection, pending seed-7 repeat 978177 and Kelvin's review.
 See the [A report draft](../docs/workload-a-report-draft.md) and
 [cluster runbook](../docs/workload-a-cluster-runbook.md).
 

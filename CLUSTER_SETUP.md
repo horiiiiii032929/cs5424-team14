@@ -75,8 +75,8 @@ A dedicated SSH key was created at `~/.ssh/cs5424_cs14`, with public key `~/.ssh
 19 October: SSH access was restored. New experiments use isolated directories
 `~/citus_hikaru_20261019-165234_365eafd` and
 `~/citus_hikaru_20261019-172259_cf48c8d`, preserving `~/citus_project` and `~/pgsql`.
-Revised scale-1 diagnostics passed; full a0 job 977740 is running and a112
-977773 is queued on the same requested xcnf0–4 nodes. Check the live queue before
+Revised scale-1 diagnostics passed; full a0 977740 and a112 977773 completed on
+xcnf0–4. a112 repeat 978177 (pgbench seed 7) follows. Check the live queue before
 submitting more work. See [cluster evidence](results/cluster/README.md).
 
 Verified versions in both baseline jobs: PostgreSQL 18.6 and Citus 14.1.0. Both remote benchmark scripts pass the cluster's Bash syntax check and use TEAM_ID 14 and PGPORT 5446. Existing notification email settings were retained. No Slurm jobs were queued at inspection time.

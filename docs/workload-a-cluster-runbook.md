@@ -7,9 +7,11 @@ Smoke jobs 977432–977435 ran on xcnf0–4. a102 passed at one/four clients;
 a101/a111/a112 passed at one client and aborted at four. Preserve those failures.
 The revised deployment is `/home/stuproj/cs14/citus_hikaru_20261019-172259_cf48c8d`.
 Scale-1 diagnostics a111/a112/a113 (977617/977618/977619) completed cleanly,
-including exact validation. Full control a0 977740 is running; candidate a112
-977773 is queued after it on the same requested xcnf0–4 nodes. Do not resubmit
-these jobs while they remain active. Full results are pending; see `results/cluster/`.
+including exact validation. Full control a0 977740 and candidate a112 977773
+completed on xcnf0–4 (see `results/cluster-full-20261019/`). Repeat a112 978177
+uses PGBENCH_SEED=7 on the same nodes; do not resubmit while it is active.
+Import finished jobs with
+`python3 scripts/import_cluster_jobs.py <deployment> <out_dir> expt_aN:JOB ...`.
 
 ## Before submission
 
