@@ -10,7 +10,8 @@ variants require xcnf nodes. a113 adds DEFERRABLE to a112's read-only transactio
 to test safe-snapshot waits without lowering isolation. a114 adds a104's exact
 daily sales summaries to a112, striped eight ways per merchant/day to limit
 hot-row upsert conflicts; T6 reads the summary plus only the two partial-day
-order ranges under READ ONLY.
+order ranges under READ ONLY. a115 is its control: a112 plus only the
+`orders(created_at)` index, with a112's original T6 query.
 
 | Experiment | Change from baseline |
 |---|---|
@@ -28,3 +29,4 @@ order ranges under READ ONLY.
 | expt_a112 | Product/order join colocation + read-only queries |
 | expt_a113 | Product/order join colocation + READ ONLY DEFERRABLE |
 | expt_a114 | a112 + exact daily sales summaries (8 stripes) |
+| expt_a115 | a112 + orders(created_at) index only (a114 control) |

@@ -44,6 +44,12 @@ OPTIONS = {
                       summary=True, summary_stripes=8,
                       summary_report='T6_sales_summary_ranges.sql', derives_from='expt_a112',
                       attribution='Hikaru A adaptation of Dessi B b1/b2 placement'),
+    # Control for a114: the same orders(created_at) index a104/a114 add, with
+    # a112's original T6 query and no summary table.
+    'expt_a115': dict(name='a112 + orders(created_at) index only (a114 control)',
+                      indexes=True, join_colocation=True, read_only=True,
+                      report_index=True, derives_from='expt_a112',
+                      attribution='Hikaru A adaptation of Dessi B b1/b2 placement'),
 }
 
 
@@ -140,6 +146,9 @@ def build(name, opts):
     if opts.get('indexes'):
         shutil.copy(ROOT / 'optimizations/indexes.sql', sql_dir / 'indexes.sql')
         setup.append('indexes.sql')
+    if opts.get('report_index'):
+        shutil.copy(ROOT / 'optimizations/report_time_index.sql', sql_dir / 'report_time_index.sql')
+        setup.append('report_time_index.sql')
     stripes = opts.get('summary_stripes')
     if opts.get('summary'):
         # Striped variants keep the same file names so run.sh and the local
@@ -259,7 +268,8 @@ variants require xcnf nodes. a113 adds DEFERRABLE to a112's read-only transactio
 to test safe-snapshot waits without lowering isolation. a114 adds a104's exact
 daily sales summaries to a112, striped eight ways per merchant/day to limit
 hot-row upsert conflicts; T6 reads the summary plus only the two partial-day
-order ranges under READ ONLY.
+order ranges under READ ONLY. a115 is its control: a112 plus only the
+`orders(created_at)` index, with a112's original T6 query.
 
 | Experiment | Change from baseline |
 |---|---|
