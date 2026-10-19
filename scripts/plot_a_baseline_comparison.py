@@ -8,6 +8,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
+from matplotlib.text import Text
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / 'citus_project_team_14/expt_a0/slurm-results/job-918524/benchmark-results'
@@ -37,6 +38,8 @@ def main():
         sufficiency='Six configured non-temporal client counts per design; one observation each, no confidence intervals.',
         palette_policy='Blue and gold plus neutrals; dashed/square versus solid/circle distinguishes designs without color.',
         footprint_inches=[6.5, 6.5],
+        google_docs_width_pt=420,
+        minimum_effective_font_pt=round(11.5 * 420 / (6.5 * 72), 2),
         caveat='a102/c16 warmup exited 2; its completed measurement is shown with a hollow diamond and excluded from clean-run comparisons.',
         sources=[str(p.relative_to(ROOT)) for p in [BASE / 'summary.csv', INDEX / 'summary.csv', BASE / 'transaction_metrics.csv', INDEX / 'transaction_metrics.csv']],
     )
@@ -53,7 +56,8 @@ def main():
     blue, gold, ink, grey = '#2864B4', '#E3B34D', '#252B33', '#66717F'
     plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 11.5,
                          'axes.labelcolor': ink, 'text.color': ink,
-                         'xtick.color': ink, 'ytick.color': ink, 'svg.fonttype': 'none'})
+                         'xtick.color': ink, 'ytick.color': ink, 'svg.fonttype': 'none',
+                         'svg.hashsalt': 'cs5424-team14-a-baseline-indexes'})
     fig = plt.figure(figsize=(6.5, 6.5), facecolor='white')
     fig.text(.08, .965, 'Workload A: baseline and lookup indexes', fontsize=15, weight='bold')
     fig.text(.08, .926, 'Scale 1 · 600 s measurements · one run per client count', fontsize=11.5)
@@ -76,7 +80,7 @@ def main():
     ax.set_title('Completed-script throughput', loc='left', fontsize=12, pad=8)
     ax.grid(axis='y', color='#DDE1E7', linewidth=.6)
     ax.spines[['top', 'right']].set_visible(False)
-    ax.legend(loc='lower left', ncol=2, fontsize=11, frameon=False, columnspacing=1)
+    ax.legend(loc='lower left', ncol=2, fontsize=11.5, frameon=False, columnspacing=1)
     bar = fig.add_axes([.25, .23, .69, .15])
     left = [0., 0.]
     for key, color, text_color in [('T3', blue, 'white'), ('T4', gold, ink), ('Other', '#D9DEE5', ink)]:
@@ -84,7 +88,7 @@ def main():
         bar.barh([0, 1], values, left=left, height=.55, color=color,
                  edgecolor='white', linewidth=.7, label=key)
         for y, value, start in zip([0, 1], values, left):
-            bar.text(start + value / 2, y, f'{value:.0f}%', ha='center', va='center', color=text_color, fontsize=11)
+            bar.text(start + value / 2, y, f'{value:.0f}%', ha='center', va='center', color=text_color, fontsize=11.5)
         left = [start + value for start, value in zip(left, values)]
     bar.set_xlim(0, 100)
     bar.set_yticks([0, 1], [r['design'] for r in shares])
@@ -93,13 +97,23 @@ def main():
     bar.tick_params(axis='y', length=0, pad=8)
     bar.spines[['top', 'right', 'bottom', 'left']].set_visible(False)
     bar.set_title('Recorded transaction time at one client', loc='left', fontsize=12, pad=9)
-    bar.legend(loc='upper center', bbox_to_anchor=(.5, -.03), ncol=3, frameon=False, fontsize=11)
-    fig.text(.08, .14, 'Time share = completed count × mean latency; shares rounded.', fontsize=11)
-    fig.text(.08, .095, 'Hollow point: a102/16-client warmup aborted; measurement completed.', fontsize=11)
-    fig.text(.08, .055, 'a0: 25/51/50 serialization failures at 16/32/64 clients.', fontsize=11)
-    fig.text(.08, .015, 'TPS = count / 600 s. Jobs: 918524 (a0), 965657 (a102; Kelvin).', fontsize=11)
+    bar.legend(loc='upper center', bbox_to_anchor=(.5, -.03), ncol=3, frameon=False, fontsize=11.5)
+    fig.text(.08, .14, 'Time share = completed count × mean latency; shares rounded.', fontsize=11.5)
+    fig.text(.08, .095, 'Open diamond: a102/c16 warmup aborted; measurement completed.', fontsize=11.5)
+    fig.text(.08, .055, 'a0: 25/51/50 serialization failures at 16/32/64 clients.', fontsize=11.5)
+    fig.text(.08, .015, 'TPS = count / 600 s. Jobs 918524 (a0), 965657 (a102, Kelvin).', fontsize=11.5)
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    for text in fig.findobj(match=Text):
+        if not text.get_visible() or not text.get_text():
+            continue
+        box = text.get_window_extent(renderer)
+        assert box.x0 >= 0 and box.y0 >= 0 and box.x1 <= fig.bbox.x1 and box.y1 <= fig.bbox.y1, text.get_text()
+        assert text.get_fontsize() * 420 / (6.5 * 72) >= 10, text.get_text()
     fig.savefig(OUT / 'workload-a-baseline-indexes.png', dpi=200)
-    fig.savefig(OUT / 'workload-a-baseline-indexes.svg')
+    vector = OUT / 'workload-a-baseline-indexes.svg'
+    fig.savefig(vector, metadata={'Date': None})
+    vector.write_text('\n'.join(line.rstrip() for line in vector.read_text().splitlines()) + '\n')
     plt.close(fig)
     print(OUT / 'workload-a-baseline-indexes.png')
 
