@@ -29,7 +29,7 @@ for expt in "${experiments[@]}"; do
   if [[ -n "$dependency" ]]; then args+=(--dependency="$dependency_kind:$dependency"); fi
   if [[ "$mode" == smoke ]]; then
     # One client alone misses the known concurrent commit failures.
-    args+=("--export=ALL,SCALE=0.01,DURATION=20,WARMUP_DURATION=5,CLIENT_COUNTS=1 4,PROGRESS_INTERVAL=5")
+    args+=("--export=ALL,SCALE=0.01,DURATION=20,WARMUP_DURATION=5,CLIENT_COUNTS=1 4,PROGRESS_INTERVAL=5,RESET_BETWEEN_CLIENT_COUNTS=1")
   elif [[ "$mode" == diagnostic ]]; then
     # Preserve the course-sized data and original warmup, but use a short
     # four-client measurement to diagnose failures before a full matrix.
@@ -37,7 +37,7 @@ for expt in "${experiments[@]}"; do
     # a second identical load before it adds cost without separating any runs.
     args+=("--export=ALL,SCALE=1,DURATION=60,WARMUP_DURATION=60,CLIENT_COUNTS=4,PROGRESS_INTERVAL=10,RESET_BETWEEN_CLIENT_COUNTS=0")
   else
-    args+=("--export=ALL,SCALE=1,DURATION=600,WARMUP_DURATION=60,CLIENT_COUNTS=1 4 8 16 32 64")
+    args+=("--export=ALL,SCALE=1,DURATION=600,WARMUP_DURATION=60,CLIENT_COUNTS=1 4 8 16 32 64,RESET_BETWEEN_CLIENT_COUNTS=1")
   fi
   job="$(cd "$dir" && sbatch "${args[@]}" run.sh)"
   job="${job%%;*}"
