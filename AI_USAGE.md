@@ -23,6 +23,10 @@ Tool: OpenAI Codex. Team 14; work attributed to Hikaru for team review.
   smoke coverage and focused experiment selection, and checked scheduling with
   stubs. Drafted A report sections and a cluster runbook. SSH remained unavailable;
   no new course-cluster jobs were submitted.
+  Added the A draft to sections 2–3 of the shared Google Doc's Report tab and
+  appended a dated implementation update to its ideas tab. Readback confirmed
+  the A text, unchanged B report text, and all 15 existing tables. Published
+  code, evidence and the runbook for review in draft GitHub pull request #1.
 
 Keep the conversation export with prompts and outputs for the required
 `14_ai_tool.zip` reports. This short record is an index, not a replacement for

@@ -2,6 +2,14 @@
 
 Account: hori0329@gmail.com
 
+19 October update: the shared ideas document's Report tab now contains Hikaru's
+draft sections 2–3, including the preserved A baseline, Kelvin's attributed cluster
+update, and the follow-up's 122 passing correctness checks/six aborted local stress
+cases. The B report text and 15 existing tables were preserved and verified.
+The ideas tab also has a dated status update. Code/evidence are in
+[draft PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1).
+New cluster work remains blocked by SSH; no final A design is selected.
+
 [Public team code repository](https://github.com/horiiiiii032929/cs5424-team14)
 Created 14 October 2026 and made public at Hikaru’s request. Anyone can view and
 clone it; GitHub usernames are needed only for direct push access.
