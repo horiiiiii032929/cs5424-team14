@@ -8,6 +8,13 @@
 | Repeated calculations | a104 | Exact daily sales totals, synchronously updated by T1, with raw reads for partial days. |
 | Resource usage | a105/a106/a107 | Separately test work_mem=64MB and executor pool limits 2/8 against baseline 32MB/4. |
 | Combination | a108 | Colocation, indexes, one-call T1 and exact sales summary. |
+| Access-mode follow-up | a109/a110 | Add READ ONLY to T3/T4/T6 relative to a101/a108; isolation unchanged. |
+| Join-key placement | a111 | Adapt Dessi's B b1/b2 placement to A on top of a102: inventory/product and item/order colocation. |
+| Placement + access mode | a112 | Add READ ONLY to T3/T4/T6 relative to a111. |
+
+19 October: a109–a112 passed 122 new correctness checks. All six follow-up
+four-client local cases aborted, including original a101/a108 controls. These
+experiments do not establish a fix or winner. See [follow-up evidence](../results/followup-20261019/README.md).
 
 No change is assumed to improve performance. Compare each individual version to
 a0, then a108 to the components. Settings remain one-variable experiments; the

@@ -1,0 +1,47 @@
+{
+  "source": "Kelvin update supplied by Hikaru in this chat on 19 October 2026; original message timestamp not supplied",
+  "verification": "Teammate-reported; raw job files not yet fetched because SSH timed out",
+  "a102": {
+    "commit": "82058e6",
+    "slurm_job": 965657,
+    "remote_directory": "/home/stuproj/cs14/citus_project/expt_a102",
+    "reported_tps": {
+      "1": 3.25,
+      "64": 3.4
+    },
+    "reported_tps_gain_from_4_clients": "40\u201365%",
+    "reported_serialization_failures": "25/51/50 in baseline become 0",
+    "reported_validation": "verify.sql passed at every client count",
+    "reported_t7_one_client_ms": 14,
+    "reported_t3_one_client_ms": 2670,
+    "reported_t4_one_client_ms": 454,
+    "reported_t3_t4_time_share": "approximately 94%"
+  },
+  "kelvin_experiments": {
+    "expt_a10": {
+      "parent": "expt_a102",
+      "change": "Autocommit T2/T5/T8/T9",
+      "finding": "Their p50 down 30\u201370%; overall TPS within noise",
+      "failure": "One T1 client aborted at 32 clients with could not commit transaction for shard"
+    },
+    "expt_a11": {
+      "parent": "expt_a102",
+      "change": "fillfactor 80",
+      "finding": "HOT updates 100%; no TPS change; roughly five inventory updates/s",
+      "needs_repeat": "Zero retries vs 1\u201314 in other runs"
+    },
+    "expt_a12": {
+      "parent": "expt_a102",
+      "change": "synchronous_commit off",
+      "finding": "No material improvement, including T1"
+    },
+    "expt_a14": {
+      "parent": "expt_a102",
+      "change": "VACUUM only",
+      "finding": "No material improvement"
+    }
+  },
+  "hardware_requirement": "Submit with --constraint=xcnf; Kelvin discarded and reran a run placed on xcnc hardware",
+  "next_direction": "Colocation before further write tuning; compare a101 or adapt B b1/b2. Coordinate IDs with Kelvin.",
+  "scope": "This file records claims, not measured raw results; it must not be merged into benchmark comparison.csv as verified measurements."
+}

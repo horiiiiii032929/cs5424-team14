@@ -7,10 +7,14 @@ This repository holds Dessi's preserved A/B baseline snapshots and Hikaru's
 implementations of five proposed Task 2 designs. The proposed work split is
 Hikaru + Kelvin on A and Dessi + Xincheng on B.
 
-**14 October status:** all five designs implemented; 138 distributed correctness
-checks passed. The local pilot completed 16 of 18 cases; two concurrent runs
-aborted. See [results and next steps](results/README.md). Course-cluster runs are
-pending SSH access. The repository is public; teammates can view and clone it.
+**19 October status:** the original five designs and four follow-up variants are
+implemented. The original correctness suite passed 138 checks; the new variants
+passed 122 more. Kelvin reports a102 cluster job 965657, whose raw files still
+need review here. All six new four-client local stress cases aborted, including
+the read-only and B-style placement variants. No final A design is selected.
+See [results and next steps](results/README.md), the [A report draft](docs/workload-a-report-draft.md)
+and [cluster runbook](docs/workload-a-cluster-runbook.md). New cluster work from
+this checkout is blocked by SSH access.
 
 ## Start here
 
@@ -61,7 +65,9 @@ bash scripts/submit_cluster.sh full
 
 The submitter serializes jobs because all team jobs use port 5446. It also waits
 for existing team jobs. Coordinate with teammates before anyone submits further
-jobs independently. The full suite retains the original six client counts,
+jobs independently. It pins xcnf hardware; smoke runs include 1 and 4 clients.
+Pass explicit experiment IDs after smoke/full to submit a focused selection.
+The full suite retains the original six client counts,
 600-second runs, 60-second warmup, workload mix, isolation and full log sampling.
 Use job IDs in each folder to distinguish smoke from full runs.
 Inspect `summary.csv`'s `pgbench_exit_code`, retry/failure counts and `validation.log`;

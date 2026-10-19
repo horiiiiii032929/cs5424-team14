@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build self-contained submission experiments from the preserved team baseline.
 
-No cluster files are changed. Reserve a101-a108 with teammates before merging
+No cluster files are changed. Reserve new experiment IDs with teammates before merging
 into the shared account. Rebuilds replace generated code, never result folders.
 """
 from pathlib import Path
@@ -23,6 +23,18 @@ OPTIONS = {
     'expt_a107': dict(name='Executor pool 8', pool=8),
     'expt_a108': dict(name='Colocation + indexes + one-call order + summary',
                       colocate=True, indexes=True, procedure=True, summary=True),
+    'expt_a109': dict(name='Merchant colocation + declared read-only queries',
+                      colocate=True, read_only=True, derives_from='expt_a101'),
+    'expt_a110': dict(name='Combined design + declared read-only queries',
+                      colocate=True, indexes=True, procedure=True, summary=True,
+                      read_only=True, derives_from='expt_a108'),
+    'expt_a111': dict(name='Lookup indexes + product/order join colocation',
+                      indexes=True, join_colocation=True, derives_from='expt_a102',
+                      attribution='Hikaru A adaptation of Dessi B b1/b2 placement'),
+    'expt_a112': dict(name='Product/order join colocation + read-only queries',
+                      indexes=True, join_colocation=True, read_only=True,
+                      derives_from='expt_a111',
+                      attribution='Hikaru A adaptation of Dessi B b1/b2 placement'),
 }
 
 
@@ -94,6 +106,28 @@ def build(name, opts):
                          'WHERE order_id = (:new_order_id)::bigint AND merchant_id = (:merchant_id)::bigint;'))
         # T5 accepts only an order ID; retain the exact operation (fan-out).
         # T7 accepts product IDs; retain the general cross-merchant transfer.
+    if opts.get('join_colocation'):
+        # Adapt the pair-wise placement described in Dessi's B report, retaining
+        # orders/order_id and products/product_id instead of moving all tables
+        # onto merchant_id. Every added routing predicate uses the product ID
+        # used to look up that inventory row, not inventory_id == product_id.
+        for table, old_key, new_key, peer in [
+            ('inventory', 'inventory_id', 'product_id', 'products'),
+            ('order_items', 'order_item_id', 'order_id', 'orders'),
+        ]:
+            script = script.replace(f'{table}({old_key} BIGINT PRIMARY KEY,',
+                                    f'{table}({old_key} BIGINT,')
+            line = next(line for line in script.splitlines() if line.startswith(f'CREATE TABLE IF NOT EXISTS {table}('))
+            script = script.replace(line, line[:-2] + f', PRIMARY KEY ({new_key}, {old_key}));')
+            script = script.replace(f"create_distributed_table('{table}','{old_key}')",
+                                    f"create_distributed_table('{table}','{new_key}', colocate_with => '{peer}')")
+        path = dest / 'transactions/T7_inventory_transfer.sql'
+        transaction = path.read_text()
+        for side in ['source', 'dest']:
+            predicate = f'WHERE inventory_id = (:{side}_inventory_id)::bigint'
+            transaction = transaction.replace(predicate,
+                predicate + f' AND product_id = (:{side}_product_id)::bigint')
+        path.write_text(transaction)
     if opts.get('indexes'):
         shutil.copy(ROOT / 'optimizations/indexes.sql', sql_dir / 'indexes.sql')
         setup.append('indexes.sql')
@@ -120,6 +154,18 @@ COMMIT;'''))
     if opts.get('pool'):
         script = script.replace('CITUS_MAX_ADAPTIVE_EXECUTOR_POOL_SIZE:-4',
                                 'CITUS_MAX_ADAPTIVE_EXECUTOR_POOL_SIZE:-' + str(opts['pool']))
+    if opts.get('read_only'):
+        # Access mode is independent of isolation. Keep SERIALIZABLE, queries,
+        # weights, durability and retry limits unchanged; do not use DEFERRABLE.
+        for transaction in ['T3_order_history.sql', 'T4_product_lookup.sql', 'T6_global_sales.sql']:
+            path = dest / 'transactions' / transaction
+            original = path.read_text()
+            if original.count('BEGIN;') != 1:
+                raise ValueError(f'Expected exactly one transaction in {path}')
+            path.write_text(original.replace('BEGIN;', 'BEGIN READ ONLY;', 1))
+    if opts.get('read_only') or opts.get('join_colocation'):
+        script = script.replace('#SBATCH --partition=normal',
+                                '#SBATCH --partition=normal\n#SBATCH --constraint=xcnf')
     validation=['verify.sql']
     if opts.get('summary'): validation.append('verify_summary.sql')
     for file in validation:
@@ -165,9 +211,12 @@ def main():
     (OUT / 'README.md').write_text('''# Team 14 experiments
 
 `expt_a0` and `expt_b0` are Dessi's preserved baseline snapshots (jobs 918524 and
-918781). `expt_a101`–`expt_a108` are Hikaru's proposed Task 2 experiments. Each
+918781). `expt_a101`–`expt_a112` are Hikaru's proposed Task 2 experiments. Each
 folder contains a complete run.sh, transactions and any supporting SQL.
-The a101–a108 numbers are provisional until checked against current team work.
+New IDs must be checked against current team work. a109/a110 isolate the
+read-only access declaration relative to a101/a108. a111 adapts Dessi's B b1/b2
+placement on a102; a112 adds read-only access declarations to a111. All new
+variants require xcnf nodes.
 
 | Experiment | Change from baseline |
 |---|---|

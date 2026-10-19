@@ -84,6 +84,24 @@ def check(expt, target):
     pgbench_once(expt,'T7',{'DEBUG_T7_DEST_PRODUCT_ID':1})
     assert sql('SELECT quantity FROM inventory WHERE product_id IN (1,2) ORDER BY product_id;')=='97\n103'
     checks['same_product_transfer_no_change']=True
+    if manifest.get('join_colocation'):
+        # Inventory identifiers are not routing keys in this design. Exercise
+        # real T7 with IDs different from the product IDs instead of relying on
+        # the starter loader's incidental equality of those two columns.
+        sql('UPDATE inventory SET inventory_id=inventory_id+1000000 WHERE product_id IN (1,2);')
+        pgbench_once(expt,'T7',{})
+        assert sql('SELECT quantity FROM inventory WHERE product_id IN (1,2) ORDER BY product_id;')=='94\n106'
+        checks['transfer_routes_with_distinct_inventory_ids']=True
+        for table, peer, key in [('inventory','products','product_id'), ('order_items','orders','order_id')]:
+            assert sql(f"SELECT column_to_column_name(logicalrelid,partkey)='{key}' AND colocationid=(SELECT colocationid FROM pg_dist_partition WHERE logicalrelid='{peer}'::regclass) FROM pg_dist_partition WHERE logicalrelid='{table}'::regclass;") == 't'
+            checks[table+'_placement_matches_'+peer]=True
+    # Exercise the actual read scripts after changing transaction access modes.
+    for transaction in ['T3', 'T4', 'T6']:
+        before = state()
+        p = pgbench_once(expt, transaction, {})
+        (target/(transaction+'_read_query.txt')).write_text(p.stdout+p.stderr)
+        assert state() == before, (expt, transaction, 'read query changed data')
+        checks[transaction+'_read_query_preserves_state'] = True
     checks.update(verify(manifest.get('summary',False),'final_'))
     for file in sorted((ROOT/'citus_project_team_14'/expt/'sql').glob('verify*.sql')):
         sql(file.read_text())
