@@ -35,6 +35,10 @@ OPTIONS = {
                       indexes=True, join_colocation=True, read_only=True,
                       derives_from='expt_a111',
                       attribution='Hikaru A adaptation of Dessi B b1/b2 placement'),
+    'expt_a113': dict(name='Product/order join colocation + READ ONLY DEFERRABLE',
+                      indexes=True, join_colocation=True, read_only=True,
+                      read_only_deferrable=True, derives_from='expt_a112',
+                      attribution='Hikaru A adaptation of Dessi B b1/b2 placement'),
 }
 
 
@@ -156,20 +160,23 @@ COMMIT;'''))
                                 'CITUS_MAX_ADAPTIVE_EXECUTOR_POOL_SIZE:-' + str(opts['pool']))
     if opts.get('read_only'):
         # Access mode is independent of isolation. Keep SERIALIZABLE, queries,
-        # weights, durability and retry limits unchanged; do not use DEFERRABLE.
+        # weights, durability and retry limits unchanged. a113 independently
+        # tests waiting for safe read-only snapshots with DEFERRABLE.
         for transaction in ['T3_order_history.sql', 'T4_product_lookup.sql', 'T6_global_sales.sql']:
             path = dest / 'transactions' / transaction
             original = path.read_text()
             if original.count('BEGIN;') != 1:
                 raise ValueError(f'Expected exactly one transaction in {path}')
-            path.write_text(original.replace('BEGIN;', 'BEGIN READ ONLY;', 1))
+            access_mode = 'BEGIN READ ONLY DEFERRABLE;' if opts.get('read_only_deferrable') else 'BEGIN READ ONLY;'
+            path.write_text(original.replace('BEGIN;', access_mode, 1))
     if opts.get('read_only') or opts.get('join_colocation'):
         script = script.replace('#SBATCH --partition=normal',
                                 '#SBATCH --partition=normal\n#SBATCH --constraint=xcnf')
     validation=['verify.sql']
     if opts.get('summary'): validation.append('verify_summary.sql')
     for file in validation:
-        shutil.copy(ROOT/'optimizations'/file,sql_dir/file)
+        source = 'verify_scalable.sql' if file == 'verify.sql' and (opts.get('colocate') or opts.get('join_colocation')) else file
+        shutil.copy(ROOT/'optimizations'/source,sql_dir/file)
     validation_commands='\n'.join(f'\t\tpsqlx -f "$SCRIPT_DIR/sql/{f}" >> "$JOB_RESULT_DIR/validation.log"' for f in validation)
     needle='\t\tanalyze_run "$clients" "$prefix" "$RUN_DIR/result-c${clients}.txt" "$pgbench_rc"'
     script=script.replace(needle,needle+'\n'+validation_commands)
@@ -188,6 +195,8 @@ sha256sum "$SCRIPT_DIR/run.sh" "$TX_DIR/"*.sql "$SCRIPT_DIR/sql/"*.sql > "$JOB_R
     (dest / 'run.sh').chmod(0o755)
     manifest = dict(experiment=name, owner='Hikaru', workload='A', status='implemented; see results for validation',
                     baseline='expt_a0', **opts)
+    if opts.get('colocate') or opts.get('join_colocation'):
+        manifest['validator'] = 'exact-count-distinct; post-measurement only'
     manifest['baseline_script_sha256'] = hashlib.sha256((SOURCE / 'run.sh').read_bytes()).hexdigest()
     (dest / 'experiment.json').write_text(json.dumps(manifest, indent=2) + '\n')
     (dest / 'README.md').write_text(f'''# {name}: {opts['name']}
@@ -211,12 +220,13 @@ def main():
     (OUT / 'README.md').write_text('''# Team 14 experiments
 
 `expt_a0` and `expt_b0` are Dessi's preserved baseline snapshots (jobs 918524 and
-918781). `expt_a101`–`expt_a112` are Hikaru's proposed Task 2 experiments. Each
+918781). `expt_a101`–`expt_a113` are Hikaru's proposed Task 2 experiments. Each
 folder contains a complete run.sh, transactions and any supporting SQL.
 New IDs must be checked against current team work. a109/a110 isolate the
 read-only access declaration relative to a101/a108. a111 adapts Dessi's B b1/b2
 placement on a102; a112 adds read-only access declarations to a111. All new
-variants require xcnf nodes.
+variants require xcnf nodes. a113 adds DEFERRABLE to a112's read-only transactions
+to test safe-snapshot waits without lowering isolation.
 
 | Experiment | Change from baseline |
 |---|---|
