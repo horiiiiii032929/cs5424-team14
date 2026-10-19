@@ -25,6 +25,15 @@ a112 is the provisional A selection, pending seed-7 repeat 978177 and Kelvin's r
 See the [A report draft](../docs/workload-a-report-draft.md) and
 [cluster runbook](../docs/workload-a-cluster-runbook.md).
 
+a114 (a112 + exact daily sales summaries, eight stripes per merchant/day, and a
+T6 that reads raw orders only for the two partial days) passed
+[42 correctness checks](correctness-summary-20261019/README.md). In the
+[local pilot](summary-pilot-20261019/README.md) it completed at one client
+(285 vs a112's 306 TPS on the 50k-order fixture) and aborted at four clients,
+like a112. A [1M-order T6 check](t6-plan-check-20261019/README.md) measured
+25.5 ms versus 78.0 ms for a112's query, but 17.0 ms for the original query
+with only the `created_at` index. Its cluster diagnostic is prepared, not submitted.
+
 ## Original results — 14 October 2026
 
 All five of Hikaru's Workload A proposals are implemented. They produce seven

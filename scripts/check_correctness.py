@@ -31,7 +31,7 @@ def state():
 
 def check(expt, target):
     manifest=prepare(expt,target,small=True)
-    checks=verify(manifest.get('summary',False),'initial_')
+    checks=verify(manifest.get('summary',False),report=manifest.get('summary_report','T6_sales_summary.sql'),prefix='initial_')
     cases=[
       ('one_item',{},True,1),
       ('five_items',{'DEBUG_ITEM_COUNT':5},True,5),
@@ -95,6 +95,24 @@ def check(expt, target):
         for table, peer, key in [('inventory','products','product_id'), ('order_items','orders','order_id')]:
             assert sql(f"SELECT column_to_column_name(logicalrelid,partkey)='{key}' AND colocationid=(SELECT colocationid FROM pg_dist_partition WHERE logicalrelid='{peer}'::regclass) FROM pg_dist_partition WHERE logicalrelid='{table}'::regclass;") == 't'
             checks[table+'_placement_matches_'+peer]=True
+    if manifest.get('summary_stripes'):
+        # The orders above must have spread over several of today's stripes, so
+        # the final exact-summary and T6 checks cover multi-row merchant days.
+        stripes=sql("SELECT count(DISTINCT stripe) FROM sales_daily WHERE merchant_id=1 AND sales_day=date_trunc('day',CURRENT_TIMESTAMP) AND stripe>0;")
+        assert int(stripes)>1, (expt,'summary stripes used',stripes)
+        checks['summary_orders_spread_over_stripes']=True
+        # T6 exactness at the actual script's top-20, versus the original query.
+        t6=(ROOT/'citus_project_team_14'/expt/'transactions/T6_global_sales.sql').read_text()
+        assert t6.startswith('BEGIN READ ONLY;\n'), (expt,'T6 access mode')
+        fast=t6.replace('BEGIN READ ONLY;','').replace('COMMIT;','').strip().rstrip(';').replace('(:REPORT_DAYS)','(30)')
+        raw='''SELECT merchant_id,count(*) AS order_count,sum(total_amount) AS revenue FROM orders
+          WHERE created_at>=CURRENT_TIMESTAMP-30*INTERVAL '1 day' AND created_at<CURRENT_TIMESTAMP
+          GROUP BY merchant_id ORDER BY revenue DESC LIMIT 20'''
+        # One statement: both sides share the snapshot and CURRENT_TIMESTAMP.
+        same=sql(f'''SELECT (SELECT string_agg(concat_ws('|',merchant_id,order_count,revenue),',' ORDER BY revenue DESC,merchant_id) FROM ({fast}) f)
+          = (SELECT string_agg(concat_ws('|',merchant_id,order_count,revenue),',' ORDER BY revenue DESC,merchant_id) FROM ({raw}) r);''')
+        assert same=='t', (expt,'T6 top-20',same)
+        checks['T6_top20_matches_unsummarized_query']=True
     # Exercise the actual read scripts after changing transaction access modes.
     for transaction in ['T3', 'T4', 'T6']:
         before = state()
@@ -102,7 +120,7 @@ def check(expt, target):
         (target/(transaction+'_read_query.txt')).write_text(p.stdout+p.stderr)
         assert state() == before, (expt, transaction, 'read query changed data')
         checks[transaction+'_read_query_preserves_state'] = True
-    checks.update(verify(manifest.get('summary',False),'final_'))
+    checks.update(verify(manifest.get('summary',False),report=manifest.get('summary_report','T6_sales_summary.sql'),prefix='final_'))
     for file in sorted((ROOT/'citus_project_team_14'/expt/'sql').glob('verify*.sql')):
         sql(file.read_text())
         checks[file.name]=True

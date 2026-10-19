@@ -61,6 +61,38 @@ It uses the fresh initial load and skips a redundant reload for this single
 client count. Smoke/full matrices retain their original reset behavior.
 Do not promote a design with an aborted diagnostic into a full performance claim.
 
+### a114 diagnostic (prepared, not submitted)
+
+a114 is a112 plus a104's exact daily sales summaries, targeting T6, which is
+67–83% of a112's recorded time in the matched full run. T1 upserts the order into
+one of eight per-merchant/day stripes (`order_id % 8`) just before COMMIT; T6
+sums the stripes for whole days and reads raw orders only for the two partial-day
+ranges (a104's T6 index-scanned the whole window), still under READ ONLY.
+Isolation, weights, retries and durability are unchanged. Locally at 1M orders the
+original query with only a104's `orders(created_at)` index was faster than either
+summary T6 (`results/t6-plan-check-20261019/`), so credit the summary itself only
+against an "a112 + created_at index" control.
+Correctness and the local pilot are in `results/correctness-summary-20261019/`
+and `results/summary-pilot-20261019/` (branch `expt-a114-sales-summary`):
+42/42 checks passed; the local pilot completed at one client and aborted at four
+in warmup with the same commit-time SSI error as a112, after more T1
+serialization failures than a112 (63 vs 32). Watch T1 retries in the diagnostic.
+
+Upload a commit that contains `expt_a114` with `bash scripts/upload_cluster.sh`,
+then from that new directory on xlogin:
+
+```sh
+BENCHMARK_NODELIST='xcnf[0-4]' bash scripts/submit_cluster.sh diagnostic expt_a114
+```
+
+Compare it with a112 diagnostic 977618 (same scale-1, four-client, 60 s + 60 s
+settings on xcnf0–4). The helper waits for existing team jobs such as the seed-7
+a112 repeat 978177. Check pgbench exits, serialization failures/retries, and
+that validation.log contains both `core invariants passed` and `striped sales
+summary matches base orders`. Promote a114 to a full matched run only if the
+diagnostic is clean and T6 latency drops:
+`BENCHMARK_NODELIST='xcnf[0-4]' bash scripts/submit_cluster.sh full expt_a114`.
+
 Select the candidates supported by smoke/correctness results. For example:
 
 ```sh

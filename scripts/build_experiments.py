@@ -39,6 +39,11 @@ OPTIONS = {
                       indexes=True, join_colocation=True, read_only=True,
                       read_only_deferrable=True, derives_from='expt_a112',
                       attribution='Hikaru A adaptation of Dessi B b1/b2 placement'),
+    'expt_a114': dict(name='a112 + exact daily sales summaries (8 stripes)',
+                      indexes=True, join_colocation=True, read_only=True,
+                      summary=True, summary_stripes=8,
+                      summary_report='T6_sales_summary_ranges.sql', derives_from='expt_a112',
+                      attribution='Hikaru A adaptation of Dessi B b1/b2 placement'),
 }
 
 
@@ -135,20 +140,43 @@ def build(name, opts):
     if opts.get('indexes'):
         shutil.copy(ROOT / 'optimizations/indexes.sql', sql_dir / 'indexes.sql')
         setup.append('indexes.sql')
+    stripes = opts.get('summary_stripes')
     if opts.get('summary'):
+        # Striped variants keep the same file names so run.sh and the local
+        # harness load them through the existing summary hooks.
         for f in ['sales_summary_schema.sql', 'sales_summary_load.sql']:
-            shutil.copy(ROOT / 'optimizations' / f, sql_dir / f)
+            source = f.replace('sales_summary_', 'sales_summary_striped_') if stripes else f
+            shutil.copy(ROOT / 'optimizations' / source, sql_dir / f)
+        if stripes and f'stripe < {stripes})' not in (sql_dir / 'sales_summary_schema.sql').read_text():
+            raise ValueError(f'Striped summary schema does not allow exactly {stripes} stripes')
         setup.append('sales_summary_schema.sql')
         postload.append('sales_summary_load.sql')
         script = script.replace('DROP TABLE IF EXISTS order_items CASCADE;',
                                 'DROP TABLE IF EXISTS sales_daily CASCADE; DROP TABLE IF EXISTS order_items CASCADE;')
-        shutil.copy(ROOT / 'optimizations/T6_sales_summary.sql', dest / 'transactions/T6_global_sales.sql')
+        # a114 scans only the two partial-day order ranges instead of the full
+        # report window minus whole days (same result, fewer raw rows).
+        shutil.copy(ROOT / 'optimizations' / opts.get('summary_report', 'T6_sales_summary.sql'),
+                    dest / 'transactions/T6_global_sales.sql')
         t1 = dest / 'transactions/T1_place_order.sql'
-        t1.write_text(t1.read_text().replace('COMMIT;', '''INSERT INTO sales_daily VALUES
+        transaction = t1.read_text()
+        if transaction.count('COMMIT;') != 1:
+            raise ValueError(f'Expected exactly one commit in {t1}')
+        if stripes:
+            # Same exact upsert, last before COMMIT, on one of the merchant's
+            # day stripes. Consecutive order IDs spread concurrent hot orders.
+            upsert = f'''INSERT INTO sales_daily VALUES
+  ((:merchant_id)::bigint, date_trunc('day', CURRENT_TIMESTAMP),
+   ((:new_order_id)::bigint % {stripes})::smallint, 1, (:order_total)::numeric(12,2))
+ON CONFLICT (merchant_id,sales_day,stripe) DO UPDATE
+SET order_count=sales_daily.order_count+1,revenue=sales_daily.revenue+EXCLUDED.revenue;
+COMMIT;'''
+        else:
+            upsert = '''INSERT INTO sales_daily VALUES
   ((:merchant_id)::bigint, date_trunc('day', CURRENT_TIMESTAMP), 1, (:order_total)::numeric(12,2))
 ON CONFLICT (merchant_id,sales_day) DO UPDATE
 SET order_count=sales_daily.order_count+1,revenue=sales_daily.revenue+EXCLUDED.revenue;
-COMMIT;'''))
+COMMIT;'''
+        t1.write_text(transaction.replace('COMMIT;', upsert))
     if opts.get('procedure'):
         shutil.copy(ROOT / 'optimizations/place_order.sql', sql_dir / 'place_order.sql')
         setup.append('place_order.sql')
@@ -176,6 +204,8 @@ COMMIT;'''))
     if opts.get('summary'): validation.append('verify_summary.sql')
     for file in validation:
         source = 'verify_scalable.sql' if file == 'verify.sql' and (opts.get('colocate') or opts.get('join_colocation')) else file
+        if file == 'verify_summary.sql' and stripes:
+            source = 'verify_summary_striped.sql'
         shutil.copy(ROOT/'optimizations'/source,sql_dir/file)
     validation_commands='\n'.join(f'\t\tpsqlx -f "$SCRIPT_DIR/sql/{f}" >> "$JOB_RESULT_DIR/validation.log"' for f in validation)
     needle='\t\tanalyze_run "$clients" "$prefix" "$RUN_DIR/result-c${clients}.txt" "$pgbench_rc"'
@@ -220,13 +250,16 @@ def main():
     (OUT / 'README.md').write_text('''# Team 14 experiments
 
 `expt_a0` and `expt_b0` are Dessi's preserved baseline snapshots (jobs 918524 and
-918781). `expt_a101`–`expt_a113` are Hikaru's proposed Task 2 experiments. Each
+918781). `expt_a101`–`expt_a114` are Hikaru's proposed Task 2 experiments. Each
 folder contains a complete run.sh, transactions and any supporting SQL.
 New IDs must be checked against current team work. a109/a110 isolate the
 read-only access declaration relative to a101/a108. a111 adapts Dessi's B b1/b2
 placement on a102; a112 adds read-only access declarations to a111. All new
 variants require xcnf nodes. a113 adds DEFERRABLE to a112's read-only transactions
-to test safe-snapshot waits without lowering isolation.
+to test safe-snapshot waits without lowering isolation. a114 adds a104's exact
+daily sales summaries to a112, striped eight ways per merchant/day to limit
+hot-row upsert conflicts; T6 reads the summary plus only the two partial-day
+order ranges under READ ONLY.
 
 | Experiment | Change from baseline |
 |---|---|

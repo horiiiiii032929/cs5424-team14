@@ -1,0 +1,110 @@
+Custom Scan (Citus Adaptive) (actual time=3.097..3.098 rows=20.00 loops=1)
+  ->  Distributed Subplan 2_1
+        Subplan Duration: 10.18 ms
+        Intermediate Data Size: 50 bytes
+        Result destination: Send to 4 nodes
+        ->  Result (actual time=0.000..0.000 rows=0.00 loops=1)
+        Planning Time: 0.000 ms
+        Execution Time: 0.001 ms
+  ->  Distributed Subplan 2_2
+        Subplan Duration: 76.99 ms
+        Intermediate Data Size: 8772 bytes
+        Result destination: Write locally
+        ->  HashAggregate (actual time=0.000..0.000 rows=200.00 loops=1)
+              Group Key: remote_scan.merchant_id
+              ->  Custom Scan (Citus Adaptive) (actual time=0.000..0.000 rows=1792.00 loops=1)
+                    Task Count: 32
+                    Tuple data received from nodes: 49 kB
+                    Tasks Shown: One of 32
+                    ->  Task
+                          Tuple data received from node: 1556 bytes
+                          Node: host=worker1 port=5432 dbname=postgres
+                          ->  HashAggregate (actual time=23.608..23.621 rows=55.00 loops=1)
+                                Group Key: o.merchant_id
+                                Batches: 1  Memory Usage: 56kB
+                                Buffers: shared hit=4552
+                                ->  Nested Loop (actual time=23.423..23.554 rows=88.00 loops=1)
+                                      Buffers: shared hit=4552
+                                      ->  Function Scan on read_intermediate_result intermediate_result (actual time=0.023..0.024 rows=1.00 loops=1)
+                                      ->  Index Scan using idx_orders_report_time_102888 on orders_102888 o (actual time=23.397..23.515 rows=88.00 loops=1)
+                                            Index Cond: ((created_at >= intermediate_result.lo) AND (created_at < intermediate_result.hi))
+                                            Filter: ((created_at < intermediate_result.first_day) OR (created_at >= intermediate_result.last_day))
+                                            Rows Removed by Filter: 2482
+                                            Index Searches: 1
+                                            Buffers: shared hit=4552
+                              Planning:
+                                Buffers: shared hit=85
+                              Planning Time: 0.306 ms
+                              Execution Time: 23.682 ms
+        Planning Time: 0.000 ms
+        Execution Time: 0.005 ms
+  ->  Distributed Subplan 2_3
+        Subplan Duration: 15.48 ms
+        Intermediate Data Size: 248 kB
+        Result destination: Write locally
+        ->  Custom Scan (Citus Adaptive) (actual time=0.000..0.000 rows=5800.00 loops=1)
+              Task Count: 32
+              Tuple data received from nodes: 169 kB
+              Tasks Shown: One of 32
+              ->  Task
+                    Tuple data received from node: 8652 bytes
+                    Node: host=worker1 port=5432 dbname=postgres
+                    ->  Nested Loop (actual time=0.134..2.398 rows=290.00 loops=1)
+                          Buffers: shared hit=312
+                          ->  Function Scan on read_intermediate_result intermediate_result (actual time=0.036..0.036 rows=1.00 loops=1)
+                          ->  Index Scan using sales_daily_pkey_102956 on sales_daily_102956 s (actual time=0.096..2.312 rows=290.00 loops=1)
+                                Index Cond: ((sales_day >= intermediate_result.first_day) AND (sales_day < intermediate_result.last_day))
+                                Index Searches: 11
+                                Buffers: shared hit=312
+                        Planning:
+                          Buffers: shared hit=41
+                        Planning Time: 0.210 ms
+                        Execution Time: 2.498 ms
+        Planning Time: 0.000 ms
+        Execution Time: 0.001 ms
+  ->  Distributed Subplan 2_4
+        Subplan Duration: 16.57 ms
+        Intermediate Data Size: 257 kB
+        Result destination: Write locally
+        ->  Custom Scan (Citus Adaptive) (actual time=0.000..0.000 rows=6000.00 loops=1)
+              Task Count: 1
+              Tuple data received from nodes: 175 kB
+              Tasks Shown: All
+              ->  Task
+                    Tuple data received from node: 175 kB
+                    Node: host=localhost port=5432 dbname=postgres
+                    ->  Append (actual time=1.323..2.190 rows=6000.00 loops=1)
+                          Buffers: shared hit=3
+                          ->  Function Scan on read_intermediate_result intermediate_result (actual time=1.322..1.614 rows=5800.00 loops=1)
+                                Buffers: shared hit=3
+                          ->  Function Scan on read_intermediate_result intermediate_result_1 (actual time=0.092..0.101 rows=200.00 loops=1)
+                        Planning:
+                          Buffers: shared hit=6
+                        Planning Time: 0.061 ms
+                        Execution Time: 2.738 ms
+        Planning Time: 0.000 ms
+        Execution Time: 0.001 ms
+  Task Count: 1
+  Tuple data received from nodes: 600 bytes
+  Tasks Shown: All
+  ->  Task
+        Tuple data received from node: 600 bytes
+        Node: host=localhost port=5432 dbname=postgres
+        ->  Limit (actual time=2.243..2.246 rows=20.00 loops=1)
+              Buffers: shared hit=3
+              ->  Sort (actual time=2.243..2.244 rows=20.00 loops=1)
+                    Sort Key: (sum(intermediate_result.revenue)) DESC
+                    Sort Method: top-N heapsort  Memory: 27kB
+                    Buffers: shared hit=3
+                    ->  HashAggregate (actual time=2.155..2.199 rows=200.00 loops=1)
+                          Group Key: intermediate_result.merchant_id
+                          Batches: 1  Memory Usage: 160kB
+                          ->  Function Scan on read_intermediate_result intermediate_result (actual time=1.139..1.437 rows=6000.00 loops=1)
+            Planning:
+              Buffers: shared hit=43
+            Planning Time: 0.094 ms
+            Execution Time: 2.288 ms
+Planning:
+  Buffers: shared hit=766
+Planning Time: 5.262 ms
+Execution Time: 122.388 ms
