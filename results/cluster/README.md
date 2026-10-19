@@ -23,6 +23,8 @@ Source, topology, settings, versions, raw logs and validation were reviewed.
 | Revised scale-1 diagnostics | a111 977617; a112 977618; a113 977619 | All warmups/measurements completed; zero measured failures/retries; exact validation passed. |
 | Full scale-1 matrix | a0 977740; a112 977773 | Both completed on xcnf0–4 with all 12 exits zero. a0 3.2–3.6 TPS; a112 54.2–90.8 TPS, zero failed transactions, six passing validations. See [full results](../cluster-full-20261019/README.md). |
 | Full repeat (pgbench seed 7) | a112 978177 | Completed; within 2.5% of seed 42, zero measured failures, six passing validations. 64-client warmup exit 2 (Citus-wrapped commit-time serialization conflict); flagged. Ledger `full-repeat-seed7-submission-20261019.tsv`. |
+| T6 diagnostics | a114 979865; a115 979866 | Both clean. a114 (sales summaries) 85.3 TPS, T6 slower than a112; a115 (`orders(created_at)` index only) 288.6 TPS, T6 116 ms. See [T6 diagnostics](../cluster-diagnostic-t6-20261020/README.md). |
+| Full matched a115 | 979909 (seed 42); 979910 (seed 7) | Queued on xcnf0–4. Ledgers `t6-submissions-20261020.tsv`, `a115-repeat-seed7-submission-20261020.tsv`. |
 
 The [smoke evidence](../cluster-smoke-20261019/README.md) and
 [original diagnostic evidence](../cluster-diagnostic-original-20261019/README.md)

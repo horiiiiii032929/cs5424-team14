@@ -265,10 +265,22 @@ likely explains the local four-client aborts at higher contention; it is a
 residual risk of a112 under heavy load, not a correctness violation.
 Pending candidate 977741 was replaced before starting to correct its node request.
 
+### 3.8 Follow-up on T6: summaries versus a report-time index
+
+With T3/T4 resolved, T6 became a112's dominant cost. a114 adds a104's exact
+daily sales summaries to a112 (striped eight ways per merchant/day to limit hot-row
+conflicts) and passed 42 correctness checks. Its control, a115, adds only the
+`orders(created_at)` index with a112's original T6. In scale-1/four-client
+diagnostics on xcnf0–4, a114 ran 85.3 TPS with T6 at 764 ms, slower than a112's
+651 ms, while a115 ran 288.6 TPS with T6 at 116 ms; both were clean and validated.
+The summary's extra distributed subplans cost more than they save, so a114 is not
+promoted. Full matched a115 runs (979909 seed 42, 979910 seed 7) are queued.
+
 **Provisional selection:** a112 (a102 lookup indexes + join-key colocation of
 inventory/products and order_items/orders + READ ONLY T3/T4/T6) is the leading
-Workload A design. Two matched seeds agree; final selection awaits Kelvin's
-agreement and the a114 (T6 summary) diagnostic before the 23 October cutoff. Local timing and teammate-reported cluster numbers remain
+Workload A design with two agreeing matched seeds. If a115's full runs confirm
+its diagnostic, a115 (a112 + `orders(created_at)` index) supersedes it. Final
+selection awaits those runs and Kelvin's agreement before the 23 October cutoff. Local timing and teammate-reported cluster numbers remain
 separate from these independently verified measurements.
 
 ## Sources to retain in the final report

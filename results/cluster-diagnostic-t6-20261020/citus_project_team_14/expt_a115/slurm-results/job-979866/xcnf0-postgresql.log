@@ -1,0 +1,46 @@
+2026-10-20 00:26:01.494 +08 [76204] LOG:  There is no designated Main database.
+2026-10-20 00:26:01.494 +08 [76204] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-20 00:26:01.494 +08 [76204] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-20 00:26:01.643 +08 [76204] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-20 00:26:01.643 +08 [76204] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-20 00:26:01.643 +08 [76204] LOG:  listening on IPv6 address "::", port 5446
+2026-10-20 00:26:01.643 +08 [76204] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-20 00:26:01.648 +08 [76211] LOG:  database system was shut down at 2026-10-20 00:25:58 +08
+2026-10-20 00:26:01.653 +08 [76204] LOG:  database system is ready to accept connections
+2026-10-20 00:26:04.212 +08 [76239] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-20 00:26:04.212 +08 [76239] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-20 00:30:20.093 +08 [78676] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-20 00:30:20.093 +08 [78676] DETAIL:  Reason code: Canceled on conflict out to pivot 12045, during read.
+2026-10-20 00:30:20.093 +08 [78676] HINT:  The transaction might succeed if retried.
+2026-10-20 00:30:20.093 +08 [78676] CONTEXT:  while executing command on xcnf2:5446
+2026-10-20 00:30:20.093 +08 [78676] STATEMENT:  SELECT
+	  merchant_id,
+	  COUNT(*) AS order_count,
+	  SUM(total_amount) AS revenue
+	FROM orders
+	WHERE created_at >= CURRENT_TIMESTAMP - (30)::integer * INTERVAL '1 day'
+	  AND created_at < CURRENT_TIMESTAMP
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-20 00:30:20.544 +08 [78678] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-20 00:30:20.544 +08 [78678] DETAIL:  Reason code: Canceled on conflict out to pivot 12314, during read.
+2026-10-20 00:30:20.544 +08 [78678] HINT:  The transaction might succeed if retried.
+2026-10-20 00:30:20.544 +08 [78678] CONTEXT:  while executing command on xcnf1:5446
+2026-10-20 00:30:20.544 +08 [78678] STATEMENT:  SELECT
+	  merchant_id,
+	  COUNT(*) AS order_count,
+	  SUM(total_amount) AS revenue
+	FROM orders
+	WHERE created_at >= CURRENT_TIMESTAMP - (30)::integer * INTERVAL '1 day'
+	  AND created_at < CURRENT_TIMESTAMP
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-20 00:30:46.264 +08 [76204] LOG:  received fast shutdown request
+2026-10-20 00:30:46.265 +08 [76204] LOG:  aborting any active transactions
+2026-10-20 00:30:46.268 +08 [76204] LOG:  background worker "logical replication launcher" (PID 76214) exited with exit code 1
+2026-10-20 00:30:46.270 +08 [76209] LOG:  shutting down
+2026-10-20 00:30:46.271 +08 [76209] LOG:  checkpoint starting: shutdown immediate
+2026-10-20 00:30:46.305 +08 [76209] LOG:  checkpoint complete: wrote 1855 buffers (1.4%), wrote 9 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.031 s, sync=0.003 s, total=0.035 s; sync files=482, longest=0.001 s, average=0.001 s; distance=20310 kB, estimate=20310 kB; lsn=0/2B34930, redo lsn=0/2B34930
+2026-10-20 00:30:46.364 +08 [76204] LOG:  database system is shut down
