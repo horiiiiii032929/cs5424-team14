@@ -1,0 +1,1088 @@
+2026-10-11 12:39:30.660 +08 [775585] LOG:  There is no designated Main database.
+2026-10-11 12:39:30.661 +08 [775585] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-11 12:39:30.661 +08 [775585] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-11 12:39:30.814 +08 [775585] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-11 12:39:30.815 +08 [775585] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-11 12:39:30.815 +08 [775585] LOG:  listening on IPv6 address "::", port 5446
+2026-10-11 12:39:30.816 +08 [775585] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-11 12:39:30.820 +08 [775606] LOG:  database system was shut down at 2026-10-11 12:39:30 +08
+2026-10-11 12:39:30.825 +08 [775585] LOG:  database system is ready to accept connections
+2026-10-11 12:39:33.918 +08 [775838] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-11 12:39:33.918 +08 [775838] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 12:55:54.095 +08 [775838] WARNING:  terminating connection due to administrator command
+2026-10-11 12:55:54.095 +08 [775838] CONTEXT:  while executing command on xcnf0:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 12:55:54.095 +08 [775838] WARNING:  terminating connection due to administrator command
+2026-10-11 12:55:54.095 +08 [775838] CONTEXT:  while executing command on xcne7:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 12:55:54.095 +08 [775838] WARNING:  could not issue cancel request
+2026-10-11 12:55:54.095 +08 [775838] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-11 12:55:54.095 +08 [775838] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 12:55:56.105 +08 [775838] WARNING:  connection to the remote node cs14@xcnf0:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-11 12:55:56.105 +08 [775838] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 12:55:56.105 +08 [775838] WARNING:  connection to the remote node cs14@xcne7:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-11 12:55:56.105 +08 [775838] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 12:55:56.105 +08 [775838] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-11 12:55:56.105 +08 [775838] CONTEXT:  while executing command on xcnf0:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 12:55:56.105 +08 [775838] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-11 12:55:56.105 +08 [775838] CONTEXT:  while executing command on xcne7:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 12:55:56.105 +08 [775838] WARNING:  terminating connection due to administrator command
+2026-10-11 12:55:56.105 +08 [775838] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 12:55:56.968 +08 [775585] LOG:  received fast shutdown request
+2026-10-11 12:55:56.975 +08 [775585] LOG:  aborting any active transactions
+2026-10-11 12:55:56.976 +08 [852923] FATAL:  terminating connection due to administrator command
+2026-10-11 12:55:56.979 +08 [775585] LOG:  background worker "logical replication launcher" (PID 775609) exited with exit code 1
+2026-10-11 12:55:56.984 +08 [775604] LOG:  shutting down
+2026-10-11 12:55:56.984 +08 [775604] LOG:  checkpoint starting: shutdown immediate
+2026-10-11 12:55:58.115 +08 [775604] LOG:  checkpoint complete: wrote 113821 buffers (86.8%), wrote 9 SLRU buffers; 0 WAL file(s) added, 0 removed, 239 recycled; write=1.081 s, sync=0.009 s, total=1.132 s; sync files=1049, longest=0.004 s, average=0.001 s; distance=3912222 kB, estimate=3912222 kB; lsn=0/F03E6808, redo lsn=0/F03E6808
+2026-10-11 12:55:58.441 +08 [775585] LOG:  database system is shut down
+2026-10-11 12:55:58.618 +08 [879614] LOG:  There is no designated Main database.
+2026-10-11 12:55:58.618 +08 [879614] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-11 12:55:58.618 +08 [879614] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-11 12:55:58.775 +08 [879614] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-11 12:55:58.775 +08 [879614] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-11 12:55:58.775 +08 [879614] LOG:  listening on IPv6 address "::", port 5446
+2026-10-11 12:55:58.776 +08 [879614] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-11 12:55:58.781 +08 [879632] LOG:  database system was shut down at 2026-10-11 12:55:58 +08
+2026-10-11 12:55:58.786 +08 [879614] LOG:  database system is ready to accept connections
+2026-10-11 12:55:59.798 +08 [879725] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-11 12:55:59.798 +08 [879725] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:07:32.208 +08 [909986] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:07:32.208 +08 [909986] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-11 13:07:32.208 +08 [909986] HINT:  The transaction might succeed if retried.
+2026-10-11 13:07:32.208 +08 [909986] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-11 13:07:32.16194'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '495056'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '495056'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-11 13:09:13.762 +08 [879725] WARNING:  terminating connection due to administrator command
+2026-10-11 13:09:13.762 +08 [879725] CONTEXT:  while executing command on xcne7:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:09:15.783 +08 [879725] WARNING:  connection to the remote node cs14@xcne7:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-11 13:09:15.783 +08 [879725] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:09:15.783 +08 [879725] WARNING:  terminating connection due to administrator command
+2026-10-11 13:09:15.783 +08 [879725] CONTEXT:  while executing command on xcnf0:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:09:15.783 +08 [879725] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-11 13:09:15.783 +08 [879725] CONTEXT:  while executing command on xcne7:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:09:15.783 +08 [879725] WARNING:  terminating connection due to administrator command
+2026-10-11 13:09:15.783 +08 [879725] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:09:15.788 +08 [879725] WARNING:  could not issue cancel request
+2026-10-11 13:09:15.788 +08 [879725] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-11 13:09:15.788 +08 [879725] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:09:17.131 +08 [879614] LOG:  received fast shutdown request
+2026-10-11 13:09:17.161 +08 [879614] LOG:  aborting any active transactions
+2026-10-11 13:09:17.161 +08 [990807] FATAL:  terminating connection due to administrator command
+2026-10-11 13:09:17.166 +08 [879614] LOG:  background worker "logical replication launcher" (PID 879635) exited with exit code 1
+2026-10-11 13:09:17.169 +08 [879630] LOG:  shutting down
+2026-10-11 13:09:17.169 +08 [879630] LOG:  checkpoint starting: shutdown immediate
+2026-10-11 13:09:18.254 +08 [879630] LOG:  checkpoint complete: wrote 112839 buffers (86.1%), wrote 26 SLRU buffers; 0 WAL file(s) added, 0 removed, 121 recycled; write=1.063 s, sync=0.003 s, total=1.085 s; sync files=272, longest=0.002 s, average=0.001 s; distance=1980779 kB, estimate=1980779 kB; lsn=1/692417E8, redo lsn=1/692417E8
+2026-10-11 13:09:18.587 +08 [879614] LOG:  database system is shut down
+2026-10-11 13:09:18.912 +08 [1014703] LOG:  There is no designated Main database.
+2026-10-11 13:09:18.912 +08 [1014703] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-11 13:09:18.912 +08 [1014703] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-11 13:09:19.150 +08 [1014703] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-11 13:09:19.151 +08 [1014703] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-11 13:09:19.151 +08 [1014703] LOG:  listening on IPv6 address "::", port 5446
+2026-10-11 13:09:19.152 +08 [1014703] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-11 13:09:19.157 +08 [1014745] LOG:  database system was shut down at 2026-10-11 13:09:18 +08
+2026-10-11 13:09:19.161 +08 [1014703] LOG:  database system is ready to accept connections
+2026-10-11 13:09:19.972 +08 [1014813] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-11 13:09:19.972 +08 [1014813] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:12:25.397 +08 [1030649] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:12:25.397 +08 [1030649] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-11 13:12:25.397 +08 [1030649] HINT:  The transaction might succeed if retried.
+2026-10-11 13:12:25.397 +08 [1030649] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-11 13:12:25.356576'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '288007'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '288007'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-11 13:13:18.178 +08 [1041516] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:13:18.178 +08 [1041516] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-11 13:13:18.178 +08 [1041516] HINT:  The transaction might succeed if retried.
+2026-10-11 13:13:18.178 +08 [1041516] STATEMENT:  PREPARE TRANSACTION 'citus_0_2744945_32462_1279'
+2026-10-11 13:13:37.952 +08 [1041504] ERROR:  could not serialize access due to concurrent update
+2026-10-11 13:13:37.952 +08 [1041504] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-11 13:13:37.911456'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '137809'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '809'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '137809'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-11 13:16:53.447 +08 [1041494] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:16:53.447 +08 [1041494] DETAIL:  Reason code: Canceled on conflict out to pivot 85074, during read.
+2026-10-11 13:16:53.447 +08 [1041494] HINT:  The transaction might succeed if retried.
+2026-10-11 13:16:53.447 +08 [1041494] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:16:53.365625'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:16:53.365625'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:16:53.472 +08 [1102080] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:22:32.925 +08 [1014813] WARNING:  terminating connection due to administrator command
+2026-10-11 13:22:32.925 +08 [1014813] CONTEXT:  while executing command on xcne7:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:22:34.937 +08 [1014813] WARNING:  connection to the remote node cs14@xcne7:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-11 13:22:34.937 +08 [1014813] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:22:34.937 +08 [1014813] WARNING:  terminating connection due to administrator command
+2026-10-11 13:22:34.937 +08 [1014813] CONTEXT:  while executing command on xcnf0:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:22:34.937 +08 [1014813] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-11 13:22:34.937 +08 [1014813] CONTEXT:  while executing command on xcne7:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:22:36.678 +08 [1014703] LOG:  received fast shutdown request
+2026-10-11 13:22:36.679 +08 [1014703] LOG:  aborting any active transactions
+2026-10-11 13:22:36.679 +08 [1135297] FATAL:  terminating connection due to administrator command
+2026-10-11 13:22:36.683 +08 [1014703] LOG:  background worker "logical replication launcher" (PID 1014748) exited with exit code 1
+2026-10-11 13:22:36.687 +08 [1014743] LOG:  shutting down
+2026-10-11 13:22:36.688 +08 [1014743] LOG:  checkpoint starting: shutdown immediate
+2026-10-11 13:22:37.744 +08 [1014743] LOG:  checkpoint complete: wrote 113011 buffers (86.2%), wrote 31 SLRU buffers; 0 WAL file(s) added, 0 removed, 121 recycled; write=1.035 s, sync=0.002 s, total=1.057 s; sync files=271, longest=0.001 s, average=0.001 s; distance=1987462 kB, estimate=1987462 kB; lsn=1/E2723398, redo lsn=1/E2723398
+2026-10-11 13:22:38.084 +08 [1014703] LOG:  database system is shut down
+2026-10-11 13:22:38.304 +08 [1166418] LOG:  There is no designated Main database.
+2026-10-11 13:22:38.304 +08 [1166418] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-11 13:22:38.304 +08 [1166418] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-11 13:22:38.458 +08 [1166418] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-11 13:22:38.458 +08 [1166418] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-11 13:22:38.458 +08 [1166418] LOG:  listening on IPv6 address "::", port 5446
+2026-10-11 13:22:38.459 +08 [1166418] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-11 13:22:38.464 +08 [1166425] LOG:  database system was shut down at 2026-10-11 13:22:37 +08
+2026-10-11 13:22:38.468 +08 [1166418] LOG:  database system is ready to accept connections
+2026-10-11 13:22:39.518 +08 [1166435] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-11 13:22:39.518 +08 [1166435] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:24:47.906 +08 [1166542] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:24:47.906 +08 [1166542] DETAIL:  Reason code: Canceled on conflict out to pivot 111737, during read.
+2026-10-11 13:24:47.906 +08 [1166542] HINT:  The transaction might succeed if retried.
+2026-10-11 13:24:47.906 +08 [1166542] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:24:47.730205'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:24:47.730205'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:25:23.522 +08 [1172397] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:25:23.525 +08 [1172398] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:26:29.451 +08 [1180731] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:26:42.428 +08 [1174332] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:26:42.428 +08 [1174332] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-11 13:26:42.428 +08 [1174332] HINT:  The transaction might succeed if retried.
+2026-10-11 13:26:42.428 +08 [1174332] STATEMENT:  PREPARE TRANSACTION 'citus_0_2747238_39236_825'
+2026-10-11 13:28:28.252 +08 [1174331] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:28:28.252 +08 [1174331] DETAIL:  Reason code: Canceled on conflict out to pivot 131656, during read.
+2026-10-11 13:28:28.252 +08 [1174331] HINT:  The transaction might succeed if retried.
+2026-10-11 13:28:28.252 +08 [1174331] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:28:28.168966'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:28:28.168966'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:28:43.709 +08 [1174327] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:28:43.709 +08 [1174327] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-11 13:28:43.709 +08 [1174327] HINT:  The transaction might succeed if retried.
+2026-10-11 13:28:43.709 +08 [1174327] STATEMENT:  UPDATE public.orders_102111 orders SET total_amount = 12773.16::numeric(12,2) WHERE (order_id OPERATOR(pg_catalog.=) (5007643)::bigint)
+2026-10-11 13:29:15.268 +08 [1174330] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:29:15.268 +08 [1174330] DETAIL:  Reason code: Canceled on conflict out to pivot 135438, during read.
+2026-10-11 13:29:15.268 +08 [1174330] HINT:  The transaction might succeed if retried.
+2026-10-11 13:29:15.268 +08 [1174330] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102127 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:29:15.105516'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:29:15.105516'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:34:42.160 +08 [1234920] ERROR:  canceling statement due to user request
+2026-10-11 13:34:42.160 +08 [1234920] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102135 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:34:41.896742'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:34:41.896742'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:35:41.481 +08 [1166435] WARNING:  terminating connection due to administrator command
+2026-10-11 13:35:41.481 +08 [1166435] CONTEXT:  while executing command on xcne7:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:35:43.494 +08 [1166435] ERROR:  terminating connection due to administrator command
+2026-10-11 13:35:43.494 +08 [1166435] CONTEXT:  while executing command on xcnf0:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:35:43.494 +08 [1166435] WARNING:  could not issue cancel request
+2026-10-11 13:35:43.494 +08 [1166435] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-11 13:35:43.499 +08 [1166418] LOG:  background worker "Citus Maintenance Daemon: 16384/10" (PID 1166435) exited with exit code 1
+2026-10-11 13:35:45.006 +08 [1166418] LOG:  received fast shutdown request
+2026-10-11 13:35:45.006 +08 [1166418] LOG:  aborting any active transactions
+2026-10-11 13:35:45.009 +08 [1166418] LOG:  background worker "logical replication launcher" (PID 1166428) exited with exit code 1
+2026-10-11 13:35:45.011 +08 [1166423] LOG:  shutting down
+2026-10-11 13:35:45.011 +08 [1166423] LOG:  checkpoint starting: shutdown immediate
+2026-10-11 13:35:46.079 +08 [1166423] LOG:  checkpoint complete: wrote 113230 buffers (86.4%), wrote 31 SLRU buffers; 0 WAL file(s) added, 0 removed, 121 recycled; write=1.044 s, sync=0.002 s, total=1.069 s; sync files=272, longest=0.001 s, average=0.001 s; distance=1988435 kB, estimate=1988435 kB; lsn=2/5BCF8018, redo lsn=2/5BCF8018
+2026-10-11 13:35:46.409 +08 [1166418] LOG:  database system is shut down
+2026-10-11 13:35:46.639 +08 [1240645] LOG:  There is no designated Main database.
+2026-10-11 13:35:46.639 +08 [1240645] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-11 13:35:46.639 +08 [1240645] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-11 13:35:46.794 +08 [1240645] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-11 13:35:46.795 +08 [1240645] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-11 13:35:46.795 +08 [1240645] LOG:  listening on IPv6 address "::", port 5446
+2026-10-11 13:35:46.795 +08 [1240645] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-11 13:35:46.800 +08 [1240652] LOG:  database system was shut down at 2026-10-11 13:35:46 +08
+2026-10-11 13:35:46.805 +08 [1240645] LOG:  database system is ready to accept connections
+2026-10-11 13:35:47.830 +08 [1240662] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-11 13:35:47.830 +08 [1240662] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:37:50.780 +08 [1240762] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:37:50.780 +08 [1240762] DETAIL:  Reason code: Canceled on conflict out to pivot 164898, during read.
+2026-10-11 13:37:50.780 +08 [1240762] HINT:  The transaction might succeed if retried.
+2026-10-11 13:37:50.780 +08 [1240762] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:37:50.615256'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:37:50.615256'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:37:50.785 +08 [1240759] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:37:50.785 +08 [1240759] DETAIL:  Reason code: Canceled on conflict out to pivot 164898, during read.
+2026-10-11 13:37:50.785 +08 [1240759] HINT:  The transaction might succeed if retried.
+2026-10-11 13:37:50.785 +08 [1240759] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:37:50.620595'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:37:50.620595'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:37:50.791 +08 [1240771] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:37:50.791 +08 [1240771] DETAIL:  Reason code: Canceled on conflict out to pivot 164898, during read.
+2026-10-11 13:37:50.791 +08 [1240771] HINT:  The transaction might succeed if retried.
+2026-10-11 13:37:50.791 +08 [1240771] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:37:50.643546'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:37:50.643546'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:37:50.816 +08 [1240770] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:37:50.816 +08 [1240770] DETAIL:  Reason code: Canceled on conflict out to pivot 164898, during read.
+2026-10-11 13:37:50.816 +08 [1240770] HINT:  The transaction might succeed if retried.
+2026-10-11 13:37:50.816 +08 [1240770] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:37:50.574937'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:37:50.574937'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:37:50.843 +08 [1240761] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:37:50.843 +08 [1240761] DETAIL:  Reason code: Canceled on conflict out to pivot 164898, during read.
+2026-10-11 13:37:50.843 +08 [1240761] HINT:  The transaction might succeed if retried.
+2026-10-11 13:37:50.843 +08 [1240761] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:37:50.613706'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:37:50.613706'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:37:50.898 +08 [1241107] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:37:50.901 +08 [1241111] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:37:50.901 +08 [1241108] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:37:50.902 +08 [1241110] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:37:50.920 +08 [1241105] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:37:50.923 +08 [1241102] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:37:50.934 +08 [1241101] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:37:50.937 +08 [1241103] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:37:50.946 +08 [1241106] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:37:50.993 +08 [1241104] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:38:08.399 +08 [1240780] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:38:08.399 +08 [1240780] DETAIL:  Reason code: Canceled on conflict out to pivot 166676, during read.
+2026-10-11 13:38:08.399 +08 [1240780] HINT:  The transaction might succeed if retried.
+2026-10-11 13:38:08.399 +08 [1240780] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:38:08.184226'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:38:08.184226'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:38:08.470 +08 [1240765] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:38:08.470 +08 [1240765] DETAIL:  Reason code: Canceled on conflict out to pivot 166676, during read.
+2026-10-11 13:38:08.470 +08 [1240765] HINT:  The transaction might succeed if retried.
+2026-10-11 13:38:08.470 +08 [1240765] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:38:08.192245'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:38:08.192245'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:38:08.589 +08 [1243562] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:38:29.132 +08 [1246347] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:38:34.616 +08 [1247083] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:38:34.616 +08 [1247083] DETAIL:  Reason code: Canceled on conflict out to pivot 169391, during read.
+2026-10-11 13:38:34.616 +08 [1247083] HINT:  The transaction might succeed if retried.
+2026-10-11 13:38:34.616 +08 [1247083] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:38:34.29722'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:38:34.29722'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:38:34.738 +08 [1247085] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:38:34.738 +08 [1247085] DETAIL:  Reason code: Canceled on conflict out to pivot 169391, during read.
+2026-10-11 13:38:34.738 +08 [1247085] HINT:  The transaction might succeed if retried.
+2026-10-11 13:38:34.738 +08 [1247085] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:38:34.312072'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:38:34.312072'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:38:34.871 +08 [1247098] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:39:06.492 +08 [1251270] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:39:06.506 +08 [1251271] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:39:11.376 +08 [1251929] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:39:34.829 +08 [1248981] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:39:34.829 +08 [1248981] DETAIL:  Reason code: Canceled on conflict out to pivot 175109, during read.
+2026-10-11 13:39:34.829 +08 [1248981] HINT:  The transaction might succeed if retried.
+2026-10-11 13:39:34.829 +08 [1248981] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102135 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:39:34.367254'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:39:34.367254'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:40:00.436 +08 [1258213] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:40:33.596 +08 [1262459] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:40:33.598 +08 [1262463] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:40:33.606 +08 [1262462] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:40:33.610 +08 [1262461] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:40:33.686 +08 [1262471] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:40:33.691 +08 [1262470] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:40:33.738 +08 [1262478] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:40:40.700 +08 [1248969] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:40:40.700 +08 [1248969] DETAIL:  Reason code: Canceled on conflict out to pivot 181466, during read.
+2026-10-11 13:40:40.700 +08 [1248969] HINT:  The transaction might succeed if retried.
+2026-10-11 13:40:40.700 +08 [1248969] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:40:40.370209'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:40:40.370209'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:40:40.919 +08 [1263382] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:40:40.928 +08 [1263381] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:40:47.239 +08 [1248982] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:40:47.239 +08 [1248982] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-11 13:40:47.239 +08 [1248982] HINT:  The transaction might succeed if retried.
+2026-10-11 13:40:47.239 +08 [1248982] STATEMENT:  PREPARE TRANSACTION 'citus_0_2749436_58693_870'
+2026-10-11 13:41:00.201 +08 [1265787] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:41:30.077 +08 [1249005] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:41:30.077 +08 [1249005] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-11 13:41:30.077 +08 [1249005] HINT:  The transaction might succeed if retried.
+2026-10-11 13:41:30.077 +08 [1249005] STATEMENT:  PREPARE TRANSACTION 'citus_0_2749428_72211_1160'
+2026-10-11 13:41:30.088 +08 [1249799] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:41:30.088 +08 [1249799] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-11 13:41:30.088 +08 [1249799] HINT:  The transaction might succeed if retried.
+2026-10-11 13:41:30.088 +08 [1249799] STATEMENT:  PREPARE TRANSACTION 'citus_0_2749422_72218_1059'
+2026-10-11 13:42:20.076 +08 [1275525] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:42:20.079 +08 [1275526] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:42:36.116 +08 [1277406] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:42:36.120 +08 [1277409] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:43:02.444 +08 [1248967] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:43:02.444 +08 [1248967] DETAIL:  Reason code: Canceled on conflict out to pivot 194539, during read.
+2026-10-11 13:43:02.444 +08 [1248967] HINT:  The transaction might succeed if retried.
+2026-10-11 13:43:02.444 +08 [1248967] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:43:02.211928'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:43:02.211928'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:43:02.694 +08 [1280507] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:43:02.722 +08 [1280508] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:43:40.094 +08 [1248964] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:43:40.094 +08 [1248964] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-11 13:43:40.094 +08 [1248964] HINT:  The transaction might succeed if retried.
+2026-10-11 13:43:40.094 +08 [1248964] STATEMENT:  PREPARE TRANSACTION 'citus_0_2749443_112406_2067'
+2026-10-11 13:43:56.764 +08 [1248970] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:43:56.764 +08 [1248970] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-11 13:43:56.764 +08 [1248970] HINT:  The transaction might succeed if retried.
+2026-10-11 13:43:56.764 +08 [1248970] STATEMENT:  PREPARE TRANSACTION 'citus_0_2749425_117761_2289'
+2026-10-11 13:44:22.222 +08 [1289715] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:44:22.239 +08 [1289716] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:44:30.310 +08 [1248957] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:44:30.310 +08 [1248957] DETAIL:  Reason code: Canceled on conflict out to pivot 202440, during read.
+2026-10-11 13:44:30.310 +08 [1248957] HINT:  The transaction might succeed if retried.
+2026-10-11 13:44:30.310 +08 [1248957] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:44:29.926539'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:44:29.926539'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:44:30.319 +08 [1264260] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:44:30.319 +08 [1264260] DETAIL:  Reason code: Canceled on conflict out to pivot 202440, during read.
+2026-10-11 13:44:30.319 +08 [1264260] HINT:  The transaction might succeed if retried.
+2026-10-11 13:44:30.319 +08 [1264260] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:44:29.914612'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:44:29.914612'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:44:30.602 +08 [1290628] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:44:30.607 +08 [1290629] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:45:02.969 +08 [1248950] ERROR:  could not serialize access due to concurrent update
+2026-10-11 13:45:02.969 +08 [1248950] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-11 13:45:02.89202'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '431554'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '431554'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-11 13:45:32.980 +08 [1248945] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:45:32.980 +08 [1248945] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-11 13:45:32.980 +08 [1248945] HINT:  The transaction might succeed if retried.
+2026-10-11 13:45:32.980 +08 [1248945] STATEMENT:  PREPARE TRANSACTION 'citus_0_2749419_145220_2807'
+2026-10-11 13:45:51.729 +08 [1297603] ERROR:  could not serialize access due to concurrent update
+2026-10-11 13:45:51.729 +08 [1297603] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-11 13:45:51.574379'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '93046'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '46'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '93046'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-11 13:46:26.313 +08 [1303301] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:46:26.316 +08 [1303300] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:46:40.231 +08 [1248992] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:46:40.231 +08 [1248992] DETAIL:  Reason code: Canceled on conflict out to pivot 213530, during read.
+2026-10-11 13:46:40.231 +08 [1248992] HINT:  The transaction might succeed if retried.
+2026-10-11 13:46:40.231 +08 [1248992] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:46:39.919108'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:46:39.919108'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:46:40.522 +08 [1304817] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:47:00.058 +08 [1306901] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:47:00.064 +08 [1306902] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:47:09.836 +08 [1248941] ERROR:  could not serialize access due to concurrent update
+2026-10-11 13:47:09.836 +08 [1248941] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-11 13:47:09.777551'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '1858'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '1858'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-11 13:48:10.162 +08 [1248947] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:48:10.162 +08 [1248947] DETAIL:  Reason code: Canceled on conflict out to pivot 220695, during read.
+2026-10-11 13:48:10.162 +08 [1248947] HINT:  The transaction might succeed if retried.
+2026-10-11 13:48:10.162 +08 [1248947] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:48:09.813383'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:48:09.813383'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:48:10.179 +08 [1248949] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:48:10.179 +08 [1248949] DETAIL:  Reason code: Canceled on conflict out to pivot 220695, during read.
+2026-10-11 13:48:10.179 +08 [1248949] HINT:  The transaction might succeed if retried.
+2026-10-11 13:48:10.179 +08 [1248949] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:48:09.792191'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:48:09.792191'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:48:10.455 +08 [1314191] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:48:10.503 +08 [1314188] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:48:52.165 +08 [1240662] WARNING:  terminating connection due to administrator command
+2026-10-11 13:48:52.165 +08 [1240662] CONTEXT:  while executing command on xcne7:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:48:54.242 +08 [1240662] ERROR:  terminating connection due to administrator command
+2026-10-11 13:48:54.242 +08 [1240662] CONTEXT:  while executing command on xcnf0:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:48:54.242 +08 [1240662] WARNING:  could not issue cancel request
+2026-10-11 13:48:54.242 +08 [1240662] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-11 13:48:54.247 +08 [1240645] LOG:  background worker "Citus Maintenance Daemon: 16384/10" (PID 1240662) exited with exit code 1
+2026-10-11 13:48:55.526 +08 [1240645] LOG:  received fast shutdown request
+2026-10-11 13:48:55.526 +08 [1240645] LOG:  aborting any active transactions
+2026-10-11 13:48:55.529 +08 [1240645] LOG:  background worker "logical replication launcher" (PID 1240655) exited with exit code 1
+2026-10-11 13:48:55.533 +08 [1240650] LOG:  shutting down
+2026-10-11 13:48:55.533 +08 [1240650] LOG:  checkpoint starting: shutdown immediate
+2026-10-11 13:48:56.599 +08 [1240650] LOG:  checkpoint complete: wrote 113575 buffers (86.7%), wrote 33 SLRU buffers; 0 WAL file(s) added, 0 removed, 122 recycled; write=1.045 s, sync=0.002 s, total=1.067 s; sync files=271, longest=0.001 s, average=0.001 s; distance=1991847 kB, estimate=1991847 kB; lsn=2/D5621C38, redo lsn=2/D5621C38
+2026-10-11 13:48:56.923 +08 [1240645] LOG:  database system is shut down
+2026-10-11 13:48:58.067 +08 [1318197] LOG:  There is no designated Main database.
+2026-10-11 13:48:58.067 +08 [1318197] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-11 13:48:58.067 +08 [1318197] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-11 13:48:58.222 +08 [1318197] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-11 13:48:58.222 +08 [1318197] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-11 13:48:58.222 +08 [1318197] LOG:  listening on IPv6 address "::", port 5446
+2026-10-11 13:48:58.222 +08 [1318197] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-11 13:48:58.227 +08 [1318204] LOG:  database system was shut down at 2026-10-11 13:48:56 +08
+2026-10-11 13:48:58.232 +08 [1318197] LOG:  database system is ready to accept connections
+2026-10-11 13:48:59.282 +08 [1318217] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-11 13:48:59.282 +08 [1318217] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 13:50:58.787 +08 [1318400] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:50:58.787 +08 [1318400] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-11 13:50:58.787 +08 [1318400] HINT:  The transaction might succeed if retried.
+2026-10-11 13:50:58.787 +08 [1318400] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-11 13:50:58.49214'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '155549'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '155549'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-11 13:51:00.366 +08 [1318590] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:01.061 +08 [1318676] ERROR:  canceling statement due to user request
+2026-10-11 13:51:01.061 +08 [1318676] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102131 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:00.432329'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:00.432329'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:06.709 +08 [1319349] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:06.738 +08 [1319348] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:10.798 +08 [1319901] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:10.801 +08 [1319900] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:10.803 +08 [1319898] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:10.824 +08 [1319902] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:10.851 +08 [1319897] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:10.875 +08 [1319899] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:11.743 +08 [1320054] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:11.746 +08 [1320053] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:11.763 +08 [1320050] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:11.775 +08 [1320045] ERROR:  canceling statement due to user request
+2026-10-11 13:51:11.775 +08 [1320045] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:11.413909'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:11.413909'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:11.778 +08 [1318307] ERROR:  canceling statement due to user request
+2026-10-11 13:51:11.778 +08 [1318307] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:11.385291'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:11.385291'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:11.785 +08 [1320052] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:11.821 +08 [1318316] ERROR:  canceling statement due to user request
+2026-10-11 13:51:11.821 +08 [1318316] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:11.413909'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:11.413909'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:11.826 +08 [1320057] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:11.835 +08 [1320047] ERROR:  canceling statement due to user request
+2026-10-11 13:51:11.835 +08 [1320047] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:11.413909'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:11.413909'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:11.837 +08 [1320048] ERROR:  canceling statement due to user request
+2026-10-11 13:51:11.837 +08 [1320048] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:11.402684'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:11.402684'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:11.839 +08 [1320064] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:11.852 +08 [1320063] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:11.870 +08 [1320062] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:11.997 +08 [1320061] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:15.495 +08 [1320509] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:15.501 +08 [1320510] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:15.682 +08 [1318305] ERROR:  could not serialize access due to concurrent update
+2026-10-11 13:51:15.682 +08 [1318305] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-11 13:51:15.611471'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '265006'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '265006'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-11 13:51:15.823 +08 [1318336] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:51:15.823 +08 [1318336] DETAIL:  Reason code: Canceled on conflict out to pivot 225797, during read.
+2026-10-11 13:51:15.823 +08 [1318336] HINT:  The transaction might succeed if retried.
+2026-10-11 13:51:15.823 +08 [1318336] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:15.698176'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:15.698176'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:15.837 +08 [1318303] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:51:15.837 +08 [1318303] DETAIL:  Reason code: Canceled on conflict out to pivot 225797, during read.
+2026-10-11 13:51:15.837 +08 [1318303] HINT:  The transaction might succeed if retried.
+2026-10-11 13:51:15.837 +08 [1318303] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:15.692412'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:15.692412'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:21.303 +08 [1321156] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:21.309 +08 [1321157] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:23.848 +08 [1318305] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:51:23.848 +08 [1318305] DETAIL:  Reason code: Canceled on conflict out to pivot 226585, during read.
+2026-10-11 13:51:23.848 +08 [1318305] HINT:  The transaction might succeed if retried.
+2026-10-11 13:51:23.848 +08 [1318305] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:23.434816'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:23.434816'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:24.142 +08 [1321510] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:24.152 +08 [1321513] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:24.304 +08 [1321568] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:24.395 +08 [1321530] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:24.412 +08 [1321531] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:24.434 +08 [1320056] ERROR:  could not serialize access due to concurrent update
+2026-10-11 13:51:24.434 +08 [1320056] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-11 13:51:24.336746'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '235240'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '235240'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-11 13:51:28.911 +08 [1322122] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:28.924 +08 [1322121] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:31.887 +08 [1320056] ERROR:  canceling statement due to user request
+2026-10-11 13:51:31.887 +08 [1320056] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:31.397536'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:31.397536'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:31.900 +08 [1318330] ERROR:  canceling statement due to user request
+2026-10-11 13:51:31.900 +08 [1318330] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:31.388329'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:31.388329'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:31.967 +08 [1322559] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:32.152 +08 [1318333] ERROR:  canceling statement due to user request
+2026-10-11 13:51:32.152 +08 [1318333] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102123 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:31.570337'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:31.570337'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:32.270 +08 [1322606] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:32.273 +08 [1322605] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:32.340 +08 [1322620] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:34.542 +08 [1322538] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:51:34.542 +08 [1322538] DETAIL:  Reason code: Canceled on conflict out to pivot 227605, during read.
+2026-10-11 13:51:34.542 +08 [1322538] HINT:  The transaction might succeed if retried.
+2026-10-11 13:51:34.542 +08 [1322538] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:34.045818'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:34.045818'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:34.912 +08 [1322882] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:34.928 +08 [1322879] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:42.395 +08 [1323792] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:42.402 +08 [1323791] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:42.415 +08 [1323790] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:42.434 +08 [1323789] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:51:57.247 +08 [1318328] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:51:57.247 +08 [1318328] DETAIL:  Reason code: Canceled on conflict out to pivot 230036, during read.
+2026-10-11 13:51:57.247 +08 [1318328] HINT:  The transaction might succeed if retried.
+2026-10-11 13:51:57.247 +08 [1318328] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:51:57.063201'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:51:57.063201'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:51:57.590 +08 [1325628] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:03.699 +08 [1326293] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:03.703 +08 [1326292] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:03.790 +08 [1326322] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:04.106 +08 [1325806] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:52:04.106 +08 [1325806] DETAIL:  Reason code: Canceled on conflict out to pivot 230599, during read.
+2026-10-11 13:52:04.106 +08 [1325806] HINT:  The transaction might succeed if retried.
+2026-10-11 13:52:04.106 +08 [1325806] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:52:03.774411'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:52:03.774411'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:52:04.678 +08 [1326409] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:07.244 +08 [1325747] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:52:07.244 +08 [1325747] DETAIL:  Reason code: Canceled on conflict out to pivot 230973, during read.
+2026-10-11 13:52:07.244 +08 [1325747] HINT:  The transaction might succeed if retried.
+2026-10-11 13:52:07.244 +08 [1325747] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:52:07.029285'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:52:07.029285'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:52:07.919 +08 [1326804] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:07.935 +08 [1326803] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:08.871 +08 [1326941] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:08.882 +08 [1326944] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:08.889 +08 [1326939] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:08.898 +08 [1326943] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:08.898 +08 [1326942] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:08.899 +08 [1326940] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:21.606 +08 [1328500] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:21.640 +08 [1328499] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:23.425 +08 [1325733] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:52:23.425 +08 [1325733] DETAIL:  Reason code: Canceled on conflict out to pivot 232575, during read.
+2026-10-11 13:52:23.425 +08 [1325733] HINT:  The transaction might succeed if retried.
+2026-10-11 13:52:23.425 +08 [1325733] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:52:23.188267'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:52:23.188267'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:52:23.513 +08 [1325802] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:52:23.513 +08 [1325802] DETAIL:  Reason code: Canceled on conflict out to pivot 232575, during read.
+2026-10-11 13:52:23.513 +08 [1325802] HINT:  The transaction might succeed if retried.
+2026-10-11 13:52:23.513 +08 [1325802] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:52:23.220193'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:52:23.220193'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:52:23.898 +08 [1328770] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:23.903 +08 [1328771] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:23.957 +08 [1328772] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:23.966 +08 [1328773] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:37.113 +08 [1325759] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:52:37.113 +08 [1325759] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-11 13:52:37.113 +08 [1325759] HINT:  The transaction might succeed if retried.
+2026-10-11 13:52:37.113 +08 [1325759] STATEMENT:  UPDATE public.orders_102127 orders SET total_amount = 5926.4::numeric(12,2) WHERE (order_id OPERATOR(pg_catalog.=) (5003355)::bigint)
+2026-10-11 13:52:38.220 +08 [1330464] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:38.221 +08 [1330463] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:39.712 +08 [1330619] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:39.734 +08 [1330618] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:43.888 +08 [1331134] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:43.891 +08 [1331135] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:43.986 +08 [1331125] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:43.992 +08 [1331126] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:44.067 +08 [1331132] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:44.079 +08 [1331131] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:45.292 +08 [1331356] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:45.298 +08 [1331358] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:49.091 +08 [1325738] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:52:49.091 +08 [1325738] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-11 13:52:49.091 +08 [1325738] HINT:  The transaction might succeed if retried.
+2026-10-11 13:52:49.091 +08 [1325738] STATEMENT:  UPDATE public.orders_102111 orders SET total_amount = 178.88::numeric(12,2) WHERE (order_id OPERATOR(pg_catalog.=) (5003792)::bigint)
+2026-10-11 13:52:59.204 +08 [1332997] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:59.217 +08 [1333002] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:59.224 +08 [1332987] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:59.225 +08 [1333001] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:59.231 +08 [1332988] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:59.396 +08 [1333008] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:52:59.452 +08 [1333007] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:01.092 +08 [1333155] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.554 +08 [1333747] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.557 +08 [1333749] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.595 +08 [1333758] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.603 +08 [1333759] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.606 +08 [1333763] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.606 +08 [1333762] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.618 +08 [1333767] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.625 +08 [1333750] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.634 +08 [1333748] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.640 +08 [1333768] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.656 +08 [1333752] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.669 +08 [1333755] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.702 +08 [1333757] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.710 +08 [1333756] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.754 +08 [1333761] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:05.758 +08 [1333760] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:06.652 +08 [1325734] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:53:06.652 +08 [1325734] DETAIL:  Reason code: Canceled on conflict out to pivot 236992, during read.
+2026-10-11 13:53:06.652 +08 [1325734] HINT:  The transaction might succeed if retried.
+2026-10-11 13:53:06.652 +08 [1325734] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:53:06.034041'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:53:06.034041'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:53:07.267 +08 [1333881] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:07.275 +08 [1333882] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:14.264 +08 [1325895] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:53:14.264 +08 [1325895] DETAIL:  Reason code: Canceled on conflict out to pivot 237792, during read.
+2026-10-11 13:53:14.264 +08 [1325895] HINT:  The transaction might succeed if retried.
+2026-10-11 13:53:14.264 +08 [1325895] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:53:14.141577'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:53:14.141577'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:53:14.278 +08 [1325770] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:53:14.278 +08 [1325770] DETAIL:  Reason code: Canceled on conflict out to pivot 237792, during read.
+2026-10-11 13:53:14.278 +08 [1325770] HINT:  The transaction might succeed if retried.
+2026-10-11 13:53:14.278 +08 [1325770] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:53:14.145093'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:53:14.145093'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:53:17.182 +08 [1335116] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:17.188 +08 [1335117] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:23.049 +08 [1325770] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:53:23.049 +08 [1325770] DETAIL:  Reason code: Canceled on conflict out to pivot 238713, during read.
+2026-10-11 13:53:23.049 +08 [1325770] HINT:  The transaction might succeed if retried.
+2026-10-11 13:53:23.049 +08 [1325770] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:53:22.765658'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:53:22.765658'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:53:23.058 +08 [1325791] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:53:23.058 +08 [1325791] DETAIL:  Reason code: Canceled on conflict out to pivot 238713, during read.
+2026-10-11 13:53:23.058 +08 [1325791] HINT:  The transaction might succeed if retried.
+2026-10-11 13:53:23.058 +08 [1325791] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:53:22.770565'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:53:22.770565'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:53:23.074 +08 [1325738] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:53:23.074 +08 [1325738] DETAIL:  Reason code: Canceled on conflict out to pivot 238713, during read.
+2026-10-11 13:53:23.074 +08 [1325738] HINT:  The transaction might succeed if retried.
+2026-10-11 13:53:23.074 +08 [1325738] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:53:22.768793'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:53:22.768793'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:53:23.075 +08 [1325802] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:53:23.075 +08 [1325802] DETAIL:  Reason code: Canceled on conflict out to pivot 238713, during read.
+2026-10-11 13:53:23.075 +08 [1325802] HINT:  The transaction might succeed if retried.
+2026-10-11 13:53:23.075 +08 [1325802] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:53:22.815651'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:53:22.815651'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:53:23.083 +08 [1325831] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:53:23.083 +08 [1325831] DETAIL:  Reason code: Canceled on conflict out to pivot 238713, during read.
+2026-10-11 13:53:23.083 +08 [1325831] HINT:  The transaction might succeed if retried.
+2026-10-11 13:53:23.083 +08 [1325831] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:53:22.789142'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:53:22.789142'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:53:23.412 +08 [1335821] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:23.415 +08 [1335819] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:23.454 +08 [1335828] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:23.455 +08 [1335818] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:23.467 +08 [1335820] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:23.473 +08 [1335830] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:23.478 +08 [1335816] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:23.484 +08 [1335817] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:23.612 +08 [1335825] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:23.612 +08 [1335826] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:24.311 +08 [1335920] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:24.314 +08 [1335921] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:24.361 +08 [1335922] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:24.380 +08 [1335923] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:30.261 +08 [1325729] ERROR:  could not serialize access due to concurrent update
+2026-10-11 13:53:30.261 +08 [1325729] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-11 13:53:30.170509'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '401077'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '401077'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-11 13:53:38.058 +08 [1337469] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:38.060 +08 [1337468] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:39.140 +08 [1325797] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:53:39.140 +08 [1325797] DETAIL:  Reason code: Canceled on conflict out to pivot 240213, during read.
+2026-10-11 13:53:39.140 +08 [1325797] HINT:  The transaction might succeed if retried.
+2026-10-11 13:53:39.140 +08 [1325797] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102131 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:53:38.363011'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:53:38.363011'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:53:39.196 +08 [1325765] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:53:39.196 +08 [1325765] DETAIL:  Reason code: Canceled on conflict out to pivot 240213, during read.
+2026-10-11 13:53:39.196 +08 [1325765] HINT:  The transaction might succeed if retried.
+2026-10-11 13:53:39.196 +08 [1325765] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102131 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:53:38.372437'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:53:38.372437'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:53:39.855 +08 [1337664] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:39.937 +08 [1337663] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:55.933 +08 [1339473] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:55.948 +08 [1339472] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:53:58.848 +08 [1325747] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:53:58.848 +08 [1325747] DETAIL:  Reason code: Canceled on conflict out to pivot 242243, during read.
+2026-10-11 13:53:58.848 +08 [1325747] HINT:  The transaction might succeed if retried.
+2026-10-11 13:53:58.848 +08 [1325747] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102127 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:53:58.216686'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:53:58.216686'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:53:59.619 +08 [1339834] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:01.451 +08 [1340104] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:01.459 +08 [1340105] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:01.469 +08 [1340107] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:01.470 +08 [1340106] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:07.772 +08 [1340862] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:11.043 +08 [1341196] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:11.050 +08 [1341197] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:11.056 +08 [1341195] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:11.066 +08 [1341198] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:14.015 +08 [1325736] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:14.015 +08 [1325736] DETAIL:  Reason code: Canceled on conflict out to pivot 243677, during read.
+2026-10-11 13:54:14.015 +08 [1325736] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:14.015 +08 [1325736] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:13.321167'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:13.321167'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:14.054 +08 [1325842] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:14.054 +08 [1325842] DETAIL:  Reason code: Canceled on conflict out to pivot 243677, during read.
+2026-10-11 13:54:14.054 +08 [1325842] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:14.054 +08 [1325842] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:13.327576'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:13.327576'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:14.063 +08 [1325790] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:14.063 +08 [1325790] DETAIL:  Reason code: Canceled on conflict out to pivot 243677, during read.
+2026-10-11 13:54:14.063 +08 [1325790] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:14.063 +08 [1325790] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:13.351179'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:13.351179'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:14.063 +08 [1325730] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:14.063 +08 [1325730] DETAIL:  Reason code: Canceled on conflict out to pivot 243677, during read.
+2026-10-11 13:54:14.063 +08 [1325730] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:14.063 +08 [1325730] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:13.298532'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:13.298532'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:14.082 +08 [1325747] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:14.082 +08 [1325747] DETAIL:  Reason code: Canceled on conflict out to pivot 243677, during read.
+2026-10-11 13:54:14.082 +08 [1325747] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:14.082 +08 [1325747] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:13.308851'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:13.308851'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:14.086 +08 [1325735] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:14.086 +08 [1325735] DETAIL:  Reason code: Canceled on conflict out to pivot 243677, during read.
+2026-10-11 13:54:14.086 +08 [1325735] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:14.086 +08 [1325735] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:13.300686'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:13.300686'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:14.322 +08 [1341552] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:14.323 +08 [1341553] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:14.323 +08 [1341556] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:14.323 +08 [1341557] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:14.335 +08 [1341625] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:14.348 +08 [1341624] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:14.351 +08 [1341555] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:14.360 +08 [1341554] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:14.373 +08 [1341618] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:16.215 +08 [1341773] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:16.231 +08 [1341774] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:22.122 +08 [1325733] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:22.122 +08 [1325733] DETAIL:  Reason code: Canceled on conflict out to pivot 244509, during read.
+2026-10-11 13:54:22.122 +08 [1325733] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:22.122 +08 [1325733] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102135 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:21.311566'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:21.311566'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:22.130 +08 [1325841] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:22.130 +08 [1325841] DETAIL:  Reason code: Canceled on conflict out to pivot 244509, during read.
+2026-10-11 13:54:22.130 +08 [1325841] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:22.130 +08 [1325841] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102135 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:21.264949'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:21.264949'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:22.131 +08 [1325745] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:22.131 +08 [1325745] DETAIL:  Reason code: Canceled on conflict out to pivot 244509, during read.
+2026-10-11 13:54:22.131 +08 [1325745] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:22.131 +08 [1325745] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102135 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:21.323775'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:21.323775'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:22.547 +08 [1342519] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:22.574 +08 [1342520] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:22.605 +08 [1342521] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:22.907 +08 [1325788] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:22.907 +08 [1325788] DETAIL:  Reason code: Canceled on conflict out to pivot 244655, during read.
+2026-10-11 13:54:22.907 +08 [1325788] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:22.907 +08 [1325788] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:22.733627'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:22.733627'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:22.914 +08 [1325729] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:22.914 +08 [1325729] DETAIL:  Reason code: Canceled on conflict out to pivot 244655, during read.
+2026-10-11 13:54:22.914 +08 [1325729] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:22.914 +08 [1325729] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:22.729778'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:22.729778'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:23.472 +08 [1342601] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:23.517 +08 [1342602] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:23.730 +08 [1325755] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:23.730 +08 [1325755] DETAIL:  Reason code: Canceled on conflict out to pivot 244674, during read.
+2026-10-11 13:54:23.730 +08 [1325755] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:23.730 +08 [1325755] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102127 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:22.959826'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:22.959826'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:23.741 +08 [1331257] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:23.741 +08 [1331257] DETAIL:  Reason code: Canceled on conflict out to pivot 244674, during read.
+2026-10-11 13:54:23.741 +08 [1331257] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:23.741 +08 [1331257] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102127 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:23.00296'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:23.00296'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:54:24.589 +08 [1342742] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:24.608 +08 [1342745] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:24.623 +08 [1342748] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:24.626 +08 [1342749] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:24.731 +08 [1342732] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:24.745 +08 [1342733] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:24.802 +08 [1342746] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:24.812 +08 [1342744] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:24.864 +08 [1342743] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:24.874 +08 [1342747] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:24.912 +08 [1342768] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:24.934 +08 [1342767] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:25.020 +08 [1342765] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:25.036 +08 [1342766] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:26.236 +08 [1342886] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:26.240 +08 [1342885] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:26.415 +08 [1325741] ERROR:  could not serialize access due to concurrent update
+2026-10-11 13:54:26.415 +08 [1325741] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-11 13:54:26.24616'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '220308'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '308'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '220308'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-11 13:54:30.685 +08 [1343374] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:30.723 +08 [1343373] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:30.853 +08 [1341271] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:30.853 +08 [1341271] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-11 13:54:30.853 +08 [1341271] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:30.853 +08 [1341271] STATEMENT:  PREPARE TRANSACTION 'citus_0_2751752_72126_553'
+2026-10-11 13:54:30.899 +08 [1325748] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:54:30.899 +08 [1325748] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-11 13:54:30.899 +08 [1325748] HINT:  The transaction might succeed if retried.
+2026-10-11 13:54:30.899 +08 [1325748] STATEMENT:  UPDATE public.orders_102111 orders SET total_amount = 4217.12::numeric(12,2) WHERE (order_id OPERATOR(pg_catalog.=) (5007244)::bigint)
+2026-10-11 13:54:50.675 +08 [1345643] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:50.676 +08 [1345642] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:50.678 +08 [1345644] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:50.692 +08 [1345645] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:50.825 +08 [1345641] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:50.845 +08 [1345640] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:53.743 +08 [1345975] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:53.829 +08 [1345972] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:57.222 +08 [1346382] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:57.232 +08 [1346380] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:57.233 +08 [1346378] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:57.243 +08 [1346381] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:57.357 +08 [1346383] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:57.368 +08 [1346379] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:57.376 +08 [1346384] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:57.394 +08 [1346377] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:59.810 +08 [1346663] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:59.813 +08 [1346662] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:59.955 +08 [1346692] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:54:59.992 +08 [1346664] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:00.007 +08 [1346665] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:00.086 +08 [1346684] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:00.122 +08 [1346682] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:00.315 +08 [1325736] ERROR:  canceling statement due to user request
+2026-10-11 13:55:00.315 +08 [1325736] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:54:59.381329'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:54:59.381329'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:55:00.409 +08 [1325736] LOG:  could not send data to client: Broken pipe
+2026-10-11 13:55:00.409 +08 [1325736] FATAL:  connection to client lost
+2026-10-11 13:55:01.721 +08 [1325770] ERROR:  canceling statement due to user request
+2026-10-11 13:55:01.721 +08 [1325770] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:55:01.571508'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:55:01.571508'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:55:07.743 +08 [1347468] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:07.761 +08 [1347469] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:14.554 +08 [1325730] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:55:14.554 +08 [1325730] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-11 13:55:14.554 +08 [1325730] HINT:  The transaction might succeed if retried.
+2026-10-11 13:55:14.554 +08 [1325730] STATEMENT:  PREPARE TRANSACTION 'citus_0_2751762_86730_716'
+2026-10-11 13:55:14.766 +08 [1325801] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:55:14.766 +08 [1325801] DETAIL:  Reason code: Canceled on conflict out to pivot 249738, during read.
+2026-10-11 13:55:14.766 +08 [1325801] HINT:  The transaction might succeed if retried.
+2026-10-11 13:55:14.766 +08 [1325801] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:55:14.526034'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:55:14.526034'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:55:14.805 +08 [1325895] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:55:14.805 +08 [1325895] DETAIL:  Reason code: Canceled on conflict out to pivot 249738, during read.
+2026-10-11 13:55:14.805 +08 [1325895] HINT:  The transaction might succeed if retried.
+2026-10-11 13:55:14.805 +08 [1325895] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:55:14.513624'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:55:14.513624'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:55:15.429 +08 [1348323] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:15.430 +08 [1348324] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:17.859 +08 [1348614] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:17.868 +08 [1348612] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:18.164 +08 [1348616] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:18.170 +08 [1348621] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:18.173 +08 [1348617] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:18.177 +08 [1348610] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:18.179 +08 [1348618] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:18.183 +08 [1348622] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:18.206 +08 [1348608] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:18.217 +08 [1348619] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:19.445 +08 [1348769] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:27.317 +08 [1325802] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:55:27.317 +08 [1325802] DETAIL:  Reason code: Canceled on conflict out to pivot 250900, during read.
+2026-10-11 13:55:27.317 +08 [1325802] HINT:  The transaction might succeed if retried.
+2026-10-11 13:55:27.317 +08 [1325802] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:55:26.795501'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:55:26.795501'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:55:27.451 +08 [1325895] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:55:27.451 +08 [1325895] DETAIL:  Reason code: Canceled on conflict out to pivot 250900, during read.
+2026-10-11 13:55:27.451 +08 [1325895] HINT:  The transaction might succeed if retried.
+2026-10-11 13:55:27.451 +08 [1325895] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:55:26.88056'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:55:26.88056'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:55:27.677 +08 [1349659] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:27.681 +08 [1349660] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:27.820 +08 [1349669] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:27.833 +08 [1349667] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:28.458 +08 [1325776] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:55:28.458 +08 [1325776] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-11 13:55:28.458 +08 [1325776] HINT:  The transaction might succeed if retried.
+2026-10-11 13:55:28.458 +08 [1325776] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-11 13:55:28.386862'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '292096'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '292096'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-11 13:55:30.853 +08 [1325775] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:55:30.853 +08 [1325775] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-11 13:55:30.853 +08 [1325775] HINT:  The transaction might succeed if retried.
+2026-10-11 13:55:30.853 +08 [1325775] STATEMENT:  PREPARE TRANSACTION 'citus_0_2751730_92215_779'
+2026-10-11 13:55:42.783 +08 [1351276] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:42.792 +08 [1351275] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:44.201 +08 [1325776] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:55:44.201 +08 [1325776] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-11 13:55:44.201 +08 [1325776] HINT:  The transaction might succeed if retried.
+2026-10-11 13:55:44.201 +08 [1325776] STATEMENT:  PREPARE TRANSACTION 'citus_0_2751721_96765_818'
+2026-10-11 13:55:54.600 +08 [1352500] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:54.606 +08 [1352503] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:56.984 +08 [1325754] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:55:56.984 +08 [1325754] DETAIL:  Reason code: Canceled on conflict out to pivot 254047, during read.
+2026-10-11 13:55:56.984 +08 [1325754] HINT:  The transaction might succeed if retried.
+2026-10-11 13:55:56.984 +08 [1325754] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102123 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:55:56.412227'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:55:56.412227'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:55:57.123 +08 [1325786] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:55:57.123 +08 [1325786] DETAIL:  Reason code: Canceled on conflict out to pivot 254047, during read.
+2026-10-11 13:55:57.123 +08 [1325786] HINT:  The transaction might succeed if retried.
+2026-10-11 13:55:57.123 +08 [1325786] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102123 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:55:56.397413'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:55:56.397413'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:55:57.578 +08 [1352774] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:57.586 +08 [1352773] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:57.652 +08 [1352772] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:57.660 +08 [1352771] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:55:59.278 +08 [1352962] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:06.291 +08 [1346749] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:56:06.291 +08 [1346749] DETAIL:  Reason code: Canceled on conflict out to pivot 254926, during read.
+2026-10-11 13:56:06.291 +08 [1346749] HINT:  The transaction might succeed if retried.
+2026-10-11 13:56:06.291 +08 [1346749] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:56:05.732513'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:56:05.732513'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:56:06.424 +08 [1350103] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:56:06.424 +08 [1350103] DETAIL:  Reason code: Canceled on conflict out to pivot 254926, during read.
+2026-10-11 13:56:06.424 +08 [1350103] HINT:  The transaction might succeed if retried.
+2026-10-11 13:56:06.424 +08 [1350103] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:56:05.748748'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:56:05.748748'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:56:06.884 +08 [1325815] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:56:06.884 +08 [1325815] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-11 13:56:06.884 +08 [1325815] HINT:  The transaction might succeed if retried.
+2026-10-11 13:56:06.884 +08 [1325815] STATEMENT:  PREPARE TRANSACTION 'citus_0_2751774_104371_1020'
+2026-10-11 13:56:06.888 +08 [1353721] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:07.134 +08 [1353792] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:11.345 +08 [1354232] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:14.019 +08 [1354489] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:14.042 +08 [1354490] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:31.119 +08 [1325741] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:56:31.119 +08 [1325741] DETAIL:  Reason code: Canceled on conflict out to pivot 257289, during read.
+2026-10-11 13:56:31.119 +08 [1325741] HINT:  The transaction might succeed if retried.
+2026-10-11 13:56:31.119 +08 [1325741] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102131 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:56:30.333683'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:56:30.333683'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:56:31.877 +08 [1356326] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:36.417 +08 [1356802] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:36.420 +08 [1356801] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:49.607 +08 [1358116] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:58.348 +08 [1359017] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:58.353 +08 [1359016] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:58.879 +08 [1359014] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:58.886 +08 [1359015] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:59.407 +08 [1359151] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:59.407 +08 [1359150] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:59.410 +08 [1359139] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:59.414 +08 [1359140] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:59.427 +08 [1359144] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:59.431 +08 [1359163] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:59.441 +08 [1359145] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:59.445 +08 [1359166] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:59.448 +08 [1359162] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:59.474 +08 [1359165] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:59.780 +08 [1359154] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:56:59.785 +08 [1359153] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:05.487 +08 [1325827] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:05.487 +08 [1325827] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-11 13:57:05.487 +08 [1325827] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:05.487 +08 [1325827] STATEMENT:  PREPARE TRANSACTION 'citus_0_2751749_122996_1135'
+2026-10-11 13:57:05.676 +08 [1325806] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:05.676 +08 [1325806] DETAIL:  Reason code: Canceled on conflict out to pivot 260565, during read.
+2026-10-11 13:57:05.676 +08 [1325806] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:05.676 +08 [1325806] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:05.525501'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:05.525501'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:05.694 +08 [1325759] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:05.694 +08 [1325759] DETAIL:  Reason code: Canceled on conflict out to pivot 260565, during read.
+2026-10-11 13:57:05.694 +08 [1325759] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:05.694 +08 [1325759] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:05.544782'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:05.544782'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:05.840 +08 [1359770] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:05.843 +08 [1359769] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:05.883 +08 [1325765] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:05.883 +08 [1325765] DETAIL:  Reason code: Canceled on conflict out to pivot 260565, during read.
+2026-10-11 13:57:05.883 +08 [1325765] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:05.883 +08 [1325765] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:05.659352'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:05.659352'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:06.164 +08 [1359771] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:06.177 +08 [1359772] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:28.978 +08 [1362138] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:28.978 +08 [1362138] DETAIL:  Reason code: Canceled on conflict out to pivot 262794, during read.
+2026-10-11 13:57:28.978 +08 [1362138] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:28.978 +08 [1362138] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:28.574909'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:28.574909'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:29.004 +08 [1362141] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:29.004 +08 [1362141] DETAIL:  Reason code: Canceled on conflict out to pivot 262794, during read.
+2026-10-11 13:57:29.004 +08 [1362141] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:29.004 +08 [1362141] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:28.593107'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:28.593107'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:29.005 +08 [1362143] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:29.005 +08 [1362143] DETAIL:  Reason code: Canceled on conflict out to pivot 262794, during read.
+2026-10-11 13:57:29.005 +08 [1362143] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:29.005 +08 [1362143] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:28.603602'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:28.603602'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:29.037 +08 [1362139] ERROR:  canceling statement due to user request
+2026-10-11 13:57:29.037 +08 [1362139] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102127 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:28.574909'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:28.574909'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:29.095 +08 [1362142] ERROR:  canceling statement due to user request
+2026-10-11 13:57:29.095 +08 [1362142] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102127 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:28.603602'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:28.603602'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:29.098 +08 [1362153] ERROR:  canceling statement due to user request
+2026-10-11 13:57:29.098 +08 [1362153] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102123 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:28.574909'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:28.574909'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:29.153 +08 [1325852] ERROR:  canceling statement due to user request
+2026-10-11 13:57:29.153 +08 [1325852] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:28.574909'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:28.574909'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:29.159 +08 [1362140] ERROR:  canceling statement due to user request
+2026-10-11 13:57:29.159 +08 [1362140] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:28.593107'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:28.593107'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:29.161 +08 [1362154] ERROR:  canceling statement due to user request
+2026-10-11 13:57:29.161 +08 [1362154] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:28.593107'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:28.593107'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:29.259 +08 [1362139] LOG:  could not send data to client: Connection reset by peer
+2026-10-11 13:57:29.259 +08 [1362139] FATAL:  connection to client lost
+2026-10-11 13:57:33.644 +08 [1325728] ERROR:  canceling statement due to user request
+2026-10-11 13:57:33.644 +08 [1325728] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:32.658055'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:32.658055'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:33.714 +08 [1325795] ERROR:  canceling statement due to user request
+2026-10-11 13:57:33.714 +08 [1325795] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:33.022825'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:33.022825'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:33.774 +08 [1362603] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:33.850 +08 [1362604] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:33.864 +08 [1362599] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:33.964 +08 [1362613] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:53.436 +08 [1348375] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:53.436 +08 [1348375] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-11 13:57:53.436 +08 [1348375] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:53.436 +08 [1348375] STATEMENT:  PREPARE TRANSACTION 'citus_0_2751762_138078_1315'
+2026-10-11 13:57:56.615 +08 [1359784] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:56.615 +08 [1359784] DETAIL:  Reason code: Canceled on conflict out to pivot 265389, during read.
+2026-10-11 13:57:56.615 +08 [1359784] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:56.615 +08 [1359784] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102123 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:55.958506'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:55.958506'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:56.728 +08 [1325742] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:56.728 +08 [1325742] DETAIL:  Reason code: Canceled on conflict out to pivot 265389, during read.
+2026-10-11 13:57:56.728 +08 [1325742] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:56.728 +08 [1325742] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102123 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:55.976426'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:55.976426'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:57.225 +08 [1364899] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:57.232 +08 [1364898] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:57.283 +08 [1364900] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:57.296 +08 [1364901] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:58.719 +08 [1365118] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:58.719 +08 [1365118] DETAIL:  Reason code: Canceled on conflict out to pivot 265581, during read.
+2026-10-11 13:57:58.719 +08 [1365118] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:58.719 +08 [1365118] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:58.470318'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:58.470318'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:58.735 +08 [1365115] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:58.735 +08 [1365115] DETAIL:  Reason code: Canceled on conflict out to pivot 265581, during read.
+2026-10-11 13:57:58.735 +08 [1365115] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:58.735 +08 [1365115] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:58.43262'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:58.43262'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:58.759 +08 [1365117] ERROR:  canceling statement due to user request
+2026-10-11 13:57:58.759 +08 [1365117] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102131 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:58.43262'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:58.43262'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:58.764 +08 [1325801] ERROR:  canceling statement due to user request
+2026-10-11 13:57:58.764 +08 [1325801] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102127 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:58.43262'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:58.43262'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:58.958 +08 [1343521] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:58.958 +08 [1343521] DETAIL:  Reason code: Canceled on conflict out to pivot 265581, during read.
+2026-10-11 13:57:58.958 +08 [1343521] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:58.958 +08 [1343521] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:58.732183'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:58.732183'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:58.966 +08 [1365115] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:58.966 +08 [1365115] DETAIL:  Reason code: Canceled on conflict out to pivot 265581, during read.
+2026-10-11 13:57:58.966 +08 [1365115] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:58.966 +08 [1365115] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:58.742851'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:58.742851'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:59.078 +08 [1365127] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:59.078 +08 [1365127] DETAIL:  Reason code: Canceled on conflict out to pivot 265581, during read.
+2026-10-11 13:57:59.078 +08 [1365127] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:59.078 +08 [1365127] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:58.700552'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:58.700552'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:59.129 +08 [1341269] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:57:59.129 +08 [1341269] DETAIL:  Reason code: Canceled on conflict out to pivot 265581, during read.
+2026-10-11 13:57:59.129 +08 [1341269] HINT:  The transaction might succeed if retried.
+2026-10-11 13:57:59.129 +08 [1341269] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:58.770838'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:58.770838'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:59.419 +08 [1365154] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:59.461 +08 [1365143] ERROR:  canceling statement due to user request
+2026-10-11 13:57:59.461 +08 [1365143] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:57:58.770838'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:57:58.770838'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:57:59.469 +08 [1365178] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:57:59.483 +08 [1365155] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:58:15.391 +08 [1366782] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:58:15.476 +08 [1366780] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:58:15.772 +08 [1366799] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:58:27.967 +08 [1359784] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:58:27.967 +08 [1359784] DETAIL:  Reason code: Canceled on conflict out to pivot 268226, during read.
+2026-10-11 13:58:27.967 +08 [1359784] HINT:  The transaction might succeed if retried.
+2026-10-11 13:58:27.967 +08 [1359784] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:58:27.513773'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:58:27.513773'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:58:28.559 +08 [1368066] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:58:28.597 +08 [1368065] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:58:34.695 +08 [1368628] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:58:34.697 +08 [1368627] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:58:44.297 +08 [1369560] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:58:44.306 +08 [1369561] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:58:44.455 +08 [1369564] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:15.063 +08 [1372648] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:15.086 +08 [1372647] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:15.543 +08 [1325784] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:59:15.543 +08 [1325784] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-11 13:59:15.543 +08 [1325784] HINT:  The transaction might succeed if retried.
+2026-10-11 13:59:15.543 +08 [1325784] STATEMENT:  PREPARE TRANSACTION 'citus_0_2751770_162934_1577'
+2026-10-11 13:59:17.373 +08 [1372885] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:17.408 +08 [1372887] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:17.440 +08 [1372884] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:17.444 +08 [1372886] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:18.811 +08 [1372993] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:18.816 +08 [1372997] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:18.821 +08 [1372996] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:18.830 +08 [1372994] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:18.866 +08 [1372998] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:18.905 +08 [1372999] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:20.174 +08 [1373166] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:20.176 +08 [1373160] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:20.179 +08 [1373159] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:20.189 +08 [1373165] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:31.879 +08 [1325802] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:59:31.879 +08 [1325802] DETAIL:  Reason code: Canceled on conflict out to pivot 273886, during read.
+2026-10-11 13:59:31.879 +08 [1325802] HINT:  The transaction might succeed if retried.
+2026-10-11 13:59:31.879 +08 [1325802] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:59:31.333768'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:59:31.333768'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:59:32.444 +08 [1374333] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:32.472 +08 [1374332] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:39.043 +08 [1356260] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 13:59:39.043 +08 [1356260] DETAIL:  Reason code: Canceled on conflict out to pivot 274571, during read.
+2026-10-11 13:59:39.043 +08 [1356260] HINT:  The transaction might succeed if retried.
+2026-10-11 13:59:39.043 +08 [1356260] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 13:59:38.861508'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 13:59:38.861508'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 13:59:39.885 +08 [1375007] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:39.887 +08 [1375006] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:45.228 +08 [1375568] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:45.259 +08 [1375567] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:45.285 +08 [1375565] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:45.288 +08 [1375570] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:45.398 +08 [1375562] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 13:59:45.415 +08 [1375561] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:04.196 +08 [1325842] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 14:00:04.196 +08 [1325842] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-11 14:00:04.196 +08 [1325842] HINT:  The transaction might succeed if retried.
+2026-10-11 14:00:04.196 +08 [1325842] STATEMENT:  UPDATE public.orders_102127 orders SET total_amount = 844.8::numeric(12,2) WHERE (order_id OPERATOR(pg_catalog.=) (5017608)::bigint)
+2026-10-11 14:00:05.663 +08 [1377460] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:05.846 +08 [1377464] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:05.859 +08 [1377463] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:18.392 +08 [1378602] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:18.401 +08 [1378600] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:18.405 +08 [1378601] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:18.410 +08 [1378604] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:34.439 +08 [1337586] ERROR:  could not serialize access due to concurrent update
+2026-10-11 14:00:34.439 +08 [1337586] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-11 14:00:34.353723'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '300032'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '32'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '300032'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-11 14:00:38.145 +08 [1380490] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:38.189 +08 [1380489] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:44.588 +08 [1381135] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:44.623 +08 [1381140] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:44.643 +08 [1381139] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:44.660 +08 [1381137] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:44.689 +08 [1381138] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:44.711 +08 [1381144] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:44.714 +08 [1381143] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:49.799 +08 [1381580] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:49.804 +08 [1381579] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:56.561 +08 [1351516] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 14:00:56.561 +08 [1351516] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-11 14:00:56.561 +08 [1351516] HINT:  The transaction might succeed if retried.
+2026-10-11 14:00:56.561 +08 [1351516] STATEMENT:  PREPARE TRANSACTION 'citus_0_2751721_192720_1938'
+2026-10-11 14:00:56.728 +08 [1362527] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 14:00:56.728 +08 [1362527] DETAIL:  Reason code: Canceled on conflict out to pivot 281378, during read.
+2026-10-11 14:00:56.728 +08 [1362527] HINT:  The transaction might succeed if retried.
+2026-10-11 14:00:56.728 +08 [1362527] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 14:00:56.35388'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 14:00:56.35388'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 14:00:57.309 +08 [1382281] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:00:57.309 +08 [1382280] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:01:10.344 +08 [1356260] ERROR:  could not serialize access due to concurrent update
+2026-10-11 14:01:10.344 +08 [1356260] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-11 14:01:10.284171'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '445031'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '445031'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-11 14:01:17.231 +08 [1384103] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:01:17.312 +08 [1384105] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:01:42.977 +08 [1348723] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-11 14:01:42.977 +08 [1348723] DETAIL:  Reason code: Canceled on conflict out to pivot 285292, during read.
+2026-10-11 14:01:42.977 +08 [1348723] HINT:  The transaction might succeed if retried.
+2026-10-11 14:01:42.977 +08 [1348723] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102131 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-09-11 14:01:42.070528'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-11 14:01:42.070528'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-11 14:01:43.330 +08 [1386535] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:01:43.332 +08 [1386536] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:01:43.346 +08 [1386531] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:01:43.359 +08 [1386533] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:01:43.433 +08 [1386530] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:01:43.446 +08 [1386529] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:01:43.592 +08 [1386537] LOG:  could not receive data from client: Connection reset by peer
+2026-10-11 14:02:02.567 +08 [1318217] WARNING:  terminating connection due to administrator command
+2026-10-11 14:02:02.567 +08 [1318217] CONTEXT:  while executing command on xcne7:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 14:02:04.579 +08 [1318217] WARNING:  connection to the remote node cs14@xcne7:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-11 14:02:04.579 +08 [1318217] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 14:02:04.579 +08 [1318217] WARNING:  terminating connection due to administrator command
+2026-10-11 14:02:04.579 +08 [1318217] CONTEXT:  while executing command on xcnf0:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 14:02:04.579 +08 [1318217] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-11 14:02:04.579 +08 [1318217] CONTEXT:  while executing command on xcne7:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 14:02:04.579 +08 [1318217] WARNING:  terminating connection due to administrator command
+2026-10-11 14:02:04.579 +08 [1318217] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-11 14:02:04.584 +08 [1318217] WARNING:  could not issue cancel request
+2026-10-11 14:02:04.584 +08 [1318217] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-11 14:02:04.584 +08 [1318217] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-11 14:02:06.039 +08 [1318197] LOG:  received fast shutdown request
+2026-10-11 14:02:06.040 +08 [1318197] LOG:  aborting any active transactions
+2026-10-11 14:02:06.040 +08 [1372198] FATAL:  terminating connection due to administrator command
+2026-10-11 14:02:06.043 +08 [1318197] LOG:  background worker "logical replication launcher" (PID 1318207) exited with exit code 1
+2026-10-11 14:02:06.047 +08 [1318202] LOG:  shutting down
+2026-10-11 14:02:06.048 +08 [1318202] LOG:  checkpoint starting: shutdown immediate
+2026-10-11 14:02:07.113 +08 [1318202] LOG:  checkpoint complete: wrote 113773 buffers (86.8%), wrote 35 SLRU buffers; 0 WAL file(s) added, 0 removed, 122 recycled; write=1.044 s, sync=0.002 s, total=1.066 s; sync files=273, longest=0.001 s, average=0.001 s; distance=1994320 kB, estimate=1994320 kB; lsn=3/4F1B5D88, redo lsn=3/4F1B5D88
+2026-10-11 14:02:07.435 +08 [1318197] LOG:  database system is shut down

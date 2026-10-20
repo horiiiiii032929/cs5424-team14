@@ -1,0 +1,452 @@
+2026-10-10 18:33:35.523 +08 [664216] LOG:  There is no designated Main database.
+2026-10-10 18:33:35.525 +08 [664216] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-10 18:33:35.525 +08 [664216] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-10 18:33:35.723 +08 [664216] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-10 18:33:35.724 +08 [664216] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-10 18:33:35.724 +08 [664216] LOG:  listening on IPv6 address "::", port 5446
+2026-10-10 18:33:35.789 +08 [664216] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-10 18:33:35.861 +08 [664224] LOG:  database system was shut down at 2026-10-10 18:33:31 +08
+2026-10-10 18:33:35.935 +08 [664216] LOG:  database system is ready to accept connections
+2026-10-10 18:33:39.848 +08 [664412] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-10 18:33:39.848 +08 [664412] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 18:53:22.380 +08 [664412] WARNING:  terminating connection due to administrator command
+2026-10-10 18:53:22.380 +08 [664412] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 18:53:24.395 +08 [664412] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 18:53:24.395 +08 [664412] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 18:53:24.395 +08 [664412] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 18:53:24.395 +08 [664412] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 18:53:26.402 +08 [664412] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 18:53:26.402 +08 [664412] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 18:53:26.403 +08 [664412] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 18:53:26.403 +08 [664412] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 18:53:28.407 +08 [664412] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 18:53:28.407 +08 [664412] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 18:53:28.408 +08 [664412] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 18:53:28.408 +08 [664412] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 18:53:29.798 +08 [664216] LOG:  received fast shutdown request
+2026-10-10 18:53:29.834 +08 [664216] LOG:  aborting any active transactions
+2026-10-10 18:53:29.835 +08 [677820] FATAL:  terminating connection due to administrator command
+2026-10-10 18:53:29.837 +08 [678091] FATAL:  terminating connection due to administrator command
+2026-10-10 18:53:29.838 +08 [684237] FATAL:  terminating connection due to administrator command
+2026-10-10 18:53:29.843 +08 [664216] LOG:  background worker "logical replication launcher" (PID 664227) exited with exit code 1
+2026-10-10 18:53:29.846 +08 [664222] LOG:  shutting down
+2026-10-10 18:53:29.867 +08 [664222] LOG:  checkpoint starting: shutdown immediate
+2026-10-10 18:53:30.195 +08 [706503] LOG:  PID 678091 in cancel request did not match any process
+2026-10-10 18:53:31.443 +08 [706504] LOG:  PID 677820 in cancel request did not match any process
+2026-10-10 18:53:32.207 +08 [706505] FATAL:  the database system is shutting down
+2026-10-10 18:53:33.455 +08 [706506] FATAL:  the database system is shutting down
+2026-10-10 18:53:34.217 +08 [706507] FATAL:  the database system is shutting down
+2026-10-10 18:53:35.464 +08 [706509] FATAL:  the database system is shutting down
+2026-10-10 18:53:36.226 +08 [706510] FATAL:  the database system is shutting down
+2026-10-10 18:53:37.474 +08 [706512] FATAL:  the database system is shutting down
+2026-10-10 18:53:38.236 +08 [706513] FATAL:  the database system is shutting down
+2026-10-10 18:53:39.483 +08 [706514] FATAL:  the database system is shutting down
+2026-10-10 18:53:40.245 +08 [706515] FATAL:  the database system is shutting down
+2026-10-10 18:53:41.492 +08 [706516] FATAL:  the database system is shutting down
+2026-10-10 18:53:42.254 +08 [706517] FATAL:  the database system is shutting down
+2026-10-10 18:53:42.684 +08 [664222] LOG:  checkpoint complete: wrote 96070 buffers (73.3%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 205 recycled; write=8.979 s, sync=0.293 s, total=12.838 s; sync files=1024, longest=0.241 s, average=0.001 s; distance=3363651 kB, estimate=3363651 kB; lsn=0/CEC2FD38, redo lsn=0/CEC2FD38
+2026-10-10 18:53:43.002 +08 [664216] LOG:  database system is shut down
+2026-10-10 18:54:04.590 +08 [706535] LOG:  There is no designated Main database.
+2026-10-10 18:54:04.590 +08 [706535] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-10 18:54:04.590 +08 [706535] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-10 18:54:04.765 +08 [706535] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-10 18:54:04.765 +08 [706535] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-10 18:54:04.765 +08 [706535] LOG:  listening on IPv6 address "::", port 5446
+2026-10-10 18:54:04.818 +08 [706535] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-10 18:54:04.882 +08 [706542] LOG:  database system was shut down at 2026-10-10 18:53:39 +08
+2026-10-10 18:54:04.915 +08 [706535] LOG:  database system is ready to accept connections
+2026-10-10 18:54:05.686 +08 [706551] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-10 18:54:05.686 +08 [706551] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:09:04.805 +08 [706551] WARNING:  terminating connection due to administrator command
+2026-10-10 19:09:04.805 +08 [706551] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:09:06.820 +08 [706551] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 19:09:06.820 +08 [706551] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:09:06.820 +08 [706551] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 19:09:06.820 +08 [706551] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:09:08.829 +08 [706551] WARNING:  transaction recovery cannot connect to xcnc37:5446
+2026-10-10 19:09:08.829 +08 [706551] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:09:08.837 +08 [706551] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 19:09:08.837 +08 [706551] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:09:08.838 +08 [706551] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 19:09:08.838 +08 [706551] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:09:10.904 +08 [706551] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-10 19:09:10.904 +08 [706551] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:09:10.904 +08 [706551] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-10 19:09:10.904 +08 [706551] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:09:11.046 +08 [706535] LOG:  received fast shutdown request
+2026-10-10 19:09:11.082 +08 [706535] LOG:  aborting any active transactions
+2026-10-10 19:09:11.082 +08 [728591] FATAL:  terminating connection due to administrator command
+2026-10-10 19:09:11.082 +08 [726754] FATAL:  terminating connection due to administrator command
+2026-10-10 19:09:11.082 +08 [726792] FATAL:  terminating connection due to administrator command
+2026-10-10 19:09:11.092 +08 [706535] LOG:  background worker "logical replication launcher" (PID 706545) exited with exit code 1
+2026-10-10 19:09:11.095 +08 [706540] LOG:  shutting down
+2026-10-10 19:09:11.104 +08 [740989] LOG:  PID 726754 in cancel request did not match any process
+2026-10-10 19:09:11.123 +08 [706540] LOG:  checkpoint starting: shutdown immediate
+2026-10-10 19:09:11.737 +08 [740990] LOG:  PID 726792 in cancel request did not match any process
+2026-10-10 19:09:13.116 +08 [740991] FATAL:  the database system is shutting down
+2026-10-10 19:09:13.750 +08 [740992] FATAL:  the database system is shutting down
+2026-10-10 19:09:15.126 +08 [740993] FATAL:  the database system is shutting down
+2026-10-10 19:09:15.760 +08 [740994] FATAL:  the database system is shutting down
+2026-10-10 19:09:17.136 +08 [740998] FATAL:  the database system is shutting down
+2026-10-10 19:09:17.770 +08 [740999] FATAL:  the database system is shutting down
+2026-10-10 19:09:19.145 +08 [741000] FATAL:  the database system is shutting down
+2026-10-10 19:09:19.779 +08 [741001] FATAL:  the database system is shutting down
+2026-10-10 19:09:21.153 +08 [741002] FATAL:  the database system is shutting down
+2026-10-10 19:09:21.327 +08 [706540] LOG:  checkpoint complete: wrote 94595 buffers (72.2%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 103 recycled; write=8.143 s, sync=0.227 s, total=10.232 s; sync files=264, longest=0.193 s, average=0.001 s; distance=1684705 kB, estimate=1684705 kB; lsn=1/359684B8, redo lsn=1/359684B8
+2026-10-10 19:09:21.620 +08 [706535] LOG:  database system is shut down
+2026-10-10 19:09:40.653 +08 [741019] LOG:  There is no designated Main database.
+2026-10-10 19:09:40.653 +08 [741019] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-10 19:09:40.653 +08 [741019] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-10 19:09:40.841 +08 [741019] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-10 19:09:40.841 +08 [741019] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-10 19:09:40.841 +08 [741019] LOG:  listening on IPv6 address "::", port 5446
+2026-10-10 19:09:40.911 +08 [741019] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-10 19:09:41.000 +08 [741026] LOG:  database system was shut down at 2026-10-10 19:09:19 +08
+2026-10-10 19:09:41.033 +08 [741019] LOG:  database system is ready to accept connections
+2026-10-10 19:09:41.734 +08 [741035] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-10 19:09:41.734 +08 [741035] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:24:57.988 +08 [741035] WARNING:  terminating connection due to administrator command
+2026-10-10 19:24:57.988 +08 [741035] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:25:00.000 +08 [741035] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 19:25:00.000 +08 [741035] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:25:00.000 +08 [741035] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 19:25:00.000 +08 [741035] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:25:02.007 +08 [741035] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 19:25:02.007 +08 [741035] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:25:02.008 +08 [741035] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 19:25:02.008 +08 [741035] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:25:04.015 +08 [741035] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 19:25:04.015 +08 [741035] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:25:04.015 +08 [741035] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 19:25:04.015 +08 [741035] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:25:06.072 +08 [741035] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-10 19:25:06.072 +08 [741035] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:25:06.072 +08 [741035] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-10 19:25:06.072 +08 [741035] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:25:06.230 +08 [741019] LOG:  received fast shutdown request
+2026-10-10 19:25:06.267 +08 [741019] LOG:  aborting any active transactions
+2026-10-10 19:25:06.267 +08 [758958] FATAL:  terminating connection due to administrator command
+2026-10-10 19:25:06.267 +08 [758952] FATAL:  terminating connection due to administrator command
+2026-10-10 19:25:06.267 +08 [758951] FATAL:  terminating connection due to administrator command
+2026-10-10 19:25:06.275 +08 [741019] LOG:  background worker "logical replication launcher" (PID 741029) exited with exit code 1
+2026-10-10 19:25:06.278 +08 [741024] LOG:  shutting down
+2026-10-10 19:25:06.309 +08 [741024] LOG:  checkpoint starting: shutdown immediate
+2026-10-10 19:25:06.648 +08 [776336] LOG:  PID 758958 in cancel request did not match any process
+2026-10-10 19:25:08.080 +08 [776337] LOG:  PID 758952 in cancel request did not match any process
+2026-10-10 19:25:08.661 +08 [776338] FATAL:  the database system is shutting down
+2026-10-10 19:25:10.091 +08 [776339] FATAL:  the database system is shutting down
+2026-10-10 19:25:10.671 +08 [776340] FATAL:  the database system is shutting down
+2026-10-10 19:25:12.101 +08 [776341] FATAL:  the database system is shutting down
+2026-10-10 19:25:12.680 +08 [776342] FATAL:  the database system is shutting down
+2026-10-10 19:25:14.111 +08 [776343] FATAL:  the database system is shutting down
+2026-10-10 19:25:14.690 +08 [776344] FATAL:  the database system is shutting down
+2026-10-10 19:25:16.120 +08 [776348] FATAL:  the database system is shutting down
+2026-10-10 19:25:16.699 +08 [776349] FATAL:  the database system is shutting down
+2026-10-10 19:25:16.952 +08 [741024] LOG:  checkpoint complete: wrote 94548 buffers (72.1%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 103 recycled; write=8.609 s, sync=0.212 s, total=10.674 s; sync files=263, longest=0.194 s, average=0.001 s; distance=1684588 kB, estimate=1684588 kB; lsn=1/9C683830, redo lsn=1/9C683830
+2026-10-10 19:25:17.240 +08 [741019] LOG:  database system is shut down
+2026-10-10 19:25:36.628 +08 [776366] LOG:  There is no designated Main database.
+2026-10-10 19:25:36.628 +08 [776366] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-10 19:25:36.628 +08 [776366] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-10 19:25:36.816 +08 [776366] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-10 19:25:36.816 +08 [776366] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-10 19:25:36.816 +08 [776366] LOG:  listening on IPv6 address "::", port 5446
+2026-10-10 19:25:36.870 +08 [776366] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-10 19:25:36.934 +08 [776373] LOG:  database system was shut down at 2026-10-10 19:25:15 +08
+2026-10-10 19:25:36.966 +08 [776366] LOG:  database system is ready to accept connections
+2026-10-10 19:25:37.727 +08 [776382] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-10 19:25:37.727 +08 [776382] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:29:51.321 +08 [776456] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-10 19:29:51.321 +08 [776456] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-10 19:29:51.321 +08 [776456] HINT:  The transaction might succeed if retried.
+2026-10-10 19:29:51.321 +08 [776456] STATEMENT:  PREPARE TRANSACTION 'citus_0_458589_273_42'
+2026-10-10 19:29:51.362 +08 [778472] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-10 19:29:51.362 +08 [778472] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-10 19:29:51.362 +08 [778472] HINT:  The transaction might succeed if retried.
+2026-10-10 19:29:51.362 +08 [778472] STATEMENT:  PREPARE TRANSACTION 'citus_0_458589_274_44'
+2026-10-10 19:29:51.396 +08 [778474] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-10 19:29:51.396 +08 [778474] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-10 19:29:51.396 +08 [778474] HINT:  The transaction might succeed if retried.
+2026-10-10 19:29:51.396 +08 [778474] STATEMENT:  PREPARE TRANSACTION 'citus_0_458589_275_46'
+2026-10-10 19:33:13.218 +08 [780964] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-10 19:33:13.218 +08 [780964] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-10 19:33:13.218 +08 [780964] HINT:  The transaction might succeed if retried.
+2026-10-10 19:33:13.218 +08 [780964] STATEMENT:  PREPARE TRANSACTION 'citus_0_458624_886_30'
+2026-10-10 19:42:04.872 +08 [776382] WARNING:  terminating connection due to administrator command
+2026-10-10 19:42:04.872 +08 [776382] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:42:06.887 +08 [776382] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 19:42:06.887 +08 [776382] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:42:06.888 +08 [776382] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 19:42:06.888 +08 [776382] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:42:08.895 +08 [776382] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 19:42:08.895 +08 [776382] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:42:08.895 +08 [776382] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 19:42:08.895 +08 [776382] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:42:10.902 +08 [776382] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 19:42:10.902 +08 [776382] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:42:10.903 +08 [776382] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 19:42:10.903 +08 [776382] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:42:12.141 +08 [776366] LOG:  received fast shutdown request
+2026-10-10 19:42:12.165 +08 [776366] LOG:  aborting any active transactions
+2026-10-10 19:42:12.165 +08 [795535] FATAL:  terminating connection due to administrator command
+2026-10-10 19:42:12.165 +08 [795482] FATAL:  terminating connection due to administrator command
+2026-10-10 19:42:12.168 +08 [795479] FATAL:  terminating connection due to administrator command
+2026-10-10 19:42:12.172 +08 [776366] LOG:  background worker "logical replication launcher" (PID 776376) exited with exit code 1
+2026-10-10 19:42:12.175 +08 [776371] LOG:  shutting down
+2026-10-10 19:42:12.206 +08 [776371] LOG:  checkpoint starting: shutdown immediate
+2026-10-10 19:42:13.415 +08 [813702] LOG:  PID 795479 in cancel request did not match any process
+2026-10-10 19:42:13.532 +08 [813703] LOG:  PID 795482 in cancel request did not match any process
+2026-10-10 19:42:15.429 +08 [813704] FATAL:  the database system is shutting down
+2026-10-10 19:42:15.544 +08 [813705] FATAL:  the database system is shutting down
+2026-10-10 19:42:17.438 +08 [813709] FATAL:  the database system is shutting down
+2026-10-10 19:42:17.554 +08 [813710] FATAL:  the database system is shutting down
+2026-10-10 19:42:19.447 +08 [813711] FATAL:  the database system is shutting down
+2026-10-10 19:42:19.563 +08 [813712] FATAL:  the database system is shutting down
+2026-10-10 19:42:21.457 +08 [813713] FATAL:  the database system is shutting down
+2026-10-10 19:42:21.572 +08 [813714] FATAL:  the database system is shutting down
+2026-10-10 19:42:22.560 +08 [776371] LOG:  checkpoint complete: wrote 94717 buffers (72.3%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 103 recycled; write=8.279 s, sync=0.217 s, total=10.386 s; sync files=264, longest=0.166 s, average=0.001 s; distance=1685141 kB, estimate=1685141 kB; lsn=2/3428D20, redo lsn=2/3428D20
+2026-10-10 19:42:22.870 +08 [776366] LOG:  database system is shut down
+2026-10-10 19:42:40.244 +08 [813731] LOG:  There is no designated Main database.
+2026-10-10 19:42:40.244 +08 [813731] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-10 19:42:40.244 +08 [813731] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-10 19:42:40.433 +08 [813731] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-10 19:42:40.433 +08 [813731] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-10 19:42:40.433 +08 [813731] LOG:  listening on IPv6 address "::", port 5446
+2026-10-10 19:42:40.502 +08 [813731] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-10 19:42:40.592 +08 [813738] LOG:  database system was shut down at 2026-10-10 19:42:20 +08
+2026-10-10 19:42:40.623 +08 [813731] LOG:  database system is ready to accept connections
+2026-10-10 19:42:41.317 +08 [813747] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-10 19:42:41.317 +08 [813747] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 19:46:20.739 +08 [813811] LOG:  skipping vacuum of "order_items_102165" --- lock not available
+2026-10-10 19:46:20.739 +08 [813811] LOG:  skipping vacuum of "orders_102133" --- lock not available
+2026-10-10 19:46:20.739 +08 [813811] LOG:  skipping vacuum of "order_items_102161" --- lock not available
+2026-10-10 19:46:20.739 +08 [813811] LOG:  skipping vacuum of "orders_102129" --- lock not available
+2026-10-10 19:46:20.739 +08 [813811] LOG:  skipping vacuum of "order_items_102157" --- lock not available
+2026-10-10 19:46:20.739 +08 [813811] LOG:  skipping vacuum of "orders_102125" --- lock not available
+2026-10-10 19:46:20.740 +08 [813811] LOG:  skipping vacuum of "order_items_102153" --- lock not available
+2026-10-10 19:46:20.740 +08 [813811] LOG:  skipping vacuum of "orders_102121" --- lock not available
+2026-10-10 19:46:20.740 +08 [813811] LOG:  skipping vacuum of "orders_102105" --- lock not available
+2026-10-10 19:46:20.740 +08 [813811] LOG:  skipping vacuum of "order_items_102141" --- lock not available
+2026-10-10 19:46:20.740 +08 [813811] LOG:  skipping vacuum of "orders_102109" --- lock not available
+2026-10-10 19:46:20.911 +08 [813811] LOG:  skipping analyze of "order_items_102145" --- lock not available
+2026-10-10 19:46:21.145 +08 [813811] LOG:  skipping analyze of "orders_102113" --- lock not available
+2026-10-10 19:46:21.302 +08 [813811] LOG:  skipping analyze of "order_items_102149" --- lock not available
+2026-10-10 19:46:21.525 +08 [813811] LOG:  skipping analyze of "orders_102117" --- lock not available
+2026-10-10 19:46:21.681 +08 [813811] LOG:  skipping analyze of "order_items_102137" --- lock not available
+2026-10-10 19:47:50.973 +08 [813967] WARNING:  could not establish connection after 30000 ms
+2026-10-10 19:47:50.974 +08 [813967] ERROR:  cannot connect to xcnc39:5446 to fetch intermediate results
+2026-10-10 19:47:50.974 +08 [813967] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7701446787078_15_1']::text[],'xcnc39',5446) bytes
+2026-10-10 19:47:50.979 +08 [813930] WARNING:  could not establish connection after 30000 ms
+2026-10-10 19:47:50.979 +08 [813930] ERROR:  cannot connect to xcnc39:5446 to fetch intermediate results
+2026-10-10 19:47:50.979 +08 [813930] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7701329346609_7_3']::text[],'xcnc39',5446) bytes
+2026-10-10 19:47:50.983 +08 [813879] WARNING:  could not establish connection after 30000 ms
+2026-10-10 19:47:50.983 +08 [813879] ERROR:  cannot connect to xcnc39:5446 to fetch intermediate results
+2026-10-10 19:47:50.983 +08 [813879] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7701329346609_11_3']::text[],'xcnc39',5446) bytes
+2026-10-10 19:47:50.985 +08 [813877] ERROR:  canceling statement due to user request
+2026-10-10 19:47:50.985 +08 [813877] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7701144797194_4_10']::text[],'xcnc40',5446) bytes
+2026-10-10 19:47:54.528 +08 [813934] ERROR:  canceling statement due to user request
+2026-10-10 19:47:54.528 +08 [813934] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7701329346609_29_3']::text[],'xcnc37',5446) bytes
+2026-10-10 19:47:54.528 +08 [813934] LOG:  could not send data to client: Broken pipe
+2026-10-10 19:47:54.528 +08 [813934] FATAL:  connection to client lost
+2026-10-10 19:47:54.529 +08 [813821] ERROR:  canceling statement due to user request
+2026-10-10 19:47:54.529 +08 [813821] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7701144797194_1_10']::text[],'xcnc37',5446) bytes
+2026-10-10 19:47:54.531 +08 [813969] ERROR:  canceling statement due to user request
+2026-10-10 19:47:54.531 +08 [813969] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7701446787078_1_5']::text[],'xcnc37',5446) bytes
+2026-10-10 19:47:54.531 +08 [813969] LOG:  could not send data to client: Broken pipe
+2026-10-10 19:47:54.531 +08 [813969] FATAL:  connection to client lost
+2026-10-10 19:47:54.532 +08 [813832] ERROR:  canceling statement due to user request
+2026-10-10 19:47:54.532 +08 [813832] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7701446787079_29_1']::text[],'xcnc37',5446) bytes
+2026-10-10 19:47:54.532 +08 [813874] ERROR:  canceling statement due to user request
+2026-10-10 19:47:54.532 +08 [813874] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7701144797193_25_10']::text[],'xcnc37',5446) bytes
+2026-10-10 19:47:54.532 +08 [813874] LOG:  could not send data to client: Broken pipe
+2026-10-10 19:47:54.532 +08 [813874] FATAL:  connection to client lost
+2026-10-10 19:47:54.533 +08 [813875] ERROR:  canceling statement due to user request
+2026-10-10 19:47:54.533 +08 [813875] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7701144797193_29_10']::text[],'xcnc37',5446) bytes
+2026-10-10 19:47:54.654 +08 [813832] LOG:  could not send data to client: Broken pipe
+2026-10-10 19:47:54.654 +08 [813832] FATAL:  connection to client lost
+2026-10-10 19:47:54.672 +08 [813821] LOG:  could not send data to client: Broken pipe
+2026-10-10 19:47:54.672 +08 [813821] FATAL:  connection to client lost
+2026-10-10 19:47:54.854 +08 [813929] ERROR:  canceling statement due to user request
+2026-10-10 19:47:54.854 +08 [813929] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7701329346609_31_3']::text[],'xcnc39',5446) bytes
+2026-10-10 19:47:54.860 +08 [813968] ERROR:  canceling statement due to user request
+2026-10-10 19:47:54.860 +08 [813968] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7701446787079_31_1']::text[],'xcnc39',5446) bytes
+2026-10-10 19:54:48.792 +08 [821873] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-10 19:54:48.792 +08 [821873] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-10 19:54:48.792 +08 [821873] HINT:  The transaction might succeed if retried.
+2026-10-10 19:54:48.792 +08 [821873] STATEMENT:  PREPARE TRANSACTION 'citus_0_459158_1547_40'
+2026-10-10 19:57:32.808 +08 [821884] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-10 19:57:32.808 +08 [821884] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-10 19:57:32.808 +08 [821884] HINT:  The transaction might succeed if retried.
+2026-10-10 19:57:32.808 +08 [821884] STATEMENT:  PREPARE TRANSACTION 'citus_0_459171_2262_51'
+2026-10-10 20:01:03.761 +08 [813747] WARNING:  terminating connection due to administrator command
+2026-10-10 20:01:03.761 +08 [813747] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:01:05.775 +08 [813747] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 20:01:05.775 +08 [813747] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:01:05.775 +08 [813747] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 20:01:05.775 +08 [813747] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:01:07.782 +08 [813747] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 20:01:07.782 +08 [813747] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:01:07.783 +08 [813747] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 20:01:07.783 +08 [813747] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:01:09.359 +08 [813731] LOG:  received fast shutdown request
+2026-10-10 20:01:09.390 +08 [813731] LOG:  aborting any active transactions
+2026-10-10 20:01:09.391 +08 [833022] FATAL:  terminating connection due to administrator command
+2026-10-10 20:01:09.391 +08 [832923] FATAL:  terminating connection due to administrator command
+2026-10-10 20:01:09.391 +08 [833078] FATAL:  terminating connection due to administrator command
+2026-10-10 20:01:09.398 +08 [813731] LOG:  background worker "logical replication launcher" (PID 813741) exited with exit code 1
+2026-10-10 20:01:09.402 +08 [813736] LOG:  shutting down
+2026-10-10 20:01:09.424 +08 [813736] LOG:  checkpoint starting: shutdown immediate
+2026-10-10 20:01:10.506 +08 [857567] LOG:  PID 833022 in cancel request did not match any process
+2026-10-10 20:01:10.960 +08 [857568] LOG:  PID 832923 in cancel request did not match any process
+2026-10-10 20:01:12.518 +08 [857569] FATAL:  the database system is shutting down
+2026-10-10 20:01:12.972 +08 [857570] FATAL:  the database system is shutting down
+2026-10-10 20:01:14.528 +08 [857571] FATAL:  the database system is shutting down
+2026-10-10 20:01:14.982 +08 [857572] FATAL:  the database system is shutting down
+2026-10-10 20:01:16.537 +08 [857576] FATAL:  the database system is shutting down
+2026-10-10 20:01:16.990 +08 [857577] FATAL:  the database system is shutting down
+2026-10-10 20:01:18.367 +08 [813736] LOG:  checkpoint complete: wrote 94617 buffers (72.2%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 103 recycled; write=6.811 s, sync=0.292 s, total=8.966 s; sync files=263, longest=0.200 s, average=0.002 s; distance=1684732 kB, estimate=1684732 kB; lsn=2/6A168068, redo lsn=2/6A168068
+2026-10-10 20:01:18.682 +08 [813731] LOG:  database system is shut down
+2026-10-10 20:01:39.353 +08 [857595] LOG:  There is no designated Main database.
+2026-10-10 20:01:39.353 +08 [857595] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-10 20:01:39.353 +08 [857595] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-10 20:01:39.542 +08 [857595] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-10 20:01:39.542 +08 [857595] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-10 20:01:39.542 +08 [857595] LOG:  listening on IPv6 address "::", port 5446
+2026-10-10 20:01:39.601 +08 [857595] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-10 20:01:39.665 +08 [857602] LOG:  database system was shut down at 2026-10-10 20:01:16 +08
+2026-10-10 20:01:39.697 +08 [857595] LOG:  database system is ready to accept connections
+2026-10-10 20:01:40.441 +08 [857611] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-10 20:01:40.441 +08 [857611] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:05:10.029 +08 [857747] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-10 20:05:10.029 +08 [857747] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-10 20:05:10.029 +08 [857747] HINT:  The transaction might succeed if retried.
+2026-10-10 20:05:10.029 +08 [857747] STATEMENT:  WITH debit AS (UPDATE public.inventory_102089 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-10 20:05:09.006443'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '72260'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '72260'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-10 20:06:04.852 +08 [857710] ERROR:  canceling statement due to user request
+2026-10-10 20:06:04.852 +08 [857710] STATEMENT:  SELECT partition_index, 'repartition_7710674255883_18' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7710674255883_18','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102153 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:05.150 +08 [857769] ERROR:  canceling statement due to user request
+2026-10-10 20:06:05.150 +08 [857769] STATEMENT:  SELECT partition_index, 'repartition_7710674255883_22' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7710674255883_22','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102157 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:05.151 +08 [857769] LOG:  could not send data to client: Broken pipe
+2026-10-10 20:06:05.151 +08 [857769] FATAL:  connection to client lost
+2026-10-10 20:06:05.662 +08 [857791] ERROR:  canceling statement due to user request
+2026-10-10 20:06:05.662 +08 [857791] STATEMENT:  SELECT partition_index, 'repartition_7710422597634_30' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7710422597634_30','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102165 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:05.664 +08 [857791] LOG:  could not send data to client: Broken pipe
+2026-10-10 20:06:05.664 +08 [857791] FATAL:  connection to client lost
+2026-10-10 20:06:05.839 +08 [857713] ERROR:  canceling statement due to user request
+2026-10-10 20:06:05.839 +08 [857713] STATEMENT:  SELECT partition_index, 'repartition_7711009800194_26' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7711009800194_26','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102161 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:06.140 +08 [857734] ERROR:  canceling statement due to user request
+2026-10-10 20:06:06.140 +08 [857734] STATEMENT:  SELECT partition_index, 'repartition_7711009800194_30' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7711009800194_30','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102165 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:06.156 +08 [857812] ERROR:  canceling statement due to user request
+2026-10-10 20:06:06.156 +08 [857812] STATEMENT:  SELECT partition_index, 'repartition_7710674255883_30' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7710674255883_30','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102165 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:06.158 +08 [857812] LOG:  could not send data to client: Broken pipe
+2026-10-10 20:06:06.158 +08 [857812] FATAL:  connection to client lost
+2026-10-10 20:06:06.252 +08 [857803] ERROR:  canceling statement due to user request
+2026-10-10 20:06:06.252 +08 [857803] STATEMENT:  SELECT partition_index, 'repartition_7711462785027_30' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7711462785027_30','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102165 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:06.446 +08 [857750] ERROR:  canceling statement due to user request
+2026-10-10 20:06:06.446 +08 [857750] STATEMENT:  SELECT partition_index, 'repartition_7711311790095_26' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7711311790095_26','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102161 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:06.497 +08 [857771] ERROR:  canceling statement due to user request
+2026-10-10 20:06:06.497 +08 [857771] STATEMENT:  SELECT partition_index, 'repartition_7710674255883_26' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7710674255883_26','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102161 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:06.718 +08 [857774] ERROR:  canceling statement due to user request
+2026-10-10 20:06:06.718 +08 [857774] STATEMENT:  SELECT partition_index, 'repartition_7710489706498_30' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7710489706498_30','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102165 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:06.795 +08 [857830] ERROR:  canceling statement due to user request
+2026-10-10 20:06:06.795 +08 [857830] STATEMENT:  SELECT partition_index, 'repartition_7711311790095_30' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7711311790095_30','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102165 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:06.796 +08 [857830] LOG:  could not send data to client: Broken pipe
+2026-10-10 20:06:06.796 +08 [857830] FATAL:  connection to client lost
+2026-10-10 20:06:07.005 +08 [857788] ERROR:  canceling statement due to user request
+2026-10-10 20:06:07.005 +08 [857788] STATEMENT:  SELECT partition_index, 'repartition_7711311790095_22' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7711311790095_22','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102157 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:07.225 +08 [857710] LOG:  could not send data to client: Broken pipe
+2026-10-10 20:06:07.225 +08 [857710] FATAL:  connection to client lost
+2026-10-10 20:06:07.371 +08 [857816] ERROR:  canceling statement due to user request
+2026-10-10 20:06:07.371 +08 [857816] STATEMENT:  SELECT partition_index, 'repartition_7711211126798_30' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7711211126798_30','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102165 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:07.462 +08 [857775] ERROR:  canceling statement due to user request
+2026-10-10 20:06:07.462 +08 [857775] STATEMENT:  SELECT partition_index, 'repartition_7711211126798_26' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7711211126798_26','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102161 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:08.535 +08 [857713] LOG:  could not send data to client: Broken pipe
+2026-10-10 20:06:08.535 +08 [857713] FATAL:  connection to client lost
+2026-10-10 20:06:08.849 +08 [857750] LOG:  could not send data to client: Broken pipe
+2026-10-10 20:06:08.849 +08 [857750] FATAL:  connection to client lost
+2026-10-10 20:06:10.456 +08 [857884] ERROR:  canceling statement due to user request
+2026-10-10 20:06:10.456 +08 [857884] STATEMENT:  SELECT partition_index, 'repartition_7710540038193_30' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_7710540038193_30','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102165 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-10 20:06:10.573 +08 [857884] LOG:  could not send data to client: Broken pipe
+2026-10-10 20:06:10.573 +08 [857884] FATAL:  connection to client lost
+2026-10-10 20:07:33.326 +08 [858007] ERROR:  canceling statement due to user request
+2026-10-10 20:07:33.326 +08 [858007] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7710808473632_28_12']::text[],'xcnc40',5446) bytes
+2026-10-10 20:07:33.328 +08 [858006] ERROR:  canceling statement due to user request
+2026-10-10 20:07:33.328 +08 [858006] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7710808473632_24_12']::text[],'xcnc40',5446) bytes
+2026-10-10 20:07:33.328 +08 [858007] LOG:  could not send data to client: Broken pipe
+2026-10-10 20:07:33.330 +08 [858007] FATAL:  connection to client lost
+2026-10-10 20:07:33.459 +08 [858009] ERROR:  canceling statement due to user request
+2026-10-10 20:07:33.459 +08 [858009] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7710808473632_29_12']::text[],'xcnc37',5446) bytes
+2026-10-10 20:07:33.607 +08 [857758] ERROR:  canceling statement due to user request
+2026-10-10 20:07:33.607 +08 [857758] STATEMENT:  SELECT bytes FROM fetch_intermediate_results(ARRAY['repartition_7710808473632_27_12']::text[],'xcnc39',5446) bytes
+2026-10-10 20:07:33.905 +08 [857758] LOG:  could not send data to client: Broken pipe
+2026-10-10 20:07:33.905 +08 [857758] FATAL:  connection to client lost
+2026-10-10 20:09:25.401 +08 [867965] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-10 20:09:25.401 +08 [867965] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-10 20:09:25.401 +08 [867965] HINT:  The transaction might succeed if retried.
+2026-10-10 20:09:25.401 +08 [867965] STATEMENT:  WITH credit AS (UPDATE public.inventory_102085 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-10 20:09:25.091621'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '87968'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '87968'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-10 20:09:44.798 +08 [867989] ERROR:  could not serialize access due to concurrent update
+2026-10-10 20:09:44.798 +08 [867989] STATEMENT:  WITH credit AS (UPDATE public.inventory_102077 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-10 20:09:44.640747'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '415033'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '415033'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-10 20:25:48.918 +08 [857611] ERROR:  terminating connection due to administrator command
+2026-10-10 20:25:48.918 +08 [857611] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:25:48.927 +08 [857595] LOG:  background worker "Citus Maintenance Daemon: 16384/10" (PID 857611) exited with exit code 1
+2026-10-10 20:25:53.935 +08 [885194] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-10 20:25:53.935 +08 [885194] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:25:53.977 +08 [885194] WARNING:  transaction recovery cannot connect to xcnc37:5446
+2026-10-10 20:25:53.977 +08 [885194] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:25:53.998 +08 [885194] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 20:25:53.998 +08 [885194] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:25:54.000 +08 [885194] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 20:25:54.000 +08 [885194] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:25:56.007 +08 [885194] WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: FATAL:  the database system is shutting down
+2026-10-10 20:25:56.007 +08 [885194] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:25:56.007 +08 [885194] WARNING:  FATAL:  the database system is shutting down
+2026-10-10 20:25:56.007 +08 [885194] CONTEXT:  while executing command on xcnc37:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-10 20:25:57.109 +08 [857595] LOG:  received fast shutdown request
+2026-10-10 20:25:57.136 +08 [857595] LOG:  aborting any active transactions
+2026-10-10 20:25:57.136 +08 [885196] FATAL:  terminating connection due to administrator command
+2026-10-10 20:25:57.136 +08 [885197] FATAL:  terminating connection due to administrator command
+2026-10-10 20:25:57.136 +08 [885195] FATAL:  terminating connection due to administrator command
+2026-10-10 20:25:57.143 +08 [857595] LOG:  background worker "logical replication launcher" (PID 857605) exited with exit code 1
+2026-10-10 20:25:57.146 +08 [857600] LOG:  shutting down
+2026-10-10 20:25:57.178 +08 [857600] LOG:  checkpoint starting: shutdown immediate
+2026-10-10 20:25:58.032 +08 [885213] LOG:  PID 885196 in cancel request did not match any process
+2026-10-10 20:25:58.047 +08 [885214] LOG:  PID 885197 in cancel request did not match any process
+2026-10-10 20:26:00.044 +08 [885215] FATAL:  the database system is shutting down
+2026-10-10 20:26:00.058 +08 [885216] FATAL:  the database system is shutting down
+2026-10-10 20:26:02.054 +08 [885217] FATAL:  the database system is shutting down
+2026-10-10 20:26:02.067 +08 [885218] FATAL:  the database system is shutting down
+2026-10-10 20:26:04.063 +08 [885219] FATAL:  the database system is shutting down
+2026-10-10 20:26:04.076 +08 [885220] FATAL:  the database system is shutting down
+2026-10-10 20:26:06.073 +08 [885221] FATAL:  the database system is shutting down
+2026-10-10 20:26:06.085 +08 [885222] FATAL:  the database system is shutting down
+2026-10-10 20:26:06.154 +08 [857600] LOG:  checkpoint complete: wrote 94600 buffers (72.2%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 102 recycled; write=6.938 s, sync=0.226 s, total=9.008 s; sync files=264, longest=0.156 s, average=0.001 s; distance=1684638 kB, estimate=1684638 kB; lsn=2/D0E8F8C8, redo lsn=2/D0E8F8C8
+2026-10-10 20:26:06.433 +08 [857595] LOG:  database system is shut down
