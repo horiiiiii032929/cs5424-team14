@@ -1,6 +1,9 @@
-# Course-cluster work — 19 October 2026
+# Course-cluster work — updated 20 October 2026
 
-SSH access is restored. Existing team files and ~/pgsql were preserved; new jobs
+SSH access worked on 19 October but timed out before login at the 20 October
+reconciliation. Current queue state and a115 full results are unverified.
+See [current status](../../docs/project-status.md). Existing team files and ~/pgsql
+were preserved; new jobs
 use isolated deployment directories and xcnf nodes. The team queue was empty at
 the first successful inspection. All submissions serialize on the shared team port.
 
@@ -21,10 +24,10 @@ Source, topology, settings, versions, raw logs and validation were reviewed.
 | Original scale-1 diagnostic | a101 977468 | Four-client warmup/measurement aborted; original validation was too slow. Independent exact validation passed; job then cancelled. |
 | Original dependent diagnostics | a111 977469; a112 977470 | Cancelled before starting to replace the validator. |
 | Revised scale-1 diagnostics | a111 977617; a112 977618; a113 977619 | All warmups/measurements completed; zero measured failures/retries; exact validation passed. |
-| Full scale-1 matrix | a0 977740; a112 977773 | Both completed on xcnf0–4 with all 12 exits zero. a0 3.2–3.6 TPS; a112 54.2–90.8 TPS, zero failed transactions, six passing validations. See [full results](../cluster-full-20261019/README.md). |
+| Full scale-1 matrix | a0 977740; a112 977773 | Both completed on xcnf0–4 with all six warmup and six measured exits per job zero. a0 3.2–3.6 TPS; a112 54.2–90.8 TPS, zero failed transactions, six passing validations. See [full results](../cluster-full-20261019/README.md). |
 | Full repeat (pgbench seed 7) | a112 978177 | Completed; within 2.5% of seed 42, zero measured failures, six passing validations. 64-client warmup exit 2 (Citus-wrapped commit-time serialization conflict); flagged. Ledger `full-repeat-seed7-submission-20261019.tsv`. |
-| T6 diagnostics | a114 979865; a115 979866 | Both clean. a114 (sales summaries) 85.3 TPS, T6 slower than a112; a115 (`orders(created_at)` index only) 288.6 TPS, T6 116 ms. See [T6 diagnostics](../cluster-diagnostic-t6-20261020/README.md). |
-| Full matched a115 | 979909 (seed 42); 979910 (seed 7) | Queued on xcnf0–4. Ledgers `t6-submissions-20261020.tsv`, `a115-repeat-seed7-submission-20261020.tsv`. |
+| T6 diagnostics | a114 979865; a115 979866 | Both clean. a114 (sales summaries) 85.3 TPS, T6 slower than a112; a115 (`orders(created_at)` index only) 288.6 TPS, T6 116 ms, two retried transactions and zero measured failures. See [T6 diagnostics](../cluster-diagnostic-t6-20261020/README.md). |
+| Full matched a115 | 979909 (seed 42); 979910 (seed 7) | Submitted on xcnf0–4; last saved checkpoint queued, current state/results unverified. Ledgers `t6-submissions-20261020.tsv`, `a115-repeat-seed7-submission-20261020.tsv`. |
 
 The [smoke evidence](../cluster-smoke-20261019/README.md) and
 [original diagnostic evidence](../cluster-diagnostic-original-20261019/README.md)
@@ -59,16 +62,18 @@ was 89.917/92.383/90.550 for a111/a112/a113; one 60-second observation per varia
 does not establish a ranking. [Complete source and raw evidence](../cluster-diagnostic-20261019/README.md)
 includes zero warmup/measurement exits and passing exact validation.
 
-The full comparison advances a112 against a fresh original a0 control. It restores
-all six client counts, 60-second warmups, 600-second measurements, per-count
-data resets, seed 42, SERIALIZABLE isolation and full log sampling. Baseline
-977740 is running on xcnf0–4. Candidate 977773 explicitly requests those nodes
-and depends on the baseline. Pending candidate 977741 was cancelled and replaced
-before starting because the initial environment-variable node request was not
-recognized; `full-node-pin-correction-20261019.json` preserves the correction.
-`full-protocol-verification-20261019.json` records the checked baseline settings
-and candidate Slurm node request. No full performance results or final A winner
-are claimed. Review every phase, validation and failure log, then assess repeats.
+The completed full comparison tested a112 against a fresh original a0 control
+on the same xcnf0–4 nodes, with six client counts, 60-second warmups, 600-second
+measurements, data resets, seed 42, SERIALIZABLE and full logging. Pending
+candidate 977741 was replaced before starting to correct its node request;
+`full-node-pin-correction-20261019.json` and
+`full-protocol-verification-20261019.json` retain the audit trail.
+Both full jobs and repeat 978177 are imported and reviewed. a112 is provisional;
+the repeat's 64-client warmup abort remains excluded from clean comparisons.
 
-Update, 20:45: both full jobs completed and were reviewed with
-`scripts/import_cluster_jobs.py`; see [full results](../cluster-full-20261019/README.md).
+The a114/a115 diagnostics used
+`/home/stuproj/cs14/citus_hikaru_20261020-002025_57576ae`. Full a115 jobs
+979909/979910 were submitted from that deployment, but no full-run evidence is
+imported yet. Follow the [retrieval runbook](../../docs/workload-a-cluster-runbook.md)
+once access returns; verify every phase and validation before changing the final
+selection or figures. Do not infer a live queue state from a saved submission ledger.

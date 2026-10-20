@@ -1,6 +1,7 @@
 # AI assistance record
 
-Tool: OpenAI Codex. Team 14; work attributed to Hikaru for team review.
+Tools recorded: OpenAI Codex and Claude Code. Team 14; work attributed to Hikaru
+for team review. Entries below are dated checkpoints, not current job status.
 
 - 10 October 2026: developed five Workload A proposals from the supplied
   assignment, baseline SQL and result files; added them to the team Google Doc.
@@ -40,12 +41,25 @@ Tool: OpenAI Codex. Team 14; work attributed to Hikaru for team review.
   Submitted the original full matrix for a0 control 977740 and a112 candidate
   977773 on matched xcnf0–4 nodes; replaced only pending candidate 977741 to
   correct its node request and verified the full settings. Full results remain
-  pending. Inserted and checked the report figure in the shared Google Doc,
+  pending at that checkpoint (both later completed). Inserted and checked the
+  report figure in the shared Google Doc,
   preserving the B text and all 15 existing tables.
 - 19 October 2026 (evening, Claude Code): monitored and imported full jobs
   977740/977773 with a new reviewing importer, found the fresh a0 control is
   faster than preserved job 918524 (revising the a102 gain claim), recorded
   a112's matched 17–28× result and figure, and submitted seed-7 repeat 978177.
+
+- 19–20 October 2026 (Claude Code, per recorded commits and supplied work log):
+  imported a112 repeat 978177 and diagnosed its flagged 64-client warmup;
+  implemented and merged a114/a115 into the PR branch, recorded passing a114
+  correctness checks and completed cluster diagnostics, rejected a114's summary
+  design, and submitted a115 full jobs 979909/979910 for seeds 42/7. Their full
+  results have not been imported at the latest reconciliation.
+- 20 October 2026 (Codex): checked Git/PR and repository/Drive documentation;
+  reconciled current status, corrected the a115 diagnostic retry count to two,
+  updated the A analysis and team planning documents, and refreshed the draft PR.
+  Cluster access timed out, so no live a115 completion or final-selection claim
+  was made. Retain the readback/validation records with this interaction.
 
 Keep the conversation export with prompts and outputs for the required
 `14_ai_tool.zip` reports. This short record is an index, not a replacement for

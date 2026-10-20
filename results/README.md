@@ -1,6 +1,13 @@
 # Results
 
-## 19 October follow-up
+## Current status — 20 October 2026
+
+See the [project status](../docs/project-status.md) for current decisions and the
+[runbook](../docs/workload-a-cluster-runbook.md) for retrieval. Full a115 jobs
+979909/979910 were submitted; their current state/results are unverified after
+an SSH timeout. The completed short diagnostic does not establish final selection.
+
+## Verified 19–20 October follow-up
 
 Kelvin's a102/job 965657 source and raw results are now verified, along with his
 write-side runs. All six a102 measurements completed, but its 16-client warmup
@@ -33,7 +40,11 @@ T6 that reads raw orders only for the two partial days) passed
 (285 vs a112's 306 TPS on the 50k-order fixture) and aborted at four clients,
 like a112. A [1M-order T6 check](t6-plan-check-20261019/README.md) measured
 25.5 ms versus 78.0 ms for a112's query, but 17.0 ms for the original query
-with only the `created_at` index. Its cluster diagnostic is prepared, not submitted.
+with only the `created_at` index. Completed cluster diagnostics 979865/979866
+confirmed that a114 is slower: 85.333 TPS versus a115's 288.633 TPS, with T6
+764.5 versus 115.9 ms. Both validated; a115 had two retried transactions and no
+failed transactions. a114 is not promoted. a115 awaits full-run review.
+See [T6 diagnostic evidence](cluster-diagnostic-t6-20261020/README.md).
 
 ## Original results — 14 October 2026
 
@@ -105,13 +116,13 @@ timings for design comparisons.
 
 ## What remains for the course submission
 
-1. Reproduce and investigate the four-client colocation/combined failures on the
-   course cluster, without weakening isolation or changing the workload.
-2. Once the smoke runs are reviewed, run scale-1 measurements at 1, 4, 8, 16, 32
-   and 64 clients, with the original 60-second warmup and 600-second measurement.
-   Repeat promising designs to assess variability; report aborts and retries.
-3. Choose the final design from that evidence. Retain unsuccessful experiments
-   as useful findings and match report experiment IDs to the submitted folders.
+1. Inspect and import a115 full jobs 979909/979910 after cluster access returns;
+   review all phases, settings, validation and source hashes before selecting A.
+2. Preserve a112's flagged seed-7/c64 warmup and all earlier local/smoke aborts.
+   The commit-time serialization issue is not established as generally resolved.
+3. Archive and review optimized B scripts/results against the shared report.
+4. Confirm both final designs, contribution statements and AI records, then
+   assemble the report and submission archives. See the [current action list](../docs/project-status.md).
 
 At the 14 October checkpoint, SoC SSH timed out before authentication and no
 new Slurm jobs had been submitted. Access was restored on 19 October; see the

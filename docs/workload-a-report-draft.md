@@ -1,7 +1,9 @@
 # Draft report sections 2–3: Workload A
 
-Prepared 19 October 2026. This is a working draft; a112 is the provisional design
-(repeated on two seeds); team review and the a114 diagnostic remain open. Kelvin's a102/a10/a11/a12/a14 source update is
+Updated 20 October 2026. This is a working draft; a112 is the provisional design
+with a seed-7 repeat (64-client warmup flagged). a114's diagnostic is complete
+and did not support promotion; a115's full results and team review remain open.
+Kelvin's a102/a10/a11/a12/a14 source update is
 preserved in `results/team-update-20261019/kelvin-update.json`. After SSH access
 was restored, his raw folders were retrieved and reviewed in
 `results/cluster-import-20261019/`. New diagnostic jobs are recorded in `results/cluster/`.
@@ -104,20 +106,24 @@ is flagged and excluded from clean-run comparisons. Other a102 warmups exited ze
 | 64 | 2.283 | 3.398 | 48.84% |
 
 *The 16-client measurement completed after an aborted warmup. These are
-single-run observations, not confidence estimates. The observed range
-from four clients upward is 40–57%, refining the approximate teammate-reported
-40–65%. Nodes differ within the same xcnf family; matched repetitions are still needed.
+single-run observations, not confidence estimates. The 49–57% range at clean
+concurrent counts applies only against preserved a0
+job 918524. Nodes differ within the same xcnf family; this does not establish a
+matched index-only speedup. The fresh-control comparison below supersedes the
+earlier overall gain claim.
 
 **Correction after the fresh control.** Against fresh a0 job 977740, a102's clean
 throughput differences are +0.8/−3.1/−0.7/+4.7/+5.5% at 1/4/8/32/64 clients. Most
 of the apparent 40–57% gain therefore reflects a difference between baseline runs,
 not the indexes. a102's supported benefits are zero serialization failures (versus
-20/64/59 at 16/32/64 clients in the fresh control) and lower T7 latency.
+20/64/59 at 16/32/64 clients in the fresh control) and lower T7 latency. The
+a102/c16 warmup abort still excludes that case from clean-run comparisons.
 
 ![Workload A baseline and lookup-index throughput, with recorded time shares](figures/workload-a-baseline-indexes.png)
 
 The hollow point flags the completed 16-client measurement after an aborted
-warmup. Clean concurrent observations (4/8/32/64 clients) show 49–57% gains.
+warmup. Clean concurrent observations (4/8/32/64 clients) show 49–57% gains
+against the preserved baseline only; fresh-control differences are −3% to +6%.
 The figure is reproducible with `python3 scripts/plot_a_baseline_comparison.py`;
 the SVG, reviewed data and chart contract are retained beside the PNG.
 
@@ -224,8 +230,7 @@ fix. The smaller-fixture failures remain preserved.
 Fresh a0 control 977740 and a112 candidate 977773 ran consecutively on the same
 explicitly requested nodes (xcnf0 coordinator, xcnf1–4 workers) with scale 1,
 1/4/8/16/32/64 clients, 60-second warmups, 600-second measurements, data resets
-between client counts, pgbench seed 42 and full log sampling. All 12 warmup and
-measured pgbench exits are zero. a112 recorded six passing post-run validations;
+between client counts, pgbench seed 42 and full log sampling. Both jobs have six warmup and six measured pgbench exits of zero. a112 recorded six passing post-run validations;
 the unmodified a0 script has no validation step.
 
 | Clients | a0 TPS | a112 TPS | Ratio | a0 p95 ms | a112 p95 ms | a0 / a112 serialization failures |
@@ -249,9 +254,10 @@ still aggregates across every shard.
 The bottleneck has moved. Weighted by completed count × mean latency, T3+T4
 account for 93.5–97.7% of a0's recorded time, while T6 accounts for 67–83% of
 a112's. a112's throughput plateaus near 85–91 TPS from four clients, and at 64
-clients T3's mean rises to 1.69 s. T6 is the next optimization target; a104's
-exact daily sales summaries address it, but the combined a108 aborted locally,
-so any a112 + summaries variant needs separate correctness and stress testing.
+clients T3's mean rises to 1.69 s. T6 became the next optimization target.
+Section 3.8 records the completed
+a114 summary experiment and a115 index-only control; the summary did not help
+in that cluster diagnostic.
 
 A repeat of a112 with pgbench seed 7 (job 978177, same nodes and settings)
 reproduced the result within 2.5% at every client count: 52.970/82.947/86.530/
@@ -261,8 +267,9 @@ T1 COMMIT on worker xcnf2 was cancelled by SERIALIZABLE as a dependency pivot,
 and the Citus coordinator reported it as a generic shard-commit failure rather
 than a serialization failure, so pgbench did not retry it. That case is flagged
 and excluded, consistent with a102/c16. The same wrapped commit-time conflict
-likely explains the local four-client aborts at higher contention; it is a
-residual risk of a112 under heavy load, not a correctness violation.
+likely explains the local four-client aborts at higher contention. It remains a
+benchmark reliability risk; the passing post-run invariants do not prove
+correctness for all possible schedules.
 Pending candidate 977741 was replaced before starting to correct its node request.
 
 ### 3.8 Follow-up on T6: summaries versus a report-time index
@@ -274,11 +281,17 @@ conflicts) and passed 42 correctness checks. Its control, a115, adds only the
 diagnostics on xcnf0–4, a114 ran 85.3 TPS with T6 at 764 ms, slower than a112's
 651 ms, while a115 ran 288.6 TPS with T6 at 116 ms; both were clean and validated.
 The summary's extra distributed subplans cost more than they save, so a114 is not
-promoted. Full matched a115 runs (979909 seed 42, 979910 seed 7) are queued.
+promoted. a115 had two retried transactions (two attempts), zero measured
+failures, and passing validation. Full matched a115 runs (979909 seed 42,
+979910 seed 7) were submitted on xcnf0–4. They were last recorded as queued,
+but their current state and full results are unverified: SSH timed out before
+login at the 20 October reconciliation. No finish-time estimate is treated as
+completion evidence.
 
 **Provisional selection:** a112 (a102 lookup indexes + join-key colocation of
 inventory/products and order_items/orders + READ ONLY T3/T4/T6) is the leading
-Workload A design with two agreeing matched seeds. If a115's full runs confirm
+Workload A design; eligible repeat cases agree within 2.5% (seed-7/c64 is
+excluded because its warmup aborted). If a115's full runs confirm
 its diagnostic, a115 (a112 + `orders(created_at)` index) supersedes it. Final
 selection awaits those runs and Kelvin's agreement before the 23 October cutoff. Local timing and teammate-reported cluster numbers remain
 separate from these independently verified measurements.
@@ -294,8 +307,8 @@ separate from these independently verified measurements.
 
 ## Hikaru contribution draft
 
-Designed and implemented A variants a101–a113 (including adaptation of Dessi's
-B placement design for a111–a113); built experiment generation,
+Designed and implemented A variants a101–a115 (including adaptation of Dessi's
+B placement design in a111–a115); built experiment generation,
 distributed correctness checks, local benchmark infrastructure and submission
 helpers; preserved evidence and failures; established the public team repository;
 reviewed cluster evidence, repaired exact post-run validation, ran course

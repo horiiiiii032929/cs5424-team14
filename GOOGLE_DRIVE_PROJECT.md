@@ -2,17 +2,30 @@
 
 Account: hori0329@gmail.com
 
-19 October update: the shared ideas document's Report tab now contains Hikaru's
-draft sections 2–3, including the preserved A baseline, independently reviewed
-Kelvin results (with a102's 16-client warmup caveat), 151 follow-up correctness
-checks, seven local stress failures and seven validator regression checks.
-The reproducible baseline/index figure fits the native report text width.
-The B report text and 15 existing tables were preserved and verified.
-The ideas tab also has dated status updates. Code/evidence are in
-[draft PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1).
-SSH is restored. Three revised scale-1 diagnostics completed cleanly at about
-90–92 TPS. Full control a0 977740 is running and candidate a112 977773 is queued
-on the same xcnf0–4 nodes; full results and final A selection remain pending.
+20 October reconciliation: seven existing Google Docs were updated in place and
+read back: shared ideas/report, hub, A/B plans, schedule, checklist and AI log.
+The Report tab now includes completed matched a0/a112 results, the seed-7/c64
+warmup caveat, revised a102 interpretation, a114/a115 diagnostics (a115: two
+retries), the matched full-run figure, and a completed draft section-6 conclusion.
+The B sections' text, all 15 existing report tables and original figure were
+preserved; the matched full figure was added at the same 420 pt text width.
+The updated report pages and figures were checked in a PDF export (15 Report
+pages, within a 23-page export of both tabs). [Sync verification](docs/google-drive-sync-2026-10-20.json)
+records readback and preservation checks. The exported
+file includes both planning and Report tabs; it is not the final submission PDF.
+
+Current decision: a112 provisional; a114 not promoted; a115 awaits review of
+full jobs 979909/979910 and Kelvin's agreement. Those jobs were submitted and
+last recorded as queued. SSH timed out at the 20 October check, so current state
+and full results are unverified. B b1–b6 figures remain teammate-reported until
+optimized sources/raw outputs are archived and reviewed. Final report assembly,
+full names, contribution statements and Codex/Claude Code interaction PDFs remain
+open. See [current project status](docs/project-status.md).
+
+Code and evidence are on [draft PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1).
+The a114/a115 merge was into the PR branch, not into `main`. The requirement
+and assignment-guide documents remain source references; their instructions
+were preserved.
 
 [Public team code repository](https://github.com/horiiiiii032929/cs5424-team14)
 Created 14 October 2026 and made public at Hikaru’s request. Anyone can view and

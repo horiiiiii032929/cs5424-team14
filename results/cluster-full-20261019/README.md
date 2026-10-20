@@ -16,7 +16,7 @@ measurement, data reset between client counts, pgbench seed 42, full log samplin
 | 64 | 3.222 | 90.788 | 28.2× | 128104.3 | 6597.9 | 59 | 0 | 16 |
 
 TPS = completed scripts / 600 s. Jobs: a0 977740, a112 977773.
-All 12 warmup and measured pgbench exits are zero. a112 wrote six passing
+Both jobs have six warmup and six measured pgbench exits of zero. a112 wrote six passing
 `verify.sql` records (one per client count). The unmodified a0 starter script
 has no post-run validation step; its case-review rows record `not_in_script`.
 Slurm state alone was not trusted — see `case-review.csv` (built by

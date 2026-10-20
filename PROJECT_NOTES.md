@@ -14,7 +14,7 @@ The project is worth **25 marks**. You will optimize a multi-tenant order-proces
 - **Shared team work:** assign owners for the Task 1 and Task 3 baseline runs, combine findings into one report, package submissions, and prepare for the week 13 Q&A. Each member's contributions must be listed in the report, and all members are expected at the Q&A.
 - **Coordination proposed by Kelvin:** share a remote Git repository and use a Google Sheet to record who handles A or B. His supplied final message is incomplete.
 
-Hori and Kelvin agreed to the general split. Workload pairs, individual assignments, and internal milestones have not yet been confirmed. Dessi reports downloading the files, creating local Git, and running the installer; baseline completion has not been confirmed.
+Hori and Kelvin agreed to the general split; individual assignments and coordinator roles remain subject to team confirmation. Dessi's installation and baseline A/B snapshots are verified and preserved. For the 20 October implementation/results status, provisional A selection, B evidence gaps and current access limitation, see [current status](docs/project-status.md). The requirements below summarize the supplied assignment; dated progress belongs in that status page.
 
 ## What you need to do
 
@@ -291,16 +291,16 @@ Late days are rounded up. A delay of up to one day costs 2 marks; a delay of mor
 
 Evaluation considers design decisions, experimental design, interpretation, and report quality. Each team has a **20-minute Q&A session in week 13**, with **no presentation**. All members must attend; registration is announced in week 12.
 
-## First steps checklist
+## Submission progress checklist — 20 October 2026
 
-- [ ] Confirm team number, team account, and cluster access.
-- [ ] Download the provided project files.
-- [ ] Update email and team settings in the scripts.
-- [ ] Install Citus through Slurm.
-- [ ] Run and preserve `expt_a0` and `expt_b0`.
-- [ ] Review throughput, latency, and failure diagnostics.
-- [ ] Design and benchmark optimization experiments for each workload.
-- [ ] Keep an experiment record and preserve AI interactions.
+- [x] Confirm team 14 / cs14; cluster access worked on 19 October but timed out at the latest check.
+- [x] Download and preserve the provided project files.
+- [x] Configure team settings in the recorded benchmark scripts.
+- [x] Verify and reuse the existing Citus installation.
+- [x] Preserve `expt_a0` and `expt_b0`; retain their failure caveats.
+- [x] Review A throughput, latency and failures; B optimized evidence still needs independent review.
+- [ ] Finish the A/B selection: import a115 full results and archive/review optimized B evidence.
+- [ ] Complete experiment records and preserve Codex/Claude Code interactions for the AI archive.
 - [ ] Prepare the required archives and report before the deadline.
 
 Sources: the CS4224/CS5424 Project brief, [Canvas Project Result Files assignment](https://canvas.nus.edu.sg/courses/96671/assignments/274983), [Canvas Project Report assignment](https://canvas.nus.edu.sg/courses/96671/assignments/274984), and [Canvas Project AI Tool Usage Files assignment](https://canvas.nus.edu.sg/courses/96671/assignments/274985), pasted in this chat for Semester 1, 2026/2027.

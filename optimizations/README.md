@@ -12,10 +12,15 @@
 | Join-key placement | a111 | Adapt Dessi's B b1/b2 placement to A on top of a102: inventory/product and item/order colocation. |
 | Placement + access mode | a112 | Add READ ONLY to T3/T4/T6 relative to a111. |
 | Safe read snapshots | a113 | Add DEFERRABLE to a112's read-only transactions, retaining SERIALIZABLE. |
+| Striped summaries | a114 | a112 + exact daily sales totals in eight stripes per merchant/day. |
+| Report-time index | a115 | a112 + only orders(created_at), controlling for a114's index. |
 
 19 October: a109–a113 passed 151 new correctness checks. All seven follow-up
 four-client local cases aborted, including original a101/a108 controls. These
-experiments do not establish a fix or winner. See [follow-up evidence](../results/followup-20261019/README.md).
+local stress experiments do not establish a general concurrency fix. Subsequent
+matched full runs support a112 as the provisional A design; a114's diagnostic
+was slower and a115's faster short diagnostic still needs full-run review.
+See [current status](../docs/project-status.md). See [follow-up evidence](../results/followup-20261019/README.md).
 
 The colocation variants now use exact COUNT(DISTINCT) global-ID validation after
 measurement. The original GROUP BY validator spent over eleven minutes on the
