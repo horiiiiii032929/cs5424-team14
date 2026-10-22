@@ -71,13 +71,15 @@ This Mac's system Bash 3.2 cannot validate their modern Bash features.
 
 SSH worked on 19 October and benchmarks used isolated deployments, preserving
 `/home/stuproj/cs14/citus_project` and the existing installation. The initial 22 October
-check verified both a115 jobs completed and an empty queue. Later import attempts
-timed out with VPN disconnected; reconnect before importing the full raw output.
+check verified both a115 jobs completed and an empty queue. Earlier import attempts
+timed out with VPN disconnected; after reconnection both full jobs were imported
+and audited successfully.
 Do not treat that queue snapshot as a continuing live-state guarantee.
 
 Latest deployment: `/home/stuproj/cs14/citus_hikaru_20261020-002025_57576ae`.
-Full a115 jobs 979909/979910 finished there on 20 October. Summary readback shows
-measured aborts; complete raw import, warmup and hash/validation review remain pending.
+Full a115 jobs 979909/979910 finished there on 20 October. The complete
+raw audit verifies 26 source-hash comparisons, 24 phase commands/exits and 12
+passing validations; 7/12 cases complete both phases, 6 with zero failures.
 See the [runbook](docs/workload-a-cluster-runbook.md) for exact queue/accounting
 and import commands, and [current project status](docs/project-status.md) for
 completed a0/a112 results and remaining work. Check these jobs before resubmitting.

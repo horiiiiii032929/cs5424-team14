@@ -1,5 +1,9 @@
 # a115 live readback — 22 October 2026
 
+Historical checkpoint, superseded after VPN reconnection by the
+[complete import and audit](../cluster-full-a115-20261022/README.md). The timeout
+and unreviewed-evidence statements below describe the earlier attempt only.
+
 This is a **transcription of successful tool readbacks in this chat**, not a
 complete raw-job import and not an authenticated archive of the remote files.
 The earlier 22 October status check successfully read `squeue`, `sacct`, both

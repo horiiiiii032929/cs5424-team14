@@ -1,11 +1,11 @@
 # Course-cluster work — updated 22 October 2026
 
-SSH worked at the initial 22 October check: both a115 jobs were COMPLETED and
-the team queue was empty then. Subsequent archive-import connections timed out;
-the configured VPN service was disconnected. Full a115 evidence retrieval remains
-blocked. See [readback](../a115-readback-20261022/README.md) and
-[current status](../../docs/project-status.md). Existing team files and ~/pgsql
-remain preserved; this review submitted no new jobs.
+After VPN reconnection on 22 October, both a115 full jobs were completely
+imported and audited. See [full evidence](../cluster-full-a115-20261022/README.md)
+and [current status](../../docs/project-status.md). Earlier timeouts are historical;
+raw evidence retrieval is no longer blocked. Existing team files and ~/pgsql
+remain preserved; this review submitted no new jobs. Queue/accounting snapshots
+are dated records, not continuing live-state guarantees.
 
 ## Verified existing experiments
 
@@ -27,7 +27,7 @@ Source, topology, settings, versions, raw logs and validation were reviewed.
 | Full scale-1 matrix | a0 977740; a112 977773 | Both completed on xcnf0–4 with all six warmup and six measured exits per job zero. a0 3.2–3.6 TPS; a112 54.2–90.8 TPS, zero failed transactions, six passing validations. See [full results](../cluster-full-20261019/README.md). |
 | Full repeat (pgbench seed 7) | a112 978177 | Completed; within 2.5% of seed 42, zero measured failures, six passing validations. 64-client warmup exit 2 (Citus-wrapped commit-time serialization conflict); flagged. Ledger `full-repeat-seed7-submission-20261019.tsv`. |
 | T6 diagnostics | a114 979865; a115 979866 | Both clean. a114 (sales summaries) 85.3 TPS, T6 slower than a112; a115 (`orders(created_at)` index only) 288.6 TPS, T6 116 ms, two retried transactions and zero measured failures. See [T6 diagnostics](../cluster-diagnostic-t6-20261020/README.md). |
-| Full matched a115 | 979909 (seed 42); 979910 (seed 7) | Both COMPLETED on 20 October on xcnf0–4; measured exits 2 at seed-42 c32/c64 and seed-7 c8/c16/c64. Partial readback preserved; full import/audit pending. Ledgers `t6-submissions-20261020.tsv`, `a115-repeat-seed7-submission-20261020.tsv`. |
+| Full matched a115 | 979909 (seed 42); 979910 (seed 7) | Both COMPLETED on 20 October on xcnf0–4; measured exits 2 at seed-42 c32/c64 and seed-7 c8/c16/c64. Complete archive/audit: 7 phase-eligible cases, 6 with zero failures; both c64 warmups abort; all 12 validations pass. Ledgers `t6-submissions-20261020.tsv`, `a115-repeat-seed7-submission-20261020.tsv`. |
 
 The [smoke evidence](../cluster-smoke-20261019/README.md) and
 [original diagnostic evidence](../cluster-diagnostic-original-20261019/README.md)
@@ -73,11 +73,11 @@ the repeat's 64-client warmup abort remains excluded from clean comparisons.
 
 The a114/a115 diagnostics used
 `/home/stuproj/cs14/citus_hikaru_20261020-002025_57576ae`. Full a115 jobs
-979909/979910 finished there and their raw summaries were read back, but no
-complete raw archive is imported yet. Follow the
-[retrieval runbook](../../docs/workload-a-cluster-runbook.md) after network access
-returns. Review all warmups, actual clients, configs/hashes and validation blocks
-before certifying cases. A zero-failure log count does not negate pgbench exit 2.
+979909/979910 finished there and are fully imported in the
+[275-file archive](../cluster-full-a115-20261022/README.md). The source, command,
+raw transaction/retry and validation audit is complete. Seven cases complete both
+phases; six also have zero failed records. Excluded cases remain preserved.
+a112 stays provisional pending Kelvin/the A pair's final decision.
 
 B raw evidence and its separate source/protocol audit are preserved in
 [the B review](../b-branch-review-20261022/README.md); it does not establish a

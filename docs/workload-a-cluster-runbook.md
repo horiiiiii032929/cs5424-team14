@@ -1,12 +1,10 @@
 # Workload A cluster runbook
 
-Updated 22 October 2026. a112 remains provisional; a114 is not promoted.
-Both a115 full jobs finished on 20 October, but the live-read summaries show
-measured aborts at seed-42 c32/c64 and seed-7 c8/c16/c64. See
-[partial readback](../results/a115-readback-20261022/README.md). Full raw import
-remains incomplete: subsequent SSH attempts timed out with VPN disconnected.
-No new jobs are needed merely to establish completion. Retrieve existing outputs
-and review every phase before any further submission.
+Updated 22 October 2026 after VPN reconnection. Both a115 full jobs are
+[completely imported and audited](../results/cluster-full-a115-20261022/README.md).
+Seven cases complete both phases, six with zero failures; both c64 warmups and
+five measurements abort. All 12 validations and 26 runtime source-hash comparisons
+pass. a112 remains provisional; the A pair must confirm the final tradeoff.
 
 ## Current deployment and jobs
 
@@ -19,54 +17,41 @@ PR #1 remains a draft and is not merged into `main`.
 |---|---|---|
 | Scale-1 diagnostic | a114 / 979865 | Completed: 85.333 TPS; T6 764.5 ms; core and summary validation passed. |
 | Scale-1 diagnostic | a115 / 979866 | Completed: 288.633 TPS; T6 115.9 ms; two retries, zero measured failures; validation passed. |
-| Full, seed 42 | a115 / 979909 | COMPLETED 20 October 01:56:38; measured c32/c64 exit 2; full archive audit pending. |
-| Full, seed 7 | a115 / 979910 | COMPLETED 20 October 03:21:40; measured c8/c16/c64 exit 2; full archive audit pending. |
+| Full, seed 42 | a115 / 979909 | COMPLETED 20 October 01:56:38; phase-eligible c1/c4/c8/c16 (c4 has one failure); c32/c64 measurements and c64 warmup abort; six validations passed. |
+| Full, seed 7 | a115 / 979910 | COMPLETED 20 October 03:21:40; phase-eligible c1/c4/c32; c8/c16/c64 measurements and c64 warmup abort; six validations passed. |
 
-Do not infer completion from the earlier overnight finish estimate. Do not
-resubmit these runs until their actual state and outputs have been inspected.
-
-## Retrieve and review a115
-
-Connect to NUS VPN/network if needed, then check the queue and accounting:
+## Reproduce the completed review
 
 ```sh
-bash scripts/cluster-command.sh 'squeue -u cs14; sacct -j 979909,979910 --format=JobID,JobName,State,ExitCode,Elapsed,Start,End,NodeList -X -P'
+python3 scripts/review_a115_results.py results/cluster-full-a115-20261022
 ```
 
-Both jobs are finished. Once NUS VPN/network access is restored, retrieve their complete outputs:
+The audit verifies imported file hashes, runtime source, original protocols and
+all command-line client counts, actual abort messages, raw success/failure/retry
+and per-transaction counts, reset logs, source equivalence and all 12 validators.
+`audit.json` keeps worker conflict excerpts and per-case phase details.
+The importer now rejects missing warmup evidence rather than treating it as success,
+and includes transaction/SQL source in future imports.
+
+Do not rerun the import over the saved evidence. If another independent retrieval
+is needed, use a fresh output directory and check the current queue first:
 
 ```sh
+bash scripts/cluster-command.sh 'squeue -u cs14; sacct -j 979909,979910 --format=JobID,State,ExitCode,Elapsed,NodeList -X -P'
 python3 scripts/import_cluster_jobs.py \
   /home/stuproj/cs14/citus_hikaru_20261020-002025_57576ae \
-  results/cluster-full-a115-20261022 \
+  results/cluster-full-a115-independent-review \
   expt_a115:979909 expt_a115:979910
 ```
 
-Use a new evidence directory if an earlier import already exists. Preserve all
-attempts and partial failures. The importer streams saved outputs, hashes them
-and builds `case-review.csv/json`; review its classifications against raw logs.
-Slurm COMPLETED alone is insufficient: `run.sh` can retain a nonzero pgbench exit
-while the job exits successfully.
+Slurm COMPLETED is insufficient: run.sh retains nonzero pgbench exits. A clean
+comparison needs both phase exits zero; report failed records/retries even in
+phase-complete cases. Seed-42 c4 has one serialization failure. Never certify a
+case from summary TPS or passing post-run validation alone.
 
-Before using a case in the report, verify:
-
-1. Same xcnf0 coordinator / xcnf1–4 workers, scale 1, six client counts
-   (1/4/8/16/32/64), original weights, SERIALIZABLE, full logging, 60-second
-   warmups, 600-second measurements, and data resets between counts.
-2. Seeds 42 and 7, runtime source hashes, and a115's sole change from a112:
-   `orders(created_at)` index. Check code against saved manifests.
-3. All six warmup and measurement exit codes per job, expected/actual clients,
-   retries, failed records, serialization/deadlock failures and worker logs.
-4. Six complete passing post-run validations per job. Missing outputs or
-   validations are unresolved evidence; integrity success does not erase aborts.
-5. Compare completed scripts / 600 s with a0 977740 and a112 977773 plus eligible
-   repeat cases from 978177. Its 64-client warmup exited 2 and remains excluded.
-
-Only promote a115 after the full matrices support it and Kelvin reviews the
-choice. Then update `docs/workload-a-report-draft.md`, the matched comparison
-figure and its source data/contract, `results/README.md`, this runbook, the
-project status, PR description and shared Google Docs. Until then the existing
-matched figure correctly compares a0 and a112; it contains no a115 full results.
+The complete audit is reflected in the A draft, status, results ledger, PR and
+shared Docs. The existing matched figure still compares a0/a112; it contains no
+excluded a115 cases. Final A selection remains with Kelvin/the A pair.
 
 ## Completed evidence
 

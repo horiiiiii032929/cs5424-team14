@@ -19,8 +19,10 @@
 four-client local cases aborted, including original a101/a108 controls. These
 local stress experiments do not establish a general concurrency fix. Subsequent
 matched full runs support a112 as the provisional A design; a114's diagnostic
-was slower. a115's full summaries show measured aborts; complete raw archive
-review is pending after a renewed SSH timeout. B evidence is now archived separately.
+was slower. a115's complete raw audit finds 7 phase-eligible cases, 6 with zero failures,
+and repeated high-concurrency aborts despite all 12 passing validations. Eligible
+results support the index, but final selection remains with the A pair. B evidence
+is archived separately.
 See [current status](../docs/project-status.md). See [follow-up evidence](../results/followup-20261019/README.md).
 
 The colocation variants now use exact COUNT(DISTINCT) global-ID validation after

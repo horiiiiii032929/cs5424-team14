@@ -30,12 +30,23 @@ b6/c16's 539.437 TPS is supported; c8's warmup and c32/c64's warmups/measurement
 aborted. Seven b6 T6 checks match; general integrity and runtime hash evidence
 are absent. Hardware varies across the series, so the old c64 gain claim is qualified.
 
-Current A decision: a112 provisional; a114 not promoted. a115 jobs 979909/979910
-finished on 20 October, but summary readback shows measured aborts at seed-42
-c32/c64 and seed-7 c8/c16/c64. Complete raw import and warmup/hash/validation audit
-remain blocked by later SSH timeout with VPN disconnected. The summary transcription
-is explicitly separate from a complete import. Final A/B choices and team review
-remain open. See [current status](docs/project-status.md).
+Current A decision after VPN reconnection: a112 remains provisional. Both a115
+full jobs are completely imported and reviewed: 275 files, 26 runtime source-hash
+comparisons, 24 phase commands/exits, 12 raw transaction/retry audits and 12 passing
+validations. Seven cases complete both phases; six also have zero failed records.
+Seed-42 c32/c64 and seed-7 c8/c16/c64 measurements abort; both c64 warmups abort.
+Eligible cases support the index, but neither seed is a clean full matrix.
+The partial transcription and earlier timeout remain historical checkpoints;
+import/access is no longer blocked. Final A/B choices remain with the team.
+See [complete evidence](results/cluster-full-a115-20261022/README.md) and
+[current status](docs/project-status.md).
+
+The follow-up shared-Docs sync replaces the earlier blocked status and retains
+the existing B tables/figures. All six affected Docs were read back; the B plan
+was inspected and already current. The new combined-tab QA export has 24 pages,
+with a 16-page Report tab; updated A/figure/conclusion/reference pages were
+visually checked. Its verification record is
+[the completed a115 sync](docs/google-drive-sync-2026-10-22-a115.json).
 
 Code and evidence are on [draft PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1).
 The a114/a115 merge was into the PR branch, not into `main`. The requirement

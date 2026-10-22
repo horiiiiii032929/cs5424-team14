@@ -8,10 +8,13 @@ complete; c8 warmup and c32/c64 warmup/measurement aborts are excluded. All seve
 saved b6 T6 comparisons match, but runtime hashes and general integrity checks
 are not recorded. Hardware differs across the B series.
 
-Both a115 jobs finished. [Live-read summaries/accounting](a115-readback-20261022/README.md)
-show measured aborts at seed-42 c32/c64 and seed-7 c8/c16/c64. Full raw import,
-warmup and source/validation audit remain blocked by renewed SSH timeout with
-VPN disconnected. a112 remains provisional; the clean a0/a112 figure is retained.
+Both a115 jobs are [fully imported and audited](cluster-full-a115-20261022/README.md)
+after VPN reconnection. The 275-file archive verifies 26 runtime hash comparisons,
+24 phase commands/exits, raw transaction/retry counts and all 12 validations.
+Seven cases complete both phases; six also have zero failed records. Seed-42
+c32/c64 and seed-7 c8/c16/c64 measurements abort, as do both c64 warmups.
+a112 remains provisional; eligible a115 cases support the index but do not
+establish a reliable full matrix. The clean a0/a112 figure is retained.
 See [project status](../docs/project-status.md) and [runbook](../docs/workload-a-cluster-runbook.md).
 
 ## Verified 19–20 October follow-up
@@ -123,8 +126,8 @@ timings for design comparisons.
 
 ## What remains for the course submission
 
-1. Complete the full raw import of finished a115 jobs 979909/979910 once VPN/network access returns;
-   review all phases, settings, validation and source hashes before selecting A.
+1. Confirm A with Kelvin using the completed a115 audit and its phase/failure
+   classifications; neither full a115 seed is a clean six-count matrix.
 2. Preserve a112's flagged seed-7/c64 warmup and all earlier local/smoke aborts.
    The commit-time serialization issue is not established as generally resolved.
 3. Confirm B selection using the archived review; retain all abort/hardware caveats and fill core validation/runtime provenance gaps.

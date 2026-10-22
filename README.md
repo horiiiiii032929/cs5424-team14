@@ -7,17 +7,17 @@ This repository holds Dessi's preserved A/B baseline snapshots and Hikaru's
 implementations of five proposed Task 2 designs. The proposed work split is
 Hikaru + Kelvin on A and Dessi + Xincheng on B.
 
-**22 October status:** a112 remains the provisional A design, supported by the
-matched 54.2–90.8 TPS result (16.8–28.2× fresh a0), with its seed-7/c64 warmup
-caveat retained. a115 full jobs 979909/979910 finished on 20 October, but their
-live-read summaries show measured aborts at seed-42 c32/c64 and seed-7 c8/c16/c64.
-[Readback evidence](results/a115-readback-20261022/README.md) is preserved; a full
-raw import is blocked by a subsequent SSH timeout with VPN disconnected.
-Do not promote a115 from partial TPS. The
-[B branch import and review](results/b-branch-review-20261022/README.md) preserves
-all b0–b6 scripts and outputs. b6/c16's 539.437 TPS is phase-complete; b6/c8's
-warmup and c32/c64's warmups/measurements aborted. No B 64-client case is eligible
-for clean comparison. Final A/B decisions remain with the team.
+**22 October status (after VPN reconnection):** both a115 jobs are fully
+[imported and audited](results/cluster-full-a115-20261022/README.md). All 26 runtime
+hash comparisons, 24 phase commands/exits, 12 raw-log/transaction-metric counts
+and 12 post-run validations are verified. Seven of twelve cases complete both
+phases; six also have zero measured failures. Seed-42 c32/c64 and seed-7 c8/c16/c64
+measurements abort; both c64 warmups abort. a115 is faster in eligible cases,
+but neither seed supplies a clean full matrix. **a112 remains provisional**
+(16.8–28.2× fresh a0, with its repeat/c64 warmup caveat), pending the A pair's decision.
+The [B branch audit](results/b-branch-review-20261022/README.md) is complete;
+b6/c16 supports 539.437 TPS, while c8/c32/c64 remain flagged. Final A/B choices
+and submission assembly await team review.
 
 See [current status and remaining work](docs/project-status.md),
 [verified results](results/README.md), the [A report draft](docs/workload-a-report-draft.md)
@@ -63,7 +63,7 @@ throughput from ranking.
 Clone or copy this repository into a **separate directory** from Dessi's existing
 `~/citus_project`. Reuse `~/pgsql`; do not rerun the destructive installer.
 Check the live experiment folders and queue with teammates before new submissions.
-Both a115 jobs finished; retrieve and review the existing outputs before any new runs.
+Both a115 jobs are archived and reviewed; use the evidence and coordinate any necessary new runs.
 From the Mac, `bash scripts/upload_cluster.sh` sends the committed files to a new
 isolated directory without putting GitHub credentials on the shared cluster account.
 

@@ -1,11 +1,11 @@
 # Project status — 22 October 2026
 
-Latest reconciliation: 22 October, Singapore time (UTC+8). A successful live
-readback established a115 completion and measurement failures. Subsequent import
-attempts timed out before login; the configured VPN service was disconnected.
-The empty queue seen at the successful check is a dated snapshot. Full a115
-archive import remains incomplete; [readback and limitations](../results/a115-readback-20261022/README.md)
-are explicit. B source and raw output are now imported and reviewed.
+Latest reconciliation: 22 October, after VPN reconnection (UTC+8). Both a115
+jobs are fully imported and audited in
+[the complete evidence archive](../results/cluster-full-a115-20261022/README.md).
+The earlier timeout and partial readback remain historical checkpoints; they are
+no longer access/import blockers. B source and raw output are also imported and
+reviewed. Queue/accounting observations are dated snapshots, not live guarantees.
 
 ## Code and review
 
@@ -24,10 +24,12 @@ and bytes. It does not overwrite submission baselines or select a final B design
 | a112 repeat 978177, seed 7 | Measured TPS within 2.5% of seed 42; six validations passed. The 64-client warmup exited 2; that case is excluded from clean comparisons. | Repetition supports a112 but does not establish a general concurrency fix. |
 | a114 diagnostic 979865 | 85.333 TPS; T6 764.5 ms versus a112 diagnostic 650.6 ms. Core and exact summary validation passed. | Do not promote the striped daily summary design. |
 | a115 diagnostic 979866 | a112 plus only `orders(created_at)`; 288.633 TPS, T6 115.9 ms, zero failed transactions, two retried transactions / two retry attempts, validation passed. | Promising diagnostic; full-run aborts prevent blanket promotion. |
-| a115 full jobs 979909 / 979910 | Both COMPLETED on 20 October on xcnf0–4. Raw summaries read back on 22 October show measured exit 2 at seed-42 c32/c64 and seed-7 c8/c16/c64. Seed-42 c4 also has one recorded serialization failure. | Preserve partial readback; full raw import and complete warmup/hash/validation audit are blocked by renewed SSH timeout. Do not rank aborted cases or promote a115 as a clean full matrix. |
+| a115 full jobs 979909 / 979910 | Complete import: 275 files, 13 matching runtime source hashes per job, all 24 phase commands/exits and 12 passing validations reviewed. Seven cases complete both phases; six also have zero failed records. Seed-42 c32/c64 and seed-7 c8/c16/c64 measurements abort; both c64 warmups abort. Seed-42 c4 has one serialization failure despite exit 0. | Faster eligible observations support the index, but neither seed is a clean full matrix. a112 stays provisional; confirm final choice with Kelvin. |
+
 
 Sources: [full comparison and repeat](../results/cluster-full-20261019/README.md),
 [T6 diagnostics](../results/cluster-diagnostic-t6-20261020/README.md),
+[full a115 audit](../results/cluster-full-a115-20261022/README.md),
 [cluster ledger](../results/cluster/README.md).
 TPS uses completed scripts / configured duration, including expected business
 rollbacks. Aborted warmups or measurements are flagged and excluded from clean
@@ -77,14 +79,15 @@ no flagged a115 or B throughput is silently promoted into its clean comparison.
 
 ## Next actions and dates
 
-1. Reconnect NUS VPN/network access and finish importing a115 jobs 979909/979910.
-   Audit all warmups, actual clients, complete logs, runtime hashes and validation
-   blocks; do not certify individual cases from summary rows alone.
-2. Confirm A with Kelvin and B with its owners. Decide whether an essential
-   matched repeat or correctness check is needed before the experiment cutoff.
-3. Review the draft PR, confirm contributions, reconcile the report with the
-   case reviews, and assemble submissions. Copy reviewed B folders from the
-   evidence archive into `citus_project_team_14/` during final packaging.
+1. Confirm A with Kelvin using the completed a115 audit. At one client both
+   a115 seeds pass at 109.9–115.5 TPS, about 2.1× same-seed a112; higher-count
+   evidence is incomplete. Retain all failure/retry and a112 repeat caveats.
+2. Confirm B with its owners; decide whether an essential matched repeat or
+   additional core validation is needed before the experiment cutoff.
+3. Review the draft PR, confirm contributions, finish references and assemble
+   submissions. Copy reviewed B folders from the evidence archive into
+   `citus_project_team_14/` during final packaging. No new jobs were submitted
+   during this audit.
 
 Internal targets: final experiments **23 October**, complete report draft
 **27 October**, packaging **29 October**, target upload **30 October at 20:00**.

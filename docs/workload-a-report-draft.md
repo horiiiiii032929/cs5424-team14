@@ -3,7 +3,7 @@
 Updated 22 October 2026. This is a working draft; a112 is the provisional design
 with a seed-7 repeat (64-client warmup flagged). a114's diagnostic is complete
 and did not support promotion. a115 completed with measured client aborts; its
-partial readback is reviewed, but full archive import and team review remain open.
+complete raw archive is reviewed, and final team selection remains open.
 Kelvin's a102/a10/a11/a12/a14 source update is
 preserved in `results/team-update-20261019/kelvin-update.json`. After SSH access
 was restored, his raw folders were retrieved and reviewed in
@@ -284,27 +284,39 @@ diagnostics on xcnf0–4, a114 ran 85.3 TPS with T6 at 764 ms, slower than a112'
 The summary's extra distributed subplans cost more than they save, so a114 is not
 promoted. a115 had two retried transactions (two attempts), zero measured
 failures, and passing validation. Full a115 jobs 979909 (seed 42) and 979910 (seed 7)
-finished on 20 October on xcnf0–4. Their raw summary rows, read back on 22 October,
-record measured exits of 2 at seed-42 c32/c64 and seed-7 c8/c16/c64. Seed-42 c4
-also records one serialization failure despite measured exit 0; seed-7 c8/c16/c64
-record 1/2/7 failed transactions. The raw throughput spans 109.9–366.1 TPS, but
-these observations are not a fully eligible matrix and must not support a blanket
-zero-failure or reliable scaling claim.
+finished on 20 October on xcnf0–4 and were fully imported after VPN reconnection
+on 22 October. All 13 runtime source hashes per job match imported and repository
+source. All 24 phase command lines/exits, six data resets per job, original
+settings/topology, raw record/retry/per-script counts, and all 12 core validation
+blocks are verified. The only runtime addition to a112 is the created_at index
+and its ANALYZE invocation; transaction bodies are unchanged.
 
-[Preserved readback](../results/a115-readback-20261022/README.md) distinguishes
-transcribed summaries/accounting from a complete raw-job import. Subsequent SSH
-attempts timed out with the VPN disconnected. Warmup exits, complete validation
-blocks, actual clients, protocols and runtime hashes remain to be archived and
-reviewed. No exit-zero measurement is certified fully eligible from summary
-rows alone. The a0/a112 figure is retained unchanged.
+Seven of twelve cases complete both phases; six also have zero failed records.
+Seed 42 is phase-eligible at 1/4/8/16 clients (c4 retains one serialization failure),
+and seed 7 at 1/4/32. Measurements at seed-42 c32/c64 and seed-7 c8/c16/c64 exit 2;
+both c64 warmups also exit 2. Worker logs retain dependency-pivot cancellations
+at commit, and client aborts report Citus shard-commit failures. The general
+concurrency issue remains unresolved. All 12 post-run integrity checks pass,
+which does not make the aborted measurements eligible.
 
-**Provisional selection:** a112 (a102 lookup indexes + join-key colocation of
-inventory/products and order_items/orders + READ ONLY T3/T4/T6) remains the
-supported A design; eligible repeat cases agree within 2.5% (seed-7/c64 is
-excluded because its warmup aborted). a115's higher raw TPS is promising, but
-its repeated measurement aborts prevent automatic promotion. Final selection
-requires the complete failure/validation audit and Kelvin's agreement before
-the 23 October cutoff. Local timing and B results remain separate evidence.
+At one client both a115 seeds pass without failures at 115.485/109.893 TPS,
+versus a112's same-seed 54.238/52.970 TPS (2.13×/2.07×). Seed-42 c8/c16 and
+seed-7 c32 also complete without failures and are about 3.7–3.8× their corresponding
+a112 observations. These are individual eligible cases, not a clean repeated
+full matrix. The raw 366.145 TPS peak at seed-42 c64 is excluded.
+
+[Complete matrix and audit](../results/cluster-full-a115-20261022/README.md)
+retain every warmup/measurement exit, aborted client, failure/retry count,
+source hash and validation result. The earlier partial transcription remains
+historical; VPN access and raw import are no longer blockers. The existing
+clean matched a0/a112 figure is retained.
+
+**Provisional selection:** a112 remains the supported A checkpoint, including its
+own seed-7/c64 warmup caveat. a115 has supported index benefits in eligible cases,
+but its repeated measurement aborts prevent automatic promotion as a reliable
+full matrix. Kelvin and the A pair must confirm the final performance/reliability
+tradeoff before the 23 October cutoff. This audit changed no benchmark SQL and
+submitted no new jobs; local timing and B results remain separate evidence.
 
 ## Sources to retain in the final report
 

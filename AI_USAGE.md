@@ -71,6 +71,17 @@ for team review. Entries below are dated checkpoints, not current job status.
   warmup/measurement caveats and qualified the 64-client gain claims in repo
   and shared documentation. a112 stays provisional; final team choices remain open.
 
+- 22 October 2026 (Codex, after VPN reconnection): completed both a115 imports,
+  preserving 275 files and the actual SQL source. Verified all 26 runtime hashes,
+  24 phase command lines/exits, 12 raw transaction/retry/per-script count audits
+  and 12 passing core validations. Classified 7 phase-eligible cases, 6 with zero
+  failed records; preserved both c64 warmup aborts and all five measured aborts.
+  Tightened the importer's missing-warmup policy and included SQL/transaction
+  source in future imports; negative checks reject missing warmup/validation.
+  Updated repo/shared documentation and the draft PR, removed the resolved
+  access/import blocker, and retained a112 as provisional pending team choice.
+  No benchmark SQL was changed or new jobs submitted during this review.
+
 Keep the conversation export with prompts and outputs for the required
 `14_ai_tool.zip` reports. This short record is an index, not a replacement for
 the complete required interaction records. Team members must review and understand

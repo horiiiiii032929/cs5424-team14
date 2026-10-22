@@ -14,7 +14,7 @@ The project is worth **25 marks**. You will optimize a multi-tenant order-proces
 - **Shared team work:** assign owners for the Task 1 and Task 3 baseline runs, combine findings into one report, package submissions, and prepare for the week 13 Q&A. Each member's contributions must be listed in the report, and all members are expected at the Q&A.
 - **Coordination proposed by Kelvin:** share a remote Git repository and use a Google Sheet to record who handles A or B. His supplied final message is incomplete.
 
-Hori and Kelvin agreed to the general split; individual assignments and coordinator roles remain subject to team confirmation. Dessi's installation and baseline A/B snapshots are verified and preserved. For the 22 October implementation/results status, provisional A selection, imported B evidence and remaining a115 archive gap, see [current status](docs/project-status.md). The requirements below summarize the supplied assignment; dated progress belongs in that status page.
+Hori and Kelvin agreed to the general split; individual assignments and coordinator roles remain subject to team confirmation. Dessi's installation and baseline A/B snapshots are verified and preserved. For the 22 October implementation/results status, provisional A selection, completed A/B evidence audits and remaining team decisions, see [current status](docs/project-status.md). The requirements below summarize the supplied assignment; dated progress belongs in that status page.
 
 ## What you need to do
 
@@ -293,13 +293,13 @@ Evaluation considers design decisions, experimental design, interpretation, and 
 
 ## Submission progress checklist — 22 October 2026
 
-- [x] Confirm team 14 / cs14; cluster access worked at the initial 22 October check but subsequent imports timed out with VPN disconnected.
+- [x] Confirm team 14 / cs14; VPN reconnection restored access and the full a115 import/audit completed.
 - [x] Download and preserve the provided project files.
 - [x] Configure team settings in the recorded benchmark scripts.
 - [x] Verify and reuse the existing Citus installation.
 - [x] Preserve `expt_a0` and `expt_b0`; retain their failure caveats.
 - [x] Review A throughput, latency and failures; archive/review the complete B branch and its failure caveats.
-- [ ] Finish the A/B selection: complete a115 raw import/audit and confirm choices with the A/B owners.
+- [ ] Finish the A/B selection using the completed evidence audits and confirm choices with the A/B owners.
 - [ ] Complete experiment records and preserve Codex/Claude Code interactions for the AI archive.
 - [ ] Prepare the required archives and report before the deadline.
 

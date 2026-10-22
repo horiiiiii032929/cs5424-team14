@@ -97,7 +97,7 @@ def review(out_dir, expt, job):
             p99_latency_ms=float(s['overall_p99_latency_ms']),
             retried_transactions=int(s['retried_transactions']),
             serialization_failures=int(s['serialization_failures']),
-            eligible=warm in (0, None) and measured == 0 and valid in ('passed', 'not_in_script')))
+            eligible=warm == 0 and measured == 0 and valid in ('passed', 'not_in_script')))
     return rows
 
 
@@ -119,6 +119,7 @@ def main():
     for expt, job in pairs:
         base = f'citus_project_team_14/{expt}'
         members += [f'{base}/run.sh', f'{base}/experiment.json', f'{base}/README.md',
+                    f'{base}/transactions', f'{base}/sql',
                     f'{base}/citus-{job}.out', f'{base}/citus-{job}.err', f'{base}/slurm-results/job-{job}']
     archive = remote(f"cd {args.deployment} && tar --ignore-failed-read -czf - {' '.join(members)} 2>/dev/null")
     args.out_dir.mkdir(parents=True, exist_ok=True)
