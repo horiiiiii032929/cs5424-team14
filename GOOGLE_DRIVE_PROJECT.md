@@ -14,13 +14,28 @@ pages, within a 23-page export of both tabs). [Sync verification](docs/google-dr
 records readback and preservation checks. The exported
 file includes both planning and Report tabs; it is not the final submission PDF.
 
-Current decision: a112 provisional; a114 not promoted; a115 awaits review of
-full jobs 979909/979910 and Kelvin's agreement. Those jobs were submitted and
-last recorded as queued. SSH timed out at the 20 October check, so current state
-and full results are unverified. B b1–b6 figures remain teammate-reported until
-optimized sources/raw outputs are archived and reviewed. Final report assembly,
-full names, contribution statements and Codex/Claude Code interaction PDFs remain
-open. See [current project status](docs/project-status.md).
+22 October: seven existing Docs were updated in place and read back, including
+both tabs of the report/ideas document. The Report tab's 15 tables, the planning
+tab's table, all numeric table text and both figures were preserved. A concurrent
+T7-only paragraph edit was retained after a revision conflict; no stale replacement
+was forced. The 23-page combined-tab PDF export was reviewed on the updated A,
+B and conclusion pages; the Report tab remains 15 pages and is still a draft.
+[Readback verification](docs/google-drive-sync-2026-10-22.json) records
+revisions and preservation checks. This is still a working report, not the final PDF.
+
+22 October reconciliation: B b0–b6 is imported from branch commit
+`5fa38157a7c1cb9abf1097e731f934a97a3db7c4`, preserving 975 original files.
+The 42-case review finds 22 phase-complete cases (20 with zero failed records).
+b6/c16's 539.437 TPS is supported; c8's warmup and c32/c64's warmups/measurements
+aborted. Seven b6 T6 checks match; general integrity and runtime hash evidence
+are absent. Hardware varies across the series, so the old c64 gain claim is qualified.
+
+Current A decision: a112 provisional; a114 not promoted. a115 jobs 979909/979910
+finished on 20 October, but summary readback shows measured aborts at seed-42
+c32/c64 and seed-7 c8/c16/c64. Complete raw import and warmup/hash/validation audit
+remain blocked by later SSH timeout with VPN disconnected. The summary transcription
+is explicitly separate from a complete import. Final A/B choices and team review
+remain open. See [current status](docs/project-status.md).
 
 Code and evidence are on [draft PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1).
 The a114/a115 merge was into the PR branch, not into `main`. The requirement

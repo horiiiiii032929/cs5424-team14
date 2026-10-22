@@ -1,10 +1,12 @@
 # Workload A cluster runbook
 
-Updated 20 October 2026. See [current project status](project-status.md) for
-verified results and decisions. a112 remains provisional; a114 is not promoted.
-a115's short diagnostic is promising, but its full results have not been imported.
-SSH timed out before login at the latest reconciliation (16:55 Singapore time),
-so current Slurm states are unknown. Check existing jobs before submitting more.
+Updated 22 October 2026. a112 remains provisional; a114 is not promoted.
+Both a115 full jobs finished on 20 October, but the live-read summaries show
+measured aborts at seed-42 c32/c64 and seed-7 c8/c16/c64. See
+[partial readback](../results/a115-readback-20261022/README.md). Full raw import
+remains incomplete: subsequent SSH attempts timed out with VPN disconnected.
+No new jobs are needed merely to establish completion. Retrieve existing outputs
+and review every phase before any further submission.
 
 ## Current deployment and jobs
 
@@ -17,8 +19,8 @@ PR #1 remains a draft and is not merged into `main`.
 |---|---|---|
 | Scale-1 diagnostic | a114 / 979865 | Completed: 85.333 TPS; T6 764.5 ms; core and summary validation passed. |
 | Scale-1 diagnostic | a115 / 979866 | Completed: 288.633 TPS; T6 115.9 ms; two retries, zero measured failures; validation passed. |
-| Full, seed 42 | a115 / 979909 | Submitted on xcnf0–4; last saved checkpoint queued; current state/results unverified. |
-| Full, seed 7 | a115 / 979910 | Submitted as the repeat on xcnf0–4; current state/results unverified. |
+| Full, seed 42 | a115 / 979909 | COMPLETED 20 October 01:56:38; measured c32/c64 exit 2; full archive audit pending. |
+| Full, seed 7 | a115 / 979910 | COMPLETED 20 October 03:21:40; measured c8/c16/c64 exit 2; full archive audit pending. |
 
 Do not infer completion from the earlier overnight finish estimate. Do not
 resubmit these runs until their actual state and outputs have been inspected.
@@ -31,12 +33,12 @@ Connect to NUS VPN/network if needed, then check the queue and accounting:
 bash scripts/cluster-command.sh 'squeue -u cs14; sacct -j 979909,979910 --format=JobID,JobName,State,ExitCode,Elapsed,Start,End,NodeList -X -P'
 ```
 
-After both jobs are finished and their output files are complete, retrieve them:
+Both jobs are finished. Once NUS VPN/network access is restored, retrieve their complete outputs:
 
 ```sh
 python3 scripts/import_cluster_jobs.py \
   /home/stuproj/cs14/citus_hikaru_20261020-002025_57576ae \
-  results/cluster-full-a115-20261020 \
+  results/cluster-full-a115-20261022 \
   expt_a115:979909 expt_a115:979910
 ```
 

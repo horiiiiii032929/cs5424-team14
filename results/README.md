@@ -1,11 +1,18 @@
 # Results
 
-## Current status — 20 October 2026
+## Current status — 22 October 2026
 
-See the [project status](../docs/project-status.md) for current decisions and the
-[runbook](../docs/workload-a-cluster-runbook.md) for retrieval. Full a115 jobs
-979909/979910 were submitted; their current state/results are unverified after
-an SSH timeout. The completed short diagnostic does not establish final selection.
+The [B branch import/review](b-branch-review-20261022/README.md) preserves 975
+original files and reviews 42 cases. b6/c16 supports 539.437 TPS with both phases
+complete; c8 warmup and c32/c64 warmup/measurement aborts are excluded. All seven
+saved b6 T6 comparisons match, but runtime hashes and general integrity checks
+are not recorded. Hardware differs across the B series.
+
+Both a115 jobs finished. [Live-read summaries/accounting](a115-readback-20261022/README.md)
+show measured aborts at seed-42 c32/c64 and seed-7 c8/c16/c64. Full raw import,
+warmup and source/validation audit remain blocked by renewed SSH timeout with
+VPN disconnected. a112 remains provisional; the clean a0/a112 figure is retained.
+See [project status](../docs/project-status.md) and [runbook](../docs/workload-a-cluster-runbook.md).
 
 ## Verified 19–20 October follow-up
 
@@ -43,7 +50,7 @@ like a112. A [1M-order T6 check](t6-plan-check-20261019/README.md) measured
 with only the `created_at` index. Completed cluster diagnostics 979865/979866
 confirmed that a114 is slower: 85.333 TPS versus a115's 288.633 TPS, with T6
 764.5 versus 115.9 ms. Both validated; a115 had two retried transactions and no
-failed transactions. a114 is not promoted. a115 awaits full-run review.
+failed transactions. a114 is not promoted. For a115 full-run aborts and the remaining archive audit, see the 22 October status above.
 See [T6 diagnostic evidence](cluster-diagnostic-t6-20261020/README.md).
 
 ## Original results — 14 October 2026
@@ -116,11 +123,11 @@ timings for design comparisons.
 
 ## What remains for the course submission
 
-1. Inspect and import a115 full jobs 979909/979910 after cluster access returns;
+1. Complete the full raw import of finished a115 jobs 979909/979910 once VPN/network access returns;
    review all phases, settings, validation and source hashes before selecting A.
 2. Preserve a112's flagged seed-7/c64 warmup and all earlier local/smoke aborts.
    The commit-time serialization issue is not established as generally resolved.
-3. Archive and review optimized B scripts/results against the shared report.
+3. Confirm B selection using the archived review; retain all abort/hardware caveats and fill core validation/runtime provenance gaps.
 4. Confirm both final designs, contribution statements and AI records, then
    assemble the report and submission archives. See the [current action list](../docs/project-status.md).
 

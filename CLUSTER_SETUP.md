@@ -62,7 +62,7 @@ expt_a0/slurm-results/job-<id>/benchmark-results/transaction_metrics.csv
 
 The same structure applies to `expt_b0` and later experiments. Also preserve `config.txt`, server version and topology records, PostgreSQL logs, and Slurm output/error files.
 
-## Current setup and access status — 20 October 2026
+## Current setup and access status — 22 October 2026
 
 Team account `cs14` and installation `/home/stuproj/cs14/pgsql` were verified.
 Baseline jobs 918524/918781 record PostgreSQL 18.6 and Citus 14.1.0. Cluster
@@ -70,12 +70,14 @@ scripts use TEAM_ID 14 / port 5446 and passed the cluster's Bash syntax checks.
 This Mac's system Bash 3.2 cannot validate their modern Bash features.
 
 SSH worked on 19 October and benchmarks used isolated deployments, preserving
-`/home/stuproj/cs14/citus_project` and the existing installation. The 20 October
-reconciliation timed out before login; live queue state could not be checked.
-Do not treat old statements about an empty queue as current.
+`/home/stuproj/cs14/citus_project` and the existing installation. The initial 22 October
+check verified both a115 jobs completed and an empty queue. Later import attempts
+timed out with VPN disconnected; reconnect before importing the full raw output.
+Do not treat that queue snapshot as a continuing live-state guarantee.
 
 Latest deployment: `/home/stuproj/cs14/citus_hikaru_20261020-002025_57576ae`.
-Full a115 jobs 979909/979910 were submitted there and await retrieval/review.
+Full a115 jobs 979909/979910 finished there on 20 October. Summary readback shows
+measured aborts; complete raw import, warmup and hash/validation review remain pending.
 See the [runbook](docs/workload-a-cluster-runbook.md) for exact queue/accounting
 and import commands, and [current project status](docs/project-status.md) for
 completed a0/a112 results and remaining work. Check these jobs before resubmitting.

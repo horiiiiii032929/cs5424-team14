@@ -1,8 +1,9 @@
 # Draft report sections 2–3: Workload A
 
-Updated 20 October 2026. This is a working draft; a112 is the provisional design
+Updated 22 October 2026. This is a working draft; a112 is the provisional design
 with a seed-7 repeat (64-client warmup flagged). a114's diagnostic is complete
-and did not support promotion; a115's full results and team review remain open.
+and did not support promotion. a115 completed with measured client aborts; its
+partial readback is reviewed, but full archive import and team review remain open.
 Kelvin's a102/a10/a11/a12/a14 source update is
 preserved in `results/team-update-20261019/kelvin-update.json`. After SSH access
 was restored, his raw folders were retrieved and reviewed in
@@ -282,19 +283,28 @@ diagnostics on xcnf0–4, a114 ran 85.3 TPS with T6 at 764 ms, slower than a112'
 651 ms, while a115 ran 288.6 TPS with T6 at 116 ms; both were clean and validated.
 The summary's extra distributed subplans cost more than they save, so a114 is not
 promoted. a115 had two retried transactions (two attempts), zero measured
-failures, and passing validation. Full matched a115 runs (979909 seed 42,
-979910 seed 7) were submitted on xcnf0–4. They were last recorded as queued,
-but their current state and full results are unverified: SSH timed out before
-login at the 20 October reconciliation. No finish-time estimate is treated as
-completion evidence.
+failures, and passing validation. Full a115 jobs 979909 (seed 42) and 979910 (seed 7)
+finished on 20 October on xcnf0–4. Their raw summary rows, read back on 22 October,
+record measured exits of 2 at seed-42 c32/c64 and seed-7 c8/c16/c64. Seed-42 c4
+also records one serialization failure despite measured exit 0; seed-7 c8/c16/c64
+record 1/2/7 failed transactions. The raw throughput spans 109.9–366.1 TPS, but
+these observations are not a fully eligible matrix and must not support a blanket
+zero-failure or reliable scaling claim.
+
+[Preserved readback](../results/a115-readback-20261022/README.md) distinguishes
+transcribed summaries/accounting from a complete raw-job import. Subsequent SSH
+attempts timed out with the VPN disconnected. Warmup exits, complete validation
+blocks, actual clients, protocols and runtime hashes remain to be archived and
+reviewed. No exit-zero measurement is certified fully eligible from summary
+rows alone. The a0/a112 figure is retained unchanged.
 
 **Provisional selection:** a112 (a102 lookup indexes + join-key colocation of
-inventory/products and order_items/orders + READ ONLY T3/T4/T6) is the leading
-Workload A design; eligible repeat cases agree within 2.5% (seed-7/c64 is
-excluded because its warmup aborted). If a115's full runs confirm
-its diagnostic, a115 (a112 + `orders(created_at)` index) supersedes it. Final
-selection awaits those runs and Kelvin's agreement before the 23 October cutoff. Local timing and teammate-reported cluster numbers remain
-separate from these independently verified measurements.
+inventory/products and order_items/orders + READ ONLY T3/T4/T6) remains the
+supported A design; eligible repeat cases agree within 2.5% (seed-7/c64 is
+excluded because its warmup aborted). a115's higher raw TPS is promising, but
+its repeated measurement aborts prevent automatic promotion. Final selection
+requires the complete failure/validation audit and Kelvin's agreement before
+the 23 October cutoff. Local timing and B results remain separate evidence.
 
 ## Sources to retain in the final report
 

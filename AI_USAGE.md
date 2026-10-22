@@ -54,12 +54,22 @@ for team review. Entries below are dated checkpoints, not current job status.
   implemented and merged a114/a115 into the PR branch, recorded passing a114
   correctness checks and completed cluster diagnostics, rejected a114's summary
   design, and submitted a115 full jobs 979909/979910 for seeds 42/7. Their full
-  results have not been imported at the latest reconciliation.
+  results had not been imported at the 20 October checkpoint.
 - 20 October 2026 (Codex): checked Git/PR and repository/Drive documentation;
   reconciled current status, corrected the a115 diagnostic retry count to two,
   updated the A analysis and team planning documents, and refreshed the draft PR.
   Cluster access timed out, so no live a115 completion or final-selection claim
   was made. Retain the readback/validation records with this interaction.
+
+- 22 October 2026 (Codex): read live Slurm accounting, a115 summary rows and
+  benchmark/validation excerpts; established completion with measured aborts.
+  Subsequent full archive imports failed with SSH timeout and VPN disconnected;
+  preserved a clearly labelled transcription rather than claiming a raw import.
+  Imported all 975 B branch files at 5fa38157a7c1cb9abf1097e731f934a97a3db7c4,
+  verified Git blob identity, all 42 transaction-log record counts, phase exits,
+  hardware/protocol differences and seven matching b6 T6 checks. Corrected B
+  warmup/measurement caveats and qualified the 64-client gain claims in repo
+  and shared documentation. a112 stays provisional; final team choices remain open.
 
 Keep the conversation export with prompts and outputs for the required
 `14_ai_tool.zip` reports. This short record is an index, not a replacement for
