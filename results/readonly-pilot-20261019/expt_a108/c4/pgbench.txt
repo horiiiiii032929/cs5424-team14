@@ -1,0 +1,128 @@
+pgbench (18.6 (Debian 18.6-1.pgdg13+2))
+transaction type: multiple scripts
+scaling factor: 1
+query mode: simple
+number of clients: 4
+number of threads: 4
+maximum number of tries: 3
+duration: 45 s
+number of transactions actually processed: 20625
+number of failed transactions: 205 (0.984%)
+number of serialization failures: 205 (0.984%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 1402 (6.731%)
+total number of retries: 1874
+latency average = 8.644 ms (including failures)
+initial connection time = 5.650 ms
+tps = 458.220153 (without initial connection time)
+SQL script 1: /workspace/citus_project_team_14/expt_a108/transactions/T1_place_order.sql
+ - weight: 36 (targets 36.0% of total)
+ - 7427 transactions (35.7% of total)
+ - number of transactions actually processed: 7259 (tps = 161.271277)
+ - number of failed transactions: 168 (2.262%)
+ - number of serialization failures: 168 (2.262%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 1067 (14.367%)
+ - total number of retries: 1434
+ - latency average = 7.284 ms
+ - latency stddev = 7.486 ms
+SQL script 2: /workspace/citus_project_team_14/expt_a108/transactions/T2_update_inventory.sql
+ - weight: 20 (targets 20.0% of total)
+ - 4211 transactions (20.2% of total)
+ - number of transactions actually processed: 4211 (tps = 93.554670)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 2 (0.047%)
+ - total number of retries: 3
+ - latency average = 1.867 ms
+ - latency stddev = 2.276 ms
+SQL script 3: /workspace/citus_project_team_14/expt_a108/transactions/T3_order_history.sql
+ - weight: 10 (targets 10.0% of total)
+ - 2122 transactions (10.2% of total)
+ - number of transactions actually processed: 2122 (tps = 47.143911)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 1.644 ms
+ - latency stddev = 1.537 ms
+SQL script 4: /workspace/citus_project_team_14/expt_a108/transactions/T4_product_lookup.sql
+ - weight: 10 (targets 10.0% of total)
+ - 2101 transactions (10.1% of total)
+ - number of transactions actually processed: 2101 (tps = 46.677360)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 1.352 ms
+ - latency stddev = 1.245 ms
+SQL script 5: /workspace/citus_project_team_14/expt_a108/transactions/T5_update_order_status.sql
+ - weight: 10 (targets 10.0% of total)
+ - 2060 transactions (9.9% of total)
+ - number of transactions actually processed: 2060 (tps = 45.766473)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 7.880 ms
+ - latency stddev = 8.562 ms
+SQL script 6: /workspace/citus_project_team_14/expt_a108/transactions/T6_global_sales.sql
+ - weight: 5 (targets 5.0% of total)
+ - 1034 transactions (5.0% of total)
+ - number of transactions actually processed: 1034 (tps = 22.972104)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 2 (0.193%)
+ - total number of retries: 2
+ - latency average = 13.577 ms
+ - latency stddev = 8.044 ms
+SQL script 7: /workspace/citus_project_team_14/expt_a108/transactions/T7_inventory_transfer.sql
+ - weight: 5 (targets 5.0% of total)
+ - 1078 transactions (5.2% of total)
+ - number of transactions actually processed: 1041 (tps = 23.127621)
+ - number of failed transactions: 37 (3.432%)
+ - number of serialization failures: 37 (3.432%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 331 (30.705%)
+ - total number of retries: 435
+ - latency average = 32.206 ms
+ - latency stddev = 26.013 ms
+SQL script 8: /workspace/citus_project_team_14/expt_a108/transactions/T8_update_customer.sql
+ - weight: 2 (targets 2.0% of total)
+ - 402 transactions (1.9% of total)
+ - number of transactions actually processed: 402 (tps = 8.931127)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 1.764 ms
+ - latency stddev = 1.472 ms
+SQL script 9: /workspace/citus_project_team_14/expt_a108/transactions/T9_update_product.sql
+ - weight: 2 (targets 2.0% of total)
+ - 392 transactions (1.9% of total)
+ - number of transactions actually processed: 392 (tps = 8.708960)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 1.623 ms
+ - latency stddev = 1.590 ms
+pgbench: setting random seed to 42
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on worker1:5432
+pgbench: error: client 3 script 0 aborted in command 75 query 0: ERROR:  could not commit transaction for shard 102691 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on worker2:5432
+pgbench: error: client 1 script 0 aborted in command 75 query 0: ERROR:  could not commit transaction for shard 102820 on at least one active node
+pgbench: error: Run was aborted; the above results are incomplete.

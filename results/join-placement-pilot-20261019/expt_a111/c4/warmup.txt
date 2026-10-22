@@ -1,0 +1,163 @@
+pgbench (18.6 (Debian 18.6-1.pgdg13+2))
+transaction type: multiple scripts
+scaling factor: 1
+query mode: simple
+number of clients: 4
+number of threads: 4
+maximum number of tries: 3
+duration: 5 s
+number of transactions actually processed: 2154
+number of failed transactions: 42 (1.913%)
+number of serialization failures: 42 (1.913%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 211 (9.608%)
+total number of retries: 286
+latency average = 9.190 ms (including failures)
+initial connection time = 4.557 ms
+tps = 426.939951 (without initial connection time)
+SQL script 1: /workspace/citus_project_team_14/expt_a111/transactions/T1_place_order.sql
+ - weight: 36 (targets 36.0% of total)
+ - 798 transactions (36.3% of total)
+ - number of transactions actually processed: 756 (tps = 149.845219)
+ - number of failed transactions: 42 (5.263%)
+ - number of serialization failures: 42 (5.263%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 188 (23.559%)
+ - total number of retries: 256
+ - latency average = 12.052 ms
+ - latency stddev = 10.329 ms
+SQL script 2: /workspace/citus_project_team_14/expt_a111/transactions/T2_update_inventory.sql
+ - weight: 20 (targets 20.0% of total)
+ - 433 transactions (19.7% of total)
+ - number of transactions actually processed: 433 (tps = 85.824048)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 12 (2.771%)
+ - total number of retries: 16
+ - latency average = 1.887 ms
+ - latency stddev = 3.397 ms
+SQL script 3: /workspace/citus_project_team_14/expt_a111/transactions/T3_order_history.sql
+ - weight: 10 (targets 10.0% of total)
+ - 219 transactions (10.0% of total)
+ - number of transactions actually processed: 219 (tps = 43.407544)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 6.968 ms
+ - latency stddev = 5.822 ms
+SQL script 4: /workspace/citus_project_team_14/expt_a111/transactions/T4_product_lookup.sql
+ - weight: 10 (targets 10.0% of total)
+ - 224 transactions (10.2% of total)
+ - number of transactions actually processed: 224 (tps = 44.398584)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 1.518 ms
+ - latency stddev = 2.275 ms
+SQL script 5: /workspace/citus_project_team_14/expt_a111/transactions/T5_update_order_status.sql
+ - weight: 10 (targets 10.0% of total)
+ - 227 transactions (10.3% of total)
+ - number of transactions actually processed: 227 (tps = 44.993207)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 1.441 ms
+ - latency stddev = 1.287 ms
+SQL script 6: /workspace/citus_project_team_14/expt_a111/transactions/T6_global_sales.sql
+ - weight: 5 (targets 5.0% of total)
+ - 98 transactions (4.5% of total)
+ - number of transactions actually processed: 98 (tps = 19.424380)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 8.336 ms
+ - latency stddev = 4.980 ms
+SQL script 7: /workspace/citus_project_team_14/expt_a111/transactions/T7_inventory_transfer.sql
+ - weight: 5 (targets 5.0% of total)
+ - 109 transactions (5.0% of total)
+ - number of transactions actually processed: 109 (tps = 21.604668)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 11 (10.092%)
+ - total number of retries: 14
+ - latency average = 6.098 ms
+ - latency stddev = 6.918 ms
+SQL script 8: /workspace/citus_project_team_14/expt_a111/transactions/T8_update_customer.sql
+ - weight: 2 (targets 2.0% of total)
+ - 44 transactions (2.0% of total)
+ - number of transactions actually processed: 44 (tps = 8.721150)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 1.279 ms
+ - latency stddev = 0.315 ms
+SQL script 9: /workspace/citus_project_team_14/expt_a111/transactions/T9_update_product.sql
+ - weight: 2 (targets 2.0% of total)
+ - 44 transactions (2.0% of total)
+ - number of transactions actually processed: 44 (tps = 8.721150)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 1.463 ms
+ - latency stddev = 0.842 ms
+pgbench: setting random seed to 42
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node postgres@worker2:5432 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node postgres@worker1:5432 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on worker4:5432
+pgbench: error: client 3 script 0 aborted in command 153 query 0: ERROR:  could not commit transaction for shard 103544 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node postgres@worker3:5432 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on worker2:5432
+pgbench: error: client 2 script 1 aborted in command 15 query 0: ERROR:  could not commit transaction for shard 103490 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node postgres@worker1:5432 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node postgres@worker3:5432 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+pgbench: error: Run was aborted; the above results are incomplete.

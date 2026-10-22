@@ -1,0 +1,38 @@
+Limit (actual time=130.741..130.744 rows=20.00 loops=1)
+  Buffers: shared hit=91
+  ->  Sort (actual time=130.740..130.741 rows=20.00 loops=1)
+        Sort Key: (sum(remote_scan.revenue)) DESC
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=91
+        ->  HashAggregate (actual time=130.622..130.664 rows=200.00 loops=1)
+              Group Key: remote_scan.merchant_id
+              Batches: 1  Memory Usage: 160kB
+              Buffers: shared hit=88
+              ->  Custom Scan (Citus Adaptive) (actual time=128.869..129.300 rows=6398.00 loops=1)
+                    Task Count: 32
+                    Tuple data received from nodes: 187 kB
+                    Tasks Shown: One of 32
+                    ->  Task
+                          Tuple data received from node: 5970 bytes
+                          Node: host=worker3 port=5432 dbname=postgres
+                          ->  HashAggregate (actual time=61.624..62.586 rows=200.00 loops=1)
+                                Group Key: merchant_id
+                                Batches: 1  Memory Usage: 96kB
+                                Buffers: shared hit=626
+                                ->  Bitmap Heap Scan on orders_102874 orders (actual time=21.599..60.554 rows=2507.00 loops=1)
+                                      Recheck Cond: ((created_at >= (CURRENT_TIMESTAMP - '30 days'::interval)) AND (created_at < CURRENT_TIMESTAMP))
+                                      Heap Blocks: exact=615
+                                      Buffers: shared hit=626
+                                      ->  Bitmap Index Scan on idx_orders_report_time_102874 (actual time=14.617..14.624 rows=5014.00 loops=1)
+                                            Index Cond: ((created_at >= (CURRENT_TIMESTAMP - '30 days'::interval)) AND (created_at < CURRENT_TIMESTAMP))
+                                            Index Searches: 1
+                                            Buffers: shared hit=11
+                              Planning:
+                                Buffers: shared hit=237
+                              Planning Time: 1.547 ms
+                              Execution Time: 62.818 ms
+                    Buffers: shared hit=88
+Planning:
+  Buffers: shared hit=453
+Planning Time: 6.227 ms
+Execution Time: 130.908 ms

@@ -1,0 +1,13 @@
+{
+  "experiment": "expt_a101",
+  "clients": 4,
+  "status": "FAILED",
+  "error": "expt_a101 warmup failed:\npgbench: setting random seed to 42\nWARNING:  could not serialize access due to read/write dependencies among transactions\nDETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.\nHINT:  The transaction might succeed if retried.\nWARNING:  failed to commit transaction on worker2:5432\npgbench: error: client 0 script 0 aborted in command 153 query 0: ERROR:  could not commit transaction for shard 102436 on at least one active node\nWARNING:  could not serialize access due to read/write dependencies among transactions\nDETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.\nHINT:  The transaction might succeed if retried.\nWARNING:  failed to commit transaction on worker2:5432\npgbench: error: client 2 script 0 aborted in command 153 query 0: ERROR:  could not commit transaction for shard 102436 on at least one active node\npgbench: error: Run was aborted; the above results are incomplete.\n",
+  "post_failure_checks": {
+    "after_failure_nonnegative_inventory": true,
+    "after_failure_unique_order_ids": true,
+    "after_failure_unique_item_ids": true,
+    "after_failure_items_have_matching_orders": true,
+    "after_failure_matching_order_totals": true
+  }
+}

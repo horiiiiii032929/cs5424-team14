@@ -1,0 +1,482 @@
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=42 --max-tries=3 -h xcnf1 -p 5446 -U cs14 -d project-965657 -n -c 32 -j 4 -T 600 -M simple -P 10 -r --failures-detailed -l --log-prefix=/home/stuproj/cs14/citus_project/expt_a102/slurm-results/job-965657/benchmark-results/logs/pgbench-c32 --sampling-rate=1.0 -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_a102/transactions/T1_place_order.sql@36 -f /home/stuproj/cs14/citus_project/expt_a102/transactions/T2_update_inventory.sql@20 -f /home/stuproj/cs14/citus_project/expt_a102/transactions/T3_order_history.sql@10 -f /home/stuproj/cs14/citus_project/expt_a102/transactions/T4_product_lookup.sql@10 -f /home/stuproj/cs14/citus_project/expt_a102/transactions/T5_update_order_status.sql@10 -f /home/stuproj/cs14/citus_project/expt_a102/transactions/T6_global_sales.sql@5 -f /home/stuproj/cs14/citus_project/expt_a102/transactions/T7_inventory_transfer.sql@5 -f /home/stuproj/cs14/citus_project/expt_a102/transactions/T8_update_customer.sql@2 -f /home/stuproj/cs14/citus_project/expt_a102/transactions/T9_update_product.sql@2
+pgbench: setting random seed to 42
+pgbench (18.6)
+progress: 10.0 s, 15.7 tps, lat 384.133 ms stddev 1087.024, 0 failed, 4 retried, 4 retries
+progress: 20.0 s, 0.0 tps, lat 0.000 ms stddev 0.000, 0 failed, 0 retried, 0 retries
+progress: 30.0 s, 4.4 tps, lat 6461.333 ms stddev 10363.704, 0 failed, 0 retried, 0 retries
+progress: 40.0 s, 0.5 tps, lat 9438.620 ms stddev 11527.393, 0 failed, 0 retried, 0 retries
+progress: 50.0 s, 0.9 tps, lat 6886.407 ms stddev 9666.101, 0 failed, 0 retried, 0 retries
+progress: 60.0 s, 0.0 tps, lat 0.000 ms stddev 0.000, 0 failed, 0 retried, 0 retries
+progress: 70.0 s, 3.3 tps, lat 17477.440 ms stddev 29277.796, 0 failed, 0 retried, 0 retries
+progress: 80.0 s, 9.5 tps, lat 8018.301 ms stddev 21250.824, 0 failed, 4 retried, 5 retries
+progress: 90.0 s, 0.7 tps, lat 10809.202 ms stddev 22921.506, 0 failed, 0 retried, 0 retries
+progress: 100.0 s, 4.7 tps, lat 14718.454 ms stddev 28003.264, 0 failed, 0 retried, 0 retries
+progress: 110.0 s, 4.0 tps, lat 7088.712 ms stddev 12829.763, 0 failed, 0 retried, 0 retries
+progress: 120.0 s, 2.7 tps, lat 7660.349 ms stddev 14102.440, 0 failed, 0 retried, 0 retries
+progress: 130.0 s, 2.2 tps, lat 8170.376 ms stddev 14425.411, 0 failed, 0 retried, 0 retries
+progress: 140.0 s, 1.3 tps, lat 6727.238 ms stddev 17512.284, 0 failed, 0 retried, 0 retries
+progress: 150.0 s, 4.4 tps, lat 16097.013 ms stddev 26759.655, 0 failed, 1 retried, 1 retries
+progress: 160.0 s, 4.4 tps, lat 7726.459 ms stddev 19102.218, 0 failed, 0 retried, 0 retries
+progress: 170.0 s, 5.6 tps, lat 5479.349 ms stddev 14392.612, 0 failed, 0 retried, 0 retries
+progress: 180.0 s, 4.0 tps, lat 9458.642 ms stddev 17517.592, 0 failed, 0 retried, 0 retries
+progress: 190.0 s, 6.4 tps, lat 6945.768 ms stddev 17122.995, 0 failed, 0 retried, 0 retries
+progress: 200.0 s, 3.0 tps, lat 4465.017 ms stddev 13805.763, 0 failed, 0 retried, 0 retries
+progress: 210.0 s, 2.5 tps, lat 7375.145 ms stddev 15953.427, 0 failed, 0 retried, 0 retries
+progress: 220.0 s, 6.4 tps, lat 6272.876 ms stddev 16815.294, 0 failed, 1 retried, 1 retries
+progress: 230.0 s, 1.7 tps, lat 11018.215 ms stddev 20811.843, 0 failed, 0 retried, 0 retries
+progress: 240.0 s, 2.4 tps, lat 12030.042 ms stddev 22449.202, 0 failed, 0 retried, 0 retries
+progress: 250.0 s, 3.0 tps, lat 13457.260 ms stddev 25443.421, 0 failed, 0 retried, 0 retries
+progress: 260.0 s, 2.5 tps, lat 12427.519 ms stddev 25360.698, 0 failed, 0 retried, 0 retries
+progress: 270.0 s, 2.3 tps, lat 15011.843 ms stddev 26182.590, 0 failed, 0 retried, 0 retries
+progress: 280.0 s, 4.3 tps, lat 7165.046 ms stddev 18269.391, 0 failed, 0 retried, 0 retries
+progress: 290.0 s, 2.4 tps, lat 12030.219 ms stddev 22667.008, 0 failed, 0 retried, 0 retries
+progress: 300.0 s, 5.5 tps, lat 7372.746 ms stddev 16935.703, 0 failed, 0 retried, 0 retries
+progress: 310.0 s, 2.4 tps, lat 8548.838 ms stddev 22276.271, 0 failed, 0 retried, 0 retries
+progress: 320.0 s, 6.6 tps, lat 8162.328 ms stddev 19721.302, 0 failed, 0 retried, 0 retries
+progress: 330.0 s, 2.8 tps, lat 12730.794 ms stddev 21829.887, 0 failed, 0 retried, 0 retries
+progress: 340.0 s, 1.9 tps, lat 8535.606 ms stddev 17118.360, 0 failed, 0 retried, 0 retries
+progress: 350.0 s, 4.2 tps, lat 10453.605 ms stddev 21337.580, 0 failed, 0 retried, 0 retries
+progress: 360.0 s, 2.5 tps, lat 8281.814 ms stddev 18107.437, 0 failed, 0 retried, 0 retries
+progress: 370.0 s, 4.1 tps, lat 4062.651 ms stddev 12067.650, 0 failed, 0 retried, 0 retries
+progress: 380.0 s, 2.4 tps, lat 6135.442 ms stddev 14598.372, 0 failed, 0 retried, 0 retries
+progress: 390.0 s, 5.7 tps, lat 11080.291 ms stddev 23994.035, 0 failed, 0 retried, 0 retries
+progress: 400.0 s, 4.5 tps, lat 10087.254 ms stddev 23430.897, 0 failed, 1 retried, 1 retries
+progress: 410.0 s, 1.2 tps, lat 10355.652 ms stddev 19250.476, 0 failed, 0 retried, 0 retries
+progress: 420.0 s, 7.3 tps, lat 7389.544 ms stddev 17489.117, 0 failed, 1 retried, 1 retries
+progress: 430.0 s, 5.6 tps, lat 5242.395 ms stddev 15710.708, 0 failed, 0 retried, 0 retries
+progress: 440.0 s, 2.2 tps, lat 8578.076 ms stddev 20051.818, 0 failed, 0 retried, 0 retries
+progress: 450.0 s, 5.0 tps, lat 6982.467 ms stddev 14623.562, 0 failed, 0 retried, 0 retries
+progress: 460.0 s, 4.6 tps, lat 10527.344 ms stddev 22144.639, 0 failed, 0 retried, 0 retries
+progress: 470.0 s, 1.1 tps, lat 10814.642 ms stddev 19541.149, 0 failed, 0 retried, 0 retries
+progress: 480.0 s, 3.0 tps, lat 11309.911 ms stddev 20379.741, 0 failed, 0 retried, 0 retries
+progress: 490.0 s, 4.9 tps, lat 9062.375 ms stddev 20338.843, 0 failed, 0 retried, 0 retries
+progress: 500.0 s, 2.6 tps, lat 5978.330 ms stddev 17491.677, 0 failed, 0 retried, 0 retries
+progress: 510.0 s, 6.3 tps, lat 4272.439 ms stddev 11114.066, 0 failed, 0 retried, 0 retries
+progress: 520.0 s, 3.2 tps, lat 10131.800 ms stddev 22498.303, 0 failed, 0 retried, 0 retries
+progress: 530.0 s, 3.7 tps, lat 9756.072 ms stddev 22435.953, 0 failed, 0 retried, 0 retries
+progress: 540.0 s, 4.0 tps, lat 7817.619 ms stddev 18088.152, 0 failed, 0 retried, 0 retries
+progress: 550.0 s, 4.1 tps, lat 12318.085 ms stddev 21807.584, 0 failed, 0 retried, 0 retries
+progress: 560.0 s, 2.3 tps, lat 12758.974 ms stddev 24548.214, 0 failed, 0 retried, 0 retries
+progress: 570.0 s, 4.5 tps, lat 5512.088 ms stddev 13495.465, 0 failed, 0 retried, 0 retries
+progress: 580.0 s, 3.5 tps, lat 11835.761 ms stddev 22323.897, 0 failed, 0 retried, 0 retries
+progress: 590.0 s, 4.1 tps, lat 7223.359 ms stddev 17716.944, 0 failed, 0 retried, 0 retries
+progress: 600.0 s, 2.7 tps, lat 8709.453 ms stddev 17952.240, 0 failed, 0 retried, 0 retries
+progress: 610.0 s, 0.3 tps, lat 51587.717 ms stddev 20053.865, 0 failed, 0 retried, 0 retries
+progress: 620.0 s, 1.4 tps, lat 47230.138 ms stddev 19318.426, 0 failed, 0 retried, 0 retries
+progress: 630.0 s, 0.6 tps, lat 52008.971 ms stddev 14187.311, 0 failed, 0 retried, 0 retries
+transaction type: multiple scripts
+scaling factor: 1
+query mode: simple
+number of clients: 32
+number of threads: 4
+maximum number of tries: 3
+duration: 600 s
+number of transactions actually processed: 2269
+number of failed transactions: 0 (0.000%)
+number of serialization failures: 0 (0.000%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 12 (0.529%)
+total number of retries: 13
+latency average = 8757.706 ms
+latency stddev = 19627.627 ms
+initial connection time = 41.693 ms
+tps = 3.578868 (without initial connection time)
+SQL script 1: /home/stuproj/cs14/citus_project/expt_a102/transactions/T1_place_order.sql
+ - weight: 36 (targets 36.0% of total)
+ - 846 transactions (37.3% of total)
+ - number of transactions actually processed: 846 (tps = 1.334386)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 2 (0.236%)
+ - total number of retries: 2
+ - latency average = 75.446 ms
+ - latency stddev = 60.409 ms
+ - statement latencies in milliseconds, failures and retries:
+         0.001           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set merchant_id :DEBUG_MERCHANT_ID
+         0.000           0          0 \else
+         0.003           0          0 \set merchant_id CASE WHEN random(1, 100) <= :HOT_ORDER_PERCENT THEN random(1, :HOT_MERCHANTS) ELSE random((:HOT_MERCHANTS + 1), :NUM_MERCHANTS) END
+         0.000           0          0 \endif
+         0.000           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set customer_id :DEBUG_CUSTOMER_ID
+         0.000           0          0 \set item_count :DEBUG_ITEM_COUNT
+         0.000           0          0 \else
+         0.002           0          0 \set customer_slot random(0, ((:NUM_CUSTOMERS - :merchant_id) / :NUM_MERCHANTS))
+         0.001           0          0 \set customer_id :merchant_id + (:customer_slot * :NUM_MERCHANTS)
+         0.001           0          0 \set item_count random(:MIN_ITEMS_PER_ORDER, :MAX_ITEMS_PER_ORDER)
+         0.000           0          0 \endif
+         0.001           0          0 \set order_ok 1
+         0.001           0          0 \set order_total 0.0
+         0.138           0          0 BEGIN;
+         6.753           0          0 SELECT CASE WHEN EXISTS (
+         0.002           0          0 \if :t1_customer_ok
+         0.176           0          0 SELECT nextval('benchmark_order_id_seq') AS new_order_id
+         0.001           0          0 \else
+         0.000           0          0 \set order_ok 0
+         0.000           0          0 \set new_order_id 0
+         0.000           0          0 \endif
+         0.001           0          0 \if :order_ok
+         6.493           0          0 INSERT INTO orders(
+         0.000           0          0 \endif
+         0.001           0          0 \if :order_ok
+         0.001           0          0 \if :item_count >= 1
+         0.000           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set product_id_1 :DEBUG_PRODUCT_ID_1
+         0.000           0          0 \set qty_1 :DEBUG_QTY_1
+         0.000           0          0 \else
+         0.002           0          0 \set product_slot_1 random(0, ((:NUM_PRODUCTS - :merchant_id) / :NUM_MERCHANTS))
+         0.001           0          0 \set product_id_1 :merchant_id + (:product_slot_1 * :NUM_MERCHANTS)
+         0.001           0          0 \set qty_1 random(:MIN_ORDER_QTY, :MAX_ORDER_QTY)
+         0.000           0          0 \endif
+         5.265           0          0 SELECT
+         0.002           0          0 \if :item1_product_ok
+         4.123           0          0 WITH reserved AS (
+         0.001           0          0 \if :item1_stock_ok
+         0.165           0          0 SELECT nextval('benchmark_order_item_id_seq') AS order_item_id
+         4.897           0          0 INSERT INTO order_items(
+         0.005           0          0 \set order_total :order_total + (:qty_1 * :item1_price)
+         0.000           0          0 \else
+         0.000           0          0 \set order_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \else
+         0.000           0          0 \set order_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \if :order_ok
+         0.001           0          0 \if :item_count >= 2
+         0.000           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set product_id_2 :DEBUG_PRODUCT_ID_2
+         0.000           0          0 \set qty_2 :DEBUG_QTY_2
+         0.000           0          0 \else
+         0.002           0          0 \set product_slot_2 random(0, ((:NUM_PRODUCTS - :merchant_id) / :NUM_MERCHANTS))
+         0.002           0          0 \set product_id_2 :merchant_id + (:product_slot_2 * :NUM_MERCHANTS)
+         0.001           0          0 \set qty_2 random(:MIN_ORDER_QTY, :MAX_ORDER_QTY)
+         0.000           0          0 \endif
+         4.690           0          0 SELECT
+         0.002           0          0 \if :item2_product_ok
+         3.826           0          0 WITH reserved AS (
+         0.002           0          0 \if :item2_stock_ok
+         0.151           0          0 SELECT nextval('benchmark_order_item_id_seq') AS order_item_id
+         4.766           0          0 INSERT INTO order_items(
+         0.004           0          0 \set order_total :order_total + (:qty_2 * :item2_price)
+         0.000           0          0 \else
+         0.000           0          0 \set order_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \else
+         0.000           0          0 \set order_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \if :order_ok
+         0.001           0          0 \if :item_count >= 3
+         0.001           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set product_id_3 :DEBUG_PRODUCT_ID_3
+         0.000           0          0 \set qty_3 :DEBUG_QTY_3
+         0.000           0          0 \else
+         0.002           0          0 \set product_slot_3 random(0, ((:NUM_PRODUCTS - :merchant_id) / :NUM_MERCHANTS))
+         0.002           0          0 \set product_id_3 :merchant_id + (:product_slot_3 * :NUM_MERCHANTS)
+         0.001           0          0 \set qty_3 random(:MIN_ORDER_QTY, :MAX_ORDER_QTY)
+         0.000           0          0 \endif
+         4.715           0          0 SELECT
+         0.002           0          0 \if :item3_product_ok
+         4.110           0          0 WITH reserved AS (
+         0.002           0          0 \if :item3_stock_ok
+         0.150           0          0 SELECT nextval('benchmark_order_item_id_seq') AS order_item_id
+         4.374           0          0 INSERT INTO order_items(
+         0.004           0          0 \set order_total :order_total + (:qty_3 * :item3_price)
+         0.000           0          0 \else
+         0.000           0          0 \set order_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \else
+         0.000           0          0 \set order_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \endif
+         0.000           0          0 \if :order_ok
+         0.001           0          0 \if :item_count >= 4
+         0.000           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set product_id_4 :DEBUG_PRODUCT_ID_4
+         0.000           0          0 \set qty_4 :DEBUG_QTY_4
+         0.000           0          0 \else
+         0.002           0          0 \set product_slot_4 random(0, ((:NUM_PRODUCTS - :merchant_id) / :NUM_MERCHANTS))
+         0.002           0          0 \set product_id_4 :merchant_id + (:product_slot_4 * :NUM_MERCHANTS)
+         0.002           0          0 \set qty_4 random(:MIN_ORDER_QTY, :MAX_ORDER_QTY)
+         0.000           0          0 \endif
+         4.552           0          0 SELECT
+         0.002           0          0 \if :item4_product_ok
+         4.596           0          0 WITH reserved AS (
+         0.002           0          0 \if :item4_stock_ok
+         0.150           0          0 SELECT nextval('benchmark_order_item_id_seq') AS order_item_id
+         3.797           0          0 INSERT INTO order_items(
+         0.004           0          0 \set order_total :order_total + (:qty_4 * :item4_price)
+         0.000           0          0 \else
+         0.000           0          0 \set order_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \else
+         0.000           0          0 \set order_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \endif
+         0.000           0          0 \if :order_ok
+         0.001           0          0 \if :item_count >= 5
+         0.001           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set product_id_5 :DEBUG_PRODUCT_ID_5
+         0.000           0          0 \set qty_5 :DEBUG_QTY_5
+         0.000           0          0 \else
+         0.002           0          0 \set product_slot_5 random(0, ((:NUM_PRODUCTS - :merchant_id) / :NUM_MERCHANTS))
+         0.003           0          0 \set product_id_5 :merchant_id + (:product_slot_5 * :NUM_MERCHANTS)
+         0.002           0          0 \set qty_5 random(:MIN_ORDER_QTY, :MAX_ORDER_QTY)
+         0.000           0          0 \endif
+         3.891           0          0 SELECT
+         0.004           0          0 \if :item5_product_ok
+         4.037           0          0 WITH reserved AS (
+         0.004           0          0 \if :item5_stock_ok
+         0.150           0          0 SELECT nextval('benchmark_order_item_id_seq') AS order_item_id
+         3.578           0          0 INSERT INTO order_items(
+         0.004           0          0 \set order_total :order_total + (:qty_5 * :item5_price)
+         0.000           0          0 \else
+         0.000           0          0 \set order_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \else
+         0.000           0          0 \set order_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \endif
+         0.000           0          0 \if :order_ok
+         3.639           0          1 UPDATE orders
+        16.669           0          1 COMMIT;
+         0.000           0          0 \else
+         0.000           0          0 ROLLBACK;
+         0.000           0          0 \endif
+SQL script 2: /home/stuproj/cs14/citus_project/expt_a102/transactions/T2_update_inventory.sql
+ - weight: 20 (targets 20.0% of total)
+ - 435 transactions (19.2% of total)
+ - number of transactions actually processed: 435 (tps = 0.686121)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 11.498 ms
+ - latency stddev = 9.849 ms
+ - statement latencies in milliseconds, failures and retries:
+         0.001           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set merchant_id :DEBUG_MERCHANT_ID
+         0.000           0          0 \else
+         0.002           0          0 \set merchant_id CASE WHEN random(1, 100) <= :HOT_ORDER_PERCENT THEN random(1, :HOT_MERCHANTS) ELSE random((:HOT_MERCHANTS + 1), :NUM_MERCHANTS) END
+         0.000           0          0 \endif
+         0.000           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set product_id :DEBUG_PRODUCT_ID
+         0.000           0          0 \set inventory_change :DEBUG_INVENTORY_CHANGE
+         0.000           0          0 \else
+         0.002           0          0 \set product_slot random(0, ((:NUM_PRODUCTS - :merchant_id) / :NUM_MERCHANTS))
+         0.002           0          0 \set product_id :merchant_id + (:product_slot * :NUM_MERCHANTS)
+         0.001           0          0 \set inventory_change random(:INVENTORY_CHANGE_MIN, :INVENTORY_CHANGE_MAX)
+         0.000           0          0 \endif
+         0.130           0          0 BEGIN;
+         6.849           0          0 UPDATE inventory
+         4.509           0          0 COMMIT;
+SQL script 3: /home/stuproj/cs14/citus_project/expt_a102/transactions/T3_order_history.sql
+ - weight: 10 (targets 10.0% of total)
+ - 210 transactions (9.3% of total)
+ - number of transactions actually processed: 210 (tps = 0.331231)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 65190.547 ms
+ - latency stddev = 5831.198 ms
+ - statement latencies in milliseconds, failures and retries:
+         0.002           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set merchant_id :DEBUG_MERCHANT_ID
+         0.000           0          0 \else
+         0.003           0          0 \set merchant_id CASE WHEN random(1, 100) <= :HOT_ORDER_PERCENT THEN random(1, :HOT_MERCHANTS) ELSE random((:HOT_MERCHANTS + 1), :NUM_MERCHANTS) END
+         0.000           0          0 \endif
+         0.001           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set customer_id :DEBUG_CUSTOMER_ID
+         0.000           0          0 \else
+         0.002           0          0 \set customer_slot random(0, ((:NUM_CUSTOMERS - :merchant_id) / :NUM_MERCHANTS))
+         0.002           0          0 \set customer_id :merchant_id + (:customer_slot * :NUM_MERCHANTS)
+         0.000           0          0 \endif
+         0.110           0          0 BEGIN;
+     64748.096           0          0 SELECT
+       442.332           0          0 COMMIT;
+SQL script 4: /home/stuproj/cs14/citus_project/expt_a102/transactions/T4_product_lookup.sql
+ - weight: 10 (targets 10.0% of total)
+ - 218 transactions (9.6% of total)
+ - number of transactions actually processed: 218 (tps = 0.343849)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 25804.667 ms
+ - latency stddev = 2892.387 ms
+ - statement latencies in milliseconds, failures and retries:
+         0.002           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set merchant_id :DEBUG_MERCHANT_ID
+         0.000           0          0 \else
+         0.003           0          0 \set merchant_id CASE WHEN random(1, 100) <= :HOT_ORDER_PERCENT THEN random(1, :HOT_MERCHANTS) ELSE random((:HOT_MERCHANTS + 1), :NUM_MERCHANTS) END
+         0.000           0          0 \endif
+         0.001           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set product_id :DEBUG_PRODUCT_ID
+         0.000           0          0 \else
+         0.002           0          0 \set product_slot random(0, ((:NUM_PRODUCTS - :merchant_id) / :NUM_MERCHANTS))
+         0.002           0          0 \set product_id :merchant_id + (:product_slot * :NUM_MERCHANTS)
+         0.000           0          0 \endif
+         0.107           0          0 BEGIN;
+     25728.475           0          0 SELECT
+        76.076           0          0 COMMIT;
+SQL script 5: /home/stuproj/cs14/citus_project/expt_a102/transactions/T5_update_order_status.sql
+ - weight: 10 (targets 10.0% of total)
+ - 232 transactions (10.2% of total)
+ - number of transactions actually processed: 232 (tps = 0.365931)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 11.620 ms
+ - latency stddev = 10.557 ms
+ - statement latencies in milliseconds, failures and retries:
+         0.002           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set order_id :DEBUG_ORDER_ID
+         0.000           0          0 \set status_roll :DEBUG_STATUS_ROLL
+         0.000           0          0 \else
+         0.002           0          0 \set order_id random(1, :INITIAL_NUM_ORDERS)
+         0.002           0          0 \set status_roll random(1, 3)
+         0.000           0          0 \endif
+         0.170           0          0 BEGIN;
+         0.002           0          0 \if :status_roll = 1
+         6.468           0          0 UPDATE orders
+         0.001           0          0 \elif :status_roll = 2
+         7.153           0          0 UPDATE orders
+         0.000           0          0 \else
+         7.505           0          0 UPDATE orders
+         0.000           0          0 \endif
+         4.411           0          0 COMMIT;
+SQL script 6: /home/stuproj/cs14/citus_project/expt_a102/transactions/T6_global_sales.sql
+ - weight: 5 (targets 5.0% of total)
+ - 110 transactions (4.8% of total)
+ - number of transactions actually processed: 110 (tps = 0.173502)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 3336.781 ms
+ - latency stddev = 1026.601 ms
+ - statement latencies in milliseconds, failures and retries:
+         0.098           0          0 BEGIN;
+      3320.390           0          0 SELECT
+        16.292           0          0 COMMIT;
+SQL script 7: /home/stuproj/cs14/citus_project/expt_a102/transactions/T7_inventory_transfer.sql
+ - weight: 5 (targets 5.0% of total)
+ - 116 transactions (5.1% of total)
+ - number of transactions actually processed: 116 (tps = 0.182965)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 10 (8.621%)
+ - total number of retries: 11
+ - latency average = 1002.101 ms
+ - latency stddev = 896.824 ms
+ - statement latencies in milliseconds, failures and retries:
+         0.002           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set source_product_id :DEBUG_T7_SOURCE_PRODUCT_ID
+         0.000           0          0 \set dest_product_id :DEBUG_T7_DEST_PRODUCT_ID
+         0.000           0          0 \set transfer_qty :DEBUG_T7_TRANSFER_QTY
+         0.000           0          0 \else
+         0.002           0          0 \set source_product_id random(1, :NUM_PRODUCTS)
+         0.002           0          0 \set dest_product_id random(1, :NUM_PRODUCTS)
+         0.005           0          0 \set transfer_qty random(:T7_MIN_TRANSFER_QTY, :T7_MAX_TRANSFER_QTY)
+         0.000           0          0 \endif
+         0.001           0          0 \set transfer_ok 1
+         0.125           0          0 BEGIN;
+       813.589           0          0 SELECT EXISTS(
+        25.811           0          0 SELECT EXISTS(
+         0.003           0          0 \if :t7_source_exists
+        22.190           0          0 SELECT inventory_id AS source_inventory_id FROM inventory WHERE product_id = (:source_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.003           0          0 \if :t7_dest_exists
+        21.498           0          0 SELECT inventory_id AS dest_inventory_id FROM inventory WHERE product_id = (:dest_product_id)::bigint
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.007           0          0 \if :source_product_id = :dest_product_id
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+         2.898           0          5 WITH debit AS (
+         0.002           0          0 \if :t7_debit_ok
+         2.608           0          6 WITH credit AS (
+         0.003           0          0 \if :t7_credit_ok
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+        11.397           0          0 COMMIT;
+         0.000           0          0 \else
+         0.000           0          0 ROLLBACK;
+         0.000           0          0 \endif
+SQL script 8: /home/stuproj/cs14/citus_project/expt_a102/transactions/T8_update_customer.sql
+ - weight: 2 (targets 2.0% of total)
+ - 45 transactions (2.0% of total)
+ - number of transactions actually processed: 45 (tps = 0.070978)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 9.551 ms
+ - latency stddev = 8.549 ms
+ - statement latencies in milliseconds, failures and retries:
+         0.002           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set merchant_id :DEBUG_MERCHANT_ID
+         0.000           0          0 \else
+         0.002           0          0 \set merchant_id random(1, :NUM_MERCHANTS)
+         0.000           0          0 \endif
+         0.000           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set customer_id :DEBUG_CUSTOMER_ID
+         0.000           0          0 \set new_email_number :DEBUG_NEW_EMAIL_NUMBER
+         0.000           0          0 \else
+         0.002           0          0 \set customer_slot random(0, ((:NUM_CUSTOMERS - :merchant_id) / :NUM_MERCHANTS))
+         0.002           0          0 \set customer_id :merchant_id + (:customer_slot * :NUM_MERCHANTS)
+         0.001           0          0 \set new_email_number random(1, :NUM_CUSTOMERS)
+         0.000           0          0 \endif
+         0.103           0          0 BEGIN;
+         5.574           0          0 UPDATE customers
+         3.864           0          0 COMMIT;
+SQL script 9: /home/stuproj/cs14/citus_project/expt_a102/transactions/T9_update_product.sql
+ - weight: 2 (targets 2.0% of total)
+ - 57 transactions (2.5% of total)
+ - number of transactions actually processed: 57 (tps = 0.089905)
+ - number of failed transactions: 0 (0.000%)
+ - number of serialization failures: 0 (0.000%)
+ - number of deadlock failures: 0 (0.000%)
+ - number of transactions retried: 0 (0.000%)
+ - total number of retries: 0
+ - latency average = 9.798 ms
+ - latency stddev = 8.149 ms
+ - statement latencies in milliseconds, failures and retries:
+         0.002           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set product_id :DEBUG_PRODUCT_ID
+         0.000           0          0 \else
+         0.002           0          0 \set product_id random(1, :NUM_PRODUCTS)
+         0.000           0          0 \endif
+         0.002           0          0 \set merchant_id  1 + ((:product_id - 1) % :NUM_MERCHANTS)
+         0.001           0          0 \set price_increase random(1, 10)
+         0.096           0          0 BEGIN;
+         5.619           0          0 UPDATE products
+         4.076           0          0 COMMIT;
+pgbench_exit_code=0
+tee_exit_code=0

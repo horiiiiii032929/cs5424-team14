@@ -1,0 +1,625 @@
+2026-10-17 23:01:29.176 +08 [835958] LOG:  There is no designated Main database.
+2026-10-17 23:01:29.176 +08 [835958] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-17 23:01:29.176 +08 [835958] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-17 23:01:29.327 +08 [835958] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-17 23:01:29.328 +08 [835958] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-17 23:01:29.328 +08 [835958] LOG:  listening on IPv6 address "::", port 5446
+2026-10-17 23:01:29.328 +08 [835958] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-17 23:01:29.333 +08 [836033] LOG:  database system was shut down at 2026-10-17 23:01:25 +08
+2026-10-17 23:01:29.338 +08 [835958] LOG:  database system is ready to accept connections
+2026-10-17 23:01:31.750 +08 [836733] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-17 23:01:31.750 +08 [836733] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:04:23.350 +08 [836031] LOG:  checkpoint starting: immediate force wait
+2026-10-17 23:04:23.390 +08 [836031] LOG:  checkpoint complete: wrote 1291 buffers (1.0%), wrote 3 SLRU buffers; 1 WAL file(s) added, 0 removed, 0 recycled; write=0.027 s, sync=0.003 s, total=0.040 s; sync files=477, longest=0.001 s, average=0.001 s; distance=8017 kB, estimate=8017 kB; lsn=0/1F335A8, redo lsn=0/1F33550
+2026-10-17 23:07:16.316 +08 [836031] LOG:  checkpoint starting: immediate force wait
+2026-10-17 23:07:16.335 +08 [836031] LOG:  checkpoint complete: wrote 108 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.003 s, sync=0.001 s, total=0.020 s; sync files=59, longest=0.001 s, average=0.001 s; distance=937 kB, estimate=7309 kB; lsn=0/201DA60, redo lsn=0/201DA08
+2026-10-17 23:19:39.997 +08 [835958] LOG:  received fast shutdown request
+2026-10-17 23:19:40.017 +08 [835958] LOG:  aborting any active transactions
+2026-10-17 23:19:40.021 +08 [835958] LOG:  background worker "logical replication launcher" (PID 836036) exited with exit code 1
+2026-10-17 23:19:40.022 +08 [836031] LOG:  shutting down
+2026-10-17 23:19:40.023 +08 [836031] LOG:  checkpoint starting: shutdown immediate
+2026-10-17 23:19:40.025 +08 [836031] LOG:  checkpoint complete: wrote 60 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.004 s; sync files=14, longest=0.001 s, average=0.001 s; distance=1235 kB, estimate=6702 kB; lsn=0/2152750, redo lsn=0/2152750
+2026-10-17 23:19:40.084 +08 [835958] LOG:  database system is shut down
+2026-10-17 23:19:42.251 +08 [3006274] LOG:  There is no designated Main database.
+2026-10-17 23:19:42.251 +08 [3006274] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-17 23:19:42.251 +08 [3006274] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-17 23:19:42.406 +08 [3006274] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-17 23:19:42.407 +08 [3006274] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-17 23:19:42.407 +08 [3006274] LOG:  listening on IPv6 address "::", port 5446
+2026-10-17 23:19:42.407 +08 [3006274] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-17 23:19:42.412 +08 [3006329] LOG:  database system was shut down at 2026-10-17 23:19:40 +08
+2026-10-17 23:19:42.417 +08 [3006274] LOG:  database system is ready to accept connections
+2026-10-17 23:19:43.292 +08 [3006597] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-17 23:19:43.292 +08 [3006597] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:22:37.224 +08 [3006327] LOG:  checkpoint starting: immediate force wait
+2026-10-17 23:22:37.241 +08 [3006327] LOG:  checkpoint complete: wrote 91 buffers (0.1%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.018 s; sync files=49, longest=0.001 s, average=0.001 s; distance=739 kB, estimate=739 kB; lsn=0/220B638, redo lsn=0/220B5E0
+2026-10-17 23:35:02.122 +08 [3006274] LOG:  received fast shutdown request
+2026-10-17 23:35:02.122 +08 [3006274] LOG:  aborting any active transactions
+2026-10-17 23:35:02.127 +08 [3006274] LOG:  background worker "logical replication launcher" (PID 3006333) exited with exit code 1
+2026-10-17 23:35:02.129 +08 [3006327] LOG:  shutting down
+2026-10-17 23:35:02.129 +08 [3006327] LOG:  checkpoint starting: shutdown immediate
+2026-10-17 23:35:02.132 +08 [3006327] LOG:  checkpoint complete: wrote 99 buffers (0.1%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.001 s, total=0.004 s; sync files=18, longest=0.001 s, average=0.001 s; distance=1530 kB, estimate=1530 kB; lsn=0/2389EC0, redo lsn=0/2389EC0
+2026-10-17 23:35:02.193 +08 [3006274] LOG:  database system is shut down
+2026-10-17 23:35:04.337 +08 [4080195] LOG:  There is no designated Main database.
+2026-10-17 23:35:04.337 +08 [4080195] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-17 23:35:04.337 +08 [4080195] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-17 23:35:04.494 +08 [4080195] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-17 23:35:04.495 +08 [4080195] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-17 23:35:04.495 +08 [4080195] LOG:  listening on IPv6 address "::", port 5446
+2026-10-17 23:35:04.495 +08 [4080195] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-17 23:35:04.501 +08 [4080237] LOG:  database system was shut down at 2026-10-17 23:35:02 +08
+2026-10-17 23:35:04.505 +08 [4080195] LOG:  database system is ready to accept connections
+2026-10-17 23:35:05.386 +08 [4080447] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-17 23:35:05.386 +08 [4080447] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:37:55.142 +08 [4080234] LOG:  checkpoint starting: immediate force wait
+2026-10-17 23:37:55.178 +08 [4080234] LOG:  checkpoint complete: wrote 102 buffers (0.1%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.001 s, total=0.037 s; sync files=49, longest=0.001 s, average=0.001 s; distance=709 kB, estimate=709 kB; lsn=0/243B4A8, redo lsn=0/243B450
+2026-10-17 23:50:23.557 +08 [4080195] LOG:  received fast shutdown request
+2026-10-17 23:50:23.557 +08 [4080195] LOG:  aborting any active transactions
+2026-10-17 23:50:23.561 +08 [4080195] LOG:  background worker "logical replication launcher" (PID 4080243) exited with exit code 1
+2026-10-17 23:50:23.563 +08 [4080234] LOG:  shutting down
+2026-10-17 23:50:23.564 +08 [4080234] LOG:  checkpoint starting: shutdown immediate
+2026-10-17 23:50:23.566 +08 [4080234] LOG:  checkpoint complete: wrote 72 buffers (0.1%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.003 s; sync files=14, longest=0.001 s, average=0.001 s; distance=1432 kB, estimate=1432 kB; lsn=0/25A1700, redo lsn=0/25A1700
+2026-10-17 23:50:23.623 +08 [4080195] LOG:  database system is shut down
+2026-10-17 23:50:25.785 +08 [1524252] LOG:  There is no designated Main database.
+2026-10-17 23:50:25.785 +08 [1524252] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-17 23:50:25.785 +08 [1524252] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-17 23:50:25.941 +08 [1524252] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-17 23:50:25.941 +08 [1524252] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-17 23:50:25.941 +08 [1524252] LOG:  listening on IPv6 address "::", port 5446
+2026-10-17 23:50:25.942 +08 [1524252] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-17 23:50:25.947 +08 [1524771] LOG:  database system was shut down at 2026-10-17 23:50:23 +08
+2026-10-17 23:50:25.952 +08 [1524252] LOG:  database system is ready to accept connections
+2026-10-17 23:50:26.830 +08 [1527335] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-17 23:50:26.830 +08 [1527335] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-17 23:53:13.159 +08 [1524763] LOG:  checkpoint starting: immediate force wait
+2026-10-17 23:53:13.164 +08 [1524763] LOG:  checkpoint complete: wrote 92 buffers (0.1%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.006 s; sync files=50, longest=0.001 s, average=0.001 s; distance=713 kB, estimate=713 kB; lsn=0/2653DE0, redo lsn=0/2653D88
+2026-10-17 23:54:46.493 +08 [2207450] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-17 23:54:46.493 +08 [2207450] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-17 23:54:46.493 +08 [2207450] HINT:  The transaction might succeed if retried.
+2026-10-17 23:54:46.493 +08 [2207450] CONTEXT:  while executing command on xcnf15:5446
+2026-10-17 23:54:46.493 +08 [2207450] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (3)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (418365)::bigint
+	    AND quantity >= (3)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-17 23:54:57.291 +08 [2207444] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-17 23:54:57.291 +08 [2207444] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-17 23:54:57.291 +08 [2207444] HINT:  The transaction might succeed if retried.
+2026-10-17 23:54:57.291 +08 [2207444] CONTEXT:  while executing command on xcnf14:5446
+2026-10-17 23:54:57.291 +08 [2207444] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (3)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (385165)::bigint
+	    AND quantity >= (3)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-17 23:55:22.780 +08 [2207445] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-17 23:55:22.780 +08 [2207445] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-17 23:55:22.780 +08 [2207445] HINT:  The transaction might succeed if retried.
+2026-10-17 23:55:22.780 +08 [2207445] CONTEXT:  while executing command on xcnf15:5446
+2026-10-17 23:55:22.780 +08 [2207445] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (2)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (320941)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:06:10.704 +08 [1524252] LOG:  received fast shutdown request
+2026-10-18 00:06:10.710 +08 [1524252] LOG:  aborting any active transactions
+2026-10-18 00:06:10.715 +08 [1524252] LOG:  background worker "logical replication launcher" (PID 1524792) exited with exit code 1
+2026-10-18 00:06:10.717 +08 [1524763] LOG:  shutting down
+2026-10-18 00:06:10.717 +08 [1524763] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 00:06:10.720 +08 [1524763] LOG:  checkpoint complete: wrote 76 buffers (0.1%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.003 s; sync files=14, longest=0.001 s, average=0.001 s; distance=1356 kB, estimate=1356 kB; lsn=0/27A6E10, redo lsn=0/27A6E10
+2026-10-18 00:06:10.777 +08 [1524252] LOG:  database system is shut down
+2026-10-18 00:06:12.930 +08 [304594] LOG:  There is no designated Main database.
+2026-10-18 00:06:12.930 +08 [304594] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 00:06:12.930 +08 [304594] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 00:06:13.080 +08 [304594] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 00:06:13.080 +08 [304594] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 00:06:13.080 +08 [304594] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 00:06:13.081 +08 [304594] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 00:06:13.086 +08 [305179] LOG:  database system was shut down at 2026-10-18 00:06:10 +08
+2026-10-18 00:06:13.092 +08 [304594] LOG:  database system is ready to accept connections
+2026-10-18 00:06:13.984 +08 [307678] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 00:06:13.984 +08 [307678] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 00:09:02.154 +08 [305170] LOG:  checkpoint starting: immediate force wait
+2026-10-18 00:09:02.163 +08 [305170] LOG:  checkpoint complete: wrote 98 buffers (0.1%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.009 s; sync files=49, longest=0.001 s, average=0.001 s; distance=724 kB, estimate=724 kB; lsn=0/285BEA8, redo lsn=0/285BE50
+2026-10-18 00:09:06.548 +08 [583603] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:09:06.548 +08 [583603] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:09:06.548 +08 [583603] HINT:  The transaction might succeed if retried.
+2026-10-18 00:09:06.548 +08 [583603] CONTEXT:  while executing command on xcnf15:5446
+2026-10-18 00:09:06.548 +08 [583603] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (2)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (361914)::bigint
+	    AND quantity >= (2)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:09:06.566 +08 [583644] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:09:06.566 +08 [583644] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-18 00:09:06.566 +08 [583644] HINT:  The transaction might succeed if retried.
+2026-10-18 00:09:06.566 +08 [583644] CONTEXT:  while executing command on xcnf12:5446
+2026-10-18 00:09:06.566 +08 [583644] STATEMENT:  SELECT
+	  CASE WHEN EXISTS (
+	    SELECT 1
+	    FROM products
+	    WHERE merchant_id = (246)::bigint
+	      AND product_id = (434246)::bigint
+	  ) THEN 1 ELSE 0 END AS product_ok,
+	  COALESCE((
+	    SELECT price
+	    FROM products
+	    WHERE merchant_id = (246)::bigint
+	      AND product_id = (434246)::bigint
+	    LIMIT 1
+	  ), 0.00)::numeric(12,2) AS price
+	
+2026-10-18 00:09:06.698 +08 [583625] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:09:06.698 +08 [583625] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-18 00:09:06.698 +08 [583625] HINT:  The transaction might succeed if retried.
+2026-10-18 00:09:06.698 +08 [583625] CONTEXT:  while executing command on xcnf15:5446
+2026-10-18 00:09:06.698 +08 [583625] STATEMENT:  COMMIT;
+2026-10-18 00:09:06.816 +08 [583650] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:09:06.816 +08 [583650] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-18 00:09:06.816 +08 [583650] HINT:  The transaction might succeed if retried.
+2026-10-18 00:09:06.816 +08 [583650] CONTEXT:  while executing command on xcnf12:5446
+2026-10-18 00:09:06.816 +08 [583650] STATEMENT:  INSERT INTO order_items(
+	  order_item_id, merchant_id, order_id, product_id, quantity, unit_price
+	)
+	VALUES(
+	  (15000098)::bigint,
+	  (675)::bigint,
+	  (5000014)::bigint,
+	  (34675)::bigint,
+	  (4)::integer,
+	  914.25
+	);
+2026-10-18 00:09:08.082 +08 [583596] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:09:08.082 +08 [583596] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:09:08.082 +08 [583596] HINT:  The transaction might succeed if retried.
+2026-10-18 00:09:08.082 +08 [583596] CONTEXT:  while executing command on xcnf13:5446
+2026-10-18 00:09:08.082 +08 [583596] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (202304)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:09:08.415 +08 [583650] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:09:08.415 +08 [583650] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:09:08.415 +08 [583650] HINT:  The transaction might succeed if retried.
+2026-10-18 00:09:08.415 +08 [583650] CONTEXT:  while executing command on xcnf15:5446
+2026-10-18 00:09:08.415 +08 [583650] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (423345)::bigint
+	    AND quantity >= (1)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:10:44.044 +08 [738157] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:10:44.044 +08 [738157] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:10:44.044 +08 [738157] HINT:  The transaction might succeed if retried.
+2026-10-18 00:10:44.044 +08 [738157] CONTEXT:  while executing command on xcnf14:5446
+2026-10-18 00:10:44.044 +08 [738157] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (216315)::bigint
+	    AND quantity >= (1)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:10:44.303 +08 [738149] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:10:44.303 +08 [738149] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:10:44.303 +08 [738149] HINT:  The transaction might succeed if retried.
+2026-10-18 00:10:44.303 +08 [738149] CONTEXT:  while executing command on xcnf12:5446
+2026-10-18 00:10:44.303 +08 [738149] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (63493)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:10:44.386 +08 [738162] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:10:44.386 +08 [738162] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:10:44.386 +08 [738162] HINT:  The transaction might succeed if retried.
+2026-10-18 00:10:44.386 +08 [738162] CONTEXT:  while executing command on xcnf15:5446
+2026-10-18 00:10:44.386 +08 [738162] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (297028)::bigint
+	    AND quantity >= (1)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:10:45.196 +08 [738157] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:10:45.196 +08 [738157] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:10:45.196 +08 [738157] HINT:  The transaction might succeed if retried.
+2026-10-18 00:10:45.196 +08 [738157] CONTEXT:  while executing command on xcnf12:5446
+2026-10-18 00:10:45.196 +08 [738157] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (91125)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:10:46.295 +08 [738155] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:10:46.295 +08 [738155] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:10:46.295 +08 [738155] HINT:  The transaction might succeed if retried.
+2026-10-18 00:10:46.295 +08 [738155] CONTEXT:  while executing command on xcnf14:5446
+2026-10-18 00:10:46.295 +08 [738155] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (6917)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:10:46.759 +08 [738157] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:10:46.759 +08 [738157] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:10:46.759 +08 [738157] HINT:  The transaction might succeed if retried.
+2026-10-18 00:10:46.759 +08 [738157] CONTEXT:  while executing command on xcnf14:5446
+2026-10-18 00:10:46.759 +08 [738157] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (216315)::bigint
+	    AND quantity >= (1)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:10:48.400 +08 [738155] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:10:48.400 +08 [738155] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:10:48.400 +08 [738155] HINT:  The transaction might succeed if retried.
+2026-10-18 00:10:48.400 +08 [738155] CONTEXT:  while executing command on xcnf14:5446
+2026-10-18 00:10:48.400 +08 [738155] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (6917)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:15:23.273 +08 [738190] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:15:23.273 +08 [738190] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:15:23.273 +08 [738190] HINT:  The transaction might succeed if retried.
+2026-10-18 00:15:23.273 +08 [738190] CONTEXT:  while executing command on xcnf14:5446
+2026-10-18 00:15:23.273 +08 [738190] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (163812)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:17:00.790 +08 [738199] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:17:00.790 +08 [738199] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:17:00.790 +08 [738199] HINT:  The transaction might succeed if retried.
+2026-10-18 00:17:00.790 +08 [738199] CONTEXT:  while executing command on xcnf15:5446
+2026-10-18 00:17:00.790 +08 [738199] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (50222)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:19:22.740 +08 [738178] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:19:22.740 +08 [738178] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:19:22.740 +08 [738178] HINT:  The transaction might succeed if retried.
+2026-10-18 00:19:22.740 +08 [738178] CONTEXT:  while executing command on xcnf12:5446
+2026-10-18 00:19:22.740 +08 [738178] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (248724)::bigint
+	    AND quantity >= (1)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:22:18.993 +08 [304594] LOG:  received fast shutdown request
+2026-10-18 00:22:19.005 +08 [304594] LOG:  aborting any active transactions
+2026-10-18 00:22:19.009 +08 [304594] LOG:  background worker "logical replication launcher" (PID 305209) exited with exit code 1
+2026-10-18 00:22:19.012 +08 [305170] LOG:  shutting down
+2026-10-18 00:22:19.012 +08 [305170] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 00:22:19.015 +08 [305170] LOG:  checkpoint complete: wrote 62 buffers (0.0%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.004 s; sync files=14, longest=0.001 s, average=0.001 s; distance=1461 kB, estimate=1461 kB; lsn=0/29C93E0, redo lsn=0/29C93E0
+2026-10-18 00:22:19.071 +08 [304594] LOG:  database system is shut down
+2026-10-18 00:22:21.319 +08 [950168] LOG:  There is no designated Main database.
+2026-10-18 00:22:21.319 +08 [950168] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 00:22:21.319 +08 [950168] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 00:22:21.473 +08 [950168] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 00:22:21.473 +08 [950168] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 00:22:21.473 +08 [950168] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 00:22:21.474 +08 [950168] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 00:22:21.479 +08 [950277] LOG:  database system was shut down at 2026-10-18 00:22:19 +08
+2026-10-18 00:22:21.484 +08 [950168] LOG:  database system is ready to accept connections
+2026-10-18 00:22:22.355 +08 [950586] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 00:22:22.355 +08 [950586] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 00:25:12.133 +08 [950275] LOG:  checkpoint starting: immediate force wait
+2026-10-18 00:25:12.148 +08 [950275] LOG:  checkpoint complete: wrote 95 buffers (0.1%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.001 s, total=0.015 s; sync files=52, longest=0.001 s, average=0.001 s; distance=755 kB, estimate=755 kB; lsn=0/2A86270, redo lsn=0/2A86218
+2026-10-18 00:25:22.580 +08 [1013467] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:25:22.580 +08 [1013467] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-18 00:25:22.580 +08 [1013467] HINT:  The transaction might succeed if retried.
+2026-10-18 00:25:22.580 +08 [1013467] CONTEXT:  while executing command on xcnf13:5446
+2026-10-18 00:25:22.580 +08 [1013467] STATEMENT:  INSERT INTO order_items(
+	  order_item_id, merchant_id, order_id, product_id, quantity, unit_price
+	)
+	VALUES(
+	  (15000147)::bigint,
+	  (240)::bigint,
+	  (5000022)::bigint,
+	  (433240)::bigint,
+	  (5)::integer,
+	  276.60
+	);
+2026-10-18 00:25:27.099 +08 [1013492] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:25:27.099 +08 [1013492] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:25:27.099 +08 [1013492] HINT:  The transaction might succeed if retried.
+2026-10-18 00:25:27.099 +08 [1013492] CONTEXT:  while executing command on xcnf14:5446
+2026-10-18 00:25:27.099 +08 [1013492] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (397688)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:25:27.959 +08 [1013381] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:25:27.959 +08 [1013381] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:25:27.959 +08 [1013381] HINT:  The transaction might succeed if retried.
+2026-10-18 00:25:27.959 +08 [1013381] CONTEXT:  while executing command on xcnf12:5446
+2026-10-18 00:25:27.959 +08 [1013381] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (5)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (367290)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:25:30.647 +08 [1013467] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:25:30.647 +08 [1013467] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:25:30.647 +08 [1013467] HINT:  The transaction might succeed if retried.
+2026-10-18 00:25:30.647 +08 [1013467] CONTEXT:  while executing command on xcnf15:5446
+2026-10-18 00:25:30.647 +08 [1013467] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (203264)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:27:46.774 +08 [1062752] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:27:46.774 +08 [1062752] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:27:46.774 +08 [1062752] HINT:  The transaction might succeed if retried.
+2026-10-18 00:27:46.774 +08 [1062752] CONTEXT:  while executing command on xcnf15:5446
+2026-10-18 00:27:46.774 +08 [1062752] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (235573)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:29:48.328 +08 [1062762] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:29:48.328 +08 [1062762] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:29:48.328 +08 [1062762] HINT:  The transaction might succeed if retried.
+2026-10-18 00:29:48.328 +08 [1062762] CONTEXT:  while executing command on xcnf13:5446
+2026-10-18 00:29:48.328 +08 [1062762] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (40296)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:29:54.771 +08 [1062762] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:29:54.771 +08 [1062762] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:29:54.771 +08 [1062762] HINT:  The transaction might succeed if retried.
+2026-10-18 00:29:54.771 +08 [1062762] CONTEXT:  while executing command on xcnf15:5446
+2026-10-18 00:29:54.771 +08 [1062762] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (411900)::bigint
+	    AND quantity >= (1)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:29:57.513 +08 [1062771] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:29:57.513 +08 [1062771] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:29:57.513 +08 [1062771] HINT:  The transaction might succeed if retried.
+2026-10-18 00:29:57.513 +08 [1062771] CONTEXT:  while executing command on xcnf12:5446
+2026-10-18 00:29:57.513 +08 [1062771] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (122857)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:30:03.346 +08 [1062809] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:30:03.346 +08 [1062809] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:30:03.346 +08 [1062809] HINT:  The transaction might succeed if retried.
+2026-10-18 00:30:03.346 +08 [1062809] CONTEXT:  while executing command on xcnf14:5446
+2026-10-18 00:30:03.346 +08 [1062809] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (71392)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:30:36.378 +08 [1062861] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:30:36.378 +08 [1062861] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:30:36.378 +08 [1062861] HINT:  The transaction might succeed if retried.
+2026-10-18 00:30:36.378 +08 [1062861] CONTEXT:  while executing command on xcnf14:5446
+2026-10-18 00:30:36.378 +08 [1062861] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (387282)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:31:02.703 +08 [1062794] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:31:02.703 +08 [1062794] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:31:02.703 +08 [1062794] HINT:  The transaction might succeed if retried.
+2026-10-18 00:31:02.703 +08 [1062794] CONTEXT:  while executing command on xcnf15:5446
+2026-10-18 00:31:02.703 +08 [1062794] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (424063)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:32:03.039 +08 [1062821] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:32:03.039 +08 [1062821] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:32:03.039 +08 [1062821] HINT:  The transaction might succeed if retried.
+2026-10-18 00:32:03.039 +08 [1062821] CONTEXT:  while executing command on xcnf15:5446
+2026-10-18 00:32:03.039 +08 [1062821] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (5)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (357109)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:33:01.707 +08 [1062832] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:33:01.707 +08 [1062832] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:33:01.707 +08 [1062832] HINT:  The transaction might succeed if retried.
+2026-10-18 00:33:01.707 +08 [1062832] CONTEXT:  while executing command on xcnf15:5446
+2026-10-18 00:33:01.707 +08 [1062832] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (5)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (181908)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:34:25.821 +08 [1062791] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:34:25.821 +08 [1062791] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:34:25.821 +08 [1062791] HINT:  The transaction might succeed if retried.
+2026-10-18 00:34:25.821 +08 [1062791] CONTEXT:  while executing command on xcnf12:5446
+2026-10-18 00:34:25.821 +08 [1062791] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (3)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (491483)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:35:17.143 +08 [1062754] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:35:17.143 +08 [1062754] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:35:17.143 +08 [1062754] HINT:  The transaction might succeed if retried.
+2026-10-18 00:35:17.143 +08 [1062754] CONTEXT:  while executing command on xcnf13:5446
+2026-10-18 00:35:17.143 +08 [1062754] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (5)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (212735)::bigint
+	    AND quantity >= (5)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:36:35.434 +08 [1062788] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:36:35.434 +08 [1062788] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:36:35.434 +08 [1062788] HINT:  The transaction might succeed if retried.
+2026-10-18 00:36:35.434 +08 [1062788] CONTEXT:  while executing command on xcnf14:5446
+2026-10-18 00:36:35.434 +08 [1062788] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (5)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (24076)::bigint
+	    AND quantity >= (5)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:36:41.030 +08 [1062817] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:36:41.030 +08 [1062817] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:36:41.030 +08 [1062817] HINT:  The transaction might succeed if retried.
+2026-10-18 00:36:41.030 +08 [1062817] CONTEXT:  while executing command on xcnf12:5446
+2026-10-18 00:36:41.030 +08 [1062817] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (5)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (430426)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-18 00:36:47.087 +08 [1062768] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 00:36:47.087 +08 [1062768] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 00:36:47.087 +08 [1062768] HINT:  The transaction might succeed if retried.
+2026-10-18 00:36:47.087 +08 [1062768] CONTEXT:  while executing command on xcnf14:5446
+2026-10-18 00:36:47.087 +08 [1062768] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (3)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (478935)::bigint
+	    AND quantity >= (3)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-18 00:39:37.290 +08 [950168] LOG:  received fast shutdown request
+2026-10-18 00:39:37.296 +08 [950168] LOG:  aborting any active transactions
+2026-10-18 00:39:37.300 +08 [950168] LOG:  background worker "logical replication launcher" (PID 950284) exited with exit code 1
+2026-10-18 00:39:37.302 +08 [950275] LOG:  shutting down
+2026-10-18 00:39:37.302 +08 [950275] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 00:39:37.305 +08 [950275] LOG:  checkpoint complete: wrote 89 buffers (0.1%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.001 s, total=0.004 s; sync files=18, longest=0.001 s, average=0.001 s; distance=1441 kB, estimate=1441 kB; lsn=0/2BEE7D8, redo lsn=0/2BEE7D8
+2026-10-18 00:39:37.362 +08 [950168] LOG:  database system is shut down

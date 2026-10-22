@@ -1,0 +1,154 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Custom Scan",
+      "Custom Plan Provider": "Citus Adaptive",
+      "Parallel Aware": false,
+      "Async Capable": false,
+      "Startup Cost": 0.00,
+      "Total Cost": 0.00,
+      "Plan Rows": 0,
+      "Plan Width": 0,
+      "Disabled": false,
+      "Output": ["remote_scan.\"exists\""],
+      "Distributed Query": {
+        "Subplans": [
+          {
+            "PlannedStmt": [
+              {
+                "Plan": {
+                  "Node Type": "Aggregate",
+                  "Strategy": "Hashed",
+                  "Partial Mode": "Simple",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Startup Cost": 500.00,
+                  "Total Cost": 504.00,
+                  "Plan Rows": 67,
+                  "Plan Width": 8,
+                  "Disabled": false,
+                  "Output": ["remote_scan.order_id"],
+                  "Group Key": ["remote_scan.order_id"],
+                  "Filter": "(COALESCE((pg_catalog.sum(remote_scan.worker_column_2))::bigint, '0'::bigint) > 1)",
+                  "Planned Partitions": 0,
+                  "Plans": [
+                    {
+                      "Node Type": "Custom Scan",
+                      "Parent Relationship": "Outer",
+                      "Custom Plan Provider": "Citus Adaptive",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Startup Cost": 0.00,
+                      "Total Cost": 0.00,
+                      "Plan Rows": 100000,
+                      "Plan Width": 16,
+                      "Disabled": false,
+                      "Output": ["remote_scan.order_id", "remote_scan.worker_column_2"],
+                      "Distributed Query": {
+                        "Job": {
+                          "Task Count": 32,
+                          "Tasks Shown": "One of 32",
+                          "Tasks": [
+                            {
+                              "Query": "SELECT order_id, count(*) AS worker_column_2 FROM public.orders_102104 orders WHERE true GROUP BY order_id",
+                              "Node": "host=xcnf1 port=5446 dbname=project-977468",
+                              "Remote Plan": [
+                                [
+                                  {
+                                    "Plan": {
+                                      "Node Type": "Aggregate",
+                                      "Strategy": "Hashed",
+                                      "Partial Mode": "Simple",
+                                      "Parallel Aware": false,
+                                      "Async Capable": false,
+                                      "Startup Cost": 4701.70,
+                                      "Total Cost": 6060.83,
+                                      "Plan Rows": 135913,
+                                      "Plan Width": 16,
+                                      "Disabled": false,
+                                      "Output": ["order_id", "count(*)"],
+                                      "Group Key": ["orders.order_id"],
+                                      "Planned Partitions": 0,
+                                      "Plans": [
+                                        {
+                                          "Node Type": "Seq Scan",
+                                          "Parent Relationship": "Outer",
+                                          "Parallel Aware": false,
+                                          "Async Capable": false,
+                                          "Relation Name": "orders_102104",
+                                          "Schema": "public",
+                                          "Alias": "orders",
+                                          "Startup Cost": 0.00,
+                                          "Total Cost": 4022.13,
+                                          "Plan Rows": 135913,
+                                          "Plan Width": 8,
+                                          "Disabled": false,
+                                          "Output": ["order_id", "merchant_id", "customer_id", "order_status", "total_amount", "created_at"]
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "Job": {
+          "Task Count": 1,
+          "Tasks Shown": "All",
+          "Tasks": [
+            {
+              "Query": "SELECT (EXISTS (SELECT intermediate_result.order_id FROM read_intermediate_result('1_1'::text, 'binary'::citus_copy_format) intermediate_result(order_id bigint))) AS \"exists\"",
+              "Node": "host=localhost port=5446 dbname=project-977468",
+              "Remote Plan": [
+                [
+                  {
+                    "Plan": {
+                      "Node Type": "Result",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Startup Cost": 0.01,
+                      "Total Cost": 0.02,
+                      "Plan Rows": 1,
+                      "Plan Width": 1,
+                      "Disabled": false,
+                      "Output": ["(InitPlan 1).col1"],
+                      "Plans": [
+                        {
+                          "Node Type": "Function Scan",
+                          "Parent Relationship": "InitPlan",
+                          "Subplan Name": "InitPlan 1",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Function Name": "read_intermediate_result",
+                          "Schema": "pg_catalog",
+                          "Alias": "intermediate_result",
+                          "Startup Cost": 0.00,
+                          "Total Cost": 10.00,
+                          "Plan Rows": 1000,
+                          "Plan Width": 0,
+                          "Disabled": false,
+                          "Function Call": "read_intermediate_result('1_1'::text, 'binary'::citus_copy_format)"
+                        }
+                      ]
+                    }
+                  }
+                ]
+
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+]

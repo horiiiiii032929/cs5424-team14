@@ -1,0 +1,359 @@
+2026-10-19 19:11:18.917 +08 [25001] LOG:  There is no designated Main database.
+2026-10-19 19:11:18.917 +08 [25001] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 19:11:18.917 +08 [25001] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 19:11:19.072 +08 [25001] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 19:11:19.072 +08 [25001] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 19:11:19.072 +08 [25001] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 19:11:19.072 +08 [25001] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 19:11:19.078 +08 [25008] LOG:  database system was shut down at 2026-10-19 19:11:18 +08
+2026-10-19 19:11:19.083 +08 [25001] LOG:  database system is ready to accept connections
+2026-10-19 19:11:21.730 +08 [25016] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 19:11:21.730 +08 [25016] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:15:39.212 +08 [25151] LOG:  skipping vacuum of "order_items_102167" --- lock not available
+2026-10-19 19:15:39.212 +08 [25151] LOG:  skipping vacuum of "orders_102135" --- lock not available
+2026-10-19 19:15:39.741 +08 [25151] LOG:  skipping analyze of "orders_102127" --- lock not available
+2026-10-19 19:15:40.267 +08 [25151] LOG:  skipping analyze of "orders_102119" --- lock not available
+2026-10-19 19:15:40.403 +08 [25151] LOG:  skipping analyze of "order_items_102163" --- lock not available
+2026-10-19 19:15:40.640 +08 [25151] LOG:  skipping analyze of "orders_102131" --- lock not available
+2026-10-19 19:15:40.763 +08 [25151] LOG:  skipping analyze of "order_items_102155" --- lock not available
+2026-10-19 19:15:40.992 +08 [25151] LOG:  skipping analyze of "orders_102123" --- lock not available
+2026-10-19 19:15:41.221 +08 [25151] LOG:  skipping analyze of "orders_102107" --- lock not available
+2026-10-19 19:15:41.346 +08 [25151] LOG:  skipping analyze of "order_items_102147" --- lock not available
+2026-10-19 19:15:41.576 +08 [25151] LOG:  skipping analyze of "orders_102115" --- lock not available
+2026-10-19 19:15:41.698 +08 [25151] LOG:  skipping analyze of "order_items_102143" --- lock not available
+2026-10-19 19:15:41.925 +08 [25151] LOG:  skipping analyze of "orders_102111" --- lock not available
+2026-10-19 19:15:42.049 +08 [25151] LOG:  skipping analyze of "order_items_102139" --- lock not available
+2026-10-19 19:27:04.815 +08 [25016] WARNING:  terminating connection due to administrator command
+2026-10-19 19:27:04.815 +08 [25016] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:27:06.915 +08 [25016] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 19:27:06.915 +08 [25016] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:27:06.916 +08 [25016] WARNING:  terminating connection due to administrator command
+2026-10-19 19:27:06.916 +08 [25016] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:27:06.916 +08 [25016] WARNING:  terminating connection due to administrator command
+2026-10-19 19:27:06.916 +08 [25016] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:27:06.916 +08 [25016] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 19:27:06.916 +08 [25016] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:27:06.920 +08 [25016] WARNING:  could not issue cancel request
+2026-10-19 19:27:06.920 +08 [25016] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-19 19:27:06.920 +08 [25016] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:27:08.000 +08 [25001] LOG:  received fast shutdown request
+2026-10-19 19:27:08.000 +08 [25001] LOG:  aborting any active transactions
+2026-10-19 19:27:08.001 +08 [42798] FATAL:  terminating connection due to administrator command
+2026-10-19 19:27:08.004 +08 [25001] LOG:  background worker "logical replication launcher" (PID 25011) exited with exit code 1
+2026-10-19 19:27:08.008 +08 [25006] LOG:  shutting down
+2026-10-19 19:27:08.008 +08 [25006] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 19:27:09.196 +08 [25006] LOG:  checkpoint complete: wrote 123050 buffers (93.9%), wrote 9 SLRU buffers; 0 WAL file(s) added, 0 removed, 277 recycled; write=1.132 s, sync=0.006 s, total=1.188 s; sync files=1099, longest=0.001 s, average=0.001 s; distance=4542152 kB, estimate=4542152 kB; lsn=1/16B10F58, redo lsn=1/16B10F58
+2026-10-19 19:27:09.540 +08 [25001] LOG:  database system is shut down
+2026-10-19 19:27:09.716 +08 [50219] LOG:  There is no designated Main database.
+2026-10-19 19:27:09.716 +08 [50219] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 19:27:09.716 +08 [50219] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 19:27:09.870 +08 [50219] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 19:27:09.870 +08 [50219] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 19:27:09.870 +08 [50219] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 19:27:09.870 +08 [50219] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 19:27:09.876 +08 [50226] LOG:  database system was shut down at 2026-10-19 19:27:09 +08
+2026-10-19 19:27:09.880 +08 [50219] LOG:  database system is ready to accept connections
+2026-10-19 19:27:10.794 +08 [50235] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 19:27:10.794 +08 [50235] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:40:39.248 +08 [50235] WARNING:  terminating connection due to administrator command
+2026-10-19 19:40:39.248 +08 [50235] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:40:41.259 +08 [50235] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 19:40:41.259 +08 [50235] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:40:41.259 +08 [50235] WARNING:  terminating connection due to administrator command
+2026-10-19 19:40:41.259 +08 [50235] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:40:41.259 +08 [50235] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 19:40:41.259 +08 [50235] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:40:43.261 +08 [50219] LOG:  received fast shutdown request
+2026-10-19 19:40:43.262 +08 [50219] LOG:  aborting any active transactions
+2026-10-19 19:40:43.262 +08 [75691] FATAL:  terminating connection due to administrator command
+2026-10-19 19:40:43.265 +08 [50219] LOG:  background worker "logical replication launcher" (PID 50229) exited with exit code 1
+2026-10-19 19:40:43.270 +08 [50224] LOG:  shutting down
+2026-10-19 19:40:43.271 +08 [50224] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 19:40:44.401 +08 [50224] LOG:  checkpoint complete: wrote 121984 buffers (93.1%), wrote 12 SLRU buffers; 0 WAL file(s) added, 0 removed, 140 recycled; write=1.106 s, sync=0.002 s, total=1.131 s; sync files=288, longest=0.001 s, average=0.001 s; distance=2293999 kB, estimate=2293999 kB; lsn=1/A2B4CF20, redo lsn=1/A2B4CF20
+2026-10-19 19:40:44.743 +08 [50219] LOG:  database system is shut down
+2026-10-19 19:40:44.874 +08 [81523] LOG:  There is no designated Main database.
+2026-10-19 19:40:44.874 +08 [81523] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 19:40:44.874 +08 [81523] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 19:40:45.027 +08 [81523] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 19:40:45.027 +08 [81523] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 19:40:45.027 +08 [81523] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 19:40:45.028 +08 [81523] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 19:40:45.033 +08 [81530] LOG:  database system was shut down at 2026-10-19 19:40:44 +08
+2026-10-19 19:40:45.038 +08 [81523] LOG:  database system is ready to accept connections
+2026-10-19 19:40:45.960 +08 [81539] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 19:40:45.960 +08 [81539] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:43:33.434 +08 [81607] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:43:33.434 +08 [81607] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 19:43:33.434 +08 [81607] HINT:  The transaction might succeed if retried.
+2026-10-19 19:43:33.434 +08 [81607] STATEMENT:  PREPARE TRANSACTION 'citus_0_48505_3507_608'
+2026-10-19 19:48:16.524 +08 [84006] ERROR:  canceling statement due to user request
+2026-10-19 19:48:16.524 +08 [84006] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102123 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 19:48:16.547 +08 [94785] ERROR:  canceling statement due to user request
+2026-10-19 19:48:16.547 +08 [94785] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102127 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 19:48:16.548 +08 [94794] FATAL:  terminating background worker "parallel worker" due to administrator command
+2026-10-19 19:48:16.548 +08 [94794] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102123 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 19:48:16.555 +08 [94798] FATAL:  terminating background worker "parallel worker" due to administrator command
+2026-10-19 19:48:16.555 +08 [94798] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102127 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 19:48:16.567 +08 [81523] LOG:  background worker "parallel worker" (PID 94794) exited with exit code 1
+2026-10-19 19:48:16.567 +08 [84006] LOG:  could not send data to client: Broken pipe
+2026-10-19 19:48:16.567 +08 [84006] FATAL:  connection to client lost
+2026-10-19 19:48:16.579 +08 [94786] ERROR:  canceling statement due to user request
+2026-10-19 19:48:16.579 +08 [94786] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102131 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 19:48:16.591 +08 [94800] FATAL:  terminating background worker "parallel worker" due to administrator command
+2026-10-19 19:48:16.591 +08 [94800] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102131 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 19:48:16.604 +08 [81523] LOG:  background worker "parallel worker" (PID 94798) exited with exit code 1
+2026-10-19 19:48:16.606 +08 [94785] LOG:  could not send data to client: Connection reset by peer
+2026-10-19 19:48:16.606 +08 [94785] FATAL:  connection to client lost
+2026-10-19 19:48:16.641 +08 [81523] LOG:  background worker "parallel worker" (PID 94800) exited with exit code 1
+2026-10-19 19:48:16.642 +08 [94786] LOG:  could not send data to client: Broken pipe
+2026-10-19 19:48:16.642 +08 [94786] FATAL:  connection to client lost
+2026-10-19 19:54:16.850 +08 [81539] WARNING:  terminating connection due to administrator command
+2026-10-19 19:54:16.850 +08 [81539] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:54:16.851 +08 [81539] WARNING:  terminating connection due to administrator command
+2026-10-19 19:54:16.851 +08 [81539] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:54:16.855 +08 [81539] WARNING:  could not issue cancel request
+2026-10-19 19:54:16.855 +08 [81539] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-19 19:54:16.855 +08 [81539] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:54:18.861 +08 [81539] WARNING:  connection to the remote node cs14@xcnf2:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-19 19:54:18.861 +08 [81539] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:54:18.861 +08 [81539] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 19:54:18.861 +08 [81539] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:54:18.861 +08 [81539] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-19 19:54:18.861 +08 [81539] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:54:18.861 +08 [81539] WARNING:  terminating connection due to administrator command
+2026-10-19 19:54:18.861 +08 [81539] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:54:18.861 +08 [81539] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 19:54:18.861 +08 [81539] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:54:19.578 +08 [81523] LOG:  received fast shutdown request
+2026-10-19 19:54:19.579 +08 [81523] LOG:  aborting any active transactions
+2026-10-19 19:54:19.579 +08 [103101] FATAL:  terminating connection due to administrator command
+2026-10-19 19:54:19.585 +08 [81523] LOG:  background worker "logical replication launcher" (PID 81533) exited with exit code 1
+2026-10-19 19:54:19.589 +08 [81528] LOG:  shutting down
+2026-10-19 19:54:19.589 +08 [81528] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 19:54:20.719 +08 [81528] LOG:  checkpoint complete: wrote 122069 buffers (93.1%), wrote 14 SLRU buffers; 0 WAL file(s) added, 0 removed, 140 recycled; write=1.105 s, sync=0.002 s, total=1.130 s; sync files=288, longest=0.001 s, average=0.001 s; distance=2294822 kB, estimate=2294822 kB; lsn=2/2EC56828, redo lsn=2/2EC56828
+2026-10-19 19:54:21.060 +08 [81523] LOG:  database system is shut down
+2026-10-19 19:54:21.195 +08 [108242] LOG:  There is no designated Main database.
+2026-10-19 19:54:21.195 +08 [108242] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 19:54:21.195 +08 [108242] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 19:54:21.347 +08 [108242] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 19:54:21.347 +08 [108242] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 19:54:21.347 +08 [108242] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 19:54:21.348 +08 [108242] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 19:54:21.353 +08 [108249] LOG:  database system was shut down at 2026-10-19 19:54:20 +08
+2026-10-19 19:54:21.358 +08 [108242] LOG:  database system is ready to accept connections
+2026-10-19 19:54:22.282 +08 [108258] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 19:54:22.282 +08 [108258] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:01:35.642 +08 [110809] ERROR:  could not serialize access due to concurrent update
+2026-10-19 20:01:35.642 +08 [110809] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 20:01:35.604617'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '101031'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '31'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '101031'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 20:07:54.470 +08 [108258] WARNING:  terminating connection due to administrator command
+2026-10-19 20:07:54.470 +08 [108258] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:07:56.646 +08 [108258] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 20:07:56.646 +08 [108258] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:07:56.646 +08 [108258] WARNING:  terminating connection due to administrator command
+2026-10-19 20:07:56.646 +08 [108258] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:07:56.646 +08 [108258] WARNING:  terminating connection due to administrator command
+2026-10-19 20:07:56.646 +08 [108258] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:07:56.646 +08 [108258] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 20:07:56.646 +08 [108258] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:07:56.650 +08 [108258] WARNING:  could not issue cancel request
+2026-10-19 20:07:56.650 +08 [108258] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-19 20:07:56.650 +08 [108258] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:07:57.497 +08 [108242] LOG:  received fast shutdown request
+2026-10-19 20:07:57.497 +08 [108242] LOG:  aborting any active transactions
+2026-10-19 20:07:57.497 +08 [137309] FATAL:  terminating connection due to administrator command
+2026-10-19 20:07:57.502 +08 [108242] LOG:  background worker "logical replication launcher" (PID 108252) exited with exit code 1
+2026-10-19 20:07:57.506 +08 [108247] LOG:  shutting down
+2026-10-19 20:07:57.506 +08 [108247] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 20:07:58.652 +08 [108247] LOG:  checkpoint complete: wrote 122217 buffers (93.2%), wrote 14 SLRU buffers; 0 WAL file(s) added, 0 removed, 140 recycled; write=1.122 s, sync=0.002 s, total=1.146 s; sync files=288, longest=0.001 s, average=0.001 s; distance=2295052 kB, estimate=2295052 kB; lsn=2/BAD99888, redo lsn=2/BAD99888
+2026-10-19 20:07:59.007 +08 [108242] LOG:  database system is shut down
+2026-10-19 20:07:59.212 +08 [151135] LOG:  There is no designated Main database.
+2026-10-19 20:07:59.212 +08 [151135] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 20:07:59.212 +08 [151135] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 20:07:59.368 +08 [151135] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 20:07:59.368 +08 [151135] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 20:07:59.368 +08 [151135] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 20:07:59.368 +08 [151135] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 20:07:59.374 +08 [151145] LOG:  database system was shut down at 2026-10-19 20:07:58 +08
+2026-10-19 20:07:59.378 +08 [151135] LOG:  database system is ready to accept connections
+2026-10-19 20:08:00.294 +08 [151182] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 20:08:00.294 +08 [151182] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:10:11.483 +08 [154483] ERROR:  canceling statement due to user request
+2026-10-19 20:10:11.483 +08 [154483] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102135 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:10:17.826 +08 [154420] ERROR:  canceling statement due to user request
+2026-10-19 20:10:17.826 +08 [154420] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:10:17.826 +08 [154420] LOG:  could not send data to client: Broken pipe
+2026-10-19 20:10:17.826 +08 [154420] FATAL:  connection to client lost
+2026-10-19 20:10:18.347 +08 [154860] ERROR:  canceling statement due to user request
+2026-10-19 20:10:18.347 +08 [154860] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:10:18.348 +08 [154860] LOG:  could not send data to client: Broken pipe
+2026-10-19 20:10:18.348 +08 [154860] FATAL:  connection to client lost
+2026-10-19 20:10:18.625 +08 [154861] ERROR:  canceling statement due to user request
+2026-10-19 20:10:18.625 +08 [154861] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:10:18.648 +08 [154875] FATAL:  terminating background worker "parallel worker" due to administrator command
+2026-10-19 20:10:18.648 +08 [154875] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:10:18.744 +08 [154870] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:10:18.769 +08 [151135] LOG:  background worker "parallel worker" (PID 154875) exited with exit code 1
+2026-10-19 20:10:18.772 +08 [154861] LOG:  could not send data to client: Connection reset by peer
+2026-10-19 20:10:18.772 +08 [154861] FATAL:  connection to client lost
+2026-10-19 20:12:20.958 +08 [156598] ERROR:  canceling statement due to user request
+2026-10-19 20:12:20.958 +08 [156598] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:12:20.962 +08 [156598] LOG:  could not send data to client: Broken pipe
+2026-10-19 20:12:20.962 +08 [156598] FATAL:  connection to client lost
+2026-10-19 20:16:52.782 +08 [180913] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 20:16:52.782 +08 [180913] DETAIL:  Reason code: Canceled on conflict out to pivot 85660, during read.
+2026-10-19 20:16:52.782 +08 [180913] HINT:  The transaction might succeed if retried.
+2026-10-19 20:16:52.782 +08 [180913] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102119 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:16:53.239 +08 [156610] ERROR:  canceling statement due to user request
+2026-10-19 20:16:53.239 +08 [156610] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102107 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:16:53.620 +08 [180900] ERROR:  canceling statement due to user request
+2026-10-19 20:16:53.620 +08 [180900] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:16:53.621 +08 [180900] LOG:  could not send data to client: Broken pipe
+2026-10-19 20:16:53.621 +08 [180900] FATAL:  connection to client lost
+2026-10-19 20:16:53.927 +08 [180899] ERROR:  canceling statement due to user request
+2026-10-19 20:16:53.927 +08 [180899] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102111 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:16:53.928 +08 [180899] LOG:  could not send data to client: Broken pipe
+2026-10-19 20:16:53.928 +08 [180899] FATAL:  connection to client lost
+2026-10-19 20:21:35.355 +08 [151182] WARNING:  terminating connection due to administrator command
+2026-10-19 20:21:35.355 +08 [151182] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:21:35.356 +08 [151182] WARNING:  terminating connection due to administrator command
+2026-10-19 20:21:35.356 +08 [151182] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:21:35.361 +08 [151182] WARNING:  could not issue cancel request
+2026-10-19 20:21:35.361 +08 [151182] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-19 20:21:35.361 +08 [151182] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:21:37.367 +08 [151182] WARNING:  connection to the remote node cs14@xcnf2:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-19 20:21:37.367 +08 [151182] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:21:37.367 +08 [151182] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 20:21:37.367 +08 [151182] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:21:37.367 +08 [151182] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-19 20:21:37.367 +08 [151182] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:21:37.367 +08 [151182] WARNING:  terminating connection due to administrator command
+2026-10-19 20:21:37.367 +08 [151182] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:21:37.367 +08 [151182] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 20:21:37.367 +08 [151182] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:21:38.028 +08 [151135] LOG:  received fast shutdown request
+2026-10-19 20:21:38.029 +08 [151135] LOG:  aborting any active transactions
+2026-10-19 20:21:38.029 +08 [186533] FATAL:  terminating connection due to administrator command
+2026-10-19 20:21:38.034 +08 [151135] LOG:  background worker "logical replication launcher" (PID 151148) exited with exit code 1
+2026-10-19 20:21:38.038 +08 [151143] LOG:  shutting down
+2026-10-19 20:21:38.039 +08 [151143] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 20:21:39.201 +08 [151143] LOG:  checkpoint complete: wrote 122494 buffers (93.5%), wrote 13 SLRU buffers; 0 WAL file(s) added, 0 removed, 140 recycled; write=1.137 s, sync=0.002 s, total=1.163 s; sync files=287, longest=0.001 s, average=0.001 s; distance=2295292 kB, estimate=2295292 kB; lsn=3/46F189D0, redo lsn=3/46F189D0
+2026-10-19 20:21:39.562 +08 [151135] LOG:  database system is shut down
+2026-10-19 20:21:39.739 +08 [202233] LOG:  There is no designated Main database.
+2026-10-19 20:21:39.739 +08 [202233] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 20:21:39.739 +08 [202233] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 20:21:39.898 +08 [202233] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 20:21:39.898 +08 [202233] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 20:21:39.898 +08 [202233] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 20:21:39.898 +08 [202233] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 20:21:39.903 +08 [202244] LOG:  database system was shut down at 2026-10-19 20:21:39 +08
+2026-10-19 20:21:39.908 +08 [202233] LOG:  database system is ready to accept connections
+2026-10-19 20:21:40.822 +08 [202290] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 20:21:40.822 +08 [202290] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:23:51.703 +08 [206736] ERROR:  could not serialize access due to concurrent update
+2026-10-19 20:23:51.703 +08 [206736] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 20:23:51.581193'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '292050'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '50'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '292050'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 20:24:30.260 +08 [207987] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:24:30.292 +08 [207988] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:25:14.503 +08 [209391] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:25:56.544 +08 [210684] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:25:56.578 +08 [210685] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:26:01.288 +08 [208816] ERROR:  could not serialize access due to concurrent update
+2026-10-19 20:26:01.288 +08 [208816] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 20:26:00.988641'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '404075'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '75'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '404075'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 20:27:15.490 +08 [215989] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:27:15.497 +08 [215995] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:28:33.135 +08 [221199] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 20:28:33.135 +08 [221199] DETAIL:  Reason code: Canceled on conflict out to pivot 102263, during read.
+2026-10-19 20:28:33.135 +08 [221199] HINT:  The transaction might succeed if retried.
+2026-10-19 20:28:33.135 +08 [221199] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102135 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:28:35.677 +08 [208801] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 20:28:35.677 +08 [208801] DETAIL:  Reason code: Canceled on conflict out to pivot 102263, during read.
+2026-10-19 20:28:35.677 +08 [208801] HINT:  The transaction might succeed if retried.
+2026-10-19 20:28:35.677 +08 [208801] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102135 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:29:27.859 +08 [224978] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 20:29:27.859 +08 [224978] DETAIL:  Reason code: Canceled on conflict out to pivot 104330, during read.
+2026-10-19 20:29:27.859 +08 [224978] HINT:  The transaction might succeed if retried.
+2026-10-19 20:29:27.859 +08 [224978] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102131 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:29:35.270 +08 [208775] ERROR:  could not serialize access due to concurrent update
+2026-10-19 20:29:35.270 +08 [208775] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 20:29:35.204211'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '247064'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '64'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '247064'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-19 20:33:01.499 +08 [240140] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 20:33:01.499 +08 [240140] DETAIL:  Reason code: Canceled on conflict out to pivot 110871, during read.
+2026-10-19 20:33:01.499 +08 [240140] HINT:  The transaction might succeed if retried.
+2026-10-19 20:33:01.499 +08 [240140] STATEMENT:  SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_102115 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id
+2026-10-19 20:33:05.169 +08 [240257] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:33:08.269 +08 [240498] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:33:08.309 +08 [240505] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:33:08.326 +08 [240495] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:33:08.332 +08 [240494] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 20:34:31.733 +08 [208779] ERROR:  could not serialize access due to concurrent update
+2026-10-19 20:34:31.733 +08 [208779] STATEMENT:  UPDATE public.inventory_102095 inventory SET quantity = (quantity OPERATOR(pg_catalog.+) '-2'::integer), updated_at = '2026-10-19 20:34:31.703019'::timestamp without time zone WHERE ((inventory_id OPERATOR(pg_catalog.=) '386051'::bigint) AND (merchant_id OPERATOR(pg_catalog.=) '51'::bigint) AND (product_id OPERATOR(pg_catalog.=) '386051'::bigint) AND ((quantity OPERATOR(pg_catalog.+) '-2'::integer) OPERATOR(pg_catalog.>=) 0))
+2026-10-19 20:35:21.324 +08 [202290] WARNING:  terminating connection due to administrator command
+2026-10-19 20:35:21.324 +08 [202290] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:35:23.334 +08 [202290] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 20:35:23.334 +08 [202290] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:35:23.334 +08 [202290] WARNING:  terminating connection due to administrator command
+2026-10-19 20:35:23.334 +08 [202290] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:35:23.334 +08 [202290] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 20:35:23.334 +08 [202290] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 20:35:25.058 +08 [202233] LOG:  received fast shutdown request
+2026-10-19 20:35:25.058 +08 [202233] LOG:  aborting any active transactions
+2026-10-19 20:35:25.058 +08 [235163] FATAL:  terminating connection due to administrator command
+2026-10-19 20:35:25.064 +08 [202233] LOG:  background worker "logical replication launcher" (PID 202247) exited with exit code 1
+2026-10-19 20:35:25.069 +08 [202242] LOG:  shutting down
+2026-10-19 20:35:25.069 +08 [202242] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 20:35:26.237 +08 [202242] LOG:  checkpoint complete: wrote 122826 buffers (93.7%), wrote 14 SLRU buffers; 0 WAL file(s) added, 0 removed, 141 recycled; write=1.140 s, sync=0.002 s, total=1.168 s; sync files=289, longest=0.001 s, average=0.001 s; distance=2295690 kB, estimate=2295690 kB; lsn=3/D30FB368, redo lsn=3/D30FB368
+2026-10-19 20:35:26.602 +08 [202233] LOG:  database system is shut down

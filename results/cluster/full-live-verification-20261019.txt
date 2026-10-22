@@ -1,0 +1,97 @@
+JobId=977773 JobName=team14-hikaru-full
+   UserId=cs14(2005) GroupId=stuproj(293) MCS_label=N/A
+   Priority=10598 Nice=0 Account=allusers QOS=normal
+   JobState=PENDING Reason=Dependency Dependency=afterok:977740(unfulfilled)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:00 TimeLimit=03:00:00 TimeMin=N/A
+   SubmitTime=2026-10-19T17:48:25 EligibleTime=Unknown
+   AccrueTime=Unknown
+   StartTime=Unknown EndTime=Unknown Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-19T17:48:25 Scheduler=Main
+   Partition=normal AllocNode:Sid=xlogin1.comp.nus.edu.sg:3289854
+   ReqNodeList=xcnf[0-4] ExcNodeList=xcnc13,xcng[0-1],xcnh[0-3],xgpj0
+   NodeList=
+   NumNodes=5-5 NumCPUs=20 NumTasks=5 CPUs/Task=4 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=20,mem=60G,node=5,billing=10
+   AllocTRES=(null)
+   Socks/Node=* NtasksPerN:B:S:C=1:0:*:* CoreSpec=*
+   MinCPUsNode=4 MinMemoryCPU=3G MinTmpDiskNode=0
+   Features=xcnf DelayBoot=00:00:00
+   OverSubscribe=NO Exclusive=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)
+   Command=/home/stuproj/cs14/citus_hikaru_20261019-172259_cf48c8d/citus_project_team_14/expt_a112/run.sh
+   SubmitLine=sbatch --parsable --mail-type=NONE --constraint=xcnf --nodelist=xcnf[0-4] --job-name=team14-hikaru-full --dependency=afterok:977740 --export=ALL,TEAM_ID=14,WORKLOAD=A,PG_ISOLATION_LEVEL=serializable,LOG_SAMPLE_RATE=1.0,DATA_SEED=42,PGBENCH_SEED=42,NUM_MERCHANTS=1000,NUM_CUSTOMERS=1000000,NUM_PRODUCTS=500000,NUM_ORDERS=5000000,NUM_ORDER_ITEMS=15000000,SCALE=1,DURATION=600,WARMUP_DURATION=60,CLIENT_COUNTS=1 4 8 16 32 64,RESET_BETWEEN_CLIENT_COUNTS=1 run.sh
+   WorkDir=/home/stuproj/cs14/citus_hikaru_20261019-172259_cf48c8d/citus_project_team_14/expt_a112
+   StdErr=/home/stuproj/cs14/citus_hikaru_20261019-172259_cf48c8d/citus_project_team_14/expt_a112/citus-977773.err
+   StdIn=/dev/null
+   StdOut=/home/stuproj/cs14/citus_hikaru_20261019-172259_cf48c8d/citus_project_team_14/expt_a112/citus-977773.out
+   TresPerTask=cpu=4
+
+977740|RUNNING|0:0|00:07:50|xcnf[0-4]
+977741|CANCELLED by 2005|0:0|00:00:00|None assigned
+977773|PENDING|0:0|00:00:00|None assigned
+coordinator=xcnf0
+workers=4
+scale=1
+
+
+PG_SHARED_BUFFERS="1GB"
+PG_WORK_MEM="32MB"
+PG_MAINTENANCE_WORK_MEM="256MB"
+PG_MAX_CONNECTIONS="1000"
+PG_ISOLATION_LEVEL="serializable"
+PG_MAX_WAL_SIZE="16GB"
+PG_MIN_WAL_SIZE="2GB"
+PG_CHECKPOINT_TIMEOUT="30min"
+PG_CHECKPOINT_COMPLETION_TARGET="0.9"
+CITUS_ENABLE_REPARTITION_JOINS="on"
+CITUS_MAX_SHARED_POOL_SIZE="300"
+CITUS_MAX_ADAPTIVE_EXECUTOR_POOL_SIZE="4"
+CITUS_LOCAL_SHARED_POOL_SIZE="150"
+
+DATA_SEED="42"
+HOT_MERCHANT_PERCENT="10"
+HOT_ORDER_PERCENT="50"
+
+
+clients=1 4 8 16 32 64
+PGHOST=xcnf0
+PGPORT=5446
+PGDATABASE=project-977740
+PGUSER=cs14
+DURATION=600
+WARMUP_DURATION=60
+CLIENT_COUNTS=1 4 8 16 32 64
+THREADS=4
+PGBENCH_QUERY_MODE=simple
+PROGRESS_INTERVAL=10
+PGBENCH_SEED=42
+LOG_SAMPLE_RATE=1.0
+PGBENCH_MAX_TRIES=3
+PGBENCH_FAILURES_DETAILED=1
+RESET_BETWEEN_CLIENT_COUNTS=1
+RESET_AFTER_WARMUP=0
+RESTART_SERVERS_BETWEEN_CLIENT_COUNTS=1
+SERVER_RESTART_TIMEOUT=60
+T1_WEIGHT=36
+T2_WEIGHT=20
+T3_WEIGHT=10
+T4_WEIGHT=10
+T5_WEIGHT=10
+T6_WEIGHT=5
+T7_WEIGHT=5
+T8_WEIGHT=2
+T9_WEIGHT=2
+NUM_MERCHANTS=1000
+NUM_CUSTOMERS=1000000
+NUM_PRODUCTS=500000
+INITIAL_NUM_ORDERS=5000000
+HOT_MERCHANTS=100
+MIN_ITEMS_PER_ORDER=1
+MAX_ITEMS_PER_ORDER=5
+MIN_ORDER_QTY=1
+MAX_ORDER_QTY=5
+INVENTORY_CHANGE_MIN="-5"
+INVENTORY_CHANGE_MAX="20"
+REPORT_DAYS="30"
+T7_MIN_TRANSFER_QTY="1"
+T7_MAX_TRANSFER_QTY="5"

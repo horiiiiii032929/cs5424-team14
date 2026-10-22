@@ -1,0 +1,22 @@
+{
+  "question": "Does join-key colocation (a112) improve Workload A over a matched original baseline?",
+  "takeaway": "a112 completes 17-28x more scripts per second at every client count; T6 now dominates its recorded time.",
+  "surface": "Static figure for the Google Docs / PDF course report",
+  "renderer": "Matplotlib; PNG and SVG exports",
+  "matplotlib_version": "3.10.9",
+  "families": [
+    "ordered numeric line (log y)",
+    "100% stacked horizontal bar"
+  ],
+  "sufficiency": "Six client counts; a0 once, a112 twice (seeds 42 and 7) for 600 s each on the same xcnf0-4 nodes; no confidence intervals.",
+  "palette_policy": "Blue/gold/teal plus neutrals; dashed/square versus solid/circle distinguishes designs without color.",
+  "footprint_inches": [
+    6.5,
+    6.5
+  ],
+  "google_docs_width_pt": 420,
+  "sources": [
+    "results/cluster-full-20261019/citus_project_team_14/expt_a0/slurm-results/job-977740/benchmark-results",
+    "results/cluster-full-20261019/citus_project_team_14/expt_a112/slurm-results/job-977773/benchmark-results"
+  ]
+}

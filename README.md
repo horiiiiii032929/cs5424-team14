@@ -7,13 +7,27 @@ This repository holds Dessi's preserved A/B baseline snapshots and Hikaru's
 implementations of five proposed Task 2 designs. The proposed work split is
 Hikaru + Kelvin on A and Dessi + Xincheng on B.
 
-**14 October status:** all five designs implemented; 138 distributed correctness
-checks passed. The local pilot completed 16 of 18 cases; two concurrent runs
-aborted. See [results and next steps](results/README.md). Course-cluster runs are
-pending SSH access. The repository is public; teammates can view and clone it.
+**22 October status (after VPN reconnection):** both a115 jobs are fully
+[imported and audited](results/cluster-full-a115-20261022/README.md). All 26 runtime
+hash comparisons, 24 phase commands/exits, 12 raw-log/transaction-metric counts
+and 12 post-run validations are verified. Seven of twelve cases complete both
+phases; six also have zero measured failures. Seed-42 c32/c64 and seed-7 c8/c16/c64
+measurements abort; both c64 warmups abort. a115 is faster in eligible cases,
+but neither seed supplies a clean full matrix. **a112 remains provisional**
+(16.8–28.2× fresh a0, with its repeat/c64 warmup caveat), pending the A pair's decision.
+The [B branch audit](results/b-branch-review-20261022/README.md) is complete;
+b6/c16 supports 539.437 TPS, while c8/c32/c64 remain flagged. Final A/B choices
+and submission assembly await team review.
+
+See [current status and remaining work](docs/project-status.md),
+[verified results](results/README.md), the [A report draft](docs/workload-a-report-draft.md)
+and [cluster runbook](docs/workload-a-cluster-runbook.md).
+Code and evidence are on [draft PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1);
+the a114/a115 merge was into its branch, not into `main`.
 
 ## Start here
 
+- [Current status](docs/project-status.md): decisions, evidence and remaining work.
 - [Experiments](citus_project_team_14/README.md): complete Slurm scripts and SQL.
 - [Results](results/README.md): measured results and their limitations.
 - [Google Drive documents](GOOGLE_DRIVE_PROJECT.md): team plan and assignment guides.
@@ -48,7 +62,8 @@ throughput from ranking.
 
 Clone or copy this repository into a **separate directory** from Dessi's existing
 `~/citus_project`. Reuse `~/pgsql`; do not rerun the destructive installer.
-Check the live experiment folders with teammates before adopting a101–a108.
+Check the live experiment folders and queue with teammates before new submissions.
+Both a115 jobs are archived and reviewed; use the evidence and coordinate any necessary new runs.
 From the Mac, `bash scripts/upload_cluster.sh` sends the committed files to a new
 isolated directory without putting GitHub credentials on the shared cluster account.
 
@@ -61,7 +76,9 @@ bash scripts/submit_cluster.sh full
 
 The submitter serializes jobs because all team jobs use port 5446. It also waits
 for existing team jobs. Coordinate with teammates before anyone submits further
-jobs independently. The full suite retains the original six client counts,
+jobs independently. It pins xcnf hardware; smoke runs include 1 and 4 clients.
+Pass explicit experiment IDs after smoke/full to submit a focused selection.
+The full suite retains the original six client counts,
 600-second runs, 60-second warmup, workload mix, isolation and full log sampling.
 Use job IDs in each folder to distinguish smoke from full runs.
 Inspect `summary.csv`'s `pgbench_exit_code`, retry/failure counts and `validation.log`;

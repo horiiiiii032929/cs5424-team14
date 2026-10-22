@@ -1,0 +1,28 @@
+2026-10-20 00:20:52.378 +08 [849618] LOG:  There is no designated Main database.
+2026-10-20 00:20:52.378 +08 [849618] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-20 00:20:52.378 +08 [849618] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-20 00:20:52.492 +08 [849618] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-20 00:20:52.492 +08 [849618] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-20 00:20:52.492 +08 [849618] LOG:  listening on IPv6 address "::", port 5446
+2026-10-20 00:20:52.493 +08 [849618] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-20 00:20:52.496 +08 [849652] LOG:  database system was shut down at 2026-10-20 00:20:51 +08
+2026-10-20 00:20:52.500 +08 [849618] LOG:  database system is ready to accept connections
+2026-10-20 00:20:55.206 +08 [850246] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-20 00:20:55.206 +08 [850246] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-20 00:25:50.560 +08 [850246] WARNING:  terminating connection due to administrator command
+2026-10-20 00:25:50.560 +08 [850246] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-20 00:25:50.560 +08 [850246] WARNING:  could not issue cancel request
+2026-10-20 00:25:50.560 +08 [850246] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-20 00:25:50.560 +08 [850246] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-20 00:25:52.373 +08 [849618] LOG:  received fast shutdown request
+2026-10-20 00:25:52.373 +08 [849618] LOG:  aborting any active transactions
+2026-10-20 00:25:52.373 +08 [863073] FATAL:  terminating connection due to administrator command
+2026-10-20 00:25:52.373 +08 [850325] FATAL:  terminating connection due to administrator command
+2026-10-20 00:25:52.377 +08 [849618] LOG:  background worker "logical replication launcher" (PID 849655) exited with exit code 1
+2026-10-20 00:25:52.381 +08 [849650] LOG:  shutting down
+2026-10-20 00:25:52.382 +08 [849650] LOG:  checkpoint starting: shutdown immediate
+2026-10-20 00:25:52.596 +08 [919210] LOG:  PID 850325 in cancel request did not match any process
+2026-10-20 00:25:53.346 +08 [849650] LOG:  checkpoint complete: wrote 127331 buffers (97.1%), wrote 5 SLRU buffers; 0 WAL file(s) added, 0 removed, 151 recycled; write=0.936 s, sync=0.004 s, total=0.965 s; sync files=1008, longest=0.001 s, average=0.001 s; distance=2467909 kB, estimate=2467909 kB; lsn=0/98170628, redo lsn=0/98170628
+2026-10-20 00:25:53.631 +08 [849618] LOG:  database system is shut down

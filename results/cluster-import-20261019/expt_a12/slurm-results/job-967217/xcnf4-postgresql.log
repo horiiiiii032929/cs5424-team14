@@ -1,0 +1,362 @@
+2026-10-18 02:17:35.943 +08 [2552742] LOG:  There is no designated Main database.
+2026-10-18 02:17:35.943 +08 [2552742] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 02:17:35.943 +08 [2552742] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 02:17:36.097 +08 [2552742] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 02:17:36.097 +08 [2552742] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 02:17:36.098 +08 [2552742] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 02:17:36.098 +08 [2552742] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 02:17:36.103 +08 [2552749] LOG:  database system was shut down at 2026-10-18 02:17:35 +08
+2026-10-18 02:17:36.108 +08 [2552742] LOG:  database system is ready to accept connections
+2026-10-18 02:17:38.786 +08 [2552760] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 02:17:38.786 +08 [2552760] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:35:21.501 +08 [2552760] WARNING:  terminating connection due to administrator command
+2026-10-18 02:35:21.501 +08 [2552760] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:35:23.512 +08 [2552760] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 02:35:23.512 +08 [2552760] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:35:23.512 +08 [2552760] WARNING:  terminating connection due to administrator command
+2026-10-18 02:35:23.512 +08 [2552760] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:35:23.512 +08 [2552760] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 02:35:23.512 +08 [2552760] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:35:25.523 +08 [2552760] WARNING:  connection to the remote node cs14@xcnf2:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-18 02:35:25.523 +08 [2552760] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:35:25.523 +08 [2552760] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 02:35:25.523 +08 [2552760] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:35:25.523 +08 [2552760] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-18 02:35:25.523 +08 [2552760] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:35:25.523 +08 [2552760] WARNING:  terminating connection due to administrator command
+2026-10-18 02:35:25.523 +08 [2552760] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:35:25.523 +08 [2552760] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 02:35:25.523 +08 [2552760] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:35:26.015 +08 [2552742] LOG:  received fast shutdown request
+2026-10-18 02:35:26.015 +08 [2552742] LOG:  aborting any active transactions
+2026-10-18 02:35:26.015 +08 [2602697] FATAL:  terminating connection due to administrator command
+2026-10-18 02:35:26.018 +08 [2552742] LOG:  background worker "logical replication launcher" (PID 2552752) exited with exit code 1
+2026-10-18 02:35:26.023 +08 [2552747] LOG:  shutting down
+2026-10-18 02:35:26.023 +08 [2552747] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 02:35:27.182 +08 [2552747] LOG:  checkpoint complete: wrote 121130 buffers (92.4%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 270 recycled; write=1.110 s, sync=0.006 s, total=1.159 s; sync files=1099, longest=0.001 s, average=0.001 s; distance=4431734 kB, estimate=4431734 kB; lsn=1/FF3C7C8, redo lsn=1/FF3C7C8
+2026-10-18 02:35:27.510 +08 [2552742] LOG:  database system is shut down
+2026-10-18 02:35:27.627 +08 [2638246] LOG:  There is no designated Main database.
+2026-10-18 02:35:27.627 +08 [2638246] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 02:35:27.627 +08 [2638246] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 02:35:27.779 +08 [2638246] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 02:35:27.779 +08 [2638246] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 02:35:27.779 +08 [2638246] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 02:35:27.779 +08 [2638246] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 02:35:27.784 +08 [2638253] LOG:  database system was shut down at 2026-10-18 02:35:27 +08
+2026-10-18 02:35:27.789 +08 [2638246] LOG:  database system is ready to accept connections
+2026-10-18 02:35:28.709 +08 [2638262] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 02:35:28.709 +08 [2638262] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:50:37.456 +08 [2638262] WARNING:  terminating connection due to administrator command
+2026-10-18 02:50:37.456 +08 [2638262] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:50:39.692 +08 [2638262] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 02:50:39.692 +08 [2638262] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:50:39.692 +08 [2638262] WARNING:  terminating connection due to administrator command
+2026-10-18 02:50:39.692 +08 [2638262] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:50:39.692 +08 [2638262] WARNING:  terminating connection due to administrator command
+2026-10-18 02:50:39.692 +08 [2638262] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:50:39.692 +08 [2638262] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 02:50:39.692 +08 [2638262] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:50:39.696 +08 [2638262] WARNING:  could not issue cancel request
+2026-10-18 02:50:39.696 +08 [2638262] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-18 02:50:39.696 +08 [2638262] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:50:40.574 +08 [2638246] LOG:  received fast shutdown request
+2026-10-18 02:50:40.574 +08 [2638246] LOG:  aborting any active transactions
+2026-10-18 02:50:40.574 +08 [2706460] FATAL:  terminating connection due to administrator command
+2026-10-18 02:50:40.578 +08 [2638246] LOG:  background worker "logical replication launcher" (PID 2638256) exited with exit code 1
+2026-10-18 02:50:40.583 +08 [2638251] LOG:  shutting down
+2026-10-18 02:50:40.583 +08 [2638251] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 02:50:41.684 +08 [2638251] LOG:  checkpoint complete: wrote 119828 buffers (91.4%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 136 recycled; write=1.076 s, sync=0.002 s, total=1.102 s; sync files=288, longest=0.001 s, average=0.001 s; distance=2222636 kB, estimate=2222636 kB; lsn=1/979C7A40, redo lsn=1/979C7A40
+2026-10-18 02:50:42.015 +08 [2638246] LOG:  database system is shut down
+2026-10-18 02:50:42.187 +08 [2730344] LOG:  There is no designated Main database.
+2026-10-18 02:50:42.187 +08 [2730344] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 02:50:42.187 +08 [2730344] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 02:50:42.339 +08 [2730344] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 02:50:42.339 +08 [2730344] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 02:50:42.339 +08 [2730344] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 02:50:42.340 +08 [2730344] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 02:50:42.345 +08 [2730351] LOG:  database system was shut down at 2026-10-18 02:50:41 +08
+2026-10-18 02:50:42.353 +08 [2730344] LOG:  database system is ready to accept connections
+2026-10-18 02:50:43.257 +08 [2730360] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 02:50:43.257 +08 [2730360] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:05:56.775 +08 [2730360] WARNING:  terminating connection due to administrator command
+2026-10-18 03:05:56.775 +08 [2730360] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:05:56.775 +08 [2730360] WARNING:  terminating connection due to administrator command
+2026-10-18 03:05:56.775 +08 [2730360] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:05:56.776 +08 [2730360] WARNING:  could not issue cancel request
+2026-10-18 03:05:56.776 +08 [2730360] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-18 03:05:56.776 +08 [2730360] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:05:58.786 +08 [2730360] WARNING:  connection to the remote node cs14@xcnf2:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-18 03:05:58.786 +08 [2730360] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:05:58.786 +08 [2730360] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:05:58.786 +08 [2730360] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:05:58.786 +08 [2730360] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-18 03:05:58.786 +08 [2730360] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:05:58.786 +08 [2730360] WARNING:  terminating connection due to administrator command
+2026-10-18 03:05:58.786 +08 [2730360] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:05:58.786 +08 [2730360] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:05:58.786 +08 [2730360] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:05:59.321 +08 [2730344] LOG:  received fast shutdown request
+2026-10-18 03:05:59.322 +08 [2730344] LOG:  aborting any active transactions
+2026-10-18 03:05:59.322 +08 [2790595] FATAL:  terminating connection due to administrator command
+2026-10-18 03:05:59.325 +08 [2730344] LOG:  background worker "logical replication launcher" (PID 2730354) exited with exit code 1
+2026-10-18 03:05:59.332 +08 [2730349] LOG:  shutting down
+2026-10-18 03:05:59.332 +08 [2730349] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 03:06:00.431 +08 [2730349] LOG:  checkpoint complete: wrote 119979 buffers (91.5%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 136 recycled; write=1.075 s, sync=0.002 s, total=1.099 s; sync files=287, longest=0.001 s, average=0.001 s; distance=2222806 kB, estimate=2222806 kB; lsn=2/1F47D440, redo lsn=2/1F47D440
+2026-10-18 03:06:00.753 +08 [2730344] LOG:  database system is shut down
+2026-10-18 03:06:00.937 +08 [2824577] LOG:  There is no designated Main database.
+2026-10-18 03:06:00.938 +08 [2824577] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 03:06:00.938 +08 [2824577] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 03:06:01.089 +08 [2824577] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 03:06:01.089 +08 [2824577] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 03:06:01.089 +08 [2824577] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 03:06:01.090 +08 [2824577] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 03:06:01.095 +08 [2824584] LOG:  database system was shut down at 2026-10-18 03:06:00 +08
+2026-10-18 03:06:01.100 +08 [2824577] LOG:  database system is ready to accept connections
+2026-10-18 03:06:02.012 +08 [2824593] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 03:06:02.012 +08 [2824593] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:21:36.862 +08 [2824593] WARNING:  terminating connection due to administrator command
+2026-10-18 03:21:36.862 +08 [2824593] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:21:38.873 +08 [2824593] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:21:38.873 +08 [2824593] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:21:38.873 +08 [2824593] WARNING:  terminating connection due to administrator command
+2026-10-18 03:21:38.873 +08 [2824593] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:21:38.873 +08 [2824593] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:21:38.873 +08 [2824593] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:21:40.885 +08 [2824593] WARNING:  connection to the remote node cs14@xcnf2:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-18 03:21:40.885 +08 [2824593] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:21:40.885 +08 [2824593] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:21:40.885 +08 [2824593] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:21:40.885 +08 [2824593] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-18 03:21:40.885 +08 [2824593] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:21:40.885 +08 [2824593] WARNING:  terminating connection due to administrator command
+2026-10-18 03:21:40.885 +08 [2824593] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:21:40.885 +08 [2824593] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:21:40.885 +08 [2824593] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:21:41.141 +08 [2824577] LOG:  received fast shutdown request
+2026-10-18 03:21:41.141 +08 [2824577] LOG:  aborting any active transactions
+2026-10-18 03:21:41.141 +08 [2883475] FATAL:  terminating connection due to administrator command
+2026-10-18 03:21:41.145 +08 [2824577] LOG:  background worker "logical replication launcher" (PID 2824587) exited with exit code 1
+2026-10-18 03:21:41.150 +08 [2824582] LOG:  shutting down
+2026-10-18 03:21:41.150 +08 [2824582] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 03:21:42.254 +08 [2824582] LOG:  checkpoint complete: wrote 119849 buffers (91.4%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 135 recycled; write=1.081 s, sync=0.002 s, total=1.105 s; sync files=288, longest=0.001 s, average=0.001 s; distance=2222381 kB, estimate=2222381 kB; lsn=2/A6EC8950, redo lsn=2/A6EC8950
+2026-10-18 03:21:42.577 +08 [2824577] LOG:  database system is shut down
+2026-10-18 03:21:42.756 +08 [2918052] LOG:  There is no designated Main database.
+2026-10-18 03:21:42.756 +08 [2918052] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 03:21:42.756 +08 [2918052] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 03:21:42.907 +08 [2918052] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 03:21:42.908 +08 [2918052] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 03:21:42.908 +08 [2918052] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 03:21:42.908 +08 [2918052] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 03:21:42.913 +08 [2918059] LOG:  database system was shut down at 2026-10-18 03:21:42 +08
+2026-10-18 03:21:42.918 +08 [2918052] LOG:  database system is ready to accept connections
+2026-10-18 03:21:43.830 +08 [2918068] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 03:21:43.830 +08 [2918068] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:24:27.040 +08 [2918125] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:24:27.040 +08 [2918125] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-18 03:24:27.040 +08 [2918125] HINT:  The transaction might succeed if retried.
+2026-10-18 03:24:27.040 +08 [2918125] STATEMENT:  INSERT INTO public.order_items_102151 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('15000074'::bigint, '713'::bigint, '5000019'::bigint, '377713'::bigint, 2, 93.47::numeric(12,2))
+2026-10-18 03:24:27.394 +08 [2918132] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:24:27.394 +08 [2918132] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-18 03:24:27.394 +08 [2918132] HINT:  The transaction might succeed if retried.
+2026-10-18 03:24:27.394 +08 [2918132] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-18 03:24:27.021375'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '210095'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '95'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '210095'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-18 03:24:27.414 +08 [2918180] LOG:  could not receive data from client: Connection reset by peer
+2026-10-18 03:24:27.899 +08 [2918122] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:24:27.899 +08 [2918122] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 03:24:27.899 +08 [2918122] HINT:  The transaction might succeed if retried.
+2026-10-18 03:24:27.899 +08 [2918122] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-18 03:24:27.439693'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '25372'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 03:24:42.201 +08 [2918170] ERROR:  canceling statement due to user request
+2026-10-18 03:24:42.201 +08 [2918170] STATEMENT:  SELECT partition_index, 'repartition_1040757817346_24' || '_' || partition_index::text , rows_written FROM pg_catalog.worker_partition_query_result('repartition_1040757817346_24','SELECT product_id AS column1, quantity AS column2, unit_price AS column3, order_id AS column4 FROM public.order_items_102159 oi WHERE true',3,'hash','{-2147483648,-1879048192,-1610612736,-1342177280,-1073741824,-805306368,-536870912,-268435456,0,268435456,536870912,805306368,1073741824,1342177280,1610612736,1879048192}'::text[],'{-1879048193,-1610612737,-1342177281,-1073741825,-805306369,-536870913,-268435457,-1,268435455,536870911,805306367,1073741823,1342177279,1610612735,1879048191,2147483647}'::text[],true,true,true) WHERE rows_written > 0
+2026-10-18 03:24:42.203 +08 [2918170] LOG:  could not send data to client: Broken pipe
+2026-10-18 03:24:42.203 +08 [2918170] FATAL:  connection to client lost
+2026-10-18 03:26:07.161 +08 [2928648] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:26:07.161 +08 [2928648] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-18 03:26:07.161 +08 [2928648] HINT:  The transaction might succeed if retried.
+2026-10-18 03:26:07.161 +08 [2928648] STATEMENT:  PREPARE TRANSACTION 'citus_0_62112_308_2'
+2026-10-18 03:27:18.330 +08 [2928625] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:27:18.330 +08 [2928625] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 03:27:18.330 +08 [2928625] HINT:  The transaction might succeed if retried.
+2026-10-18 03:27:18.330 +08 [2928625] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-18 03:27:16.803248'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '150679'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 03:27:18.827 +08 [2928615] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:27:18.827 +08 [2928615] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 03:27:18.827 +08 [2928615] HINT:  The transaction might succeed if retried.
+2026-10-18 03:27:18.827 +08 [2928615] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-18 03:27:17.312438'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '35149'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-18 03:27:18.939 +08 [2928628] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:27:18.939 +08 [2928628] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 03:27:18.939 +08 [2928628] HINT:  The transaction might succeed if retried.
+2026-10-18 03:27:18.939 +08 [2928628] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-18 03:27:17.469752'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '80049'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 03:27:19.736 +08 [2928625] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:27:19.736 +08 [2928625] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 03:27:19.736 +08 [2928625] HINT:  The transaction might succeed if retried.
+2026-10-18 03:27:19.736 +08 [2928625] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-18 03:27:18.33263'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '150679'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 03:31:20.271 +08 [2928627] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:31:20.271 +08 [2928627] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 03:31:20.271 +08 [2928627] HINT:  The transaction might succeed if retried.
+2026-10-18 03:31:20.271 +08 [2928627] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-18 03:31:19.424914'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '284314'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 03:37:38.928 +08 [2918068] WARNING:  terminating connection due to administrator command
+2026-10-18 03:37:38.928 +08 [2918068] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:37:40.939 +08 [2918068] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:37:40.939 +08 [2918068] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:37:40.939 +08 [2918068] WARNING:  terminating connection due to administrator command
+2026-10-18 03:37:40.939 +08 [2918068] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:37:40.940 +08 [2918068] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:37:40.940 +08 [2918068] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:37:42.950 +08 [2918068] WARNING:  connection to the remote node cs14@xcnf2:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-18 03:37:42.950 +08 [2918068] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:37:42.950 +08 [2918068] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:37:42.950 +08 [2918068] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:37:42.950 +08 [2918068] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-18 03:37:42.950 +08 [2918068] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:37:42.950 +08 [2918068] WARNING:  terminating connection due to administrator command
+2026-10-18 03:37:42.950 +08 [2918068] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:37:42.950 +08 [2918068] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:37:42.950 +08 [2918068] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:37:43.419 +08 [2918052] LOG:  received fast shutdown request
+2026-10-18 03:37:43.419 +08 [2918052] LOG:  aborting any active transactions
+2026-10-18 03:37:43.419 +08 [2974722] FATAL:  terminating connection due to administrator command
+2026-10-18 03:37:43.423 +08 [2918052] LOG:  background worker "logical replication launcher" (PID 2918062) exited with exit code 1
+2026-10-18 03:37:43.428 +08 [2918057] LOG:  shutting down
+2026-10-18 03:37:43.429 +08 [2918057] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 03:37:44.708 +08 [2918057] LOG:  checkpoint complete: wrote 119905 buffers (91.5%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 136 recycled; write=1.255 s, sync=0.002 s, total=1.280 s; sync files=287, longest=0.001 s, average=0.001 s; distance=2222654 kB, estimate=2222654 kB; lsn=3/2E9584A0, redo lsn=3/2E9584A0
+2026-10-18 03:37:45.040 +08 [2918052] LOG:  database system is shut down
+2026-10-18 03:37:45.230 +08 [3014016] LOG:  There is no designated Main database.
+2026-10-18 03:37:45.230 +08 [3014016] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 03:37:45.230 +08 [3014016] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 03:37:45.382 +08 [3014016] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 03:37:45.382 +08 [3014016] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 03:37:45.382 +08 [3014016] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 03:37:45.383 +08 [3014016] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 03:37:45.388 +08 [3014023] LOG:  database system was shut down at 2026-10-18 03:37:44 +08
+2026-10-18 03:37:45.392 +08 [3014016] LOG:  database system is ready to accept connections
+2026-10-18 03:37:46.315 +08 [3014032] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 03:37:46.315 +08 [3014032] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:40:31.050 +08 [3014131] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:40:31.050 +08 [3014131] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-18 03:40:31.050 +08 [3014131] HINT:  The transaction might succeed if retried.
+2026-10-18 03:40:31.050 +08 [3014131] STATEMENT:  PREPARE TRANSACTION 'citus_0_62519_137_3'
+2026-10-18 03:42:53.564 +08 [3030576] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:42:53.564 +08 [3030576] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-18 03:42:53.564 +08 [3030576] HINT:  The transaction might succeed if retried.
+2026-10-18 03:42:53.564 +08 [3030576] STATEMENT:  PREPARE TRANSACTION 'citus_0_62650_340_0'
+2026-10-18 03:45:06.988 +08 [3030590] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:45:06.988 +08 [3030590] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 03:45:06.988 +08 [3030590] HINT:  The transaction might succeed if retried.
+2026-10-18 03:45:06.988 +08 [3030590] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-18 03:45:03.049675'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '335106'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 03:45:46.897 +08 [3030572] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:45:46.897 +08 [3030572] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 03:45:46.897 +08 [3030572] HINT:  The transaction might succeed if retried.
+2026-10-18 03:45:46.897 +08 [3030572] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-18 03:45:43.852817'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '400724'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 03:51:50.276 +08 [3030650] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-18 03:51:50.276 +08 [3030650] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-18 03:51:50.276 +08 [3030650] HINT:  The transaction might succeed if retried.
+2026-10-18 03:51:50.276 +08 [3030650] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-18 03:51:46.69053'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '90578'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-18 03:54:51.114 +08 [3014032] WARNING:  terminating connection due to administrator command
+2026-10-18 03:54:51.114 +08 [3014032] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:54:53.124 +08 [3014032] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:54:53.124 +08 [3014032] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:54:53.124 +08 [3014032] WARNING:  terminating connection due to administrator command
+2026-10-18 03:54:53.124 +08 [3014032] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:54:53.125 +08 [3014032] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:54:53.125 +08 [3014032] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:54:55.136 +08 [3014032] WARNING:  connection to the remote node cs14@xcnf2:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-18 03:54:55.136 +08 [3014032] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:54:55.136 +08 [3014032] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:54:55.136 +08 [3014032] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:54:55.136 +08 [3014032] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-18 03:54:55.136 +08 [3014032] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:54:55.136 +08 [3014032] WARNING:  terminating connection due to administrator command
+2026-10-18 03:54:55.136 +08 [3014032] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:54:55.136 +08 [3014032] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-18 03:54:55.136 +08 [3014032] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 03:54:55.885 +08 [3014016] LOG:  received fast shutdown request
+2026-10-18 03:54:55.885 +08 [3014016] LOG:  aborting any active transactions
+2026-10-18 03:54:55.885 +08 [3072408] FATAL:  terminating connection due to administrator command
+2026-10-18 03:54:55.889 +08 [3014016] LOG:  background worker "logical replication launcher" (PID 3014026) exited with exit code 1
+2026-10-18 03:54:55.895 +08 [3014021] LOG:  shutting down
+2026-10-18 03:54:55.895 +08 [3014021] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 03:54:57.182 +08 [3014021] LOG:  checkpoint complete: wrote 119925 buffers (91.5%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 136 recycled; write=1.264 s, sync=0.002 s, total=1.288 s; sync files=289, longest=0.001 s, average=0.001 s; distance=2222674 kB, estimate=2222674 kB; lsn=3/B63ECFC8, redo lsn=3/B63ECFC8
+2026-10-18 03:54:57.500 +08 [3014016] LOG:  database system is shut down

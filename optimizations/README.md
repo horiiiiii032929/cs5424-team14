@@ -8,6 +8,28 @@
 | Repeated calculations | a104 | Exact daily sales totals, synchronously updated by T1, with raw reads for partial days. |
 | Resource usage | a105/a106/a107 | Separately test work_mem=64MB and executor pool limits 2/8 against baseline 32MB/4. |
 | Combination | a108 | Colocation, indexes, one-call T1 and exact sales summary. |
+| Access-mode follow-up | a109/a110 | Add READ ONLY to T3/T4/T6 relative to a101/a108; isolation unchanged. |
+| Join-key placement | a111 | Adapt Dessi's B b1/b2 placement to A on top of a102: inventory/product and item/order colocation. |
+| Placement + access mode | a112 | Add READ ONLY to T3/T4/T6 relative to a111. |
+| Safe read snapshots | a113 | Add DEFERRABLE to a112's read-only transactions, retaining SERIALIZABLE. |
+| Striped summaries | a114 | a112 + exact daily sales totals in eight stripes per merchant/day. |
+| Report-time index | a115 | a112 + only orders(created_at), controlling for a114's index. |
+
+19 October: a109–a113 passed 151 new correctness checks. All seven follow-up
+four-client local cases aborted, including original a101/a108 controls. These
+local stress experiments do not establish a general concurrency fix. Subsequent
+matched full runs support a112 as the provisional A design; a114's diagnostic
+was slower. a115's complete raw audit finds 7 phase-eligible cases, 6 with zero failures,
+and repeated high-concurrency aborts despite all 12 passing validations. Eligible
+results support the index, but final selection remains with the A pair. B evidence
+is archived separately.
+See [current status](../docs/project-status.md). See [follow-up evidence](../results/followup-20261019/README.md).
+
+The colocation variants now use exact COUNT(DISTINCT) global-ID validation after
+measurement. The original GROUP BY validator spent over eleven minutes on the
+scale-1 coordinator; the equivalent complete check took 25.753 seconds and passed
+seven valid/corrupt-data regression checks. a102's original source stays unchanged.
+Runtime source hashes distinguish older and revised validator versions.
 
 No change is assumed to improve performance. Compare each individual version to
 a0, then a108 to the components. Settings remain one-variable experiments; the

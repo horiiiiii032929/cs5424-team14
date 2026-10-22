@@ -1,0 +1,26 @@
+{
+  "question": "How do lookup indexes affect throughput and the dominant read costs?",
+  "takeaway": "Concurrent throughput improves in the observed runs, while T3/T4 still dominate recorded time.",
+  "surface": "Static figure for the Google Docs / PDF course report",
+  "renderer": "Matplotlib; PNG and SVG exports",
+  "matplotlib_version": "3.10.9",
+  "families": [
+    "ordered numeric line",
+    "100% stacked horizontal bar"
+  ],
+  "sufficiency": "Six configured non-temporal client counts per design; one observation each, no confidence intervals.",
+  "palette_policy": "Blue and gold plus neutrals; dashed/square versus solid/circle distinguishes designs without color.",
+  "footprint_inches": [
+    6.5,
+    6.5
+  ],
+  "google_docs_width_pt": 420,
+  "minimum_effective_font_pt": 10.32,
+  "caveat": "a102/c16 warmup exited 2; its completed measurement is shown with a hollow diamond and excluded from clean-run comparisons.",
+  "sources": [
+    "citus_project_team_14/expt_a0/slurm-results/job-918524/benchmark-results/summary.csv",
+    "results/cluster-import-20261019/expt_a102/slurm-results/job-965657/benchmark-results/summary.csv",
+    "citus_project_team_14/expt_a0/slurm-results/job-918524/benchmark-results/transaction_metrics.csv",
+    "results/cluster-import-20261019/expt_a102/slurm-results/job-965657/benchmark-results/transaction_metrics.csv"
+  ]
+}

@@ -1,0 +1,957 @@
+2026-10-19 17:42:18.774 +08 [3655497] LOG:  There is no designated Main database.
+2026-10-19 17:42:18.774 +08 [3655497] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 17:42:18.774 +08 [3655497] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 17:42:18.926 +08 [3655497] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 17:42:18.926 +08 [3655497] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 17:42:18.926 +08 [3655497] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 17:42:18.927 +08 [3655497] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 17:42:18.932 +08 [3655504] LOG:  database system was shut down at 2026-10-19 17:42:18 +08
+2026-10-19 17:42:18.936 +08 [3655497] LOG:  database system is ready to accept connections
+2026-10-19 17:42:21.610 +08 [3655513] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 17:42:21.610 +08 [3655513] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 17:58:37.774 +08 [3655513] WARNING:  terminating connection due to administrator command
+2026-10-19 17:58:37.774 +08 [3655513] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 17:58:39.783 +08 [3655513] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 17:58:39.783 +08 [3655513] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 17:58:39.783 +08 [3655513] WARNING:  terminating connection due to administrator command
+2026-10-19 17:58:39.783 +08 [3655513] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 17:58:39.784 +08 [3655513] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 17:58:39.784 +08 [3655513] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 17:58:41.112 +08 [3655497] LOG:  received fast shutdown request
+2026-10-19 17:58:41.119 +08 [3655497] LOG:  aborting any active transactions
+2026-10-19 17:58:41.119 +08 [3707537] FATAL:  terminating connection due to administrator command
+2026-10-19 17:58:41.123 +08 [3655497] LOG:  background worker "logical replication launcher" (PID 3655507) exited with exit code 1
+2026-10-19 17:58:41.126 +08 [3655502] LOG:  shutting down
+2026-10-19 17:58:41.126 +08 [3655502] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 17:58:42.059 +08 [3655502] LOG:  checkpoint complete: wrote 95739 buffers (73.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 205 recycled; write=0.893 s, sync=0.005 s, total=0.933 s; sync files=1024, longest=0.001 s, average=0.001 s; distance=3361375 kB, estimate=3361375 kB; lsn=0/CE9F6CD8, redo lsn=0/CE9F6CD8
+2026-10-19 17:58:42.342 +08 [3655497] LOG:  database system is shut down
+2026-10-19 17:58:42.525 +08 [3739811] LOG:  There is no designated Main database.
+2026-10-19 17:58:42.525 +08 [3739811] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 17:58:42.525 +08 [3739811] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 17:58:42.678 +08 [3739811] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 17:58:42.678 +08 [3739811] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 17:58:42.678 +08 [3739811] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 17:58:42.679 +08 [3739811] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 17:58:42.684 +08 [3739818] LOG:  database system was shut down at 2026-10-19 17:58:42 +08
+2026-10-19 17:58:42.688 +08 [3739811] LOG:  database system is ready to accept connections
+2026-10-19 17:58:43.604 +08 [3739827] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 17:58:43.604 +08 [3739827] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:04:57.739 +08 [3749154] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:04:57.739 +08 [3749154] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:04:57.739 +08 [3749154] HINT:  The transaction might succeed if retried.
+2026-10-19 18:04:57.739 +08 [3749154] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:04:57.607909'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '386974'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:12:16.958 +08 [3830708] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:12:16.958 +08 [3830708] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:12:16.958 +08 [3830708] HINT:  The transaction might succeed if retried.
+2026-10-19 18:12:16.958 +08 [3830708] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:12:16.757357'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '436956'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:12:28.200 +08 [3739827] WARNING:  terminating connection due to administrator command
+2026-10-19 18:12:28.200 +08 [3739827] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:12:30.209 +08 [3739827] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 18:12:30.209 +08 [3739827] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:12:30.209 +08 [3739827] WARNING:  terminating connection due to administrator command
+2026-10-19 18:12:30.209 +08 [3739827] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:12:30.209 +08 [3739827] WARNING:  terminating connection due to administrator command
+2026-10-19 18:12:30.209 +08 [3739827] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:12:30.209 +08 [3739827] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 18:12:30.209 +08 [3739827] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:12:30.214 +08 [3739827] WARNING:  could not issue cancel request
+2026-10-19 18:12:30.214 +08 [3739827] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-19 18:12:30.214 +08 [3739827] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:12:31.072 +08 [3739811] LOG:  received fast shutdown request
+2026-10-19 18:12:31.079 +08 [3739811] LOG:  aborting any active transactions
+2026-10-19 18:12:31.081 +08 [3811472] FATAL:  terminating connection due to administrator command
+2026-10-19 18:12:31.082 +08 [3739811] LOG:  background worker "logical replication launcher" (PID 3739821) exited with exit code 1
+2026-10-19 18:12:31.086 +08 [3739816] LOG:  shutting down
+2026-10-19 18:12:31.086 +08 [3739816] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 18:12:31.968 +08 [3739816] LOG:  checkpoint complete: wrote 94578 buffers (72.2%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 103 recycled; write=0.864 s, sync=0.002 s, total=0.883 s; sync files=264, longest=0.001 s, average=0.001 s; distance=1684670 kB, estimate=1684670 kB; lsn=1/357266C8, redo lsn=1/357266C8
+2026-10-19 18:12:32.247 +08 [3739811] LOG:  database system is shut down
+2026-10-19 18:12:32.385 +08 [3832321] LOG:  There is no designated Main database.
+2026-10-19 18:12:32.385 +08 [3832321] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 18:12:32.385 +08 [3832321] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 18:12:32.538 +08 [3832321] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 18:12:32.538 +08 [3832321] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 18:12:32.538 +08 [3832321] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 18:12:32.539 +08 [3832321] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 18:12:32.544 +08 [3832328] LOG:  database system was shut down at 2026-10-19 18:12:31 +08
+2026-10-19 18:12:32.548 +08 [3832321] LOG:  database system is ready to accept connections
+2026-10-19 18:12:33.471 +08 [3832337] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 18:12:33.471 +08 [3832337] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:15:13.411 +08 [3832396] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:15:13.411 +08 [3832396] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:15:13.411 +08 [3832396] HINT:  The transaction might succeed if retried.
+2026-10-19 18:15:13.411 +08 [3832396] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:15:13.000509'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '22255'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:15:41.840 +08 [3832400] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:15:41.840 +08 [3832400] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:15:41.840 +08 [3832400] HINT:  The transaction might succeed if retried.
+2026-10-19 18:15:41.840 +08 [3832400] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:15:41.334183'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '131734'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:15:42.300 +08 [3832400] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:15:42.300 +08 [3832400] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:15:42.300 +08 [3832400] HINT:  The transaction might succeed if retried.
+2026-10-19 18:15:42.300 +08 [3832400] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:15:41.854919'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '131734'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:16:19.735 +08 [3841515] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:16:19.735 +08 [3841515] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:16:19.735 +08 [3841515] HINT:  The transaction might succeed if retried.
+2026-10-19 18:16:19.735 +08 [3841515] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:16:19.286233'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '22255'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:16:35.507 +08 [3844941] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 18:16:35.514 +08 [3844942] LOG:  could not receive data from client: Connection reset by peer
+2026-10-19 18:20:02.718 +08 [3841513] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:20:02.718 +08 [3841513] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:20:02.718 +08 [3841513] HINT:  The transaction might succeed if retried.
+2026-10-19 18:20:02.718 +08 [3841513] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:20:02.25469'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '245353'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:21:22.220 +08 [3841510] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:21:22.220 +08 [3841510] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:21:22.220 +08 [3841510] HINT:  The transaction might succeed if retried.
+2026-10-19 18:21:22.220 +08 [3841510] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:21:21.767455'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '283468'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:21:50.404 +08 [3841514] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:21:50.404 +08 [3841514] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:21:50.404 +08 [3841514] HINT:  The transaction might succeed if retried.
+2026-10-19 18:21:50.404 +08 [3841514] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-19 18:21:49.847038'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '249363'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 18:21:57.808 +08 [3841514] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:21:57.808 +08 [3841514] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:21:57.808 +08 [3841514] HINT:  The transaction might succeed if retried.
+2026-10-19 18:21:57.808 +08 [3841514] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:21:57.317415'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '103027'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:21:58.042 +08 [3841538] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:21:58.042 +08 [3841538] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:21:58.042 +08 [3841538] HINT:  The transaction might succeed if retried.
+2026-10-19 18:21:58.042 +08 [3841538] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-19 18:21:57.622156'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '497236'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 18:21:58.212 +08 [3841514] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:21:58.212 +08 [3841514] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:21:58.212 +08 [3841514] HINT:  The transaction might succeed if retried.
+2026-10-19 18:21:58.212 +08 [3841514] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:21:57.824807'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '103027'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:23:18.418 +08 [3874315] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:23:18.418 +08 [3874315] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:23:18.418 +08 [3874315] HINT:  The transaction might succeed if retried.
+2026-10-19 18:23:18.418 +08 [3874315] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-19 18:23:17.887117'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '198475'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 18:23:52.319 +08 [3841514] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:23:52.319 +08 [3841514] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:23:52.319 +08 [3841514] HINT:  The transaction might succeed if retried.
+2026-10-19 18:23:52.319 +08 [3841514] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:23:51.846771'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '157276'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:26:07.812 +08 [3841510] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:26:07.812 +08 [3841510] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:26:07.812 +08 [3841510] HINT:  The transaction might succeed if retried.
+2026-10-19 18:26:07.812 +08 [3841510] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:26:07.208804'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '250639'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:26:29.116 +08 [3832337] WARNING:  terminating connection due to administrator command
+2026-10-19 18:26:29.116 +08 [3832337] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:26:31.126 +08 [3832337] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 18:26:31.126 +08 [3832337] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:26:31.126 +08 [3832337] WARNING:  terminating connection due to administrator command
+2026-10-19 18:26:31.126 +08 [3832337] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:26:31.126 +08 [3832337] WARNING:  terminating connection due to administrator command
+2026-10-19 18:26:31.126 +08 [3832337] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:26:31.126 +08 [3832337] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 18:26:31.126 +08 [3832337] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:26:31.131 +08 [3832337] WARNING:  could not issue cancel request
+2026-10-19 18:26:31.131 +08 [3832337] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-19 18:26:31.131 +08 [3832337] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:26:31.718 +08 [3832321] LOG:  received fast shutdown request
+2026-10-19 18:26:31.723 +08 [3832321] LOG:  aborting any active transactions
+2026-10-19 18:26:31.723 +08 [3895150] FATAL:  terminating connection due to administrator command
+2026-10-19 18:26:31.727 +08 [3832321] LOG:  background worker "logical replication launcher" (PID 3832331) exited with exit code 1
+2026-10-19 18:26:31.730 +08 [3832326] LOG:  shutting down
+2026-10-19 18:26:31.731 +08 [3832326] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 18:26:32.612 +08 [3832326] LOG:  checkpoint complete: wrote 94577 buffers (72.2%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 103 recycled; write=0.862 s, sync=0.002 s, total=0.882 s; sync files=263, longest=0.001 s, average=0.001 s; distance=1684454 kB, estimate=1684454 kB; lsn=1/9C41FF80, redo lsn=1/9C41FF80
+2026-10-19 18:26:32.882 +08 [3832321] LOG:  database system is shut down
+2026-10-19 18:26:33.030 +08 [3926352] LOG:  There is no designated Main database.
+2026-10-19 18:26:33.030 +08 [3926352] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 18:26:33.030 +08 [3926352] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 18:26:33.183 +08 [3926352] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 18:26:33.184 +08 [3926352] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 18:26:33.184 +08 [3926352] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 18:26:33.184 +08 [3926352] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 18:26:33.189 +08 [3926359] LOG:  database system was shut down at 2026-10-19 18:26:32 +08
+2026-10-19 18:26:33.195 +08 [3926352] LOG:  database system is ready to accept connections
+2026-10-19 18:26:34.127 +08 [3926368] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 18:26:34.127 +08 [3926368] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:29:08.708 +08 [3926423] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:29:08.708 +08 [3926423] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 18:29:08.708 +08 [3926423] HINT:  The transaction might succeed if retried.
+2026-10-19 18:29:08.708 +08 [3926423] STATEMENT:  PREPARE TRANSACTION 'citus_0_46079_24_2'
+2026-10-19 18:29:11.737 +08 [3926424] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:29:11.737 +08 [3926424] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:29:11.737 +08 [3926424] HINT:  The transaction might succeed if retried.
+2026-10-19 18:29:11.737 +08 [3926424] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-19 18:29:10.824391'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '94687'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 18:29:11.867 +08 [3926425] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:29:11.867 +08 [3926425] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:29:11.867 +08 [3926425] HINT:  The transaction might succeed if retried.
+2026-10-19 18:29:11.867 +08 [3926425] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-19 18:29:10.916306'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '492764'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 18:29:45.867 +08 [3926456] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:29:45.867 +08 [3926456] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:29:45.867 +08 [3926456] HINT:  The transaction might succeed if retried.
+2026-10-19 18:29:45.867 +08 [3926456] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:29:44.880569'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '14597'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:29:46.905 +08 [3926456] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:29:46.905 +08 [3926456] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:29:46.905 +08 [3926456] HINT:  The transaction might succeed if retried.
+2026-10-19 18:29:46.905 +08 [3926456] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:29:45.891054'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '14597'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:29:47.906 +08 [3926456] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:29:47.906 +08 [3926456] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:29:47.906 +08 [3926456] HINT:  The transaction might succeed if retried.
+2026-10-19 18:29:47.906 +08 [3926456] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:29:46.91994'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '14597'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:29:50.359 +08 [3926427] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:29:50.359 +08 [3926427] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:29:50.359 +08 [3926427] HINT:  The transaction might succeed if retried.
+2026-10-19 18:29:50.359 +08 [3926427] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:29:49.254019'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '205473'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:30:26.786 +08 [3936955] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:30:26.786 +08 [3936955] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:30:26.786 +08 [3936955] HINT:  The transaction might succeed if retried.
+2026-10-19 18:30:26.786 +08 [3936955] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:30:25.795469'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '381888'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:30:27.899 +08 [3936955] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:30:27.899 +08 [3936955] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:30:27.899 +08 [3936955] HINT:  The transaction might succeed if retried.
+2026-10-19 18:30:27.899 +08 [3936955] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:30:26.798723'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '381888'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:30:28.913 +08 [3936955] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:30:28.913 +08 [3936955] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:30:28.913 +08 [3936955] HINT:  The transaction might succeed if retried.
+2026-10-19 18:30:28.913 +08 [3936955] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:30:27.917077'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '381888'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:31:19.490 +08 [3936926] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:31:19.490 +08 [3936926] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:31:19.490 +08 [3936926] HINT:  The transaction might succeed if retried.
+2026-10-19 18:31:19.490 +08 [3936926] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:31:18.586264'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '292809'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:31:20.971 +08 [3936954] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:31:20.971 +08 [3936954] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:31:20.971 +08 [3936954] HINT:  The transaction might succeed if retried.
+2026-10-19 18:31:20.971 +08 [3936954] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:31:19.960912'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '335323'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:31:44.885 +08 [3936926] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:31:44.885 +08 [3936926] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:31:44.885 +08 [3936926] HINT:  The transaction might succeed if retried.
+2026-10-19 18:31:44.885 +08 [3936926] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:31:44.044122'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '104240'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:31:45.847 +08 [3936926] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:31:45.847 +08 [3936926] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:31:45.847 +08 [3936926] HINT:  The transaction might succeed if retried.
+2026-10-19 18:31:45.847 +08 [3936926] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:31:44.910221'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '104240'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:31:46.734 +08 [3936926] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:31:46.734 +08 [3936926] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:31:46.734 +08 [3936926] HINT:  The transaction might succeed if retried.
+2026-10-19 18:31:46.734 +08 [3936926] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:31:45.850526'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '104240'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:32:10.280 +08 [3936929] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:32:10.280 +08 [3936929] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:32:10.280 +08 [3936929] HINT:  The transaction might succeed if retried.
+2026-10-19 18:32:10.280 +08 [3936929] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:32:09.322045'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '273893'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:32:26.881 +08 [3936928] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:32:26.881 +08 [3936928] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:32:26.881 +08 [3936928] HINT:  The transaction might succeed if retried.
+2026-10-19 18:32:26.881 +08 [3936928] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:32:26.21645'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '101524'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:33:34.236 +08 [3936954] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:33:34.236 +08 [3936954] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:33:34.236 +08 [3936954] HINT:  The transaction might succeed if retried.
+2026-10-19 18:33:34.236 +08 [3936954] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:33:33.062613'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '245945'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:33:35.294 +08 [3936954] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:33:35.294 +08 [3936954] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:33:35.294 +08 [3936954] HINT:  The transaction might succeed if retried.
+2026-10-19 18:33:35.294 +08 [3936954] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:33:34.267309'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '245945'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:33:36.449 +08 [3936954] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:33:36.449 +08 [3936954] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:33:36.449 +08 [3936954] HINT:  The transaction might succeed if retried.
+2026-10-19 18:33:36.449 +08 [3936954] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:33:35.328481'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '245945'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:34:39.214 +08 [3936929] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:34:39.214 +08 [3936929] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:34:39.214 +08 [3936929] HINT:  The transaction might succeed if retried.
+2026-10-19 18:34:39.214 +08 [3936929] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:34:37.893449'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '317926'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:34:41.786 +08 [3936929] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:34:41.786 +08 [3936929] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:34:41.786 +08 [3936929] HINT:  The transaction might succeed if retried.
+2026-10-19 18:34:41.786 +08 [3936929] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:34:40.558069'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '487912'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:35:31.672 +08 [3936954] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:35:31.672 +08 [3936954] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:35:31.672 +08 [3936954] HINT:  The transaction might succeed if retried.
+2026-10-19 18:35:31.672 +08 [3936954] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:35:30.841211'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '451438'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:36:01.947 +08 [3936955] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:36:01.947 +08 [3936955] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:36:01.947 +08 [3936955] HINT:  The transaction might succeed if retried.
+2026-10-19 18:36:01.947 +08 [3936955] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:36:00.750317'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '359119'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:36:03.179 +08 [3936955] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:36:03.179 +08 [3936955] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:36:03.179 +08 [3936955] HINT:  The transaction might succeed if retried.
+2026-10-19 18:36:03.179 +08 [3936955] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:36:01.962157'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '359119'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:36:17.331 +08 [3936956] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:36:17.331 +08 [3936956] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:36:17.331 +08 [3936956] HINT:  The transaction might succeed if retried.
+2026-10-19 18:36:17.331 +08 [3936956] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-19 18:36:16.403153'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '132703'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 18:36:27.656 +08 [3936955] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:36:27.656 +08 [3936955] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:36:27.656 +08 [3936955] HINT:  The transaction might succeed if retried.
+2026-10-19 18:36:27.656 +08 [3936955] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:36:26.2539'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '277923'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:36:29.589 +08 [3936924] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:36:29.589 +08 [3936924] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:36:29.589 +08 [3936924] HINT:  The transaction might succeed if retried.
+2026-10-19 18:36:29.589 +08 [3936924] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-19 18:36:28.163158'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '151268'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 18:36:33.584 +08 [3936948] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:36:33.584 +08 [3936948] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:36:33.584 +08 [3936948] HINT:  The transaction might succeed if retried.
+2026-10-19 18:36:33.584 +08 [3936948] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:36:32.277323'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '447042'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:36:34.833 +08 [3936948] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:36:34.833 +08 [3936948] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:36:34.833 +08 [3936948] HINT:  The transaction might succeed if retried.
+2026-10-19 18:36:34.833 +08 [3936948] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:36:33.613112'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '447042'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:36:36.131 +08 [3936948] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:36:36.131 +08 [3936948] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:36:36.131 +08 [3936948] HINT:  The transaction might succeed if retried.
+2026-10-19 18:36:36.131 +08 [3936948] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:36:34.849956'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '447042'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:38:01.748 +08 [3936932] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:38:01.748 +08 [3936932] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:38:01.748 +08 [3936932] HINT:  The transaction might succeed if retried.
+2026-10-19 18:38:01.748 +08 [3936932] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-19 18:38:00.443558'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '343203'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 18:38:29.233 +08 [3936920] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:38:29.233 +08 [3936920] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:38:29.233 +08 [3936920] HINT:  The transaction might succeed if retried.
+2026-10-19 18:38:29.233 +08 [3936920] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-19 18:38:28.323618'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '480739'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 18:40:50.925 +08 [3926368] WARNING:  terminating connection due to administrator command
+2026-10-19 18:40:50.925 +08 [3926368] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:40:50.925 +08 [3926368] WARNING:  terminating connection due to administrator command
+2026-10-19 18:40:50.925 +08 [3926368] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:40:50.926 +08 [3926368] WARNING:  could not issue cancel request
+2026-10-19 18:40:50.926 +08 [3926368] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-19 18:40:50.926 +08 [3926368] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:40:52.648 +08 [3926352] LOG:  received fast shutdown request
+2026-10-19 18:40:52.667 +08 [3926352] LOG:  aborting any active transactions
+2026-10-19 18:40:52.667 +08 [3987917] FATAL:  terminating connection due to administrator command
+2026-10-19 18:40:52.671 +08 [3926352] LOG:  background worker "logical replication launcher" (PID 3926362) exited with exit code 1
+2026-10-19 18:40:52.674 +08 [3926357] LOG:  shutting down
+2026-10-19 18:40:52.674 +08 [3926357] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 18:40:53.556 +08 [3926357] LOG:  checkpoint complete: wrote 94638 buffers (72.2%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 103 recycled; write=0.864 s, sync=0.002 s, total=0.882 s; sync files=264, longest=0.001 s, average=0.001 s; distance=1684528 kB, estimate=1684528 kB; lsn=2/312C090, redo lsn=2/312C090
+2026-10-19 18:40:53.834 +08 [3926352] LOG:  database system is shut down
+2026-10-19 18:40:53.975 +08 [4019762] LOG:  There is no designated Main database.
+2026-10-19 18:40:53.975 +08 [4019762] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 18:40:53.975 +08 [4019762] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 18:40:54.129 +08 [4019762] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 18:40:54.129 +08 [4019762] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 18:40:54.129 +08 [4019762] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 18:40:54.129 +08 [4019762] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 18:40:54.134 +08 [4019769] LOG:  database system was shut down at 2026-10-19 18:40:53 +08
+2026-10-19 18:40:54.139 +08 [4019762] LOG:  database system is ready to accept connections
+2026-10-19 18:40:55.054 +08 [4019778] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 18:40:55.054 +08 [4019778] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:43:29.981 +08 [4019841] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:29.981 +08 [4019841] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:29.981 +08 [4019841] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:29.981 +08 [4019841] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:43:29.56098'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '65361'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:30.887 +08 [4019839] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:30.887 +08 [4019839] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:30.887 +08 [4019839] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:30.887 +08 [4019839] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:43:29.771045'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '371734'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:30.988 +08 [4019858] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:30.988 +08 [4019858] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:30.988 +08 [4019858] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:30.988 +08 [4019858] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:43:29.561326'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '361914'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:31.709 +08 [4019874] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:31.709 +08 [4019874] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:31.709 +08 [4019874] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:31.709 +08 [4019874] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:43:30.026654'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '484056'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:32.307 +08 [4019850] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:32.307 +08 [4019850] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:32.307 +08 [4019850] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:32.307 +08 [4019850] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:43:30.338445'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '65361'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:32.661 +08 [4019847] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:32.661 +08 [4019847] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:32.661 +08 [4019847] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:32.661 +08 [4019847] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:43:30.764084'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '346398'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:33.144 +08 [4019839] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:33.144 +08 [4019839] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-19 18:43:33.144 +08 [4019839] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:33.144 +08 [4019839] STATEMENT:  PREPARE TRANSACTION 'citus_0_46501_128_5'
+2026-10-19 18:43:33.157 +08 [4019858] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:33.157 +08 [4019858] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:33.157 +08 [4019858] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:33.157 +08 [4019858] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:43:31.029226'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '361914'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:33.976 +08 [4019874] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:33.976 +08 [4019874] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:33.976 +08 [4019874] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:33.976 +08 [4019874] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:43:31.743108'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '484056'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:34.388 +08 [4019886] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:34.388 +08 [4019886] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:34.388 +08 [4019886] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:34.388 +08 [4019886] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-19 18:43:32.013592'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '456755'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 18:43:34.434 +08 [4019850] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:34.434 +08 [4019850] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:34.434 +08 [4019850] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:34.434 +08 [4019850] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:43:32.343974'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '65361'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:34.729 +08 [4019847] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:34.729 +08 [4019847] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:34.729 +08 [4019847] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:34.729 +08 [4019847] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:43:32.708055'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '346398'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:35.462 +08 [4019996] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:35.462 +08 [4019996] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:35.462 +08 [4019996] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:35.462 +08 [4019996] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:43:33.564953'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '371734'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:36.059 +08 [4019874] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:36.059 +08 [4019874] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:36.059 +08 [4019874] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:36.059 +08 [4019874] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:43:34.024697'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '484056'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:36.807 +08 [4019847] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:36.807 +08 [4019847] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:36.807 +08 [4019847] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:36.807 +08 [4019847] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:43:34.767097'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '346398'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:39.394 +08 [4019874] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:39.394 +08 [4019874] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:39.394 +08 [4019874] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:39.394 +08 [4019874] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:43:36.845453'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '455938'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:42.335 +08 [4019850] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:42.335 +08 [4019850] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:42.335 +08 [4019850] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:42.335 +08 [4019850] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:43:39.651952'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '205471'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:43:45.473 +08 [4019850] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:43:45.473 +08 [4019850] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:43:45.473 +08 [4019850] HINT:  The transaction might succeed if retried.
+2026-10-19 18:43:45.473 +08 [4019850] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:43:42.388182'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '205471'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:44:55.592 +08 [4030396] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:44:55.592 +08 [4030396] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:44:55.592 +08 [4030396] HINT:  The transaction might succeed if retried.
+2026-10-19 18:44:55.592 +08 [4030396] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:44:55.243015'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '65361'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:44:55.851 +08 [4030401] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:44:55.851 +08 [4030401] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:44:55.851 +08 [4030401] HINT:  The transaction might succeed if retried.
+2026-10-19 18:44:55.851 +08 [4030401] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:44:55.243252'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '361914'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:44:56.807 +08 [4030469] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:44:56.807 +08 [4030469] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:44:56.807 +08 [4030469] HINT:  The transaction might succeed if retried.
+2026-10-19 18:44:56.807 +08 [4030469] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:44:55.629464'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '65361'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:44:57.309 +08 [4030487] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:44:57.309 +08 [4030487] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:44:57.309 +08 [4030487] HINT:  The transaction might succeed if retried.
+2026-10-19 18:44:57.309 +08 [4030487] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:44:55.90129'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '197816'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:44:57.794 +08 [4030395] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:44:57.794 +08 [4030395] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:44:57.794 +08 [4030395] HINT:  The transaction might succeed if retried.
+2026-10-19 18:44:57.794 +08 [4030395] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:44:56.109082'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '361914'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:44:58.863 +08 [4030396] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:44:58.863 +08 [4030396] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:44:58.863 +08 [4030396] HINT:  The transaction might succeed if retried.
+2026-10-19 18:44:58.863 +08 [4030396] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:44:56.860663'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '65361'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:44:59.937 +08 [4030395] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:44:59.937 +08 [4030395] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:44:59.937 +08 [4030395] HINT:  The transaction might succeed if retried.
+2026-10-19 18:44:59.937 +08 [4030395] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:44:57.844672'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '361914'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:45:00.109 +08 [4030411] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:45:00.109 +08 [4030411] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:45:00.109 +08 [4030411] HINT:  The transaction might succeed if retried.
+2026-10-19 18:45:00.109 +08 [4030411] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:44:58.021545'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '484056'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:45:02.426 +08 [4030411] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:45:02.426 +08 [4030411] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:45:02.426 +08 [4030411] HINT:  The transaction might succeed if retried.
+2026-10-19 18:45:02.426 +08 [4030411] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:45:00.148817'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '484056'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:46:05.989 +08 [4030398] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:46:05.989 +08 [4030398] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:46:05.989 +08 [4030398] HINT:  The transaction might succeed if retried.
+2026-10-19 18:46:05.989 +08 [4030398] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:46:02.726717'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '158856'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:46:08.039 +08 [4030398] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:46:08.039 +08 [4030398] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:46:08.039 +08 [4030398] HINT:  The transaction might succeed if retried.
+2026-10-19 18:46:08.039 +08 [4030398] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:46:06.025625'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '158856'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:46:08.742 +08 [4030408] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:46:08.742 +08 [4030408] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:46:08.742 +08 [4030408] HINT:  The transaction might succeed if retried.
+2026-10-19 18:46:08.742 +08 [4030408] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:46:06.592961'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '174201'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:46:09.641 +08 [4030563] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:46:09.641 +08 [4030563] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:46:09.641 +08 [4030563] HINT:  The transaction might succeed if retried.
+2026-10-19 18:46:09.641 +08 [4030563] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:46:07.443505'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '88675'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:46:10.376 +08 [4030398] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:46:10.376 +08 [4030398] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:46:10.376 +08 [4030398] HINT:  The transaction might succeed if retried.
+2026-10-19 18:46:10.376 +08 [4030398] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:46:08.059125'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '158856'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:46:10.646 +08 [4030563] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:46:10.646 +08 [4030563] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:46:10.646 +08 [4030563] HINT:  The transaction might succeed if retried.
+2026-10-19 18:46:10.646 +08 [4030563] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:46:09.662223'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '88675'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:46:10.917 +08 [4030408] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:46:10.917 +08 [4030408] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:46:10.917 +08 [4030408] HINT:  The transaction might succeed if retried.
+2026-10-19 18:46:10.917 +08 [4030408] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:46:08.763172'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '174201'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:46:11.829 +08 [4030563] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:46:11.829 +08 [4030563] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:46:11.829 +08 [4030563] HINT:  The transaction might succeed if retried.
+2026-10-19 18:46:11.829 +08 [4030563] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:46:10.668165'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '88675'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:46:13.427 +08 [4030408] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:46:13.427 +08 [4030408] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:46:13.427 +08 [4030408] HINT:  The transaction might succeed if retried.
+2026-10-19 18:46:13.427 +08 [4030408] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:46:10.948332'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '174201'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:48:06.948 +08 [4030390] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:48:06.948 +08 [4030390] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:48:06.948 +08 [4030390] HINT:  The transaction might succeed if retried.
+2026-10-19 18:48:06.948 +08 [4030390] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:48:04.377081'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '469569'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:48:09.888 +08 [4030390] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:48:09.888 +08 [4030390] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:48:09.888 +08 [4030390] HINT:  The transaction might succeed if retried.
+2026-10-19 18:48:09.888 +08 [4030390] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:48:06.966778'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '469569'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:48:17.523 +08 [4030434] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:48:17.523 +08 [4030434] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:48:17.523 +08 [4030434] HINT:  The transaction might succeed if retried.
+2026-10-19 18:48:17.523 +08 [4030434] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:48:15.644267'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '101076'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:48:20.077 +08 [4030434] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:48:20.077 +08 [4030434] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:48:20.077 +08 [4030434] HINT:  The transaction might succeed if retried.
+2026-10-19 18:48:20.077 +08 [4030434] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:48:17.5839'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '101076'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:48:22.297 +08 [4030434] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:48:22.297 +08 [4030434] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:48:22.297 +08 [4030434] HINT:  The transaction might succeed if retried.
+2026-10-19 18:48:22.297 +08 [4030434] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:48:20.091504'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '101076'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:48:49.270 +08 [4030421] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:48:49.270 +08 [4030421] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:48:49.270 +08 [4030421] HINT:  The transaction might succeed if retried.
+2026-10-19 18:48:49.270 +08 [4030421] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:48:46.710989'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '14597'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:48:51.429 +08 [4030421] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:48:51.429 +08 [4030421] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:48:51.429 +08 [4030421] HINT:  The transaction might succeed if retried.
+2026-10-19 18:48:51.429 +08 [4030421] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:48:49.282472'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '14597'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:48:53.347 +08 [4030421] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:48:53.347 +08 [4030421] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:48:53.347 +08 [4030421] HINT:  The transaction might succeed if retried.
+2026-10-19 18:48:53.347 +08 [4030421] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:48:51.444223'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '14597'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:48:55.127 +08 [4030429] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:48:55.127 +08 [4030429] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:48:55.127 +08 [4030429] HINT:  The transaction might succeed if retried.
+2026-10-19 18:48:55.127 +08 [4030429] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 18:48:53.342875'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '90553'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:49:31.219 +08 [4030403] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:49:31.219 +08 [4030403] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:49:31.219 +08 [4030403] HINT:  The transaction might succeed if retried.
+2026-10-19 18:49:31.219 +08 [4030403] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:49:28.676699'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '119975'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:49:33.626 +08 [4030403] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:49:33.626 +08 [4030403] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:49:33.626 +08 [4030403] HINT:  The transaction might succeed if retried.
+2026-10-19 18:49:33.626 +08 [4030403] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:49:31.248924'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '119975'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:49:35.734 +08 [4030403] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:49:35.734 +08 [4030403] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:49:35.734 +08 [4030403] HINT:  The transaction might succeed if retried.
+2026-10-19 18:49:35.734 +08 [4030403] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:49:33.639808'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '119975'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:50:15.410 +08 [4030411] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:50:15.410 +08 [4030411] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:50:15.410 +08 [4030411] HINT:  The transaction might succeed if retried.
+2026-10-19 18:50:15.410 +08 [4030411] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:50:12.538704'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '176230'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:50:17.589 +08 [4030411] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:50:17.589 +08 [4030411] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:50:17.589 +08 [4030411] HINT:  The transaction might succeed if retried.
+2026-10-19 18:50:17.589 +08 [4030411] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:50:15.424704'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '176230'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:50:19.673 +08 [4030411] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:50:19.673 +08 [4030411] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:50:19.673 +08 [4030411] HINT:  The transaction might succeed if retried.
+2026-10-19 18:50:19.673 +08 [4030411] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:50:17.634175'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '176230'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:50:54.908 +08 [4030563] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:50:54.908 +08 [4030563] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:50:54.908 +08 [4030563] HINT:  The transaction might succeed if retried.
+2026-10-19 18:50:54.908 +08 [4030563] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:50:54.280894'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '244385'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:50:55.667 +08 [4030563] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:50:55.667 +08 [4030563] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:50:55.667 +08 [4030563] HINT:  The transaction might succeed if retried.
+2026-10-19 18:50:55.667 +08 [4030563] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:50:54.927389'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '244385'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:51:53.522 +08 [4030389] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:51:53.522 +08 [4030389] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:51:53.522 +08 [4030389] HINT:  The transaction might succeed if retried.
+2026-10-19 18:51:53.522 +08 [4030389] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-19 18:51:50.501794'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '374923'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 18:51:58.756 +08 [4030391] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:51:58.756 +08 [4030391] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:51:58.756 +08 [4030391] HINT:  The transaction might succeed if retried.
+2026-10-19 18:51:58.756 +08 [4030391] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:51:56.115208'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '283397'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:52:00.799 +08 [4030391] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:52:00.799 +08 [4030391] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:52:00.799 +08 [4030391] HINT:  The transaction might succeed if retried.
+2026-10-19 18:52:00.799 +08 [4030391] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:51:58.768516'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '283397'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:53:34.290 +08 [4030449] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:53:34.290 +08 [4030449] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:53:34.290 +08 [4030449] HINT:  The transaction might succeed if retried.
+2026-10-19 18:53:34.290 +08 [4030449] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:53:31.609845'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '46355'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:53:34.635 +08 [4030434] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:53:34.635 +08 [4030434] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:53:34.635 +08 [4030434] HINT:  The transaction might succeed if retried.
+2026-10-19 18:53:34.635 +08 [4030434] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:53:31.915509'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '97731'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:53:35.465 +08 [4030449] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:53:35.465 +08 [4030449] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:53:35.465 +08 [4030449] HINT:  The transaction might succeed if retried.
+2026-10-19 18:53:35.465 +08 [4030449] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:53:34.326537'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '46355'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:53:36.956 +08 [4030449] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:53:36.956 +08 [4030449] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:53:36.956 +08 [4030449] HINT:  The transaction might succeed if retried.
+2026-10-19 18:53:36.956 +08 [4030449] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:53:35.490329'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '46355'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:53:37.454 +08 [4030434] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:53:37.454 +08 [4030434] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:53:37.454 +08 [4030434] HINT:  The transaction might succeed if retried.
+2026-10-19 18:53:37.454 +08 [4030434] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:53:34.656988'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '97731'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:53:39.606 +08 [4030434] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:53:39.606 +08 [4030434] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:53:39.606 +08 [4030434] HINT:  The transaction might succeed if retried.
+2026-10-19 18:53:39.606 +08 [4030434] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:53:37.484423'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '97731'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:54:14.212 +08 [4030395] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:54:14.212 +08 [4030395] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:54:14.212 +08 [4030395] HINT:  The transaction might succeed if retried.
+2026-10-19 18:54:14.212 +08 [4030395] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:54:11.598166'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '28026'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:54:16.426 +08 [4030395] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:54:16.426 +08 [4030395] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:54:16.426 +08 [4030395] HINT:  The transaction might succeed if retried.
+2026-10-19 18:54:16.426 +08 [4030395] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:54:14.229982'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '28026'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:54:18.970 +08 [4030395] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:54:18.970 +08 [4030395] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:54:18.970 +08 [4030395] HINT:  The transaction might succeed if retried.
+2026-10-19 18:54:18.970 +08 [4030395] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:54:16.429717'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '28026'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:54:40.355 +08 [4030563] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:54:40.355 +08 [4030563] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:54:40.355 +08 [4030563] HINT:  The transaction might succeed if retried.
+2026-10-19 18:54:40.355 +08 [4030563] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:54:37.459527'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '222161'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:55:28.300 +08 [4019778] WARNING:  terminating connection due to administrator command
+2026-10-19 18:55:28.300 +08 [4019778] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:55:28.300 +08 [4019778] WARNING:  terminating connection due to administrator command
+2026-10-19 18:55:28.300 +08 [4019778] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:55:28.301 +08 [4019778] WARNING:  could not issue cancel request
+2026-10-19 18:55:28.301 +08 [4019778] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-19 18:55:28.301 +08 [4019778] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:55:30.313 +08 [4019778] WARNING:  connection to the remote node cs14@xcnf2:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-19 18:55:30.313 +08 [4019778] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:55:30.313 +08 [4019778] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 18:55:30.313 +08 [4019778] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:55:30.313 +08 [4019778] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-19 18:55:30.313 +08 [4019778] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:55:30.313 +08 [4019778] WARNING:  terminating connection due to administrator command
+2026-10-19 18:55:30.313 +08 [4019778] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:55:30.313 +08 [4019778] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 18:55:30.313 +08 [4019778] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:55:30.506 +08 [4019762] LOG:  received fast shutdown request
+2026-10-19 18:55:30.534 +08 [4019762] LOG:  aborting any active transactions
+2026-10-19 18:55:30.538 +08 [4079728] FATAL:  terminating connection due to administrator command
+2026-10-19 18:55:30.541 +08 [4019762] LOG:  background worker "logical replication launcher" (PID 4019772) exited with exit code 1
+2026-10-19 18:55:30.543 +08 [4019767] LOG:  shutting down
+2026-10-19 18:55:30.544 +08 [4019767] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 18:55:31.571 +08 [4019767] LOG:  checkpoint complete: wrote 94657 buffers (72.2%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 102 recycled; write=1.009 s, sync=0.002 s, total=1.029 s; sync files=263, longest=0.001 s, average=0.001 s; distance=1684523 kB, estimate=1684523 kB; lsn=2/69E36D88, redo lsn=2/69E36D88
+2026-10-19 18:55:31.853 +08 [4019762] LOG:  database system is shut down
+2026-10-19 18:55:32.022 +08 [4115101] LOG:  There is no designated Main database.
+2026-10-19 18:55:32.022 +08 [4115101] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-19 18:55:32.022 +08 [4115101] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-19 18:55:32.180 +08 [4115101] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-19 18:55:32.180 +08 [4115101] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-19 18:55:32.180 +08 [4115101] LOG:  listening on IPv6 address "::", port 5446
+2026-10-19 18:55:32.181 +08 [4115101] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-19 18:55:32.186 +08 [4115108] LOG:  database system was shut down at 2026-10-19 18:55:31 +08
+2026-10-19 18:55:32.191 +08 [4115101] LOG:  database system is ready to accept connections
+2026-10-19 18:55:33.100 +08 [4115117] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-19 18:55:33.100 +08 [4115117] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 18:58:08.423 +08 [4115187] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:08.423 +08 [4115187] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:08.423 +08 [4115187] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:08.423 +08 [4115187] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:58:08.037302'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '54620'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:08.680 +08 [4115193] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:08.680 +08 [4115193] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:08.680 +08 [4115193] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:08.680 +08 [4115193] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:58:08.036763'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '207650'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:09.024 +08 [4115211] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:09.024 +08 [4115211] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:09.024 +08 [4115211] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:09.024 +08 [4115211] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:58:08.104387'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '347840'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:10.935 +08 [4115179] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:10.935 +08 [4115179] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:10.935 +08 [4115179] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:10.935 +08 [4115179] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:58:08.450381'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '54620'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:11.935 +08 [4115181] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:11.935 +08 [4115181] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:11.935 +08 [4115181] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:11.935 +08 [4115181] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:58:08.719455'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '207650'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:12.515 +08 [4115191] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:12.515 +08 [4115191] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:12.515 +08 [4115191] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:12.515 +08 [4115191] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:58:08.971638'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '161867'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:15.090 +08 [4115192] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:15.090 +08 [4115192] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:15.090 +08 [4115192] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:15.090 +08 [4115192] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:58:10.905328'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '347840'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:15.247 +08 [4115179] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:15.247 +08 [4115179] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:15.247 +08 [4115179] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:15.247 +08 [4115179] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 18:58:11.003633'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '54620'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:17.579 +08 [4115181] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:17.579 +08 [4115181] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:17.579 +08 [4115181] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:17.579 +08 [4115181] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:58:12.072977'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '207650'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:18.498 +08 [4115191] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:18.498 +08 [4115191] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:18.498 +08 [4115191] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:18.498 +08 [4115191] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:58:12.623974'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '161867'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:19.348 +08 [4115226] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:19.348 +08 [4115226] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:19.348 +08 [4115226] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:19.348 +08 [4115226] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:58:12.828999'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '27408'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:20.786 +08 [4115192] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:20.786 +08 [4115192] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:20.786 +08 [4115192] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:20.786 +08 [4115192] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 18:58:15.167682'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '347840'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:25.483 +08 [4115226] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:25.483 +08 [4115226] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:25.483 +08 [4115226] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:25.483 +08 [4115226] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:58:19.414798'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '27408'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:25.706 +08 [4115191] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:25.706 +08 [4115191] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:25.706 +08 [4115191] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:25.706 +08 [4115191] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 18:58:18.558149'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '161867'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:58:33.042 +08 [4115226] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:58:33.042 +08 [4115226] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:58:33.042 +08 [4115226] HINT:  The transaction might succeed if retried.
+2026-10-19 18:58:33.042 +08 [4115226] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 18:58:25.570513'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '27408'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 18:59:04.704 +08 [4115324] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 18:59:04.704 +08 [4115324] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 18:59:04.704 +08 [4115324] HINT:  The transaction might succeed if retried.
+2026-10-19 18:59:04.704 +08 [4115324] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-19 18:59:02.095519'::timestamp without time zone WHERE (inventory.inventory_id OPERATOR(pg_catalog.=) '109090'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-19 19:00:13.115 +08 [4131104] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:13.115 +08 [4131104] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:00:13.115 +08 [4131104] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:13.115 +08 [4131104] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:00:11.896368'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '186423'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:00:14.239 +08 [4131192] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:14.239 +08 [4131192] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-19 19:00:14.239 +08 [4131192] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:14.239 +08 [4131192] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102043 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (82)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (127082)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102043 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (82)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (127082)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-19 19:00:15.047 +08 [4131156] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:15.047 +08 [4131156] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:00:15.047 +08 [4131156] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:15.047 +08 [4131156] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:00:11.822965'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '207650'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:00:15.582 +08 [4131087] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:15.582 +08 [4131087] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:00:15.582 +08 [4131087] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:15.582 +08 [4131087] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 19:00:12.512568'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '54620'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:00:16.663 +08 [4131104] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:16.663 +08 [4131104] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:00:16.663 +08 [4131104] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:16.663 +08 [4131104] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:00:13.172912'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '186423'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:00:19.107 +08 [4131236] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:19.107 +08 [4131236] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:00:19.107 +08 [4131236] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:19.107 +08 [4131236] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 19:00:15.134828'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '386549'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:00:19.188 +08 [4131156] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:19.188 +08 [4131156] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:00:19.188 +08 [4131156] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:19.188 +08 [4131156] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:00:15.110956'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '207650'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:00:19.846 +08 [4131087] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:19.846 +08 [4131087] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:00:19.846 +08 [4131087] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:19.846 +08 [4131087] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 19:00:15.629753'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '54620'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:00:21.833 +08 [4131104] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:21.833 +08 [4131104] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:00:21.833 +08 [4131104] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:21.833 +08 [4131104] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:00:16.725808'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '186423'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:00:25.933 +08 [4131236] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:25.933 +08 [4131236] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:00:25.933 +08 [4131236] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:25.933 +08 [4131236] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 19:00:19.154501'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '386549'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:00:26.317 +08 [4131156] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:26.317 +08 [4131156] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:00:26.317 +08 [4131156] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:26.317 +08 [4131156] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:00:19.265774'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '207650'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:00:34.742 +08 [4131236] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:34.742 +08 [4131236] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:00:34.742 +08 [4131236] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:34.742 +08 [4131236] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 19:00:25.993481'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '386549'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:00:35.349 +08 [4131156] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:00:35.349 +08 [4131156] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:00:35.349 +08 [4131156] HINT:  The transaction might succeed if retried.
+2026-10-19 19:00:35.349 +08 [4131156] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:00:26.725529'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '259214'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:01:13.186 +08 [4131165] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:01:13.186 +08 [4131165] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:01:13.186 +08 [4131165] HINT:  The transaction might succeed if retried.
+2026-10-19 19:01:13.186 +08 [4131165] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 19:01:09.775272'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '438814'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:01:14.154 +08 [4131144] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:01:14.154 +08 [4131144] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:01:14.154 +08 [4131144] HINT:  The transaction might succeed if retried.
+2026-10-19 19:01:14.154 +08 [4131144] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:01:10.76285'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '474760'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:02:17.269 +08 [4131102] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:02:17.269 +08 [4131102] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:02:17.269 +08 [4131102] HINT:  The transaction might succeed if retried.
+2026-10-19 19:02:17.269 +08 [4131102] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:02:07.846385'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '148683'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:02:25.239 +08 [4131102] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:02:25.239 +08 [4131102] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:02:25.239 +08 [4131102] HINT:  The transaction might succeed if retried.
+2026-10-19 19:02:25.239 +08 [4131102] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:02:17.503991'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '148683'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:02:30.135 +08 [4131102] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:02:30.135 +08 [4131102] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:02:30.135 +08 [4131102] HINT:  The transaction might succeed if retried.
+2026-10-19 19:02:30.135 +08 [4131102] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:02:25.299047'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '148683'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:02:31.064 +08 [4131140] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:02:31.064 +08 [4131140] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:02:31.064 +08 [4131140] HINT:  The transaction might succeed if retried.
+2026-10-19 19:02:31.064 +08 [4131140] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:02:26.994893'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '380518'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:02:35.163 +08 [4131140] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:02:35.163 +08 [4131140] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:02:35.163 +08 [4131140] HINT:  The transaction might succeed if retried.
+2026-10-19 19:02:35.163 +08 [4131140] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:02:31.088341'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '380518'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:02:36.302 +08 [4131104] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:02:36.302 +08 [4131104] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:02:36.302 +08 [4131104] HINT:  The transaction might succeed if retried.
+2026-10-19 19:02:36.302 +08 [4131104] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:02:32.373119'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '23492'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:02:38.572 +08 [4131140] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:02:38.572 +08 [4131140] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:02:38.572 +08 [4131140] HINT:  The transaction might succeed if retried.
+2026-10-19 19:02:38.572 +08 [4131140] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:02:35.18395'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '380518'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:02:39.569 +08 [4131104] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:02:39.569 +08 [4131104] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:02:39.569 +08 [4131104] HINT:  The transaction might succeed if retried.
+2026-10-19 19:02:39.569 +08 [4131104] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:02:36.334111'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '23492'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:02:42.473 +08 [4131104] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:02:42.473 +08 [4131104] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:02:42.473 +08 [4131104] HINT:  The transaction might succeed if retried.
+2026-10-19 19:02:42.473 +08 [4131104] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:02:39.587139'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '23492'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:03:25.803 +08 [4131139] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:03:25.803 +08 [4131139] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:03:25.803 +08 [4131139] HINT:  The transaction might succeed if retried.
+2026-10-19 19:03:25.803 +08 [4131139] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:03:22.409435'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '432155'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:03:26.983 +08 [4131151] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:03:26.983 +08 [4131151] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:03:26.983 +08 [4131151] HINT:  The transaction might succeed if retried.
+2026-10-19 19:03:26.983 +08 [4131151] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 19:03:24.069598'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '199408'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:03:28.595 +08 [4131139] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:03:28.595 +08 [4131139] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:03:28.595 +08 [4131139] HINT:  The transaction might succeed if retried.
+2026-10-19 19:03:28.595 +08 [4131139] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:03:25.815715'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '432155'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:03:29.511 +08 [4131151] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:03:29.511 +08 [4131151] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:03:29.511 +08 [4131151] HINT:  The transaction might succeed if retried.
+2026-10-19 19:03:29.511 +08 [4131151] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 19:03:27.032309'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '199408'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:03:31.729 +08 [4131139] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:03:31.729 +08 [4131139] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:03:31.729 +08 [4131139] HINT:  The transaction might succeed if retried.
+2026-10-19 19:03:31.729 +08 [4131139] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:03:28.609393'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '432155'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:03:32.441 +08 [4131151] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:03:32.441 +08 [4131151] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:03:32.441 +08 [4131151] HINT:  The transaction might succeed if retried.
+2026-10-19 19:03:32.441 +08 [4131151] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 19:03:29.530507'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '199408'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:04:34.489 +08 [4131272] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:04:34.489 +08 [4131272] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:04:34.489 +08 [4131272] HINT:  The transaction might succeed if retried.
+2026-10-19 19:04:34.489 +08 [4131272] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:04:30.082883'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '114852'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:04:39.917 +08 [4131272] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:04:39.917 +08 [4131272] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:04:39.917 +08 [4131272] HINT:  The transaction might succeed if retried.
+2026-10-19 19:04:39.917 +08 [4131272] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:04:34.559757'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '114852'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:04:45.966 +08 [4131272] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:04:45.966 +08 [4131272] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:04:45.966 +08 [4131272] HINT:  The transaction might succeed if retried.
+2026-10-19 19:04:45.966 +08 [4131272] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:04:39.972929'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '200270'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:04:50.309 +08 [4131272] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:04:50.309 +08 [4131272] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:04:50.309 +08 [4131272] HINT:  The transaction might succeed if retried.
+2026-10-19 19:04:50.309 +08 [4131272] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:04:46.021373'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '200270'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:04:52.342 +08 [4131272] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:04:52.342 +08 [4131272] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:04:52.342 +08 [4131272] HINT:  The transaction might succeed if retried.
+2026-10-19 19:04:52.342 +08 [4131272] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:04:50.324852'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '200270'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:06:10.960 +08 [4131152] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:06:10.960 +08 [4131152] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:06:10.960 +08 [4131152] HINT:  The transaction might succeed if retried.
+2026-10-19 19:06:10.960 +08 [4131152] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 19:06:09.054941'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '145443'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:06:11.459 +08 [4131152] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:06:11.459 +08 [4131152] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:06:11.459 +08 [4131152] HINT:  The transaction might succeed if retried.
+2026-10-19 19:06:11.459 +08 [4131152] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 19:06:10.984803'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '145443'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:06:11.932 +08 [4131152] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:06:11.932 +08 [4131152] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:06:11.932 +08 [4131152] HINT:  The transaction might succeed if retried.
+2026-10-19 19:06:11.932 +08 [4131152] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 19:06:11.469797'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '145443'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:06:19.572 +08 [4131138] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:06:19.572 +08 [4131138] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:06:19.572 +08 [4131138] HINT:  The transaction might succeed if retried.
+2026-10-19 19:06:19.572 +08 [4131138] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 19:06:16.510292'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '301768'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:06:26.145 +08 [4131138] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:06:26.145 +08 [4131138] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:06:26.145 +08 [4131138] HINT:  The transaction might succeed if retried.
+2026-10-19 19:06:26.145 +08 [4131138] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 19:06:22.701931'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '301768'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:06:52.066 +08 [4131140] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:06:52.066 +08 [4131140] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:06:52.066 +08 [4131140] HINT:  The transaction might succeed if retried.
+2026-10-19 19:06:52.066 +08 [4131140] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:06:47.260766'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '327633'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:06:57.134 +08 [4131140] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:06:57.134 +08 [4131140] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:06:57.134 +08 [4131140] HINT:  The transaction might succeed if retried.
+2026-10-19 19:06:57.134 +08 [4131140] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:06:52.089607'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '327633'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:07:02.846 +08 [4131140] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:07:02.846 +08 [4131140] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:07:02.846 +08 [4131140] HINT:  The transaction might succeed if retried.
+2026-10-19 19:07:02.846 +08 [4131140] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-19 19:06:57.160467'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '327633'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:07:12.433 +08 [4131104] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:07:12.433 +08 [4131104] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:07:12.433 +08 [4131104] HINT:  The transaction might succeed if retried.
+2026-10-19 19:07:12.433 +08 [4131104] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-19 19:07:09.144272'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '230491'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:09:11.085 +08 [4131361] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:09:11.085 +08 [4131361] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:09:11.085 +08 [4131361] HINT:  The transaction might succeed if retried.
+2026-10-19 19:09:11.085 +08 [4131361] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:09:06.168707'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '479563'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:09:12.467 +08 [4131263] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:09:12.467 +08 [4131263] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:09:12.467 +08 [4131263] HINT:  The transaction might succeed if retried.
+2026-10-19 19:09:12.467 +08 [4131263] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 19:09:07.593789'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '106841'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:09:13.387 +08 [4131361] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:09:13.387 +08 [4131361] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:09:13.387 +08 [4131361] HINT:  The transaction might succeed if retried.
+2026-10-19 19:09:13.387 +08 [4131361] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-19 19:09:11.119063'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '479563'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:09:16.565 +08 [4131263] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:09:16.565 +08 [4131263] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:09:16.565 +08 [4131263] HINT:  The transaction might succeed if retried.
+2026-10-19 19:09:16.565 +08 [4131263] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 19:09:12.492218'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '106841'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:09:18.404 +08 [4131361] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:09:18.404 +08 [4131361] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:09:18.404 +08 [4131361] HINT:  The transaction might succeed if retried.
+2026-10-19 19:09:18.404 +08 [4131361] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 19:09:17.795354'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '146112'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:09:20.062 +08 [4131263] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:09:20.062 +08 [4131263] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:09:20.062 +08 [4131263] HINT:  The transaction might succeed if retried.
+2026-10-19 19:09:20.062 +08 [4131263] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-19 19:09:16.573536'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '106841'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:09:20.231 +08 [4131361] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:09:20.231 +08 [4131361] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:09:20.231 +08 [4131361] HINT:  The transaction might succeed if retried.
+2026-10-19 19:09:20.231 +08 [4131361] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 19:09:18.421925'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '146112'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:09:22.254 +08 [4131361] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-19 19:09:22.254 +08 [4131361] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-19 19:09:22.254 +08 [4131361] HINT:  The transaction might succeed if retried.
+2026-10-19 19:09:22.254 +08 [4131361] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-19 19:09:20.25577'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '146112'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-19 19:11:08.409 +08 [4115117] WARNING:  terminating connection due to administrator command
+2026-10-19 19:11:08.409 +08 [4115117] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:11:10.420 +08 [4115117] WARNING:  connection to the remote node cs14@xcnf1:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 19:11:10.420 +08 [4115117] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:11:10.420 +08 [4115117] WARNING:  terminating connection due to administrator command
+2026-10-19 19:11:10.420 +08 [4115117] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:11:10.420 +08 [4115117] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-19 19:11:10.420 +08 [4115117] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-19 19:11:11.697 +08 [4115101] LOG:  received fast shutdown request
+2026-10-19 19:11:11.697 +08 [4115101] LOG:  aborting any active transactions
+2026-10-19 19:11:11.698 +08 [4174765] FATAL:  terminating connection due to administrator command
+2026-10-19 19:11:11.701 +08 [4115101] LOG:  background worker "logical replication launcher" (PID 4115111) exited with exit code 1
+2026-10-19 19:11:11.704 +08 [4115106] LOG:  shutting down
+2026-10-19 19:11:11.704 +08 [4115106] LOG:  checkpoint starting: shutdown immediate
+2026-10-19 19:11:12.737 +08 [4115106] LOG:  checkpoint complete: wrote 94671 buffers (72.2%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 103 recycled; write=1.014 s, sync=0.002 s, total=1.034 s; sync files=264, longest=0.001 s, average=0.001 s; distance=1684548 kB, estimate=1684548 kB; lsn=2/D0B47F18, redo lsn=2/D0B47F18
+2026-10-19 19:11:13.018 +08 [4115101] LOG:  database system is shut down

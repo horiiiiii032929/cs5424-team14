@@ -1,0 +1,195 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Custom Scan",
+      "Custom Plan Provider": "Citus Adaptive",
+      "Parallel Aware": false,
+      "Async Capable": false,
+      "Startup Cost": 0.0,
+      "Total Cost": 0.0,
+      "Plan Rows": 0,
+      "Plan Width": 0,
+      "Actual Startup Time": 7.036,
+      "Actual Total Time": 7.038,
+      "Actual Rows": 1.0,
+      "Actual Loops": 1,
+      "Disabled": false,
+      "Output": [
+        "remote_scan.product_id",
+        "remote_scan.product_name",
+        "remote_scan.category",
+        "remote_scan.price",
+        "remote_scan.quantity"
+      ],
+      "Distributed Query": {
+        "Job": {
+          "Task Count": 1,
+          "Tuple data received from nodes": "43 bytes",
+          "Tasks Shown": "All",
+          "Tasks": [
+            {
+              "Query": "SELECT p.product_id, p.product_name, p.category, p.price, i.quantity FROM (public.products_103290 p JOIN public.inventory_103322 i ON (((i.product_id OPERATOR(pg_catalog.=) p.product_id) AND (i.merchant_id OPERATOR(pg_catalog.=) p.merchant_id)))) WHERE ((p.merchant_id OPERATOR(pg_catalog.=) (1)::bigint) AND (p.product_id OPERATOR(pg_catalog.=) (1)::bigint))",
+              "Tuple data received from node": "43 bytes",
+              "Node": "host=worker2 port=5432 dbname=postgres",
+              "Remote Plan": [
+                [
+                  {
+                    "Plan": {
+                      "Node Type": "Nested Loop",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Join Type": "Inner",
+                      "Startup Cost": 0.0,
+                      "Total Cost": 2.64,
+                      "Plan Rows": 1,
+                      "Plan Width": 41,
+                      "Actual Startup Time": 0.033,
+                      "Actual Total Time": 0.034,
+                      "Actual Rows": 1.0,
+                      "Actual Loops": 1,
+                      "Disabled": false,
+                      "Output": [
+                        "p.product_id",
+                        "p.product_name",
+                        "p.category",
+                        "p.price",
+                        "i.quantity"
+                      ],
+                      "Inner Unique": false,
+                      "Shared Hit Blocks": 2,
+                      "Shared Read Blocks": 0,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0,
+                      "Plans": [
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Relation Name": "products_103290",
+                          "Schema": "public",
+                          "Alias": "p",
+                          "Startup Cost": 0.0,
+                          "Total Cost": 1.31,
+                          "Plan Rows": 1,
+                          "Plan Width": 45,
+                          "Actual Startup Time": 0.014,
+                          "Actual Total Time": 0.015,
+                          "Actual Rows": 1.0,
+                          "Actual Loops": 1,
+                          "Disabled": false,
+                          "Output": [
+                            "p.product_id",
+                            "p.merchant_id",
+                            "p.product_name",
+                            "p.category",
+                            "p.price"
+                          ],
+                          "Filter": "((p.product_id = '1'::bigint) AND (p.merchant_id = '1'::bigint))",
+                          "Rows Removed by Filter": 20,
+                          "Shared Hit Blocks": 1,
+                          "Shared Read Blocks": 0,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0
+                        },
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Inner",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Relation Name": "inventory_103322",
+                          "Schema": "public",
+                          "Alias": "i",
+                          "Startup Cost": 0.0,
+                          "Total Cost": 1.31,
+                          "Plan Rows": 1,
+                          "Plan Width": 20,
+                          "Actual Startup Time": 0.017,
+                          "Actual Total Time": 0.017,
+                          "Actual Rows": 1.0,
+                          "Actual Loops": 1,
+                          "Disabled": false,
+                          "Output": [
+                            "i.inventory_id",
+                            "i.merchant_id",
+                            "i.product_id",
+                            "i.quantity",
+                            "i.updated_at"
+                          ],
+                          "Filter": "((i.product_id = '1'::bigint) AND (i.merchant_id = '1'::bigint))",
+                          "Rows Removed by Filter": 20,
+                          "Shared Hit Blocks": 1,
+                          "Shared Read Blocks": 0,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0
+                        }
+                      ]
+                    },
+                    "Planning": {
+                      "Shared Hit Blocks": 227,
+                      "Shared Read Blocks": 0,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0
+                    },
+                    "Planning Time": 0.291,
+                    "Triggers": [],
+                    "Execution Time": 0.055
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "Shared Hit Blocks": 73,
+      "Shared Read Blocks": 0,
+      "Shared Dirtied Blocks": 0,
+      "Shared Written Blocks": 0,
+      "Local Hit Blocks": 0,
+      "Local Read Blocks": 0,
+      "Local Dirtied Blocks": 0,
+      "Local Written Blocks": 0,
+      "Temp Read Blocks": 0,
+      "Temp Written Blocks": 0
+    },
+    "Planning": {
+      "Shared Hit Blocks": 635,
+      "Shared Read Blocks": 0,
+      "Shared Dirtied Blocks": 0,
+      "Shared Written Blocks": 0,
+      "Local Hit Blocks": 0,
+      "Local Read Blocks": 0,
+      "Local Dirtied Blocks": 0,
+      "Local Written Blocks": 0,
+      "Temp Read Blocks": 0,
+      "Temp Written Blocks": 0
+    },
+    "Planning Time": 1.528,
+    "Triggers": [],
+    "Execution Time": 7.052
+  }
+]
