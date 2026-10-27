@@ -82,6 +82,17 @@ for team review. Entries below are dated checkpoints, not current job status.
   access/import blocker, and retained a112 as provisional pending team choice.
   No benchmark SQL was changed or new jobs submitted during this review.
 
+- 27 October 2026 (Codex): used Kelvin's message supplied by Hikaru and the
+  existing local evidence to prepare the A design recommendation and limitations.
+  Clarified that a112 has one clean full matrix plus a seed-7 repeat with a
+  flagged 64-client warmup, and separated client-abort counts from aborted
+  measurements. No team confirmation was inferred, no shared documents were
+  edited, and no new cluster experiments were submitted.
+  Before committing, reran the complete archived a115 audit (275 files, 26
+  runtime hash comparisons, 24 phase commands/exits, 12 raw-log count audits and
+  12 validations), independently recalculated a112's speedup/repeat differences
+  and a115's phase-specific abort counts, and checked the Git diff formatting.
+
 Keep the conversation export with prompts and outputs for the required
 `14_ai_tool.zip` reports. This short record is an index, not a replacement for
 the complete required interaction records. Team members must review and understand

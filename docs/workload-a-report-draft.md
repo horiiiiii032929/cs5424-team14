@@ -1,6 +1,9 @@
 # Draft report sections 2–3: Workload A
 
-Updated 22 October 2026. This is a working draft; a112 is the provisional design
+Updated 27 October 2026 using the archived results and Kelvin's message supplied
+by Hikaru. Kelvin supports selecting a112 and plans to supply his write-side
+section on Wednesday, 28 October. This is a working draft; a112 is the
+provisional design
 with a seed-7 repeat (64-client warmup flagged). a114's diagnostic is complete
 and did not support promotion. a115 completed with measured client aborts; its
 complete raw archive is reviewed, and final team selection remains open.
@@ -311,12 +314,52 @@ source hash and validation result. The earlier partial transcription remains
 historical; VPN access and raw import are no longer blockers. The existing
 clean matched a0/a112 figure is retained.
 
-**Provisional selection:** a112 remains the supported A checkpoint, including its
-own seed-7/c64 warmup caveat. a115 has supported index benefits in eligible cases,
-but its repeated measurement aborts prevent automatic promotion as a reliable
-full matrix. Kelvin and the A pair must confirm the final performance/reliability
-tradeoff before the 23 October cutoff. This audit changed no benchmark SQL and
-submitted no new jobs; local timing and B results remain separate evidence.
+The archived phase logs contain 19 client-abort messages across warmups and
+measurements: 17 in T1, one in T2 and one in T9. Of these, 16 occur during
+measurements (14 T1, one T2 and one T9); the other three are T1 warmup aborts.
+These are client-abort counts, distinct from the five aborted measurements and
+from failed transaction records in summary.csv. They support Kelvin's conclusion
+that his autocommit changes to T2/T5/T8/T9 would not directly address the dominant
+T1 commit-abort path. The worker-log evidence is consistent with wrapped
+commit-time serialization conflicts, but not every abort has an individually
+traced cause. A higher write rate increasing conflict exposure is a hypothesis,
+not an established causal effect of the timestamp index.
+
+### 3.9 Recommended A design and limitations
+
+We recommend a112 as the final A design: lookup indexes, inventory colocated
+with products by product_id, order_items colocated with orders by order_id,
+matching routing predicates, and READ ONLY declarations for T3/T4/T6. The
+matched seed-42 matrix completes every warmup and measurement, with zero
+measured failures and 16.8–28.2× the fresh a0 throughput. The seed-7 measurements
+are within 2.5% at every client count and also have zero measured failures.
+However, seed 7's 64-client warmup aborts, so the evidence is one clean full
+matrix plus a repeat with a flagged case, rather than two clean full matrices.
+
+| Design | Supported result | Limitation and recommendation |
+|---|---|---|
+| a112 | Full matched seed-42 matrix; repeat measurements within 2.5%; zero measured failures in both seeds. | Retain seed-7/c64 warmup abort; recommended final A design. |
+| a114 | Exact summaries pass correctness checks. | Four-client diagnostic does not improve throughput or T6 latency; do not select. |
+| a115 | Both one-client runs are about 2.1× same-seed a112; additional eligible cases show index benefits. | Five of twelve measurements abort; retain as follow-up work rather than the final matrix. |
+
+The main supported improvement is the combined a112 design's reduction in
+distributed join cost. The full comparison does not isolate how much of the
+gain comes from each index, placement change or access declaration. Likewise,
+two seeds on one fixed node allocation do not measure variation across cluster
+allocations or provide confidence intervals. Post-run validators check recorded
+invariants; they do not establish correctness for every possible concurrent
+schedule or erase phase aborts.
+
+Future work should first trace the T1 commit-conflict path and investigate safe
+transaction-level retry handling while preserving atomicity and SERIALIZABLE
+isolation, then repeat a115's complete matched matrix. Autocommit and fillfactor changes on
+a112 would be separate experiments; their combined effect and any HOT-update
+benefit have not been measured and are not claimed here.
+
+**Coordination status:** Kelvin supports a112 in his supplied message; Hikaru's
+confirmation remains to be recorded. The recommendation above is ready for
+team review, not a claim that agreement or the optional combined run has already
+occurred. Kelvin's a10/a11/a12/a14 write-up remains his contribution to integrate.
 
 ## Sources to retain in the final report
 
