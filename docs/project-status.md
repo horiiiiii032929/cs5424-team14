@@ -1,6 +1,11 @@
-# Project status — 22 October 2026
+# Project status — 27 October 2026
 
-Latest reconciliation: 22 October, after VPN reconnection (UTC+8). Both a115
+The [A report draft](workload-a-report-draft.md) recommends a112 as the final
+A design. Kelvin supports selecting a112 and plans to supply his write-side
+section on 28 October; Hikaru's confirmation remains to be recorded. The
+recommendation is ready for team review, not a claim of final agreement.
+
+The last evidence reconciliation was 22 October, after VPN reconnection (UTC+8). Both a115
 jobs are fully imported and audited in
 [the complete evidence archive](../results/cluster-full-a115-20261022/README.md).
 The earlier timeout and partial readback remain historical checkpoints; they are
@@ -20,11 +25,11 @@ and bytes. It does not overwrite submission baselines or select a final B design
 
 | Evidence | Verified finding | Decision |
 |---|---|---|
-| Full matched a0 977740 / a112 977773 | Same xcnf0–4 nodes, scale 1, six client counts, 60 s warmup / 600 s measurement. a112 54.2–90.8 TPS versus a0 3.2–3.6 TPS (16.8–28.2×); zero a112 measured failures; six passing validations. Baseline retains serialization failures. | a112 is provisional, pending team agreement. |
+| Full matched a0 977740 / a112 977773 | Same xcnf0–4 nodes, scale 1, six client counts, 60 s warmup / 600 s measurement. a112 54.2–90.8 TPS versus a0 3.2–3.6 TPS (16.8–28.2×); zero a112 measured failures; six passing validations. Baseline retains serialization failures. | a112 is recommended and supported by Kelvin; Hikaru's confirmation remains to be recorded. |
 | a112 repeat 978177, seed 7 | Measured TPS within 2.5% of seed 42; six validations passed. The 64-client warmup exited 2; that case is excluded from clean comparisons. | Repetition supports a112 but does not establish a general concurrency fix. |
 | a114 diagnostic 979865 | 85.333 TPS; T6 764.5 ms versus a112 diagnostic 650.6 ms. Core and exact summary validation passed. | Do not promote the striped daily summary design. |
 | a115 diagnostic 979866 | a112 plus only `orders(created_at)`; 288.633 TPS, T6 115.9 ms, zero failed transactions, two retried transactions / two retry attempts, validation passed. | Promising diagnostic; full-run aborts prevent blanket promotion. |
-| a115 full jobs 979909 / 979910 | Complete import: 275 files, 13 matching runtime source hashes per job, all 24 phase commands/exits and 12 passing validations reviewed. Seven cases complete both phases; six also have zero failed records. Seed-42 c32/c64 and seed-7 c8/c16/c64 measurements abort; both c64 warmups abort. Seed-42 c4 has one serialization failure despite exit 0. | Faster eligible observations support the index, but neither seed is a clean full matrix. a112 stays provisional; confirm final choice with Kelvin. |
+| a115 full jobs 979909 / 979910 | Complete import: 275 files, 13 matching runtime source hashes per job, all 24 phase commands/exits and 12 passing validations reviewed. Seven cases complete both phases; six also have zero failed records. Seed-42 c32/c64 and seed-7 c8/c16/c64 measurements abort; both c64 warmups abort. Seed-42 c4 has one serialization failure despite exit 0. | Faster eligible observations support the index, but neither seed is a clean full matrix. Retain a115 as follow-up work; recommend a112 for A. |
 
 
 Sources: [full comparison and repeat](../results/cluster-full-20261019/README.md),
@@ -79,9 +84,10 @@ no flagged a115 or B throughput is silently promoted into its clean comparison.
 
 ## Next actions and dates
 
-1. Confirm A with Kelvin using the completed a115 audit. At one client both
-   a115 seeds pass at 109.9–115.5 TPS, about 2.1× same-seed a112; higher-count
-   evidence is incomplete. Retain all failure/retry and a112 repeat caveats.
+1. Record Hikaru's confirmation of the recommended a112 design and integrate
+   Kelvin's write-side section. At one client both a115 seeds pass at
+   109.9–115.5 TPS, about 2.1× same-seed a112; higher-count evidence is
+   incomplete. Retain all failure/retry and a112 repeat caveats.
 2. Confirm B with its owners; decide whether an essential matched repeat or
    additional core validation is needed before the experiment cutoff.
 3. Review the draft PR, confirm contributions, finish references and assemble

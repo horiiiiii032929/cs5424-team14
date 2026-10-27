@@ -7,14 +7,20 @@ This repository holds Dessi's preserved A/B baseline snapshots and Hikaru's
 implementations of five proposed Task 2 designs. The proposed work split is
 Hikaru + Kelvin on A and Dessi + Xincheng on B.
 
-**22 October status (after VPN reconnection):** both a115 jobs are fully
+**27 October status:** The [A report draft](docs/workload-a-report-draft.md)
+recommends **a112** as the final A design, and Kelvin supports its selection.
+Hikaru's confirmation remains to be recorded, so the recommendation is still
+subject to team review. The matched a112 run achieved 16.8–28.2× fresh a0;
+the seed-7 repeat's 64-client warmup aborted and remains excluded from clean
+comparisons. Kelvin plans to supply his write-side section on 28 October.
+
+Both a115 jobs were fully
 [imported and audited](results/cluster-full-a115-20261022/README.md). All 26 runtime
 hash comparisons, 24 phase commands/exits, 12 raw-log/transaction-metric counts
 and 12 post-run validations are verified. Seven of twelve cases complete both
 phases; six also have zero measured failures. Seed-42 c32/c64 and seed-7 c8/c16/c64
 measurements abort; both c64 warmups abort. a115 is faster in eligible cases,
-but neither seed supplies a clean full matrix. **a112 remains provisional**
-(16.8–28.2× fresh a0, with its repeat/c64 warmup caveat), pending the A pair's decision.
+but neither seed supplies a clean full matrix.
 The [B branch audit](results/b-branch-review-20261022/README.md) is complete;
 b6/c16 supports 539.437 TPS, while c8/c32/c64 remain flagged. Final A/B choices
 and submission assembly await team review.
