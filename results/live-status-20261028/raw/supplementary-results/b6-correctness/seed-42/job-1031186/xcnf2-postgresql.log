@@ -1,0 +1,28 @@
+2026-10-28 18:19:11.301 +08 [4064641] LOG:  There is no designated Main database.
+2026-10-28 18:19:11.301 +08 [4064641] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-28 18:19:11.301 +08 [4064641] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-28 18:19:11.455 +08 [4064641] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-28 18:19:11.455 +08 [4064641] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-28 18:19:11.455 +08 [4064641] LOG:  listening on IPv6 address "::", port 5446
+2026-10-28 18:19:11.456 +08 [4064641] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-28 18:19:11.461 +08 [4064648] LOG:  database system was shut down at 2026-10-28 18:19:09 +08
+2026-10-28 18:19:11.465 +08 [4064641] LOG:  database system is ready to accept connections
+2026-10-28 18:19:14.055 +08 [4064656] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-28 18:19:14.055 +08 [4064656] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-28 18:31:34.095 +08 [4065002] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 18:31:34.095 +08 [4065002] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 18:31:34.095 +08 [4065002] HINT:  The transaction might succeed if retried.
+2026-10-28 18:31:34.095 +08 [4065002] STATEMENT:  PREPARE TRANSACTION 'citus_0_2146021_92953_12321'
+2026-10-28 18:34:25.860 +08 [4064656] WARNING:  terminating connection due to administrator command
+2026-10-28 18:34:25.860 +08 [4064656] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-28 18:34:26.493 +08 [4064641] LOG:  received fast shutdown request
+2026-10-28 18:34:26.493 +08 [4064641] LOG:  aborting any active transactions
+2026-10-28 18:34:26.493 +08 [4065013] FATAL:  terminating connection due to administrator command
+2026-10-28 18:34:26.493 +08 [4065031] FATAL:  terminating connection due to administrator command
+2026-10-28 18:34:26.493 +08 [4065014] FATAL:  terminating connection due to administrator command
+2026-10-28 18:34:26.502 +08 [4064641] LOG:  background worker "logical replication launcher" (PID 4064651) exited with exit code 1
+2026-10-28 18:34:26.503 +08 [4064646] LOG:  shutting down
+2026-10-28 18:34:26.503 +08 [4064646] LOG:  checkpoint starting: shutdown immediate
+2026-10-28 18:34:27.783 +08 [4064646] LOG:  checkpoint complete: wrote 128408 buffers (98.0%), wrote 25 SLRU buffers; 0 WAL file(s) added, 0 removed, 411 recycled; write=1.199 s, sync=0.007 s, total=1.281 s; sync files=1280, longest=0.001 s, average=0.001 s; distance=6727314 kB, estimate=6727314 kB; lsn=1/9C103A90, redo lsn=1/9C103A90
+2026-10-28 18:34:28.147 +08 [4064641] LOG:  database system is shut down

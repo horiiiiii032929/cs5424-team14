@@ -1,0 +1,2331 @@
+2026-10-28 14:12:26.318 +08 [2130405] LOG:  There is no designated Main database.
+2026-10-28 14:12:26.318 +08 [2130405] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-28 14:12:26.318 +08 [2130405] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-28 14:12:26.469 +08 [2130405] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-28 14:12:26.469 +08 [2130405] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-28 14:12:26.469 +08 [2130405] LOG:  listening on IPv6 address "::", port 5446
+2026-10-28 14:12:26.470 +08 [2130405] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-28 14:12:26.475 +08 [2130412] LOG:  database system was shut down at 2026-10-28 14:12:23 +08
+2026-10-28 14:12:26.480 +08 [2130405] LOG:  database system is ready to accept connections
+2026-10-28 14:12:29.056 +08 [2130443] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-28 14:12:29.056 +08 [2130443] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-28 14:30:18.875 +08 [2130405] LOG:  received fast shutdown request
+2026-10-28 14:30:18.875 +08 [2130405] LOG:  aborting any active transactions
+2026-10-28 14:30:18.881 +08 [2130405] LOG:  background worker "logical replication launcher" (PID 2130415) exited with exit code 1
+2026-10-28 14:30:18.881 +08 [2130410] LOG:  shutting down
+2026-10-28 14:30:18.881 +08 [2130410] LOG:  checkpoint starting: shutdown immediate
+2026-10-28 14:30:18.915 +08 [2130410] LOG:  checkpoint complete: wrote 1491 buffers (1.1%), wrote 14 SLRU buffers; 0 WAL file(s) added, 0 removed, 2 recycled; write=0.028 s, sync=0.003 s, total=0.034 s; sync files=552, longest=0.001 s, average=0.001 s; distance=27249 kB, estimate=27249 kB; lsn=0/31FB5B8, redo lsn=0/31FB5B8
+2026-10-28 14:30:18.975 +08 [2130405] LOG:  database system is shut down
+2026-10-28 14:30:26.400 +08 [2130901] LOG:  There is no designated Main database.
+2026-10-28 14:30:26.400 +08 [2130901] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-28 14:30:26.400 +08 [2130901] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-28 14:30:26.557 +08 [2130901] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-28 14:30:26.558 +08 [2130901] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-28 14:30:26.558 +08 [2130901] LOG:  listening on IPv6 address "::", port 5446
+2026-10-28 14:30:26.558 +08 [2130901] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-28 14:30:26.563 +08 [2130908] LOG:  database system was shut down at 2026-10-28 14:30:18 +08
+2026-10-28 14:30:26.568 +08 [2130901] LOG:  database system is ready to accept connections
+2026-10-28 14:30:27.443 +08 [2130932] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-28 14:30:27.443 +08 [2130932] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-28 14:32:41.824 +08 [2131555] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:32:41.824 +08 [2131555] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 14:32:41.824 +08 [2131555] HINT:  The transaction might succeed if retried.
+2026-10-28 14:32:41.824 +08 [2131555] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 14:32:41.824 +08 [2131555] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (378250)::bigint
+	    AND product_id = (378250)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 14:36:09.475 +08 [2132259] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:36:09.475 +08 [2132259] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 14:36:09.475 +08 [2132259] HINT:  The transaction might succeed if retried.
+2026-10-28 14:36:09.475 +08 [2132259] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:36:09.475 +08 [2132259] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (3)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (23430)::bigint
+	    AND product_id = (23430)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 14:36:44.227 +08 [2132259] ERROR:  could not serialize access due to concurrent update
+2026-10-28 14:36:44.227 +08 [2132259] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 14:36:44.227 +08 [2132259] STATEMENT:  WITH reserved AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (161672)::bigint
+	    AND merchant_id = (672)::bigint
+	    AND product_id = (161672)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+	            THEN 1 ELSE 0 END AS stock_ok
+	
+2026-10-28 14:38:40.997 +08 [2132256] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:38:40.997 +08 [2132256] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 14:38:40.997 +08 [2132256] HINT:  The transaction might succeed if retried.
+2026-10-28 14:38:40.997 +08 [2132256] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 14:38:40.997 +08 [2132256] STATEMENT:  COMMIT;
+2026-10-28 14:40:32.861 +08 [2132258] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:40:32.861 +08 [2132258] DETAIL:  Reason code: Canceled on conflict out to pivot 64133, during read.
+2026-10-28 14:40:32.861 +08 [2132258] HINT:  The transaction might succeed if retried.
+2026-10-28 14:40:32.861 +08 [2132258] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 14:40:32.861 +08 [2132258] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 14:40:32.844761'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 14:40:32.844761'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 14:41:13.838 +08 [2132257] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:41:13.838 +08 [2132257] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 14:41:13.838 +08 [2132257] HINT:  The transaction might succeed if retried.
+2026-10-28 14:41:13.838 +08 [2132257] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:41:13.838 +08 [2132257] STATEMENT:  COMMIT;
+2026-10-28 14:42:35.570 +08 [2132258] ERROR:  could not serialize access due to concurrent update
+2026-10-28 14:42:35.570 +08 [2132258] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 14:42:35.570 +08 [2132258] STATEMENT:  WITH reserved AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (245439)::bigint
+	    AND merchant_id = (439)::bigint
+	    AND product_id = (245439)::bigint
+	    AND quantity >= (1)::integer
+	  RETURNING 1
+	)
+	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+	            THEN 1 ELSE 0 END AS stock_ok
+	
+2026-10-28 14:43:53.859 +08 [2132257] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:43:53.859 +08 [2132257] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 14:43:53.859 +08 [2132257] HINT:  The transaction might succeed if retried.
+2026-10-28 14:43:53.859 +08 [2132257] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 14:43:53.859 +08 [2132257] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (199510)::bigint
+	    AND product_id = (199510)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 14:45:58.469 +08 [2130901] LOG:  received fast shutdown request
+2026-10-28 14:45:58.469 +08 [2130901] LOG:  aborting any active transactions
+2026-10-28 14:45:58.473 +08 [2130901] LOG:  background worker "logical replication launcher" (PID 2130911) exited with exit code 1
+2026-10-28 14:45:58.475 +08 [2130906] LOG:  shutting down
+2026-10-28 14:45:58.475 +08 [2130906] LOG:  checkpoint starting: shutdown immediate
+2026-10-28 14:45:58.491 +08 [2130906] LOG:  checkpoint complete: wrote 943 buffers (0.7%), wrote 47 SLRU buffers; 0 WAL file(s) added, 0 removed, 4 recycled; write=0.012 s, sync=0.002 s, total=0.016 s; sync files=88, longest=0.001 s, average=0.001 s; distance=73386 kB, estimate=73386 kB; lsn=0/79A60C0, redo lsn=0/79A60C0
+2026-10-28 14:45:58.549 +08 [2130901] LOG:  database system is shut down
+2026-10-28 14:46:05.186 +08 [2133047] LOG:  There is no designated Main database.
+2026-10-28 14:46:05.186 +08 [2133047] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-28 14:46:05.186 +08 [2133047] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-28 14:46:05.362 +08 [2133047] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-28 14:46:05.362 +08 [2133047] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-28 14:46:05.362 +08 [2133047] LOG:  listening on IPv6 address "::", port 5446
+2026-10-28 14:46:05.363 +08 [2133047] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-28 14:46:05.368 +08 [2133054] LOG:  database system was shut down at 2026-10-28 14:45:58 +08
+2026-10-28 14:46:05.372 +08 [2133047] LOG:  database system is ready to accept connections
+2026-10-28 14:46:06.245 +08 [2133102] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-28 14:46:06.245 +08 [2133102] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-28 14:48:24.521 +08 [2133420] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:48:24.521 +08 [2133420] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-28 14:48:24.521 +08 [2133420] HINT:  The transaction might succeed if retried.
+2026-10-28 14:48:24.521 +08 [2133420] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:48:24.521 +08 [2133420] STATEMENT:  SELECT
+	  CASE WHEN EXISTS (
+	    SELECT 1
+	    FROM products
+	    WHERE merchant_id = (4)::bigint
+	      AND product_id = (114004)::bigint
+	  ) THEN 1 ELSE 0 END AS product_ok,
+	  COALESCE((
+	    SELECT price
+	    FROM products
+	    WHERE merchant_id = (4)::bigint
+	      AND product_id = (114004)::bigint
+	    LIMIT 1
+	  ), 0.00)::numeric(12,2) AS price
+	
+2026-10-28 14:48:26.258 +08 [2133426] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:48:26.258 +08 [2133426] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 14:48:26.258 +08 [2133426] HINT:  The transaction might succeed if retried.
+2026-10-28 14:48:26.258 +08 [2133426] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 14:48:26.258 +08 [2133426] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (2)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (337068)::bigint
+	    AND product_id = (337068)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 14:48:29.654 +08 [2133424] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:48:29.654 +08 [2133424] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 14:48:29.654 +08 [2133424] HINT:  The transaction might succeed if retried.
+2026-10-28 14:48:29.654 +08 [2133424] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:48:29.654 +08 [2133424] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (437717)::bigint
+	    AND product_id = (437717)::bigint
+	    AND quantity >= (1)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-28 14:48:31.754 +08 [2133425] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:48:31.754 +08 [2133425] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 14:48:31.754 +08 [2133425] HINT:  The transaction might succeed if retried.
+2026-10-28 14:48:31.754 +08 [2133425] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 14:48:31.754 +08 [2133425] STATEMENT:  COMMIT;
+2026-10-28 14:48:41.322 +08 [2133424] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:48:41.322 +08 [2133424] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-28 14:48:41.322 +08 [2133424] HINT:  The transaction might succeed if retried.
+2026-10-28 14:48:41.322 +08 [2133424] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 14:48:41.322 +08 [2133424] STATEMENT:  SELECT
+	  CASE WHEN EXISTS (
+	    SELECT 1
+	    FROM products
+	    WHERE merchant_id = (87)::bigint
+	      AND product_id = (284087)::bigint
+	  ) THEN 1 ELSE 0 END AS product_ok,
+	  COALESCE((
+	    SELECT price
+	    FROM products
+	    WHERE merchant_id = (87)::bigint
+	      AND product_id = (284087)::bigint
+	    LIMIT 1
+	  ), 0.00)::numeric(12,2) AS price
+	
+2026-10-28 14:49:13.259 +08 [2133424] ERROR:  could not serialize access due to concurrent update
+2026-10-28 14:49:13.259 +08 [2133424] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 14:49:13.259 +08 [2133424] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (496376)::bigint
+	    AND product_id = (496376)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 14:51:35.447 +08 [2133659] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:51:35.447 +08 [2133659] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 14:51:35.447 +08 [2133659] HINT:  The transaction might succeed if retried.
+2026-10-28 14:51:35.447 +08 [2133659] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 14:51:35.447 +08 [2133659] STATEMENT:  COMMIT;
+2026-10-28 14:51:37.943 +08 [2133661] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:51:37.943 +08 [2133661] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-28 14:51:37.943 +08 [2133661] HINT:  The transaction might succeed if retried.
+2026-10-28 14:51:37.943 +08 [2133661] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:51:37.943 +08 [2133661] STATEMENT:  INSERT INTO order_items(
+	  order_item_id, merchant_id, order_id, product_id, quantity, unit_price
+	)
+	VALUES(
+	  (15000592)::bigint,
+	  (1)::bigint,
+	  (5000194)::bigint,
+	  (57001)::bigint,
+	  (5)::integer,
+	  910.19
+	);
+2026-10-28 14:51:41.769 +08 [2133654] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:51:41.769 +08 [2133654] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-28 14:51:41.769 +08 [2133654] HINT:  The transaction might succeed if retried.
+2026-10-28 14:51:41.769 +08 [2133654] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:51:41.769 +08 [2133654] STATEMENT:  INSERT INTO order_items(
+	  order_item_id, merchant_id, order_id, product_id, quantity, unit_price
+	)
+	VALUES(
+	  (15001273)::bigint,
+	  (73)::bigint,
+	  (5000415)::bigint,
+	  (257073)::bigint,
+	  (3)::integer,
+	  611.87
+	);
+2026-10-28 14:51:42.426 +08 [2133657] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:51:42.426 +08 [2133657] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 14:51:42.426 +08 [2133657] HINT:  The transaction might succeed if retried.
+2026-10-28 14:51:42.426 +08 [2133657] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:51:42.426 +08 [2133657] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (3)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (385980)::bigint
+	    AND product_id = (385980)::bigint
+	    AND quantity >= (3)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-28 14:51:43.664 +08 [2133659] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:51:43.664 +08 [2133659] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 14:51:43.664 +08 [2133659] HINT:  The transaction might succeed if retried.
+2026-10-28 14:51:43.664 +08 [2133659] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:51:43.664 +08 [2133659] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (63877)::bigint
+	    AND product_id = (63877)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 14:51:48.219 +08 [2133655] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:51:48.219 +08 [2133655] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 14:51:48.219 +08 [2133655] HINT:  The transaction might succeed if retried.
+2026-10-28 14:51:48.219 +08 [2133655] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 14:51:48.219 +08 [2133655] STATEMENT:  COMMIT;
+2026-10-28 14:51:48.793 +08 [2133659] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:51:48.793 +08 [2133659] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-28 14:51:48.793 +08 [2133659] HINT:  The transaction might succeed if retried.
+2026-10-28 14:51:48.793 +08 [2133659] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 14:51:48.793 +08 [2133659] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (3)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (326001)::bigint
+	    AND product_id = (326001)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 14:52:28.630 +08 [2133657] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:52:28.630 +08 [2133657] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 14:52:28.630 +08 [2133657] HINT:  The transaction might succeed if retried.
+2026-10-28 14:52:28.630 +08 [2133657] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:52:28.630 +08 [2133657] STATEMENT:  COMMIT;
+2026-10-28 14:52:42.651 +08 [2133656] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:52:42.651 +08 [2133656] DETAIL:  Reason code: Canceled on conflict out to pivot 124085, during read.
+2026-10-28 14:52:42.651 +08 [2133656] HINT:  The transaction might succeed if retried.
+2026-10-28 14:52:42.651 +08 [2133656] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 14:52:42.651 +08 [2133656] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 14:52:42.633704'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 14:52:42.633704'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 14:52:45.191 +08 [2133657] ERROR:  could not serialize access due to concurrent update
+2026-10-28 14:52:45.191 +08 [2133657] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 14:52:45.191 +08 [2133657] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (2)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (458566)::bigint
+	    AND product_id = (458566)::bigint
+	    AND quantity >= (2)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-28 14:54:13.731 +08 [2133658] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:54:13.731 +08 [2133658] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 14:54:13.731 +08 [2133658] HINT:  The transaction might succeed if retried.
+2026-10-28 14:54:13.731 +08 [2133658] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:54:13.731 +08 [2133658] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (111230)::bigint
+	    AND product_id = (111230)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-28 14:54:23.885 +08 [2133655] WARNING:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:54:23.885 +08 [2133655] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 14:54:23.885 +08 [2133655] HINT:  The transaction might succeed if retried.
+2026-10-28 14:54:23.885 +08 [2133655] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:54:23.885 +08 [2133655] WARNING:  failed to commit transaction on xcnf3:5446
+2026-10-28 14:54:23.885 +08 [2133655] ERROR:  could not commit transaction for shard 102090 on at least one active node
+2026-10-28 14:54:23.885 +08 [2133655] STATEMENT:  COMMIT;
+2026-10-28 14:54:24.918 +08 [2133658] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:54:24.918 +08 [2133658] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 14:54:24.918 +08 [2133658] HINT:  The transaction might succeed if retried.
+2026-10-28 14:54:24.918 +08 [2133658] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:54:24.918 +08 [2133658] STATEMENT:  COMMIT;
+2026-10-28 14:54:43.868 +08 [2133661] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:54:43.868 +08 [2133661] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 14:54:43.868 +08 [2133661] HINT:  The transaction might succeed if retried.
+2026-10-28 14:54:43.868 +08 [2133661] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 14:54:43.868 +08 [2133661] STATEMENT:  COMMIT;
+2026-10-28 14:55:15.503 +08 [2133654] ERROR:  could not serialize access due to concurrent update
+2026-10-28 14:55:15.503 +08 [2133654] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 14:55:15.503 +08 [2133654] STATEMENT:  WITH reserved AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (82041)::bigint
+	    AND merchant_id = (41)::bigint
+	    AND product_id = (82041)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+	            THEN 1 ELSE 0 END AS stock_ok
+	
+2026-10-28 14:55:21.123 +08 [2133654] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:55:21.123 +08 [2133654] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 14:55:21.123 +08 [2133654] HINT:  The transaction might succeed if retried.
+2026-10-28 14:55:21.123 +08 [2133654] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 14:55:21.123 +08 [2133654] STATEMENT:  COMMIT;
+2026-10-28 14:55:37.683 +08 [2133660] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:55:37.683 +08 [2133660] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 14:55:37.683 +08 [2133660] HINT:  The transaction might succeed if retried.
+2026-10-28 14:55:37.683 +08 [2133660] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 14:55:37.683 +08 [2133660] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (296728)::bigint
+	    AND product_id = (296728)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-28 14:56:50.311 +08 [2133656] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:56:50.311 +08 [2133656] DETAIL:  Reason code: Canceled on conflict out to pivot 165111, during read.
+2026-10-28 14:56:50.311 +08 [2133656] HINT:  The transaction might succeed if retried.
+2026-10-28 14:56:50.311 +08 [2133656] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:56:50.311 +08 [2133656] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 14:56:50.299315'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 14:56:50.299315'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 14:57:32.343 +08 [2133654] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:57:32.343 +08 [2133654] DETAIL:  Reason code: Canceled on conflict out to pivot 171608, during read.
+2026-10-28 14:57:32.343 +08 [2133654] HINT:  The transaction might succeed if retried.
+2026-10-28 14:57:32.343 +08 [2133654] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:57:32.343 +08 [2133654] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 14:57:32.320368'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 14:57:32.320368'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 14:57:42.578 +08 [2133661] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:57:42.578 +08 [2133661] DETAIL:  Reason code: Canceled on conflict out to pivot 173459, during read.
+2026-10-28 14:57:42.578 +08 [2133661] HINT:  The transaction might succeed if retried.
+2026-10-28 14:57:42.578 +08 [2133661] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 14:57:42.578 +08 [2133661] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 14:57:42.554121'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 14:57:42.554121'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 14:57:42.581 +08 [2133660] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:57:42.581 +08 [2133660] DETAIL:  Reason code: Canceled on conflict out to pivot 173459, during read.
+2026-10-28 14:57:42.581 +08 [2133660] HINT:  The transaction might succeed if retried.
+2026-10-28 14:57:42.581 +08 [2133660] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 14:57:42.581 +08 [2133660] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 14:57:42.555937'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 14:57:42.555937'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 14:57:54.371 +08 [2133657] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:57:54.371 +08 [2133657] DETAIL:  Reason code: Canceled on conflict out to pivot 174965, during read.
+2026-10-28 14:57:54.371 +08 [2133657] HINT:  The transaction might succeed if retried.
+2026-10-28 14:57:54.371 +08 [2133657] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:57:54.371 +08 [2133657] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 14:57:54.351264'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 14:57:54.351264'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 14:58:19.822 +08 [2133657] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:58:19.822 +08 [2133657] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 14:58:19.822 +08 [2133657] HINT:  The transaction might succeed if retried.
+2026-10-28 14:58:19.822 +08 [2133657] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 14:58:19.822 +08 [2133657] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (2)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (182254)::bigint
+	    AND product_id = (182254)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 14:58:47.624 +08 [2133660] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:58:47.624 +08 [2133660] DETAIL:  Reason code: Canceled on conflict out to pivot 182957, during read.
+2026-10-28 14:58:47.624 +08 [2133660] HINT:  The transaction might succeed if retried.
+2026-10-28 14:58:47.624 +08 [2133660] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:58:47.624 +08 [2133660] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 14:58:47.588625'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 14:58:47.588625'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 14:58:50.376 +08 [2133660] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:58:50.376 +08 [2133660] DETAIL:  Reason code: Canceled on conflict out to pivot 184696, during read.
+2026-10-28 14:58:50.376 +08 [2133660] HINT:  The transaction might succeed if retried.
+2026-10-28 14:58:50.376 +08 [2133660] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 14:58:50.376 +08 [2133660] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 14:58:50.356821'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 14:58:50.356821'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 14:59:11.595 +08 [2133654] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:59:11.595 +08 [2133654] DETAIL:  Reason code: Canceled on conflict out to pivot 186713, during read.
+2026-10-28 14:59:11.595 +08 [2133654] HINT:  The transaction might succeed if retried.
+2026-10-28 14:59:11.595 +08 [2133654] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 14:59:11.595 +08 [2133654] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 14:59:11.583439'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 14:59:11.583439'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 14:59:50.782 +08 [2133661] ERROR:  could not serialize access due to concurrent update
+2026-10-28 14:59:50.782 +08 [2133661] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 14:59:50.782 +08 [2133661] STATEMENT:  UPDATE inventory
+	SET quantity = quantity + (20)::integer,
+	    updated_at = CURRENT_TIMESTAMP
+	WHERE inventory_id = (358031)::bigint
+	  AND merchant_id = (31)::bigint
+	  AND product_id = (358031)::bigint
+	  AND quantity + (20)::integer >= 0;
+2026-10-28 14:59:58.102 +08 [2133657] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 14:59:58.102 +08 [2133657] DETAIL:  Reason code: Canceled on conflict out to pivot 193964, during read.
+2026-10-28 14:59:58.102 +08 [2133657] HINT:  The transaction might succeed if retried.
+2026-10-28 14:59:58.102 +08 [2133657] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 14:59:58.102 +08 [2133657] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 14:59:58.069702'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 14:59:58.069702'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:00:29.909 +08 [2133657] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:00:29.909 +08 [2133657] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 15:00:29.909 +08 [2133657] HINT:  The transaction might succeed if retried.
+2026-10-28 15:00:29.909 +08 [2133657] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:00:29.909 +08 [2133657] STATEMENT:  WITH reserved AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (263008)::bigint
+	    AND merchant_id = (8)::bigint
+	    AND product_id = (263008)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+	            THEN 1 ELSE 0 END AS stock_ok
+	
+2026-10-28 15:00:39.295 +08 [2133657] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:00:39.295 +08 [2133657] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 15:00:39.295 +08 [2133657] HINT:  The transaction might succeed if retried.
+2026-10-28 15:00:39.295 +08 [2133657] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:00:39.295 +08 [2133657] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (5)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (152206)::bigint
+	    AND product_id = (152206)::bigint
+	    AND quantity >= (5)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-28 15:01:12.076 +08 [2133661] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:01:12.076 +08 [2133661] DETAIL:  Reason code: Canceled on conflict out to pivot 204676, during read.
+2026-10-28 15:01:12.076 +08 [2133661] HINT:  The transaction might succeed if retried.
+2026-10-28 15:01:12.076 +08 [2133661] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:01:12.076 +08 [2133661] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:01:12.046695'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:01:12.046695'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:01:38.902 +08 [2133047] LOG:  received fast shutdown request
+2026-10-28 15:01:38.902 +08 [2133047] LOG:  aborting any active transactions
+2026-10-28 15:01:38.907 +08 [2133047] LOG:  background worker "logical replication launcher" (PID 2133057) exited with exit code 1
+2026-10-28 15:01:38.908 +08 [2133052] LOG:  shutting down
+2026-10-28 15:01:38.908 +08 [2133052] LOG:  checkpoint starting: shutdown immediate
+2026-10-28 15:01:38.928 +08 [2133052] LOG:  checkpoint complete: wrote 1249 buffers (1.0%), wrote 63 SLRU buffers; 0 WAL file(s) added, 0 removed, 6 recycled; write=0.015 s, sync=0.002 s, total=0.020 s; sync files=90, longest=0.001 s, average=0.001 s; distance=103515 kB, estimate=103515 kB; lsn=0/DEBCE30, redo lsn=0/DEBCE30
+2026-10-28 15:01:38.989 +08 [2133047] LOG:  database system is shut down
+2026-10-28 15:01:45.740 +08 [2133952] LOG:  There is no designated Main database.
+2026-10-28 15:01:45.740 +08 [2133952] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-28 15:01:45.740 +08 [2133952] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-28 15:01:45.920 +08 [2133952] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-28 15:01:45.920 +08 [2133952] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-28 15:01:45.920 +08 [2133952] LOG:  listening on IPv6 address "::", port 5446
+2026-10-28 15:01:45.921 +08 [2133952] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-28 15:01:45.926 +08 [2133959] LOG:  database system was shut down at 2026-10-28 15:01:38 +08
+2026-10-28 15:01:45.930 +08 [2133952] LOG:  database system is ready to accept connections
+2026-10-28 15:01:46.785 +08 [2133983] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-28 15:01:46.785 +08 [2133983] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-28 15:04:02.306 +08 [2134618] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:02.306 +08 [2134618] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-28 15:04:02.306 +08 [2134618] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:02.306 +08 [2134618] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:04:02.306 +08 [2134618] STATEMENT:  UPDATE orders
+	SET total_amount = (4600)::numeric(12,2)
+	WHERE order_id = (5000100)::bigint;
+2026-10-28 15:04:03.385 +08 [2134626] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:03.385 +08 [2134626] DETAIL:  Reason code: Canceled on conflict out to pivot 208579, during read.
+2026-10-28 15:04:03.385 +08 [2134626] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:03.385 +08 [2134626] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:04:03.385 +08 [2134626] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:04:03.359665'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:04:03.359665'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:04:05.594 +08 [2134616] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:05.594 +08 [2134616] DETAIL:  Reason code: Canceled on conflict out to pivot 208656, during read.
+2026-10-28 15:04:05.594 +08 [2134616] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:05.594 +08 [2134616] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:04:05.594 +08 [2134616] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:04:05.574523'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:04:05.574523'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:04:15.214 +08 [2134624] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:15.214 +08 [2134624] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 15:04:15.214 +08 [2134624] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:15.214 +08 [2134624] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:04:15.214 +08 [2134624] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (372665)::bigint
+	    AND product_id = (372665)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 15:04:17.209 +08 [2134625] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:17.209 +08 [2134625] DETAIL:  Reason code: Canceled on conflict out to pivot 211281, during read.
+2026-10-28 15:04:17.209 +08 [2134625] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:17.209 +08 [2134625] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:04:17.209 +08 [2134625] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:04:17.166537'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:04:17.166537'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:04:17.226 +08 [2134628] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:17.226 +08 [2134628] DETAIL:  Reason code: Canceled on conflict out to pivot 211281, during read.
+2026-10-28 15:04:17.226 +08 [2134628] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:17.226 +08 [2134628] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:04:17.226 +08 [2134628] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:04:17.170172'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:04:17.170172'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:04:18.730 +08 [2134614] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:18.730 +08 [2134614] DETAIL:  Reason code: Canceled on conflict out to pivot 212370, during read.
+2026-10-28 15:04:18.730 +08 [2134614] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:18.730 +08 [2134614] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:04:18.730 +08 [2134614] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:04:18.698408'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:04:18.698408'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:04:25.000 +08 [2134614] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:25.000 +08 [2134614] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 15:04:25.000 +08 [2134614] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:25.000 +08 [2134614] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:04:25.000 +08 [2134614] STATEMENT:  COMMIT;
+2026-10-28 15:04:26.825 +08 [2134624] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:26.825 +08 [2134624] DETAIL:  Reason code: Canceled on conflict out to pivot 213107, during read.
+2026-10-28 15:04:26.825 +08 [2134624] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:26.825 +08 [2134624] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:04:26.825 +08 [2134624] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:04:26.77397'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:04:26.77397'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:04:31.252 +08 [2134620] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:31.252 +08 [2134620] DETAIL:  Reason code: Canceled on conflict out to pivot 214819, during read.
+2026-10-28 15:04:31.252 +08 [2134620] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:31.252 +08 [2134620] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:04:31.252 +08 [2134620] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:04:31.194655'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:04:31.194655'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:04:32.595 +08 [2134625] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:32.595 +08 [2134625] DETAIL:  Reason code: Canceled on conflict out to pivot 215082, during read.
+2026-10-28 15:04:32.595 +08 [2134625] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:32.595 +08 [2134625] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:04:32.595 +08 [2134625] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:04:32.534565'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:04:32.534565'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:04:40.549 +08 [2134626] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:40.549 +08 [2134626] DETAIL:  Reason code: Canceled on conflict out to pivot 216600, during read.
+2026-10-28 15:04:40.549 +08 [2134626] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:40.549 +08 [2134626] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:04:40.549 +08 [2134626] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:04:40.499919'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:04:40.499919'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:04:46.024 +08 [2134624] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:46.024 +08 [2134624] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-28 15:04:46.024 +08 [2134624] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:46.024 +08 [2134624] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:04:46.024 +08 [2134624] STATEMENT:  SELECT
+	  CASE WHEN EXISTS (
+	    SELECT 1
+	    FROM products
+	    WHERE merchant_id = (62)::bigint
+	      AND product_id = (86062)::bigint
+	  ) THEN 1 ELSE 0 END AS product_ok,
+	  COALESCE((
+	    SELECT price
+	    FROM products
+	    WHERE merchant_id = (62)::bigint
+	      AND product_id = (86062)::bigint
+	    LIMIT 1
+	  ), 0.00)::numeric(12,2) AS price
+	
+2026-10-28 15:04:47.237 +08 [2134627] ERROR:  could not serialize access due to concurrent update
+2026-10-28 15:04:47.237 +08 [2134627] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:04:47.237 +08 [2134627] STATEMENT:  WITH reserved AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (2)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (344002)::bigint
+	    AND merchant_id = (2)::bigint
+	    AND product_id = (344002)::bigint
+	    AND quantity >= (2)::integer
+	  RETURNING 1
+	)
+	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+	            THEN 1 ELSE 0 END AS stock_ok
+	
+2026-10-28 15:04:47.977 +08 [2134624] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:47.977 +08 [2134624] DETAIL:  Reason code: Canceled on conflict out to pivot 216824, during read.
+2026-10-28 15:04:47.977 +08 [2134624] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:47.977 +08 [2134624] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:04:47.977 +08 [2134624] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:04:47.961212'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:04:47.961212'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:04:48.202 +08 [2134623] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:48.202 +08 [2134623] DETAIL:  Reason code: Canceled on conflict out to pivot 218055, during read.
+2026-10-28 15:04:48.202 +08 [2134623] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:48.202 +08 [2134623] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:04:48.202 +08 [2134623] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:04:48.178055'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:04:48.178055'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:04:52.929 +08 [2134627] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:04:52.929 +08 [2134627] DETAIL:  Reason code: Canceled on conflict out to pivot 218094, during read.
+2026-10-28 15:04:52.929 +08 [2134627] HINT:  The transaction might succeed if retried.
+2026-10-28 15:04:52.929 +08 [2134627] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:04:52.929 +08 [2134627] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:04:52.916201'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:04:52.916201'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:07:21.114 +08 [2135376] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:07:21.114 +08 [2135376] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 15:07:21.114 +08 [2135376] HINT:  The transaction might succeed if retried.
+2026-10-28 15:07:21.114 +08 [2135376] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:07:21.114 +08 [2135376] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (5)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (124919)::bigint
+	    AND product_id = (124919)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 15:07:26.459 +08 [2135377] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:07:26.459 +08 [2135377] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 15:07:26.459 +08 [2135377] HINT:  The transaction might succeed if retried.
+2026-10-28 15:07:26.459 +08 [2135377] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:07:26.459 +08 [2135377] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (3)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (183474)::bigint
+	    AND product_id = (183474)::bigint
+	    AND quantity >= (3)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-28 15:07:49.261 +08 [2135385] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:07:49.261 +08 [2135385] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 15:07:49.261 +08 [2135385] HINT:  The transaction might succeed if retried.
+2026-10-28 15:07:49.261 +08 [2135385] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:07:49.261 +08 [2135385] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (3)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (122690)::bigint
+	    AND product_id = (122690)::bigint
+	    AND quantity >= (3)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-28 15:07:54.162 +08 [2135373] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:07:54.162 +08 [2135373] DETAIL:  Reason code: Canceled on conflict out to pivot 225678, during read.
+2026-10-28 15:07:54.162 +08 [2135373] HINT:  The transaction might succeed if retried.
+2026-10-28 15:07:54.162 +08 [2135373] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:07:54.162 +08 [2135373] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:07:54.121615'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:07:54.121615'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:07:54.166 +08 [2135378] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:07:54.166 +08 [2135378] DETAIL:  Reason code: Canceled on conflict out to pivot 225678, during read.
+2026-10-28 15:07:54.166 +08 [2135378] HINT:  The transaction might succeed if retried.
+2026-10-28 15:07:54.166 +08 [2135378] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:07:54.166 +08 [2135378] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:07:54.122267'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:07:54.122267'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:07:56.405 +08 [2135375] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:07:56.405 +08 [2135375] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 15:07:56.405 +08 [2135375] HINT:  The transaction might succeed if retried.
+2026-10-28 15:07:56.405 +08 [2135375] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:07:56.405 +08 [2135375] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (54128)::bigint
+	    AND product_id = (54128)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 15:08:11.365 +08 [2135379] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:08:11.365 +08 [2135379] DETAIL:  Reason code: Canceled on conflict out to pivot 229278, during read.
+2026-10-28 15:08:11.365 +08 [2135379] HINT:  The transaction might succeed if retried.
+2026-10-28 15:08:11.365 +08 [2135379] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:08:11.365 +08 [2135379] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:08:11.330077'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:08:11.330077'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:08:14.327 +08 [2135383] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:08:14.327 +08 [2135383] DETAIL:  Reason code: Canceled on conflict out to pivot 229478, during read.
+2026-10-28 15:08:14.327 +08 [2135383] HINT:  The transaction might succeed if retried.
+2026-10-28 15:08:14.327 +08 [2135383] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:08:14.327 +08 [2135383] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:08:14.298781'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:08:14.298781'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:08:28.846 +08 [2135384] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:08:28.846 +08 [2135384] DETAIL:  Reason code: Canceled on conflict out to pivot 232126, during read.
+2026-10-28 15:08:28.846 +08 [2135384] HINT:  The transaction might succeed if retried.
+2026-10-28 15:08:28.846 +08 [2135384] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:08:28.846 +08 [2135384] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:08:28.780975'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:08:28.780975'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:08:28.847 +08 [2135379] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:08:28.847 +08 [2135379] DETAIL:  Reason code: Canceled on conflict out to pivot 232126, during read.
+2026-10-28 15:08:28.847 +08 [2135379] HINT:  The transaction might succeed if retried.
+2026-10-28 15:08:28.847 +08 [2135379] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:08:28.847 +08 [2135379] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:08:28.782457'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:08:28.782457'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:08:30.280 +08 [2135378] ERROR:  could not serialize access due to concurrent update
+2026-10-28 15:08:30.280 +08 [2135378] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:08:30.280 +08 [2135378] STATEMENT:  WITH reserved AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (179083)::bigint
+	    AND merchant_id = (83)::bigint
+	    AND product_id = (179083)::bigint
+	    AND quantity >= (1)::integer
+	  RETURNING 1
+	)
+	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+	            THEN 1 ELSE 0 END AS stock_ok
+	
+2026-10-28 15:08:34.064 +08 [2135379] ERROR:  could not serialize access due to concurrent update
+2026-10-28 15:08:34.064 +08 [2135379] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:08:34.064 +08 [2135379] STATEMENT:  WITH reserved AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (4)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (458079)::bigint
+	    AND merchant_id = (79)::bigint
+	    AND product_id = (458079)::bigint
+	    AND quantity >= (4)::integer
+	  RETURNING 1
+	)
+	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+	            THEN 1 ELSE 0 END AS stock_ok
+	
+2026-10-28 15:08:39.166 +08 [2135385] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:08:39.166 +08 [2135385] DETAIL:  Reason code: Canceled on conflict out to pivot 235571, during read.
+2026-10-28 15:08:39.166 +08 [2135385] HINT:  The transaction might succeed if retried.
+2026-10-28 15:08:39.166 +08 [2135385] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:08:39.166 +08 [2135385] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:08:39.135667'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:08:39.135667'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:08:39.171 +08 [2135373] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:08:39.171 +08 [2135373] DETAIL:  Reason code: Canceled on conflict out to pivot 235571, during read.
+2026-10-28 15:08:39.171 +08 [2135373] HINT:  The transaction might succeed if retried.
+2026-10-28 15:08:39.171 +08 [2135373] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:08:39.171 +08 [2135373] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:08:39.138125'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:08:39.138125'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:08:39.183 +08 [2135374] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:08:39.183 +08 [2135374] DETAIL:  Reason code: Canceled on conflict out to pivot 235571, during read.
+2026-10-28 15:08:39.183 +08 [2135374] HINT:  The transaction might succeed if retried.
+2026-10-28 15:08:39.183 +08 [2135374] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:08:39.183 +08 [2135374] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:08:39.139625'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:08:39.139625'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:08:39.195 +08 [2135376] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:08:39.195 +08 [2135376] DETAIL:  Reason code: Canceled on conflict out to pivot 235571, during read.
+2026-10-28 15:08:39.195 +08 [2135376] HINT:  The transaction might succeed if retried.
+2026-10-28 15:08:39.195 +08 [2135376] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:08:39.195 +08 [2135376] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:08:39.129195'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:08:39.129195'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:08:39.201 +08 [2135383] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:08:39.201 +08 [2135383] DETAIL:  Reason code: Canceled on conflict out to pivot 235571, during read.
+2026-10-28 15:08:39.201 +08 [2135383] HINT:  The transaction might succeed if retried.
+2026-10-28 15:08:39.201 +08 [2135383] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:08:39.201 +08 [2135383] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:08:39.133417'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:08:39.133417'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:08:52.836 +08 [2135381] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:08:52.836 +08 [2135381] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 15:08:52.836 +08 [2135381] HINT:  The transaction might succeed if retried.
+2026-10-28 15:08:52.836 +08 [2135381] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:08:52.836 +08 [2135381] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (378522)::bigint
+	    AND product_id = (378522)::bigint
+	    AND quantity >= (1)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-28 15:09:23.610 +08 [2135385] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:09:23.610 +08 [2135385] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 15:09:23.610 +08 [2135385] HINT:  The transaction might succeed if retried.
+2026-10-28 15:09:23.610 +08 [2135385] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:09:23.610 +08 [2135385] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (2)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (344467)::bigint
+	    AND product_id = (344467)::bigint
+	    AND quantity >= (2)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-28 15:09:26.617 +08 [2135386] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:09:26.617 +08 [2135386] DETAIL:  Reason code: Canceled on conflict out to pivot 242860, during read.
+2026-10-28 15:09:26.617 +08 [2135386] HINT:  The transaction might succeed if retried.
+2026-10-28 15:09:26.617 +08 [2135386] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:09:26.617 +08 [2135386] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:09:26.567104'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:09:26.567104'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:09:26.630 +08 [2135380] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:09:26.630 +08 [2135380] DETAIL:  Reason code: Canceled on conflict out to pivot 242860, during read.
+2026-10-28 15:09:26.630 +08 [2135380] HINT:  The transaction might succeed if retried.
+2026-10-28 15:09:26.630 +08 [2135380] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:09:26.630 +08 [2135380] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:09:26.565883'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:09:26.565883'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:09:28.020 +08 [2135383] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:09:28.020 +08 [2135383] DETAIL:  Reason code: Canceled on conflict out to pivot 243258, during read.
+2026-10-28 15:09:28.020 +08 [2135383] HINT:  The transaction might succeed if retried.
+2026-10-28 15:09:28.020 +08 [2135383] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:09:28.020 +08 [2135383] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:09:27.985328'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:09:27.985328'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:09:48.788 +08 [2135378] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:09:48.788 +08 [2135378] DETAIL:  Reason code: Canceled on conflict out to pivot 246308, during read.
+2026-10-28 15:09:48.788 +08 [2135378] HINT:  The transaction might succeed if retried.
+2026-10-28 15:09:48.788 +08 [2135378] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:09:48.788 +08 [2135378] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:09:48.771742'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:09:48.771742'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:09:51.462 +08 [2135378] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:09:51.462 +08 [2135378] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 15:09:51.462 +08 [2135378] HINT:  The transaction might succeed if retried.
+2026-10-28 15:09:51.462 +08 [2135378] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:09:51.462 +08 [2135378] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (3)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (349951)::bigint
+	    AND product_id = (349951)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 15:10:03.082 +08 [2135379] ERROR:  could not serialize access due to concurrent update
+2026-10-28 15:10:03.082 +08 [2135379] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:10:03.082 +08 [2135379] STATEMENT:  WITH reserved AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (5)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (152920)::bigint
+	    AND merchant_id = (920)::bigint
+	    AND product_id = (152920)::bigint
+	    AND quantity >= (5)::integer
+	  RETURNING 1
+	)
+	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+	            THEN 1 ELSE 0 END AS stock_ok
+	
+2026-10-28 15:10:04.247 +08 [2135378] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:10:04.247 +08 [2135378] DETAIL:  Reason code: Canceled on conflict out to pivot 249499, during read.
+2026-10-28 15:10:04.247 +08 [2135378] HINT:  The transaction might succeed if retried.
+2026-10-28 15:10:04.247 +08 [2135378] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:10:04.247 +08 [2135378] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:10:04.22298'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:10:04.22298'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:10:06.914 +08 [2135386] ERROR:  could not serialize access due to concurrent update
+2026-10-28 15:10:06.914 +08 [2135386] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:10:06.914 +08 [2135386] STATEMENT:  WITH reserved AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (3)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (125036)::bigint
+	    AND merchant_id = (36)::bigint
+	    AND product_id = (125036)::bigint
+	    AND quantity >= (3)::integer
+	  RETURNING 1
+	)
+	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+	            THEN 1 ELSE 0 END AS stock_ok
+	
+2026-10-28 15:10:08.459 +08 [2135385] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:10:08.459 +08 [2135385] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 15:10:08.459 +08 [2135385] HINT:  The transaction might succeed if retried.
+2026-10-28 15:10:08.459 +08 [2135385] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:10:08.459 +08 [2135385] STATEMENT:  COMMIT;
+2026-10-28 15:10:10.470 +08 [2135380] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:10:10.470 +08 [2135380] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 15:10:10.470 +08 [2135380] HINT:  The transaction might succeed if retried.
+2026-10-28 15:10:10.470 +08 [2135380] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:10:10.470 +08 [2135380] STATEMENT:  COMMIT;
+2026-10-28 15:10:23.041 +08 [2135373] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:10:23.041 +08 [2135373] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 15:10:23.041 +08 [2135373] HINT:  The transaction might succeed if retried.
+2026-10-28 15:10:23.041 +08 [2135373] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:10:23.041 +08 [2135373] STATEMENT:  COMMIT;
+2026-10-28 15:10:28.356 +08 [2135376] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:10:28.356 +08 [2135376] DETAIL:  Reason code: Canceled on conflict out to pivot 253508, during read.
+2026-10-28 15:10:28.356 +08 [2135376] HINT:  The transaction might succeed if retried.
+2026-10-28 15:10:28.356 +08 [2135376] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:10:28.356 +08 [2135376] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:10:28.277539'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:10:28.277539'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:10:38.145 +08 [2135374] ERROR:  could not serialize access due to concurrent update
+2026-10-28 15:10:38.145 +08 [2135374] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:10:38.145 +08 [2135374] STATEMENT:  WITH reserved AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (2)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (118393)::bigint
+	    AND merchant_id = (393)::bigint
+	    AND product_id = (118393)::bigint
+	    AND quantity >= (2)::integer
+	  RETURNING 1
+	)
+	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+	            THEN 1 ELSE 0 END AS stock_ok
+	
+2026-10-28 15:11:04.278 +08 [2135374] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:11:04.278 +08 [2135374] DETAIL:  Reason code: Canceled on conflict out to pivot 259623, during read.
+2026-10-28 15:11:04.278 +08 [2135374] HINT:  The transaction might succeed if retried.
+2026-10-28 15:11:04.278 +08 [2135374] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:11:04.278 +08 [2135374] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:11:04.206944'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:11:04.206944'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:11:28.201 +08 [2135376] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:11:28.201 +08 [2135376] DETAIL:  Reason code: Canceled on conflict out to pivot 264532, during read.
+2026-10-28 15:11:28.201 +08 [2135376] HINT:  The transaction might succeed if retried.
+2026-10-28 15:11:28.201 +08 [2135376] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:11:28.201 +08 [2135376] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:11:28.124192'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:11:28.124192'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:11:47.364 +08 [2135382] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:11:47.364 +08 [2135382] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 15:11:47.364 +08 [2135382] HINT:  The transaction might succeed if retried.
+2026-10-28 15:11:47.364 +08 [2135382] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:11:47.364 +08 [2135382] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (3)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (383462)::bigint
+	    AND product_id = (383462)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 15:12:04.169 +08 [2135381] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:12:04.169 +08 [2135381] DETAIL:  Reason code: Canceled on conflict out to pivot 269451, during read.
+2026-10-28 15:12:04.169 +08 [2135381] HINT:  The transaction might succeed if retried.
+2026-10-28 15:12:04.169 +08 [2135381] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:12:04.169 +08 [2135381] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:12:04.153483'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:12:04.153483'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:12:10.335 +08 [2135376] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:12:10.335 +08 [2135376] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-28 15:12:10.335 +08 [2135376] HINT:  The transaction might succeed if retried.
+2026-10-28 15:12:10.335 +08 [2135376] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:12:10.335 +08 [2135376] STATEMENT:  COMMIT;
+2026-10-28 15:12:10.348 +08 [2135371] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:12:10.348 +08 [2135371] DETAIL:  Reason code: Canceled on conflict out to pivot 269660, during read.
+2026-10-28 15:12:10.348 +08 [2135371] HINT:  The transaction might succeed if retried.
+2026-10-28 15:12:10.348 +08 [2135371] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:12:10.348 +08 [2135371] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:12:10.324374'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:12:10.324374'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:12:22.673 +08 [2135384] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:12:22.673 +08 [2135384] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-28 15:12:22.673 +08 [2135384] HINT:  The transaction might succeed if retried.
+2026-10-28 15:12:22.673 +08 [2135384] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:12:22.673 +08 [2135384] STATEMENT:  COMMIT;
+2026-10-28 15:12:31.502 +08 [2135371] ERROR:  could not serialize access due to concurrent update
+2026-10-28 15:12:31.502 +08 [2135371] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:12:31.502 +08 [2135371] STATEMENT:  WITH credit AS (
+	  UPDATE inventory
+	  SET quantity = quantity + (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (26193)::bigint
+	    AND product_id = (26193)::bigint
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM credit) AS credit_ok
+	
+2026-10-28 15:13:48.971 +08 [2135374] ERROR:  could not serialize access due to concurrent update
+2026-10-28 15:13:48.971 +08 [2135374] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:13:48.971 +08 [2135374] STATEMENT:  UPDATE inventory
+	SET quantity = quantity + (-2)::integer,
+	    updated_at = CURRENT_TIMESTAMP
+	WHERE inventory_id = (118055)::bigint
+	  AND merchant_id = (55)::bigint
+	  AND product_id = (118055)::bigint
+	  AND quantity + (-2)::integer >= 0;
+2026-10-28 15:14:06.692 +08 [2135373] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:14:06.692 +08 [2135373] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-28 15:14:06.692 +08 [2135373] HINT:  The transaction might succeed if retried.
+2026-10-28 15:14:06.692 +08 [2135373] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:14:06.692 +08 [2135373] STATEMENT:  COMMIT;
+2026-10-28 15:14:16.204 +08 [2135379] ERROR:  could not serialize access due to concurrent update
+2026-10-28 15:14:16.204 +08 [2135379] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:14:16.204 +08 [2135379] STATEMENT:  WITH reserved AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (1)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (311733)::bigint
+	    AND merchant_id = (733)::bigint
+	    AND product_id = (311733)::bigint
+	    AND quantity >= (1)::integer
+	  RETURNING 1
+	)
+	SELECT CASE WHEN EXISTS (SELECT 1 FROM reserved)
+	            THEN 1 ELSE 0 END AS stock_ok
+	
+2026-10-28 15:15:16.662 +08 [2135372] ERROR:  could not serialize access due to concurrent update
+2026-10-28 15:15:16.662 +08 [2135372] CONTEXT:  while executing command on xcnf3:5446
+2026-10-28 15:15:16.662 +08 [2135372] STATEMENT:  WITH debit AS (
+	  UPDATE inventory
+	  SET quantity = quantity - (2)::integer,
+	      updated_at = CURRENT_TIMESTAMP
+	  WHERE inventory_id = (351090)::bigint
+	    AND product_id = (351090)::bigint
+	    AND quantity >= (2)::integer
+	  RETURNING 1
+	)
+	SELECT EXISTS(SELECT 1 FROM debit) AS debit_ok
+	
+2026-10-28 15:15:34.192 +08 [2135378] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:15:34.192 +08 [2135378] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 15:15:34.192 +08 [2135378] HINT:  The transaction might succeed if retried.
+2026-10-28 15:15:34.192 +08 [2135378] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:15:34.192 +08 [2135378] STATEMENT:  COMMIT;
+2026-10-28 15:15:46.609 +08 [2135385] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:15:46.609 +08 [2135385] DETAIL:  Reason code: Canceled on conflict out to pivot 303995, during read.
+2026-10-28 15:15:46.609 +08 [2135385] HINT:  The transaction might succeed if retried.
+2026-10-28 15:15:46.609 +08 [2135385] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:15:46.609 +08 [2135385] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:15:46.535181'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:15:46.535181'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:15:46.638 +08 [2135381] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:15:46.638 +08 [2135381] DETAIL:  Reason code: Canceled on conflict out to pivot 303995, during read.
+2026-10-28 15:15:46.638 +08 [2135381] HINT:  The transaction might succeed if retried.
+2026-10-28 15:15:46.638 +08 [2135381] CONTEXT:  while executing command on xcnf2:5446
+2026-10-28 15:15:46.638 +08 [2135381] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:15:46.55928'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:15:46.55928'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:15:47.738 +08 [2135382] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:15:47.738 +08 [2135382] DETAIL:  Reason code: Canceled on conflict out to pivot 304135, during read.
+2026-10-28 15:15:47.738 +08 [2135382] HINT:  The transaction might succeed if retried.
+2026-10-28 15:15:47.738 +08 [2135382] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:15:47.738 +08 [2135382] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:15:47.696428'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:15:47.696428'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:15:47.746 +08 [2135385] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:15:47.746 +08 [2135385] DETAIL:  Reason code: Canceled on conflict out to pivot 304135, during read.
+2026-10-28 15:15:47.746 +08 [2135385] HINT:  The transaction might succeed if retried.
+2026-10-28 15:15:47.746 +08 [2135385] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:15:47.746 +08 [2135385] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:15:47.694336'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:15:47.694336'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:16:06.785 +08 [2135376] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:16:06.785 +08 [2135376] DETAIL:  Reason code: Canceled on conflict out to pivot 308530, during read.
+2026-10-28 15:16:06.785 +08 [2135376] HINT:  The transaction might succeed if retried.
+2026-10-28 15:16:06.785 +08 [2135376] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:16:06.785 +08 [2135376] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:16:06.72174'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:16:06.72174'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:16:06.802 +08 [2135384] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:16:06.802 +08 [2135384] DETAIL:  Reason code: Canceled on conflict out to pivot 308530, during read.
+2026-10-28 15:16:06.802 +08 [2135384] HINT:  The transaction might succeed if retried.
+2026-10-28 15:16:06.802 +08 [2135384] CONTEXT:  while executing command on xcnf4:5446
+2026-10-28 15:16:06.802 +08 [2135384] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-29'
+	    AND sales_day < DATE '2026-10-28'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-28 15:16:06.727226'
+	    AND created_at < TIMESTAMP '2026-09-29'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-28'
+	    AND created_at < TIMESTAMP '2026-10-28 15:16:06.727226'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-28 15:16:11.676 +08 [2135380] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 15:16:11.676 +08 [2135380] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-28 15:16:11.676 +08 [2135380] HINT:  The transaction might succeed if retried.
+2026-10-28 15:16:11.676 +08 [2135380] CONTEXT:  while executing command on xcnf1:5446
+2026-10-28 15:16:11.676 +08 [2135380] STATEMENT:  COMMIT;
+2026-10-28 15:17:24.203 +08 [2133952] LOG:  received fast shutdown request
+2026-10-28 15:17:24.203 +08 [2133952] LOG:  aborting any active transactions
+2026-10-28 15:17:24.207 +08 [2133952] LOG:  background worker "logical replication launcher" (PID 2133962) exited with exit code 1
+2026-10-28 15:17:24.210 +08 [2133957] LOG:  shutting down
+2026-10-28 15:17:24.210 +08 [2133957] LOG:  checkpoint starting: shutdown immediate
+2026-10-28 15:17:24.229 +08 [2133957] LOG:  checkpoint complete: wrote 1250 buffers (1.0%), wrote 65 SLRU buffers; 0 WAL file(s) added, 0 removed, 7 recycled; write=0.015 s, sync=0.001 s, total=0.019 s; sync files=88, longest=0.001 s, average=0.001 s; distance=105205 kB, estimate=105205 kB; lsn=0/1457A460, redo lsn=0/1457A460
+2026-10-28 15:17:24.291 +08 [2133952] LOG:  database system is shut down

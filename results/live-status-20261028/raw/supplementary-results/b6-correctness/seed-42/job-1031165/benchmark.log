@@ -1,0 +1,15 @@
+Loaded data dimensions:
+  merchants = 1000
+  customers = 1000000
+  products  = 500000
+  orders    = 5000000
+DO
+[2026-10-28 18:12:43] Correctness audit: before-t7
+BEGIN
+inventory_quantity_negative|0
+order_total_mismatch|0
+duplicate_inventory_id|0
+duplicate_order_item_id|0
+COMMIT
+ERROR: Correctness audit failed: before-t7; see /home/stuproj/cs14/citus_project/supplementary-results/b6-correctness/seed-42/job-1031165/correctness-before-t7.txt
+Running cleanup after failure; exit code=1
