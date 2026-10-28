@@ -1,4 +1,33 @@
-# Project status — 27 October 2026
+# Project status — 28 October 2026
+
+**Shared editing:** The local LaTeX source is now split into A/B section files
+under `submission/report/sections/`. [CONTRIBUTING.md](../CONTRIBUTING.md)
+explains feature branches, PR bases and peer approval. PR #1 is the integration
+review; until it merges, teammate report PRs target `codex/workload-a-followup`.
+The report conversion helper refuses to overwrite sources without an explicit
+flag. Use `bash scripts/build_report.sh` for normal compilation.
+
+**Submission preparation:** A complete local LaTeX review draft and the three
+required upload filenames are now staged under `submission/`. The result ZIP
+contains 23 Slurm experiment directories, eight separate local-only supporting
+implementations and 48 job folders, including the full
+28 October remote readback. The AI ZIP contains recovered local interactions
+but still needs earlier/cloud and teammate completeness checks. Nothing has
+been uploaded. See [the handoff and review checklist](../submission/README.md).
+
+**Live recheck, approximately 21:10 Singapore time:** SSH succeeds as `cs14`
+on `xlogin2`; the queue is empty. Today's matched B jobs 1029473/1030000
+support 20.86× at one client (5.190 → 108.250 TPS). Higher-count aborts and
+baseline failures remain explicit. Separate B correctness job 1031186 passed
+four invariants at three checkpoints and controlled T7 conservation. All 263
+newly copied evidence/source files match remote SHA-256 checks. These readback
+hashes do not authenticate runtime source. Kelvin's write-path section is now
+in the shared report; the contribution table, references, final choices and
+submission packaging still need completion. Current PDF pagination is unverified.
+See the [full live audit and submission gaps](../results/live-status-20261028/README.md).
+The sections below retain the earlier evidence reconciliation; statements that
+Kelvin's section is still awaited or B has no additional integrity evidence
+refer to that earlier checkpoint.
 
 The [A report draft](workload-a-report-draft.md) recommends a112 as the final
 A design. Kelvin supports selecting a112 and plans to supply his write-side

@@ -1,0 +1,21 @@
+% Team report source. Edit this section in a feature branch and request peer review.
+\needspace{4\baselineskip}\section{Task 1: Baseline design for workload A}
+\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}a0}: baseline protocol and results}
+expt\_a0 ran as Slurm job 918524 on five xcnf nodes, with xcnf8 as coordinator and four workers. It used PostgreSQL 18.6/Citus 14.1.0, scale 1, SERIALIZABLE isolation, 60-second warmup, 600-second measurements and full log sampling. The A transaction weights T1-T9 were 36/20/10/10/10/5/5/2/2 percent. Baseline work\_mem was 32MB, shared\_buffers 1GB and executor pool limit 4.\par
+At 1/4/8/16/32/64 clients, baseline TPS was 3.220/2.283/2.285/2.368/2.405/2.283 respectively. p95 latency rose from 2654.656 ms at one client to 180370.276 ms at 64; p99 rose from 2698.524 to 187011.576 ms. pgbench exited zero in all six cases, but the last three had 25/51/50 serialization failures. Those failures must remain visible in comparisons.\par
+At one client, T3 averaged 2678.797 ms, T4 458.862 ms and T7 51.114 ms. Weighting each transaction's observed mean latency by its completed count, T3/T4 accounted for about 93.6\% of recorded time at one client and 97.2\% at 64 clients. These are time shares, not workload weights. Throughput did not scale with more clients, so placement and the dominant reads take priority over short update transactions.\par
+The baseline distributes orders and order\_items by different generated IDs, and inventory by inventory\_id. The relevant joins do not consistently match those keys. Fresh a0 control 977740 on xcnf0-4 completed 3.225/3.565/3.568/3.282/3.613/3.222 TPS at 1/4/8/16/32/64 clients, with 0/0/2/20/64/59 serialization failures. This is 41-56\% above preserved baseline 918524 at 4+ clients; the cause is not established. Optimized a112 is compared against this fresh control on the same nodes.\par
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{24.33mm}>{\raggedright\arraybackslash}p{24.33mm}>{\raggedright\arraybackslash}p{24.33mm}>{\raggedright\arraybackslash}p{24.33mm}>{\raggedright\arraybackslash}p{24.33mm}>{\raggedright\arraybackslash}p{24.33mm}}\toprule
+Clients & TPS & p50 ms & p95 ms & p99 ms & Serial. failures \\
+\midrule\endhead
+1 & 3.220 & 11.009 & 2654.656 & 2698.524 & 0 \\
+4 & 2.283 & 22.897 & 15398.450 & 18331.968 & 0 \\
+8 & 2.285 & 34.815 & 29532.561 & 32842.913 & 0 \\
+16 & 2.368 & 41.305 & 52999.831 & 58194.283 & 25 \\
+32 & 2.405 & 41.395 & 92368.465 & 100724.606 & 51 \\
+64 & 2.283 & 54.925 & 180370.276 & 187011.576 & 50 \\
+\bottomrule\end{longtable}}
+Table 2.1. Baseline A (job 918524), with latency percentiles in milliseconds. All measured exits are zero; the final three client counts retain serialization failures.\par
+Source: \texttt{expt\_\allowbreak{}a0/slurm-results/job-918524/benchmark-results/summary.csv}, \texttt{transaction\_\allowbreak{}metrics.csv} and \texttt{config.txt} in the submitted result archive.\par

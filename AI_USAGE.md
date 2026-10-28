@@ -93,6 +93,54 @@ for team review. Entries below are dated checkpoints, not current job status.
   12 validations), independently recalculated a112's speedup/repeat differences
   and a115's phase-specific abort counts, and checked the Git diff formatting.
 
+- 28 October 2026 (Codex): checked live SSH/Slurm, fetched repository refs and
+  read PR status and the shared report. Backed up today's supplementary B
+  evidence and current b0/b6 source into a fresh readback directory; verified
+  all 263 files against remote SHA-256 checks, nine cases' raw success/failure
+  and retry counts, phase exits and TPS, five matched T6 checks and separate
+  correctness/T7-conservation records. Rechecked 1,641 prior archive hashes
+  with no mismatches. Recorded report inconsistencies and packaging gaps;
+  updated local status pointers. No jobs, remote source, shared documents or
+  GitHub content were changed. Readback hashes are not runtime authentication.
+
+- 28 October 2026 (Codex, submission preparation): at Hikaru's request, prepared
+  a local LaTeX/Overleaf report from the existing report text, retained A/B
+  caveats, added the separate B correctness evidence, corrected the A write
+  share to 75%, and distinguished a10's separate result from measured a112.
+  Recreated two readable vector figures from the verified figure data. Prepared
+  a review archive with 31 experiment directories and 48 job folders, normalized
+  four supplementary B folder names with provenance mapping, and preserved
+  source snapshots and failed attempts. Recovered project-specific local Codex
+  and Claude visible dialogue and tool traces with known credentials redacted;
+  excluded hidden reasoning, system/developer metadata and automated approval
+  review sessions. Earlier/cloud and teammates' AI records remain to be checked.
+  Drafted a Kelvin message; no messages, shared document edits or uploads were
+  performed. The report and contributions remain for team review.
+
+- 28 October 2026 (Codex, assignment overview reconciliation): read Hikaru's
+  pasted Canvas Project overview directly and checked its tasks, experiment
+  naming/output requirements, report structure, metrics, AI records and Q&A.
+  Reorganized A into explicit experiment subsections, added baseline and a112
+  percentile tables from preserved CSVs, reduced operational-history prose,
+  and qualified a supplementary B T7 comparison across different hardware.
+  Separated eight local-only source variants from 23 top-level Slurm experiment
+  folders, retaining all original code/evidence and 48 job-directory paths
+  (45 distinct IDs). Verified every cluster job has its Slurm output/error
+  pair and every primary experiment has nine transaction scripts. Recompiled
+  the review report within the 20-page/10-point limits and refreshed the
+  Overleaf source/package checks. Contribution, design-choice, reference and
+  team-wide AI-record confirmations remain open; no uploads were performed.
+
+- 28 October 2026 (Codex, repository collaboration): at Hikaru's request,
+  split the LaTeX report into eight shared section files, added contribution
+  instructions, a PR template and CODEOWNERS, and provided a portable build/
+  Overleaf export command. Guarded the old conversion script against accidental
+  overwrites. Checked the report still compiles to 20 pages and that the source
+  ZIP includes all sections. Checked collaborator accounts and prepared PR #1
+  for peer review; no Xincheng account was guessed. The main branch is configured
+  to require one approving peer review, dismiss stale approvals, resolve review
+  conversations and enforce the rules for administrators.
+
 Keep the conversation export with prompts and outputs for the required
 `14_ai_tool.zip` reports. This short record is an index, not a replacement for
 the complete required interaction records. Team members must review and understand

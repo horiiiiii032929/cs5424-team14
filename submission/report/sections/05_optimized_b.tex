@@ -1,0 +1,166 @@
+% Team report source. Edit this section in a feature branch and request peer review.
+\needspace{4\baselineskip}\section{Task 4: Optimized design for Workload B}
+As suggested in the project description, the sequence of optimizations was progressively conducted. In general, each optimization was selected based on the measurements of the previous experiment, we selected the optimizations based on the workload weights and the performance bottlenecks observed in previous experiments.. Within the allowed tuning scope we changed the data distribution, the schema, the indexes and the transaction code.\par
+\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}b1}}
+T7 makes up 30\% of workload B, and based on the vanilla baseline schema, each of its four \texttt{SELECT} queries will scan all 32 shards of \texttt{inventory} because they filter on \texttt{product\_\allowbreak{}id}. In addition, T4 requires a repartition join between \texttt{products} and \texttt{inventory} on \texttt{product\_\allowbreak{}id}. Distributing \texttt{inventory} on \texttt{product\_\allowbreak{}id}, in the same co-location group as \texttt{products}, optimises both. The expected outcome is every T7 \texttt{SELECT} routes to one shard, and the T4 join becomes local to one shard.\par
+\needspace{4\baselineskip}\subsubsection*{Key Changes}
+Change the definition of \texttt{inventory}  so the primary key becomes \texttt{(product\_\allowbreak{}id, inventory\_\allowbreak{}id)};\par
+\texttt{inventory} to be distributed on \texttt{product\_\allowbreak{}id} and \texttt{colocate\_\allowbreak{}with => 'products'}.\par
+T7's two updates retain the selected inventory IDs and add their selected product IDs as routing predicates. The supplied fixture happens to use inventory\_id equal to product\_id, but the SQL looks up actual inventory IDs and does not rely on that equality.\par
+\needspace{4\baselineskip}\subsubsection*{Benchmark Results and Analysis}
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}}\toprule
+ & \textbf{TPS} & \textbf{p50 Latency (ms)} & \textbf{p95 Latency (ms)} & \textbf{p99 Latency (ms)} \\
+\midrule\endhead
+T7 & 0.44 \ensuremath{\rightarrow} 0.73 & 1,517 \ensuremath{\rightarrow} 275 & 17,736 \ensuremath{\rightarrow} 2,164 & 26,139 \ensuremath{\rightarrow} 3,465 \\
+T4 & 0.21 \ensuremath{\rightarrow} 0.12 & 74,221 \ensuremath{\rightarrow} 53 & 84,350 \ensuremath{\rightarrow} 216 & 87,024 \ensuremath{\rightarrow} 381 \\
+Overall & 3.19 \ensuremath{\rightarrow} 2.26 & 35 \ensuremath{\rightarrow} 249 & 133,192 \ensuremath{\rightarrow} 18,335 & 160,032 \ensuremath{\rightarrow} 926,499 \\
+\bottomrule\end{longtable}}
+{\itshape Table 5.1.1: Comparing expt\_b1 against expt\_b0 at 64 clients, on T4, T7  --  flagged raw observations; aborted phases exclude a clean comparison.}\par
+The flagged c64 observations show lower T7/T4 latencies and fewer recorded serialization failures, consistent with the routing hypothesis. Both b0 and b1 c64 warmups aborted, and their allocations differ (xcnf versus xcnc); these ratios do not establish a clean matched causal effect.\par
+The raw c64 throughput falls from 3.19 to 2.26 TPS, but aborted warmups and different hardware prevent a clean comparison. T3 remains a candidate bottleneck in the recorded time shares.\par
+A T7-only supplementary comparison uses \texttt{expt\_\allowbreak{}b201} (originally expt\_xc\_b1, job 989344) and baseline \texttt{expt\_\allowbreak{}b0}/job 988876. At one client, the recorded throughput is 5.188 versus 334.518 TPS and mean latency is 192.786 versus 2.984 ms. The baseline uses xcnc34-38 while the optimized run uses xcnf10-14, so the full difference cannot be attributed to the routing change alone. T7 is 100\% of this supplementary workload; these observations do not replace the original B mix.\par
+\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}b2}}
+T3 has accounted for most of the time during the benchmarking runs up till this point. Its join of \texttt{orders} and \texttt{order\_\allowbreak{}items} on \texttt{order\_\allowbreak{}id} was a repartition join and required shifting rows to different workers as \texttt{order\_\allowbreak{}items} was distributed on \texttt{order\_\allowbreak{}item\_\allowbreak{}id} rather than \texttt{order\_\allowbreak{}id}.\par
+\needspace{4\baselineskip}\subsubsection*{Key Changes}
+Change the primary key of \texttt{order\_\allowbreak{}items} to be \texttt{(order\_\allowbreak{}id, order\_\allowbreak{}item\_\allowbreak{}id)}.\par
+\texttt{order\_\allowbreak{}items} is distributed on \texttt{order\_\allowbreak{}id}  and is co-located with \texttt{orders} via \texttt{colocate\_\allowbreak{}with => 'orders'}.\par
+\needspace{4\baselineskip}\subsubsection*{Benchmark Results}
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}}\toprule
+ & \textbf{TPS} & \textbf{p50 Latency (ms)} & \textbf{p95 Latency (ms)} & \textbf{p99 Latency (ms)} \\
+\midrule\endhead
+T3 & 0.11 \ensuremath{\rightarrow} 2.37 & 885,875 \ensuremath{\rightarrow} 1,381 & 941,152 \ensuremath{\rightarrow} 2,139 & 956,702 \ensuremath{\rightarrow} 2,422 \\
+T6 & 0.20 \ensuremath{\rightarrow} 4.61 & 15,967 \ensuremath{\rightarrow} 12,443 & 17,829 \ensuremath{\rightarrow} 13,782 & 18,483 \ensuremath{\rightarrow} 14,275 \\
+Overall & 2.26 \ensuremath{\rightarrow} 46.04 & 249 \ensuremath{\rightarrow} 68 & 18,335 \ensuremath{\rightarrow} 12,444 & 926,499 \ensuremath{\rightarrow} 13,510 \\
+\bottomrule\end{longtable}}
+{\itshape Table 5.2.1: Comparing expt\_b2 against expt\_b1 on T3, T6 at 64 clients  --  flagged raw observations; aborted phases exclude a clean comparison.}\par
+The c64 raw observations suggest much lower T3 latency after order/item colocation, but b1's warmup and b2's measurement aborted. The apparent 20-fold TPS ratio is diagnostic, not an eligible matched speedup. b2 has complete zero-failure phases at 1/4/8/16 clients.\par
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}}\toprule
+\textbf{Txn} & \textbf{Avg latency, 1 client (ms)} & \textbf{Share of time, 1 client} & \textbf{Avg latency, 64 clients} & \textbf{Share of time, 64 clients} \\
+\midrule\endhead
+T3 & 10.9 & 1.7\% & 1,418 & 5.3\% \\
+T6 & 265 & 87.0\% & 12,405 & 89.6\% \\
+T4 & 1.5 & 0.3\% & 29 & 0.1\% \\
+T7 & 5.2 & 5.2\% & 106 & 2.3\% \\
+T1 & 11.3 & 3.8\% & 237 & 1.7\% \\
+T2, T5, T8, T9 & 1.4 to 1.5 each & 0.5\% each & 32 to 36 each & 0.2 to 0.3\% each \\
+\bottomrule\end{longtable}}
+{\itshape Table 5.2.2: expt\_b2 latencies and share of total time per transaction (64-client values are flagged diagnostic observations).}\par
+Looking at the proportion of time spent on each transaction type, T6 now became the highest, at about 90\% of all time.\par
+\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}b3}}
+T6 aggregates, per merchant, the total number of orders and revenue amount in the last 30 days (via \texttt{created\_\allowbreak{}at} column), and returns the top 20. Under the vanilla baseline definition, there is no index on \texttt{created\_\allowbreak{}at}, hence Postgres needs to perform sequential table scan.\par
+Postgres stores a table in 8KB pages, each holding the data tuples. When it needs a row, it reads the entire page, so the cost of a query is mostly the number of pages it reads. From \texttt{run.sh}, orders timestamp are generated in the following fashion:\par
+\texttt{created\_\allowbreak{}at} \texttt{= current\_\allowbreak{}timestamp - (id * 31) mod 365 days}\par
+and every page contains rows throughout the year. An ordinary B-Tree index can quickly list all the rows in the last 30 days, but it stores only the indexed column, and not the other information that T6 requires. To get those, Postgres still has to read the rows, which means reading all the pages of the table.\par
+\needspace{4\baselineskip}\subsubsection*{Key Changes}
+Create a covering index, \texttt{orders(created\_\allowbreak{}at) INCLUDE (merchant\_\allowbreak{}id, total\_\allowbreak{}amount)} that is sorted by date, and each entry carries the other two columns T6 needs. Postgres will only need to perform an index-only scan to retrieve all the data required by T6.\par
+Perform \texttt{VACUUM} to mark table pages all-visible in the visibility map, enabling index-only scans to skip the table.\par
+\needspace{4\baselineskip}\subsubsection*{Benchmark Results and Analysis}
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}}\toprule
+ & \textbf{TPS} & \textbf{p50 Latency (ms)} & \textbf{p95 Latency (ms)} & \textbf{p99 Latency (ms)} \\
+\midrule\endhead
+T6 & 4.61 \ensuremath{\rightarrow} 24.48 & 12,443 \ensuremath{\rightarrow} 1,213 & 13,782 \ensuremath{\rightarrow} 1,725 & 14,275 \ensuremath{\rightarrow} 2,038 \\
+T3 & 2.37 \ensuremath{\rightarrow} 12.52 & 1,381 \ensuremath{\rightarrow} 607 & 2,139 \ensuremath{\rightarrow} 1,294 & 2,422 \ensuremath{\rightarrow} 2,109 \\
+Overall & 46.04 \ensuremath{\rightarrow} 249.24 & 68 \ensuremath{\rightarrow} 35 & 12,444 \ensuremath{\rightarrow} 1,231 & 13,510 \ensuremath{\rightarrow} 1,619 \\
+\bottomrule\end{longtable}}
+{\itshape Table 5.3.1: Comparing expt\_b3 against expt\_b2 on T3, T6 at 64 clients  --  flagged raw observations; aborted phases exclude a clean comparison.}\par
+b3's c1 phases complete at 97.932 TPS with no measured failures. c4-c64 measurements abort, and c8-c64 warmups also abort. Their raw latency/TPS improvements are retained as diagnostic observations; the c64 5-fold ratio does not establish clean performance gain.\par
+\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}b4}}
+The saved logs show worker serialization cancellations and Citus shard-commit errors that pgbench treats as client aborts (Figure 5.4.1). b4 tests READ ONLY together with coordinator-resolved T6 timestamps and plan capture; its node allocation also differs from b3. The resulting reduction in aborts is an observation, not an isolated READ ONLY causal test or a general concurrency fix.\par
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{166.0mm}}\toprule
+\texttt{WARNING:  failed to commit transaction on xcnf11:5446} \texttt{pgbench: error: client 2 script 0 aborted in command 153 query 0: ERROR:  could not commit transaction for shard 102081 on at least one active node} \\
+\midrule\endhead
+\bottomrule\end{longtable}}
+{\itshape Figure 5.4.1: Log snippets of serialization error}\par
+\needspace{4\baselineskip}\subsubsection*{Key Changes}
+T3, T4 and T6 begin with \texttt{BEGIN READ ONLY} instead of \texttt{BEGIN}.\par
+T6 reads the current time once on the coordinator (\texttt{LOCALTIMESTAMP}) and passes the window to its query as two literal timestamps.\par
+\texttt{run.sh} saves \texttt{EXPLAIN (ANALYZE, VERBOSE, BUFFERS)} output for T6, T3 and T5.\par
+\needspace{4\baselineskip}\subsubsection*{Benchmark Results and Analysis}
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}}\toprule
+ & \textbf{TPS} & \textbf{p50 Latency (ms)} & \textbf{p95 Latency (ms)} & \textbf{p99 Latency (ms)} \\
+\midrule\endhead
+T6 & 24.48 \ensuremath{\rightarrow} 31.17 & 1,213 \ensuremath{\rightarrow} 1,242 & 1,725 \ensuremath{\rightarrow} 1,758 & 2,038 \ensuremath{\rightarrow} 2,075 \\
+Overall & 249.24 \ensuremath{\rightarrow} 316.00 & 35 \ensuremath{\rightarrow} 37 & 1,231 \ensuremath{\rightarrow} 1,242 & 1,619 \ensuremath{\rightarrow} 1,656 \\
+\bottomrule\end{longtable}}
+{\itshape Table 5.4.1: Comparing expt\_b4 against expt\_b3 on T6 at 64 clients  --  flagged raw observations; aborted phases exclude a clean comparison.}\par
+Measured client-abort messages total 41 in b3 and two in b4; b4 still exits 2 at c32/c64. b4 has complete zero-failure phases at 1/4/8/16 clients. Differences in SQL and allocation prevent attribution to READ ONLY alone. Recorded worker cancellations and retry counts remain useful diagnostics; do not rank the aborted c64 runs as clean.\par
+Separately, analysis of captured query \texttt{EXPLAIN} plans re-confirms \texttt{expt\_\allowbreak{}b3} changes that T6 is fully on index-only scans.\par
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{166.0mm}}\toprule
+\texttt{->  Index Only Scan using idx\_\allowbreak{}orders\_\allowbreak{}created\_\allowbreak{}at\_\allowbreak{}covering\_\allowbreak{}102104 on public.orders\_\allowbreak{}102104 orders  (cost=0.42..794.50 rows=13104 width=14)} \texttt{  Output: created\_\allowbreak{}at, merchant\_\allowbreak{}id, total\_\allowbreak{}amount} \texttt{  Index Cond: ((orders.created\_\allowbreak{}at >= '2026-09-11 12:42:13.736861'::timestamp without time zone) AND (orders.created\_\allowbreak{}at < '2026-10-11 12:42:13.736861'::timestamp without time zone))} \\
+\midrule\endhead
+\bottomrule\end{longtable}}
+{\itshape Figure 5.4.2: Snippet of T6 query plan}\par
+\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}b5}}
+The same query plan generated in \texttt{expt\_\allowbreak{}b4} discovered that T3 is currently reading all the merchant's orders from the table via \texttt{merchant\_\allowbreak{}id} and then discarding rows not related to \texttt{customer\_\allowbreak{}id}.\par
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{166.0mm}}\toprule
+\texttt{->  Bitmap Heap Scan on public.orders\_\allowbreak{}102124 o  (cost=14.12..1779.77 rows=1 width=32) (actual time=8.631..8.632 rows=0.00 loops=1)} \texttt{      Output: o.order\_\allowbreak{}id, o.merchant\_\allowbreak{}id, o.customer\_\allowbreak{}id, o.order\_\allowbreak{}status, o.total\_\allowbreak{}amount, o.created\_\allowbreak{}at} \texttt{      Recheck Cond: (o.merchant\_\allowbreak{}id = 1)} \texttt{      Filter: (o.customer\_\allowbreak{}id = 1)} \texttt{      Rows Removed by Filter: 727} \texttt{      Heap Blocks: exact=571} \texttt{      Buffers: shared hit=578} \texttt{      ->  Bitmap Index Scan on idx\_\allowbreak{}orders\_\allowbreak{}merchant\_\allowbreak{}id\_\allowbreak{}102124  (cost=0.00..14.12 rows=760 width=0) (actual time=0.532..0.533 rows=727.00 loops=1)} \texttt{            Index Cond: (o.merchant\_\allowbreak{}id = 1)} \texttt{            Index Searches: 1} \texttt{            Buffers: shared hit=7} \\
+\midrule\endhead
+\bottomrule\end{longtable}}
+{\itshape Figure 5.5.1: Snippet of T3 query plan in expt\_b4}\par
+\needspace{4\baselineskip}\subsubsection*{Key Changes}
+\texttt{CREATE INDEX ... ON orders(merchant\_\allowbreak{}id, customer\_\allowbreak{}id)}\par
+\needspace{4\baselineskip}\subsubsection*{Benchmark Results and Analysis}
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}}\toprule
+ & \textbf{TPS} & \textbf{p50 Latency (ms)} & \textbf{p95 Latency (ms)} & \textbf{p99 Latency (ms)} \\
+\midrule\endhead
+T3 & 15.83 \ensuremath{\rightarrow} 15.80 & 707 \ensuremath{\rightarrow} 620 & 990 \ensuremath{\rightarrow} 924 & 1,244 \ensuremath{\rightarrow} 1,111 \\
+Overall & 316.00 \ensuremath{\rightarrow} 315.12 & 37 \ensuremath{\rightarrow} 41 & 1,242 \ensuremath{\rightarrow} 1,263 & 1,656 \ensuremath{\rightarrow} 1,650 \\
+\bottomrule\end{longtable}}
+{\itshape Table 5.5.1: Comparing expt\_b5 against expt\_b4 on T3 at 64 clients  --  flagged raw observations; aborted phases exclude a clean comparison.}\par
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{166.0mm}}\toprule
+\texttt{->  Index Scan using idx\_\allowbreak{}orders\_\allowbreak{}merchant\_\allowbreak{}customer\_\allowbreak{}102117 on public.orders\_\allowbreak{}102117 o  ...} \texttt{Planning Time: 0.633 ms} \texttt{Execution Time: 0.306 ms} \\
+\midrule\endhead
+\bottomrule\end{longtable}}
+{\itshape Figure 5.5.2: Snippet of T3 query plan in expt\_b5}\par
+The captured T3 shard plan is faster after the merchant/customer index, while T6 remains prominent in recorded time shares. b4 and b5 c64 measurements both abort (b5's warmup also aborts), so their similar raw TPS is not an eligible matched throughput comparison.\par
+\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}b6}}
+One approach to reduce the amount of data read by analytics queries such as T6 is pre-aggregating and summarising raw tables into rollup tables. In our case, the order counts and revenue per day before the load date can be computed once and reused by every T6.\par
+\needspace{4\baselineskip}\subsubsection*{Key Changes}
+A new Citus Reference table, \texttt{merchant\_\allowbreak{}daily\_\allowbreak{}sales(sales\_\allowbreak{}day, merchant\_\allowbreak{}id, order\_\allowbreak{}count, revenue)}, with primary key \texttt{(sales\_\allowbreak{}day, merchant\_\allowbreak{}id)} and the two totals included in the index so it can be read by index-only scans. Reference tables are normally expensive to write, because every write goes to every node, but for this benchmarking experiment, the tradeoff could be worth it since this table is fixed throughout the experiment run.\par
+\texttt{merchant\_\allowbreak{}daily\_\allowbreak{}sales\_\allowbreak{}cutoff(cutoff\_\allowbreak{}day)}: a one-row plain table on the coordinator that records the first day not in the rollup.\par
+At the end of every load, \texttt{run.sh} records the cutoff, fills the rollup table with one \texttt{INSERT ... SELECT ... GROUP BY} over \texttt{orders}, and runs \texttt{VACUUM} on it.\par
+T6 splits its query window into 3 parts:  the partial first day and the part since the cutoff, both read from orders, plus whole days read from the rollup.\par
+\needspace{4\baselineskip}\subsubsection*{Benchmark Results and Analysis}
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}}\toprule
+ & \textbf{TPS} & \textbf{p50 Latency (ms)} & \textbf{p95 Latency (ms)} & \textbf{p99 Latency (ms)} \\
+\midrule\endhead
+T6 & 31.05 \ensuremath{\rightarrow} 47.90 & 1,266 \ensuremath{\rightarrow} 870 & 1,757 \ensuremath{\rightarrow} 1,077 & 2,022 \ensuremath{\rightarrow} 1,174 \\
+T3 & 15.80 \ensuremath{\rightarrow} 24.17 & 620 \ensuremath{\rightarrow} 161 & 924 \ensuremath{\rightarrow} 226 & 1,111 \ensuremath{\rightarrow} 261 \\
+Overall & 315.12 \ensuremath{\rightarrow} 483.53 & 41 \ensuremath{\rightarrow} 39 & 1,263 \ensuremath{\rightarrow} 869 & 1,650 \ensuremath{\rightarrow} 1,031 \\
+\bottomrule\end{longtable}}
+{\itshape Table 5.6.1: Comparing expt\_b6 against expt\_b5 on T6 at 64 clients  --  flagged raw observations; aborted phases exclude a clean comparison.}\par
+Because this rewrite could silently change T6's answer, we added additional verification. After the load and after every measured run, we run the original T6 query and the new one with the same window and compare all 1,000 per-merchant totals in both directions with \texttt{EXCEPT}. We compared the full totals rather than the top 20, because merchants tied for 20th place could legitimately appear in either order. The validation check found 0 differences in all captures.\par
+\needspace{4\baselineskip}\subsubsection*{Matched baseline comparison and separate correctness run}
+To compare the final design with the baseline under the same conditions, we also ran b0 and b6 on the same five xcnf nodes. The original b0 run used a different node allocation, so we use the new matched baseline for this comparison.\par
+\needspace{10\baselineskip}
+{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}}\toprule
+ & \textbf{TPS} & \textbf{p50 Latency (ms)} & \textbf{p95 Latency (ms)} & \textbf{p99 Latency (ms)} \\
+\midrule\endhead
+b0 & 5.190 & 16.2 & 464.0 & 2679.0 \\
+b6 & 108.250 & 4.4 & 56.1 & 61.9 \\
+\bottomrule\end{longtable}}
+{\itshape Table 5.6.2: Matched expt\_b0 and expt\_b6 at 1 client (seed 42). Both runs completed without failed records.}\par
+At 1 client, b6 achieved 20.86 times the baseline throughput, with much lower tail latency. At 4 and 16 clients, b6 completed at 394.380 and 554.982 TPS, while b0 either aborted or recorded final serialization failures. b6 also aborted at 8 clients, so these cases cannot be used for direct speedup comparisons. Five additional T6 checks found no differences across all 1,000 merchants, and a separate correctness job (1031186) subsequently checked negative inventory, order-total equality and duplicate inventory/order-item IDs at three checkpoints with zero violations, and passed a controlled forward/reverse T7 conservation test. Its four-client measurement used 300 seconds and had zero failed records, four retry attempts and phase exits of zero. These separate-run checks do not retroactively validate every earlier benchmark. The matched result shows a large improvement at 1 client, but more runs are needed to confirm the gains at higher concurrency.\par

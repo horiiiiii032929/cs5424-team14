@@ -3,11 +3,28 @@
 Team: Hikaru, Kelvin, Dessi and Xincheng. Team account: `cs14`.
 Submission deadline: **30 October 2026, 23:59 Singapore time**.
 
+**Submission draft:** The [handoff checklist](submission/README.md) points to
+the local LaTeX/Overleaf report source and the three generated upload files.
+The complete report is a review draft; team decisions, contributions and AI
+record completeness require review before upload. No Canvas upload has occurred.
+
+**Team editing:** Follow [CONTRIBUTING.md](CONTRIBUTING.md). The shared LaTeX
+source is in [submission/report/](submission/report/), split into separate A/B
+section files. Create a feature branch and PR, request another teammate's review,
+and wait for approval before merging. Until PR #1 merges, target
+`codex/workload-a-followup`; afterward target `main`.
+
 This repository holds Dessi's preserved A/B baseline snapshots and Hikaru's
 implementations of five proposed Task 2 designs. The proposed work split is
 Hikaru + Kelvin on A and Dessi + Xincheng on B.
 
-**27 October status:** The [A report draft](docs/workload-a-report-draft.md)
+**28 October live recheck:** SSH works and the team queue is empty. Today's
+matched B runs support 20.86× at one client; a separate B correctness run passed
+four invariants and T7 conservation. Kelvin's write-side section is now in the
+shared report. Final choices, report cleanup and the three submission artifacts
+remain unfinished. See the [live audit](results/live-status-20261028/README.md).
+
+**27 October decision checkpoint:** The [A report draft](docs/workload-a-report-draft.md)
 recommends **a112** as the final A design, and Kelvin supports its selection.
 Hikaru's confirmation remains to be recorded, so the recommendation is still
 subject to team review. The matched a112 run achieved 16.8–28.2× fresh a0;
