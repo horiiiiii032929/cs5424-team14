@@ -22,10 +22,14 @@ creates `submission/14_report_overleaf.zip`. Upload that ZIP to Overleaf with
 
 The report currently has 20 pages including the cover. The assignment allows at
 most 20 pages and minimum 10-point font. Shorten repetition if adding content,
-then rebuild and inspect the PDF. Contribution statements, final design choices,
+then rebuild and inspect the PDF. Contribution statements, final B design choice,
 references and the team-wide AI declaration still require team confirmation.
 
 `scripts/prepare_report.py` is a one-time import/conversion tool, not the normal
 editing/build command. It now refuses to overwrite the report without an explicit
 `--overwrite` flag. Running it with that flag regenerates section files and can
 replace teammates' manual edits; do not use it in the normal review workflow.
+
+A selection is confirmed: a112 final, a115 follow-up with abort caveats, a10
+separate. See [the Overleaf handoff](../../docs/overleaf-handoff.md) for the
+proposed shared editing location; no Overleaf project has been created yet.

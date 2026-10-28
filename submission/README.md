@@ -30,13 +30,13 @@ subsections, and A baseline/final-design tables show p50, p95 and p99 as well as
 
 ## What the A pair should decide
 
-Hikaru and Kelvin own A. a112 is the supported recommendation, with the seed-7
+Hikaru and Kelvin own A. a112 is the confirmed final A design, with the seed-7
 c64 warmup caveat retained. a115 remains a faster but repeatedly aborting
 follow-up. a10's autocommit result is described separately: an a10+a112
 combination has not been benchmarked and must not be presented as the measured
 a112 design. Kelvin's write-path section has already been incorporated.
 
-## Proposed message to Kelvin
+## Earlier proposed message to Kelvin (superseded by his confirmation)
 
 Hey Kelvin, can we review and finish our A section tomorrow, 29 Oct, aiming for
 18:00 SGT? I've prepared a local LaTeX/Overleaf draft using our existing text.
@@ -48,7 +48,8 @@ and AI records too, so we can review tomorrow evening and upload on 30 Oct.
 
 ## Remaining team review
 
-- [ ] Kelvin and Hikaru confirm the A conclusion and attribution.
+- [x] A selection confirmed: a112 final, a115 follow-up, a10 separate.
+- [ ] Kelvin and Hikaru confirm their individual contribution statements.
 - [ ] Dessi and Xincheng confirm B selection and ownership, supplementary
   evidence and correctness wording. B c1 has a matched 20.86x observation;
   higher counts retain failures/aborts. Job 1031186 is separate validation.

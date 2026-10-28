@@ -141,6 +141,15 @@ for team review. Entries below are dated checkpoints, not current job status.
   to require one approving peer review, dismiss stale approvals, resolve review
   conversations and enforce the rules for administrators.
 
+- 28 October 2026 (Codex, Kelvin confirmation): recorded Kelvin's confirmation
+  of a112 as final A, a115 as follow-up with abort caveats, and a10 as separate
+  because no combined a10+a112 run exists. Updated the report's A/conclusion
+  and current decision notes through a follow-up PR workflow. Prepared a single
+  report handoff to Overleaf and refreshed the source ZIP; verified the NUS
+  institutional premium/collaborator terms against official Overleaf pages.
+  Browser access reached the Overleaf login screen only. No Overleaf project,
+  upload, invitation or team message was created or sent.
+
 Keep the conversation export with prompts and outputs for the required
 `14_ai_tool.zip` reports. This short record is an index, not a replacement for
 the complete required interaction records. Team members must review and understand

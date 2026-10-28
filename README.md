@@ -3,6 +3,11 @@
 Team: Hikaru, Kelvin, Dessi and Xincheng. Team account: `cs14`.
 Submission deadline: **30 October 2026, 23:59 Singapore time**.
 
+**A decision confirmed, 28 October:** a112 is the final A design. Kelvin confirmed
+a115 as follow-up evidence with abort caveats and a10 as a separate experiment;
+a10 was not benchmarked on top of a112. See the [Overleaf handoff](docs/overleaf-handoff.md)
+for the proposed shared-report workflow and remaining team review.
+
 **Submission draft:** The [handoff checklist](submission/README.md) points to
 the local LaTeX/Overleaf report source and the three generated upload files.
 The complete report is a review draft; team decisions, contributions and AI

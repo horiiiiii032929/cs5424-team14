@@ -22,6 +22,13 @@ resolve review conversations before merging. CODEOWNERS supplies suggested
 reviewers; the one-approval rule is enforced by branch protection, not just this
 document.
 
+## Overleaf handoff proposal
+
+Kelvin proposed using Overleaf for the final joint report edits. See
+[the handoff](docs/overleaf-handoff.md). Once that project is created and shared,
+use it as the editable report and use repo PRs for reviewed source snapshots.
+Until the handoff is complete, use the section files and PR workflow below.
+
 ## What to edit
 
 The editable source is `submission/report/`. `main.tex` loads the section files:
