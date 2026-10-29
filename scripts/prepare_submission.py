@@ -96,7 +96,10 @@ for folder in ['cluster-import-20261019','cluster-smoke-20261019','cluster-diagn
             copy_file(p,evidence/folder/p.name,folder)
 for folder in ['correctness-native-20261014','correctness-verified-20261014','followup-20261019',
                'correctness-deferrable-20261019','correctness-summary-20261019',
-               't6-plan-check-20261019','local-pilot-20261014','deferrable-pilot-20261019','summary-pilot-20261019']:
+               't6-plan-check-20261019','local-pilot-20261014','deferrable-pilot-20261019','summary-pilot-20261019',
+               'correctness-readonly-20261019','correctness-join-placement-20261019',
+               'scalable-validator-checks-20261019','readonly-pilot-20261019',
+               'join-placement-pilot-20261019','local-native-20261014']:
     merge_tree(ROOT/'results'/folder,evidence/'local-only'/folder,folder)
 for p in (ROOT/'scripts').glob('*.py'):copy_file(p,STAGE/'analysis_scripts'/p.name,'repository analysis scripts')
 

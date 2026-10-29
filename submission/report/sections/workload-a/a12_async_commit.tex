@@ -1,0 +1,17 @@
+% Kelvin. Do not claim synchronous_commit=off disables two-phase durability.
+\subsection{\expt{a12}: Asynchronous commit}
+A12 sets \code{synchronous_commit = off} on the coordinator and workers to
+investigate WAL-flush waiting. Asynchronous commit can acknowledge ordinary
+transactions before their WAL is durable, risking loss of recently acknowledged
+transactions after a crash. PostgreSQL specifies that two-phase-commit commands
+remain synchronous, so the setting does not remove every durability wait from
+distributed transactions \citep{pg-async}.
+
+Job 967217 showed some lower single-row update latencies, but similar changes
+occurred in a14 without changing commit behaviour. At eight clients, T2's median
+was 4.613\,ms in a12 and 4.759\,ms in a14, compared with 6.035\,ms in a102.
+T1's one-client median changed from approximately 11.68 to 11.86\,ms.
+These results do not establish WAL-flush waiting as the dominant cost.
+
+A12 provided no convincing overall throughput benefit while weakening durability
+for affected transactions. We excluded it from the final design.

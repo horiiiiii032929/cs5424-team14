@@ -5,22 +5,26 @@ change goes through a pull request and at least one other person's approval.
 Do not merge your own work before peer review. The Canvas deadline is
 **30 October 2026, 23:59 Singapore time**.
 
-## Current branches and first review
+## Current branches and review
 
-[PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1) contains the
-current A work, evidence review and LaTeX report. Kelvin is the first requested
-reviewer. It is not merged into `main` yet.
+[PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1), containing the
+A/B evidence and first shared LaTeX draft, merged into `main` on 29 October.
+Create new feature branches from `origin/main` and target `main` in your PR.
+The report cleanup is on `codex/maintainable-latex-report`; its PR also contains
+the agreed A selection and the earlier Overleaf handoff changes.
 
-**Until PR #1 is merged**, create report branches from
-`origin/codex/workload-a-followup` and target that same branch in your PR.
-This lets the team contribute to the actual report rather than the older main
-snapshot. After PR #1 merges, start from and target `main` instead.
+`main` requires one approval from someone other than the author. New commits
+dismiss old approvals; resolve review conversations before merging. CODEOWNERS
+supplies suggested reviewers. GitHub enforces the approval rule.
 
-Both `main` and the report integration branch require a pull request with one
-approval from someone other than the author. New commits dismiss old approvals;
-resolve review conversations before merging. CODEOWNERS supplies suggested
-reviewers; the one-approval rule is enforced by branch protection, not just this
-document.
+## Shared Overleaf report
+
+Use the [shared Overleaf project](https://www.overleaf.com/project/6ae2d836f7dbb8dab0442621) for final joint
+report edits. Hikaru supplied this project on 29 October. The repository retains
+code, evidence and reviewed source snapshots; see [the handoff](docs/overleaf-handoff.md).
+Check the live project against the repo source before importing any ZIP, and
+export the final reviewed Overleaf source back to a feature branch for review.
+The project contents and collaborator access were not verified by this cleanup.
 
 ## What to edit
 
@@ -31,7 +35,7 @@ The editable source is `submission/report/`. `main.tex` loads the section files:
 | `00_cover.tex` | Names and AI declaration | Everyone |
 | `01_contributions.tex` | Each person's contribution | Everyone |
 | `02_baseline_a.tex` | Task 1 / A baseline | Hikaru and Kelvin |
-| `03_optimized_a.tex` | Task 2 / A optimizations | Hikaru and Kelvin |
+| `03_optimized_a.tex` and `workload-a/*.tex` | Task 2 / A introduction and individual experiments | Hikaru and Kelvin |
 | `04_baseline_b.tex` | Task 3 / B baseline | Desmond and Xincheng |
 | `05_optimized_b.tex` | Task 4 / B optimizations | Desmond and Xincheng |
 | `06_conclusion.tex` | Lessons and limitations | Both pairs |
@@ -42,7 +46,7 @@ not a second source to update in parallel. Do not run `prepare_report.py` over
 teammates' edits: it is an import/conversion helper that overwrites the report.
 Keep changes scoped to your section where possible to reduce merge conflicts.
 
-The current PDF is 20 pages including the cover. Keep text at least 10 pt;
+The latest PDF page count is recorded in `submission/validation.json`. Keep text at least 10 pt;
 shorten repeated material if adding content would exceed the limit. Sections
 2-5 must retain experiment IDs matching the result archive, methods, relevant
 tables/figures, and evidence for their claims.
@@ -51,13 +55,13 @@ tables/figures, and evidence for their claims.
 
 ```sh
 git fetch origin
-git switch -c codex/kelvin-a-report origin/codex/workload-a-followup
+git switch -c codex/kelvin-a-report origin/main
 # Edit submission/report/sections/02_baseline_a.tex and/or 03_optimized_a.tex.
 bash scripts/build_report.sh
 git add submission/report/sections/
 git commit -m "Review A report conclusions and write-path findings"
 git push -u origin codex/kelvin-a-report
-gh pr create --base codex/workload-a-followup --reviewer horiiiiii032929
+gh pr create --base main --reviewer horiiiiii032929
 ```
 
 Without the GitHub CLI, use GitHub's **Compare & pull request**, choose the base

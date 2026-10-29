@@ -1,0 +1,31 @@
+% Hikaru: implementation. Kelvin: full cluster run and analysis.
+\subsection{\expt{a102}: Lookup indexes}
+\label{sec:a102}
+The first experiment added three indexes:
+\begin{lstlisting}
+CREATE INDEX idx_orders_customer_recent
+    ON orders (merchant_id, customer_id, created_at DESC);
+CREATE INDEX idx_items_order ON order_items (order_id);
+CREATE INDEX idx_inventory_product ON inventory (product_id);
+\end{lstlisting}
+The orders index follows T3's merchant/customer filtering and recent-order
+access pattern. The others support order-item and inventory lookups. This
+ordering follows PostgreSQL's guidance on leading equality columns in
+multicolumn B-tree indexes \citep{pg-multicolumn}.
+
+Kelvin ran a102 as job 965657. Its throughput was
+3.250/3.453/3.543/3.320/3.782/3.398 TPS at 1--64 clients. All measured phases
+exited normally and recorded no serialization failures. However, the 16-client
+warmup aborted, excluding that case from comparisons requiring both phases
+to complete.
+
+Against the preserved baseline, eligible concurrent cases appeared 49--57\%
+faster. Against the fresh baseline, differences were only approximately
+$-3\%$ to $+6\%$. Different node allocations and single observations prevent
+a large overall throughput claim attributable to the indexes.
+
+At one client, T7's mean latency decreased from 51.114 to 13.709\,ms, while
+T3 and T4 remained expensive at 2,668.472 and 454.362\,ms. The indexes helped
+particular operations but did not remove the dominant distributed-read cost.
+\evidence{\expt{a102}, job 965657; preserved a0 job 918524 and fresh a0 job
+977740. Source identity was checked against the saved runtime hashes.}

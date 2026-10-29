@@ -3,50 +3,30 @@
 Team: Hikaru, Kelvin, Dessi and Xincheng. Team account: `cs14`.
 Submission deadline: **30 October 2026, 23:59 Singapore time**.
 
-**Submission draft:** The [handoff checklist](submission/README.md) points to
-the local LaTeX/Overleaf report source and the three generated upload files.
-The complete report is a review draft; team decisions, contributions and AI
-record completeness require review before upload. No Canvas upload has occurred.
+**29 October handoff:** The modular LaTeX review draft is **19 pages**.
+The Overleaf source ZIP and three Canvas artifacts are prepared locally.
+See [the teammate handoff](docs/team-handoff-2026-10-29.md) for the exact files,
+owners and remaining checks. Team review and AI-record completeness are still
+pending; no Canvas upload is recorded.
 
-**Team editing:** Follow [CONTRIBUTING.md](CONTRIBUTING.md). The shared LaTeX
-source is in [submission/report/](submission/report/), split into separate A/B
-section files. Create a feature branch and PR, request another teammate's review,
-and wait for approval before merging. Until PR #1 merges, target
-`codex/workload-a-followup`; afterward target `main`.
+**A is agreed:** a112 is the final measured design; a115 stays follow-up with
+abort caveats; a10 is separate and was not benchmarked on top of a112.
+Kelvin's write-path analysis is incorporated. The B pair must confirm their
+final design, attribution and evidence wording.
 
-This repository holds Dessi's preserved A/B baseline snapshots and Hikaru's
-implementations of five proposed Task 2 designs. The proposed work split is
-Hikaru + Kelvin on A and Dessi + Xincheng on B.
+Use the [shared Overleaf project](https://www.overleaf.com/project/6ae2d836f7dbb8dab0442621) for final report
+edits. Hikaru supplied this project on 29 October; its contents have not been
+synchronized or compared with the local draft in this cleanup. Keep reviewed
+source snapshots in [submission/report/](submission/report/). Use
+`bash scripts/build_report.sh` to build the local PDF and portable source ZIP.
+Follow [CONTRIBUTING.md](CONTRIBUTING.md) for peer review.
 
-**28 October live recheck:** SSH works and the team queue is empty. Today's
-matched B runs support 20.86× at one client; a separate B correctness run passed
-four invariants and T7 conservation. Kelvin's write-side section is now in the
-shared report. Final choices, report cleanup and the three submission artifacts
-remain unfinished. See the [live audit](results/live-status-20261028/README.md).
-
-**27 October decision checkpoint:** The [A report draft](docs/workload-a-report-draft.md)
-recommends **a112** as the final A design, and Kelvin supports its selection.
-Hikaru's confirmation remains to be recorded, so the recommendation is still
-subject to team review. The matched a112 run achieved 16.8–28.2× fresh a0;
-the seed-7 repeat's 64-client warmup aborted and remains excluded from clean
-comparisons. Kelvin plans to supply his write-side section on 28 October.
-
-Both a115 jobs were fully
-[imported and audited](results/cluster-full-a115-20261022/README.md). All 26 runtime
-hash comparisons, 24 phase commands/exits, 12 raw-log/transaction-metric counts
-and 12 post-run validations are verified. Seven of twelve cases complete both
-phases; six also have zero measured failures. Seed-42 c32/c64 and seed-7 c8/c16/c64
-measurements abort; both c64 warmups abort. a115 is faster in eligible cases,
-but neither seed supplies a clean full matrix.
-The [B branch audit](results/b-branch-review-20261022/README.md) is complete;
-b6/c16 supports 539.437 TPS, while c8/c32/c64 remain flagged. Final A/B choices
-and submission assembly await team review.
-
-See [current status and remaining work](docs/project-status.md),
-[verified results](results/README.md), the [A report draft](docs/workload-a-report-draft.md)
-and [cluster runbook](docs/workload-a-cluster-runbook.md).
-Code and evidence are on [draft PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1);
-the a114/a115 merge was into its branch, not into `main`.
+Code and evidence were merged into `main` through
+[PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1) on 29 October.
+Review the remaining report cleanup in [PR #4](https://github.com/horiiiiii032929/cs5424-team14/pull/4).
+The branch is `codex/maintainable-latex-report`; PR #3 is superseded by #4.
+See [the dated evidence status](docs/project-status.md) and
+[results](results/README.md) for the audit history and comparison limitations.
 
 ## Start here
 

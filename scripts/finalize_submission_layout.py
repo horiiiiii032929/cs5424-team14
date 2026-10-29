@@ -2,6 +2,7 @@
 """Separate local-only designs from the required Slurm experiment submission tree."""
 from pathlib import Path
 import csv,hashlib,json,re,shutil,zipfile
+from organize_submission import organize
 
 ROOT=Path(__file__).resolve().parents[1]
 STAGE=ROOT/'submission/files/citus_project_team_14'
@@ -55,6 +56,7 @@ for entry in cluster:
     assert len(list((expt/'transactions').glob('*.sql')))==9
     for job in (expt/'slurm-results').glob('job-*'):
         for suffix in ['out','err']:assert (expt/f'citus-{job.name[4:]}.{suffix}').is_file()
+organize(STAGE)
 files=sorted(p for p in STAGE.rglob('*') if p.is_file() and p.name!='checksums.sha256')
 (STAGE/'checksums.sha256').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+str(p.relative_to(STAGE))+'\n' for p in files))
 target=ROOT/'submission/upload/14_files.zip'
@@ -62,4 +64,4 @@ with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
     for p in sorted(STAGE.rglob('*')):
         if p.is_file():z.write(p,p.relative_to(STAGE.parent))
 with zipfile.ZipFile(target) as z:assert z.testzip() is None
-print('Final layout:',len(cluster),'Slurm experiment folders,',len(local),'local-only supporting implementations;',sum(len(e['jobs']) for e in cluster),'job folders; ZIP CRC passed.')
+print('Final layout:',len(cluster),'experiment folders (including two unbenchmarked variants with inherited results),',len(local),'local-only supporting implementations;',sum(len(e['jobs']) for e in cluster),'job folders; ZIP CRC passed.')

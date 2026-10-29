@@ -1,0 +1,20 @@
+% Hikaru's A adaptation of Desmond's B placement ideas.
+\subsection{\expt{a111}: Colocation on join keys}
+Experiment a111 retained a102's indexes and adapted the B team's placement:
+\begin{itemize}
+\item Distribute \code{inventory} by \code{product_id} and colocate it with
+\code{products}.
+\item Distribute \code{order_items} by \code{order_id} and colocate it with
+\code{orders}.
+\item Add the corresponding product identifier to T7's inventory-update
+routing predicates.
+\end{itemize}
+The implementation retains the selected inventory identifier and does not
+assume that \code{inventory_id} equals \code{product_id}.
+
+Matching rows are available together for the relevant joins. This does not
+mean every whole query accesses one worker: an order-history query may involve
+multiple shards, while matching orders and items can be joined within colocated
+shard pairs \citep{citus-distribution}. The scale-1, four-client diagnostic,
+job 977617, achieved 89.917 TPS with successful phases, no measured failures,
+and passing validation.

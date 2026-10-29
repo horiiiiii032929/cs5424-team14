@@ -356,10 +356,11 @@ isolation, then repeat a115's complete matched matrix. Autocommit and fillfactor
 a112 would be separate experiments; their combined effect and any HOT-update
 benefit have not been measured and are not claimed here.
 
-**Coordination status:** Kelvin supports a112 in his supplied message; Hikaru's
-confirmation remains to be recorded. The recommendation above is ready for
-team review, not a claim that agreement or the optional combined run has already
-occurred. Kelvin's a10/a11/a12/a14 write-up remains his contribution to integrate.
+**28 October decision:** Kelvin confirmed a112 as the final A design, a115 as
+follow-up with abort caveats, and a10 as separate because no a10+a112 run exists.
+His write-side text is integrated in the LaTeX report under `submission/report/`.
+This Markdown draft remains reference material; see `docs/overleaf-handoff.md`
+for the proposed final shared editing location.
 
 ## Sources to retain in the final report
 

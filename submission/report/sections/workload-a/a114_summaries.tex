@@ -1,0 +1,15 @@
+% Hikaru.
+\subsection{\expt{a114}: Maintained sales summaries}
+After T6 became dominant, a114 added exact daily sales summaries to a112.
+The summaries were maintained synchronously, with eight stripes per merchant/day
+to spread updates. The motivation was to reduce repeated aggregation of raw
+orders, following the general pre-aggregation approach in Citus's analytics
+documentation \citep{citus-realtime}.
+
+In the scale-1, four-client diagnostic, job 979865 achieved 85.333 TPS versus
+92.383 TPS in the earlier a112 diagnostic. T6's mean latency increased from
+650.6 to 764.5\,ms. Core integrity and summary-equivalence checks passed.
+
+The experiment did not demonstrate a benefit. Summaries reduce raw data
+aggregation but introduce maintenance and query-execution work. A single
+diagnostic does not isolate each cost, but provides no basis for selecting a114.

@@ -1,4 +1,45 @@
-% Team report source. Edit this section in a feature branch and request peer review.
-\needspace{4\baselineskip}\section{Conclusion}
-The combined A design a112 uses lookup indexes, join-key colocation and READ ONLY declarations; matched runs delivered 16.8-28.2\ensuremath{\times} fresh baseline throughput. a115's complete audit verifies faster eligible observations, seven phase-complete cases (six with zero failures), all 12 passing validations, and repeated measurement/warmup aborts. For Workload B, the matched experiment showed that b6 achieved 20.86 times the baseline TPS at 1 client. However, aborted runs and serialization failures still limit comparisons at higher client counts. Final A/B choices remain with the team, with all abort/retry and correctness limitations retained.\par
-Once joins improved, T6 became the main cost. Pre-aggregation is not automatically faster: a114's maintained summaries slowed T6 in the A diagnostic, while a115's timestamp index improved it. Isolated controls, repeated matched runs and explicit abort/retry reporting are essential; passing integrity checks do not make an aborted benchmark clean.\par
+% Owners: both workload pairs. B selection is not inferred from these results.
+\section{Conclusion, Lessons Learned, and Difficulties}
+\label{sec:conclusion}
+
+The project demonstrated the importance of identifying where transactions
+spend time and aligning data placement with their access patterns.
+
+For A, writes formed 75\% of the mix, but T3 and T4 accounted for approximately
+94--97\% of the preserved baseline's recorded time. Our final design, a112,
+combines lookup indexes, join-key colocation and read-only declarations.
+Its matched seed-42 experiment achieved 54.238--90.788 TPS versus
+3.225--3.613 TPS for the fresh baseline: an observed $16.8$--$28.2\times$
+improvement, with zero failed measured a112 transactions.
+
+The seed-7 repeat broadly reproduced throughput, but its aborted 64-client
+warmup shows that concurrency reliability remains unresolved. Faster a115
+observations also came with repeated aborts and no complete successful matrix.
+We selected a112 while retaining these limitations.
+
+Kelvin's write-path experiments distinguish mechanism improvements from
+workload improvements. Autocommit reduced targeted-update median latency by
+29--74\%, and fillfactor 80 produced 100\% HOT updates. Neither removed the
+expensive reads on the a102 base. A10 remains a separate measured result;
+no a10/a112 combination has been benchmarked.
+
+For B, matched b0/b6 jobs achieved 108.250 versus 5.190 TPS at one client,
+an observed $20.86\times$ improvement. At higher concurrency, aborted phases
+and baseline failures limited comparisons. Separate correctness testing
+provided evidence for inventory, order totals, identifiers and T7 conservation,
+but did not retrospectively validate every earlier benchmark.
+
+Three lessons stand out. First, optimization moves the bottleneck: once T3/T4
+became cheaper, T6 dominated A. Second, added complexity is not automatically
+beneficial: a114's maintained summaries did not improve its diagnostic,
+while a115's simpler timestamp index was faster in successful cases.
+Third, controls materially affect interpretation. The fresh and preserved
+baselines differed substantially, so single runs on different allocations
+cannot establish precise component-level gains.
+
+Practical difficulties included distinguishing Slurm completion from pgbench
+success, diagnosing worker errors surfaced as Citus shard-commit failures,
+and maintaining comparable conditions. We examined phase exits, transaction
+logs, failure counts and validation together. Future work should address
+recurring T1 commit failures, repeat matched experiments, and test selected
+write-path improvements on a112. Those combinations remain proposals.
