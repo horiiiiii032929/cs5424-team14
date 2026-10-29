@@ -14,11 +14,13 @@ The generated `upload/` directory contains exactly the three required names:
   Local-only evidence is explicitly separate. Original source and failed runs
   are preserved; included files do not imply a performance result is clean.
 - `14_report.pdf`: the complete local LaTeX review draft. Read it before upload;
-  its cover explicitly identifies it as a review draft.
+  the cover uses the planned submission date and is not an upload receipt.
 - `14_ai_tool.zip`: recovered local Codex/Claude dialogue PDFs and supplemental
   JSONL tool records. This is a snapshot requiring a completeness check.
 
-`report/main.tex` loads the editable files under `report/sections/`. Follow
+`report/main.tex` loads the editable files under `report/sections/`, with A
+experiments split under `report/sections/workload-a/`. Names and formatting live
+in `metadata.tex` and `report-style.tex`; citations use `references.bib`. Follow
 [the peer-review workflow](../CONTRIBUTING.md) and edit the appropriate A/B
 section. `14_report_overleaf.zip` contains the same source and images for
 Overleaf; it is not one of the three Canvas uploads.
@@ -28,23 +30,16 @@ The [assignment requirements check](assignment-requirements.md) maps the supplie
 Canvas overview to the report and archive. Sections 2-5 now use experiment
 subsections, and A baseline/final-design tables show p50, p95 and p99 as well as TPS.
 
-## What the A pair should decide
+## Confirmed A scope
 
 Hikaru and Kelvin own A. a112 is the confirmed final A design, with the seed-7
 c64 warmup caveat retained. a115 remains a faster but repeatedly aborting
-follow-up. a10's autocommit result is described separately: an a10+a112
-combination has not been benchmarked and must not be presented as the measured
-a112 design. Kelvin's write-path section has already been incorporated.
+follow-up. a10 is separate: an a10+a112 combination has not been benchmarked.
+Kelvin's write-path section is incorporated. The compiled 29 October review
+draft is **19 pages**; rebuild and check again after final team edits.
 
-## Earlier proposed message to Kelvin (superseded by his confirmation)
-
-Hey Kelvin, can we review and finish our A section tomorrow, 29 Oct, aiming for
-18:00 SGT? I've prepared a local LaTeX/Overleaf draft using our existing text.
-I suggest a112 as the final A design, keeping a115 as follow-up results with
-the abort caveats. Your write-side section is included. Can you confirm that
-conclusion and whether a10 should stay as a separate experiment? I'll organize
-the result files and report source. Let's each check our contribution statement
-and AI records too, so we can review tomorrow evening and upload on 30 Oct.
+The [29 October teammate handoff](../docs/team-handoff-2026-10-29.md) contains a
+copyable message and the remaining owners/actions.
 
 ## Remaining team review
 
@@ -56,8 +51,8 @@ and AI records too, so we can review tomorrow evening and upload on 30 Oct.
 - [ ] Everyone confirms their full name, contribution and tools actually used.
 - [ ] Complete/review the bibliography against the sources actually consulted.
 - [ ] Add any missing earlier cloud/ChatGPT and teammates' AI interaction PDFs.
-  The local export contains 7 Codex and 3 Claude sessions, not a claim of all
-  historical or team-wide interactions. Refresh it after the final interaction.
+  The recovered session inventory is in `ai/session-index.json`; it is not a
+  claim of all historical or team-wide interactions. Refresh after final edits.
 - [ ] Remove review wording and confirm the final PDF is at most 20 pages,
   with minimum 10-point text, all figures readable, and no placeholders.
 - [ ] Check the result ZIP inventory against experiments cited in the final

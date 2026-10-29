@@ -40,8 +40,8 @@ available working source. No Overleaf URL or invitations have been created.
 4. Invite Kelvin, Desmond and Xincheng using the email addresses they use for
    Overleaf, with edit access. Do not guess email addresses or enable a public
    edit link as a substitute for the intended recipients.
-5. Compile and verify all figures and section files. The current local draft
-   is at the 20-page limit, so shorten repeated content before adding material.
+5. Compile and verify all figures and section files. The 29 October local draft
+   is 19 pages. Keep the final PDF within 20 pages including the cover.
 6. Share the verified project link with the team and state that it is the
    shared report. Use comments/track changes for partner review before final
    wording is accepted; GitHub branch protection does not govern Overleaf edits.

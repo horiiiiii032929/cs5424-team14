@@ -1,4 +1,26 @@
-# Project status — 28 October 2026
+# Project status — 29 October 2026
+
+The local report cleanup is ready for team review on
+`codex/maintainable-latex-report`. The current compiled PDF is **19 pages**;
+body text is 11 pt and table/caption/reference text is 10.5 pt. Report source is
+modular, with shared metadata/style and a bibliography. The generated Overleaf
+ZIP is the import package; `submission/report/` is the maintained local source.
+
+A selection is confirmed: **a112 final, a115 follow-up, a10 separate**.
+Kelvin's write-path analysis is included. The B pair still needs to confirm its
+final choice and individual attribution. Everyone must check names,
+contributions, references and full AI records. The archives are local review
+artifacts, and no Canvas upload is recorded.
+
+Use [the 29 October teammate handoff](team-handoff-2026-10-29.md) for the
+remaining actions and copyable team message. The official deadline is
+**30 October 2026 at 23:59 Singapore time**. The 30 October 20:00 upload time
+is a proposed internal buffer.
+
+## Archived 28 October checkpoint
+
+The following records the earlier checkpoint. Its live-access, queue, branch,
+PR and draft-page statements are dated observations.
 
 **A selection resolved:** Kelvin confirmed a112 as final, a115 as follow-up with
 abort caveats, and a10 as separate (no a10+a112 run). His GitHub review of PR #1
@@ -47,7 +69,7 @@ The earlier timeout and partial readback remain historical checkpoints; they are
 no longer access/import blockers. B source and raw output are also imported and
 reviewed. Queue/accounting observations are dated snapshots, not live guarantees.
 
-## Code and review
+## Code and review at the 28 October checkpoint
 
 Work is on `codex/workload-a-followup`, the branch for
 [draft PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1), not `main`.

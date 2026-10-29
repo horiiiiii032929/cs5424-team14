@@ -1,0 +1,15 @@
+% Hikaru.
+\subsection{\expt{a101}: Merchant-based colocation}
+Experiment a101 distributed merchant-owned data by \code{merchant_id}.
+The motivation was to place data used by merchant-scoped transactions together
+and reduce distributed execution, following Citus's tenant-placement guidance
+\citep{citus-distribution}.
+
+Our implementation did not supply a successful concurrent benchmark for a
+performance claim. Four-client local tests and the cluster smoke experiment
+aborted. The scale-1 diagnostic, job 977468, also aborted during warmup and
+measurement. Its partial throughput is excluded from rankings.
+
+These results show a limitation of this implementation under the tested
+conditions, not that merchant colocation is generally ineffective. We next
+investigated placement aligned with the joins used by T3 and T4.

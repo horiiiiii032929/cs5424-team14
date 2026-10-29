@@ -1,182 +1,27 @@
-% Team report source. Edit this section in a feature branch and request peer review.
-\needspace{4\baselineskip}\section{Task 2: Optimized design for workload A}
-The objective is average transaction throughput, with latency percentiles, retries and failures retained to assess the trade-offs. The main progression is a0 to a102 (lookup indexes), a111 (join-key colocation), and a112 (read-only declarations). a113, a114 and a115 test alternative follow-ups. Short diagnostics and cross-allocation comparisons are distinguished from the matched full a0/a112 matrix; the final combined improvement does not isolate each component's effect.\par
-\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}a102}: lookup indexes}
-Kelvin's a102 job 965657 is independently verified from the raw files: all 12 source files match commit 82058e6 and the saved runtime hashes. It used xcnf1 coordinator/xcnf2-5 workers, PostgreSQL 18.6/Citus 14.1.0, scale 1 and the original benchmark settings. At 1/4/8/16/32/64 clients, TPS was 3.250/3.453/3.543/3.320/3.782/3.398, versus baseline 3.220/2.283/2.285/2.368/2.405/2.283.\par
-All six measured a102 exits and measured serialization-failure counts are zero, with six passing core checks. Its 16-client warmup exited 2 and that case is excluded from clean comparisons. Clean concurrent cases show 49-57\% gains over preserved a0 918524, but only approximately -3\% to +6\% against fresh a0 977740. Different node allocations and single observations prevent a matched index-only speedup claim. Source/raw evidence are in results/cluster-import-20261019/. Figure 3.1 retains the historical preserved-baseline comparison and flags the warmup abort.\par
-\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{images/workload-a-baseline-indexes.pdf}
-\par\smallskip\raggedright Figure 3.1. Verified baseline and lookup-index observations. The open point flags the aborted warmup; single runs do not estimate variability.
-\end{figure}
-At one client, T7 mean latency falls from 51.114 to 13.709 ms, while T3/T4 remain 2668.472/454.362 ms. The indexes help individual operations but do not remove the dominant distributed-read cost.\par
-\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}a101}: merchant colocation and failed diagnostics}
-a101 distributes merchant-owned data by merchant\_id to make merchant-scoped operations local. Its small-fixture four-client cases aborted. In the cluster smoke suite, a101/job 977433 also aborted at four clients. The scale-1 diagnostic (job 977468) aborted in warmup and measurement, so its partial throughput is not ranked. These negative results motivated join-key rather than wholesale merchant colocation. The original slow post-run global-ID validator was replaced by equivalent exact checks; seven deliberate-corruption tests verified the replacement. Validation runs outside the timed interval.\par
-\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}a111}: join-key colocation}
-a111 adapts the B team's placement ideas on top of a102: inventory is colocated with products by product\_id, and order\_items with orders by order\_id; T7 uses the corresponding routing predicates. This targets the joins used by T3/T4 while retaining query semantics, SERIALIZABLE isolation, workload weights, durability and retry limits. a112 adds READ ONLY declarations to T3/T4/T6 relative to a111.\par
-\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}a113}: safe-snapshot control against a111 and a112}
-a113 adds READ ONLY DEFERRABLE to a112's read transactions. The scale-1/four-client diagnostics used the original workload mix, 60-second warmups and 60-second measurements. All three completed both phases without measured failures or retries and passed exact validation.\par
-\needspace{10\baselineskip}
-{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}}\toprule
-Experiment & Job & Change & TPS \\
-\midrule\endhead
-\texttt{expt\_\allowbreak{}a111} & 977617 & Join-key colocation on a102 & 89.917 \\
-\texttt{expt\_\allowbreak{}a112} & 977618 & a111 plus READ ONLY & 92.383 \\
-\texttt{expt\_\allowbreak{}a113} & 977619 & a112 plus DEFERRABLE & 90.550 \\
-\bottomrule\end{longtable}}
-Table 3.1. Diagnostic progression and safe-snapshot control. These single 60-second observations do not establish a reliable ranking or a general concurrency fix.\par
-\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}a112}: matched full comparison and repeat}
-Full matched a0/a112 jobs 977740/977773 completed on xcnf0-4 with scale 1, six client counts, 60-second warmups and 600-second measurements. a112 delivered 54.2-90.8 TPS versus a0 3.2-3.6 TPS (16.8-28.2\ensuremath{\times}), zero measured a112 failures and six passing validations. The baseline retains serialization failures. The A pair confirmed a112 as the final A design.\par
-At 1/4/8/16/32/64 clients, fresh a0 TPS was 3.225/3.565/3.568/3.282/3.613/3.222, and a112 was 54.238/85.042/87.378/88.073/90.660/90.788. TPS is completed scripts divided by 600 seconds, including expected business rollbacks. a112 retried 0/0/2/2/5/16 transactions; all retries succeeded. The unmodified a0 script has no post-run validation step.\par
-At one client, T3 fell from 2656.9 to 6.8 ms and T4 from 454.5 to 1.5 ms. T6 remained about 257-263 ms. Count \ensuremath{\times} mean latency gives T3+T4 93.5-97.7\% of baseline time and T6 67-83\% of a112 time; these are recorded time shares, not configured workload weights.\par
-Repeat a112 job 978177 (seed 7) agreed within 2.5\% in measured TPS. Its 64-client warmup exited 2 and that case is excluded from clean comparisons; all six measurements and validations passed. A worker's commit-time serialization cancellation was wrapped as a generic Citus shard-commit error, so pgbench did not retry it. The general concurrency issue remains unresolved.\par
-\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{images/workload-a-full-matched.pdf}
-\par\smallskip\raggedright Figure 3.2. Matched full a0/a112 throughput and recorded time shares. The open diamond flags the seed-7/c64 warmup abort; that case is excluded from clean comparisons.
-\end{figure}
-\needspace{10\baselineskip}
-{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{>{\raggedright\arraybackslash}p{24.33mm}>{\raggedright\arraybackslash}p{24.33mm}>{\raggedright\arraybackslash}p{24.33mm}>{\raggedright\arraybackslash}p{24.33mm}>{\raggedright\arraybackslash}p{24.33mm}>{\raggedright\arraybackslash}p{24.33mm}}\toprule
-Clients & TPS & p50 ms & p95 ms & p99 ms & Retried txns \\
-\midrule\endhead
-1 & 54.238 & 5.666 & 19.748 & 260.481 & 0 \\
-4 & 85.042 & 9.423 & 313.624 & 814.970 & 0 \\
-8 & 87.378 & 16.279 & 978.277 & 1531.221 & 2 \\
-16 & 88.073 & 23.309 & 2407.638 & 3101.652 & 2 \\
-32 & 90.660 & 38.125 & 623.002 & 6165.569 & 5 \\
-64 & 90.788 & 63.958 & 6597.911 & 10030.710 & 16 \\
-\bottomrule\end{longtable}}
-Table 3.2. Full a112 job 977773. All six warmup/measurement exits are zero and all measured failed-record counts are zero. A retry count is the number of retried transactions, not the number of final failures.\par
-\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}a114}: maintained summaries as a negative result}
-a114 adds exact daily sales summaries to a112, with eight stripes per merchant/day to reduce write contention. At scale 1/four clients, job 979865 achieved 85.333 TPS and T6 mean latency 764.5 ms, compared with a112 diagnostic 92.383 TPS and T6 650.6 ms. Core and exact-summary checks passed, but this single observation provides no performance benefit and a114 is not recommended.\par
-\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}a115}: timestamp-index control and reliability trade-off}
-a115 adds only orders(created\_at) to a112 and retains its original T6 query. Diagnostic job 979866 achieved 288.633 TPS, T6 mean latency 115.9 ms, zero failed transactions and two retried transactions/two retry attempts, with passing validation. This isolates a useful timestamp-index hypothesis relative to a114's more complex summary design; a short diagnostic does not establish full-matrix reliability.\par
-Full seed-42/seed-7 jobs 979909/979910 provide 12 client-count cases on xcnf0-4. Seven cases complete both phases: seed 42 at 1/4/8/16 clients (c4 has one final serialization failure) and seed 7 at 1/4/32. Six cases have zero failed records. Seed-42 c32/c64 and seed-7 c8/c16/c64 measurements exit 2; both c64 warmups exit 2. All 12 core validations pass and 26 runtime source-hash comparisons match. Passing integrity checks do not turn an aborted performance run into a clean comparison.\par
-At one client both a115 seeds pass without failures at 115.485/109.893 TPS, versus same-seed a112's 54.238/52.970 TPS (2.13\ensuremath{\times}/2.07\ensuremath{\times}). Eligible seed-42 c8/c16 and seed-7 c32 observations also support the index, but no clean repeated full matrix is established. The A pair retains a115 as follow-up evidence with its abort caveats.\par
-\needspace{4\baselineskip}\subsection*{Supporting implementations and validation scope}
-Local-only variants a103-a108 and a109/a110 explore one-call T1, maintained summaries, memory/executor settings and read-only declarations. Their source is retained under \texttt{supporting\_\allowbreak{}implementations/local\_\allowbreak{}only/} and their small-scale outputs under \texttt{evidence/local-only/}; they are not course-cluster benchmark experiments. The original distributed correctness suite passed 138 checks. Follow-up a109/a110 passed 26/38 checks and a111/a112/a113 passed 29 each (151 in total). Tests exercised actual read scripts, placement metadata and transfers with inventory IDs different from product IDs. Seven local four-client follow-up stress cases aborted; all 45 post-failure integrity checks passed. The local hot-merchant fixture differs from the full cluster dataset, so its timings are not ranked as cluster evidence.\par
-\needspace{4\baselineskip}\subsection*{Write-path experimental method}
-Workload A is 75\% writes by weight (T1 36\%, T2 20\%, T5 10\%, T7 5\%, T8 2\%, T9 2\%). In parallel with the placement work above, we tested whether the update path itself could be made cheaper: fewer round trips per update, HOT updates, less waiting for WAL flushes, and a fixed lock order for T7. Each experiment starts from \texttt{expt\_\allowbreak{}a102} (job 965657), i.e. the baseline plus a102's three lookup indexes and its post-run correctness check (\texttt{sql/verify.sql}), and tests the changes described below. In particular, a11 uses a14 as its VACUUM/CHECKPOINT control. Workload mix, scale 1, SERIALIZABLE isolation, 60-second warmups, 600-second measurements and full log sampling are unchanged.\par
-All runs were pinned to xcnf nodes. A first a12 submission that landed on xcnc nodes (job 967193) was cancelled and resubmitted (967217), since different hardware would confound a disk-sensitive setting. All four completed Slurm jobs exited 0 and passed all six post-run correctness checks; a10/c32 nevertheless has pgbench exit 2 and is excluded from clean comparisons. The invariant checks found no negative inventory, no duplicate order or order-item IDs, and every order total equal to the sum of its items.\par
-To observe the update path directly, run.sh also snapshots \texttt{n\_\allowbreak{}tup\_\allowbreak{}upd}, \texttt{n\_\allowbreak{}tup\_\allowbreak{}hot\_\allowbreak{}upd} and \texttt{n\_\allowbreak{}tup\_\allowbreak{}newpage\_\allowbreak{}upd} from \texttt{pg\_\allowbreak{}stat\_\allowbreak{}user\_\allowbreak{}tables} on every worker, for the shards of customers, products, inventory and orders, before and after each measured run, and writes the difference to \texttt{hot\_\allowbreak{}updates.csv}. The snapshots run outside the 600-second window. In a10 this returned no rows, because Citus hides shard tables from catalog queries on workers; from a14 onwards the query first sets \texttt{citus.show\_\allowbreak{}shards\_\allowbreak{}for\_\allowbreak{}app\_\allowbreak{}name\_\allowbreak{}prefixes = '*'}.\par
-On this base, overall TPS is 3.0-3.8 for every variant. T3 and T4 still account for about 94\% of recorded time and the four single-row updates about 0.2\%, so the unchanged reads dominate overall throughput. That noise is visible in transactions none of these experiments touch: in the a10 run, T3, T4 and T6 were 9\%, 14\% and 9\% slower at one client than in a102 (T3 2,911.7 vs 2,668.5 ms), and T4 was 53\% slower at 16 clients. We therefore judge each change on the transactions it targets, and regard small throughput differences between these single runs as inconclusive; repeated matched runs are needed to estimate variability.\par
-\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}a10}}
-T2, T5, T8 and T9 make up 34\% of workload A. In the baseline each is already a single \texttt{UPDATE} (T2's stock check is already part of its \texttt{WHERE} clause), but each is wrapped in \texttt{BEGIN}/\texttt{COMMIT}. That costs three client-to-coordinator round trips instead of one, and adds a separate \texttt{COMMIT} at which Citus can turn a worker's serialization cancellation into the non-retryable shard-commit error shown in Figure 5.4.1.\par
-\needspace{4\baselineskip}\subsubsection*{Key Changes}
-\begin{itemize}
-\item Remove \texttt{BEGIN} and \texttt{COMMIT} from T2, T5, T8 and T9, so each \texttt{UPDATE} runs as one autocommit statement (Figure 3.10.1).
-\item The \texttt{UPDATE} text, its inputs and the SERIALIZABLE isolation level are unchanged.
-\end{itemize}
-\needspace{10\baselineskip}
-{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{>{\raggedright\arraybackslash}p{166.0mm}}\toprule
-\texttt{UPDATE inventory} \texttt{SET quantity = quantity + (:inventory\_\allowbreak{}change)::integer,} \texttt{    updated\_\allowbreak{}at = CURRENT\_\allowbreak{}TIMESTAMP} \texttt{WHERE inventory\_\allowbreak{}id = (:product\_\allowbreak{}id)::bigint} \texttt{  AND merchant\_\allowbreak{}id = (:merchant\_\allowbreak{}id)::bigint} \texttt{  AND product\_\allowbreak{}id = (:product\_\allowbreak{}id)::bigint} \texttt{  AND quantity + (:inventory\_\allowbreak{}change)::integer >= 0;} \\
-\midrule\endhead
-\bottomrule\end{longtable}}
-{\itshape Figure 3.10.1: T2 in expt\_a10. expt\_a102 runs the same statement between BEGIN; and COMMIT;}\par
-\needspace{4\baselineskip}\subsubsection*{Benchmark Results and Analysis}
-\needspace{10\baselineskip}
-{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}}\toprule
-\textbf{ } & \textbf{TPS} & \textbf{p50 Latency (ms)} & \textbf{p95 Latency (ms)} \\
-\midrule\endhead
-T2 & 0.63 \ensuremath{\rightarrow} 0.62 & 11.74 \ensuremath{\rightarrow} 6.73 & 54.93 \ensuremath{\rightarrow} 47.58 \\
-T5 & 0.40 \ensuremath{\rightarrow} 0.39 & 11.95 \ensuremath{\rightarrow} 6.71 & 90.53 \ensuremath{\rightarrow} 54.55 \\
-T8 & 0.08 \ensuremath{\rightarrow} 0.08 & 15.17 \ensuremath{\rightarrow} 9.18 & 58.92 \ensuremath{\rightarrow} 64.23 \\
-T9 & 0.07 \ensuremath{\rightarrow} 0.07 & 13.46 \ensuremath{\rightarrow} 5.90 & 450.3 \ensuremath{\rightarrow} 118.2 \\
-Overall & 3.40 \ensuremath{\rightarrow} 3.35 & 77.88 \ensuremath{\rightarrow} 68.68 & 129,160 \ensuremath{\rightarrow} 128,928 \\
-\bottomrule\end{longtable}}
-{\itshape Table 3.10.1: Comparing expt\_a10 against expt\_a102 at 64 clients, on T2, T5, T8, T9  --  single runs.}\par
-\needspace{10\baselineskip}
-{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}>{\raggedright\arraybackslash}p{30.0mm}}\toprule
-\textbf{ } & \textbf{p50, 1 client (ms)} & \textbf{p50, 4 clients} & \textbf{p50, 8 clients} & \textbf{p50, 64 clients} \\
-\midrule\endhead
-T2 & 1.54 \ensuremath{\rightarrow} 1.05 & 2.43 \ensuremath{\rightarrow} 1.55 & 6.04 \ensuremath{\rightarrow} 2.73 & 11.74 \ensuremath{\rightarrow} 6.73 \\
-T5 & 1.38 \ensuremath{\rightarrow} 0.92 & 2.18 \ensuremath{\rightarrow} 1.20 & 5.58 \ensuremath{\rightarrow} 1.43 & 11.95 \ensuremath{\rightarrow} 6.71 \\
-T8 & 1.68 \ensuremath{\rightarrow} 1.15 & 2.29 \ensuremath{\rightarrow} 1.41 & 5.33 \ensuremath{\rightarrow} 1.74 & 15.17 \ensuremath{\rightarrow} 9.18 \\
-T9 & 1.46 \ensuremath{\rightarrow} 1.04 & 2.77 \ensuremath{\rightarrow} 1.24 & 7.29 \ensuremath{\rightarrow} 3.73 & 13.46 \ensuremath{\rightarrow} 5.90 \\
-\bottomrule\end{longtable}}
-{\itshape Table 3.10.2: p50 latency of the targeted transactions, expt\_a102 \ensuremath{\rightarrow} expt\_a10, at the client counts where both runs completed cleanly (a102's c16 warmup and a10's c32 measurement aborted).}\par
-Median latency fell for all four transactions at every eligible client count, by 29\% to 74\%, and the gain grows with concurrency, consistent with shorter transactions holding row locks and coordinator connections for less time. p95 fell in 12 of 16 eligible cases; the exceptions are T2 and T5 at one client (within 0.13 ms) and T8 at 1 and 64 clients, which completed fewer than 50 transactions in each run. T2, T5, T8 and T9 recorded no failures, as in a102. Their TPS is unchanged because each is a fixed share of the mix, and overall TPS (3.03-3.79 vs 3.25-3.78) follows the slower unchanged reads in this run.\par
-One pgbench client aborted early in the 32-client measurement with the shard-commit error. It was in T1 (script 0, command 153, which is T1's \texttt{COMMIT}), which a10 does not change, so the event is not attributed to a10, but the c32 run is excluded from comparisons. The same mechanism limits how much autocommit can help: in the a115 runs, 17 of 19 client aborts were T1 commits and only two were in T2/T9.\par
-a10 helps the transactions it targets with no correctness cost, but it is not a throughput optimisation on this base. The A pair retains a10 as a separate experiment; it was not benchmarked on top of a112 and is not part of the final A design.\par
-\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}a14}}
-The load inserts every row and then updates \texttt{orders.total\_\allowbreak{}amount}, leaving dead tuples behind, and its dirty pages are still being flushed by checkpoints when measurement starts. a14 cleans both up before benchmarking. It also serves as the control for a11, which adds fillfactor on top of it.\par
-\needspace{4\baselineskip}\subsubsection*{Key Changes}
-\begin{itemize}
-\item At the end of every data load (before each client count), run \texttt{VACUUM (ANALYZE)} on each of the six tables, one command per table so that Citus propagates each one to the shards.
-\item Then run \texttt{CHECKPOINT} on all five nodes.
-\end{itemize}
-\needspace{4\baselineskip}\subsubsection*{Benchmark Results and Analysis}
-\needspace{10\baselineskip}
-{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{>{\raggedright\arraybackslash}p{81.0mm}>{\raggedright\arraybackslash}p{81.0mm}}\toprule
-\textbf{ } & \textbf{HOT share of updates, without \ensuremath{\rightarrow} with VACUUM} \\
-\midrule\endhead
-inventory & 23.8-36.4\% \ensuremath{\rightarrow} 23.3-37.0\% \\
-orders & 75.5-81.2\% \ensuremath{\rightarrow} 76.2-81.5\% \\
-customers & 0-18.2\% \ensuremath{\rightarrow} 0-19.0\% \\
-products & 0-12.2\% \ensuremath{\rightarrow} 1.8-12.8\% \\
-\bottomrule\end{longtable}}
-{\itshape Table 3.14.1: HOT share of updates per measured run (range over six client counts), expt\_a12 (no VACUUM; its change does not affect HOT) \ensuremath{\rightarrow} expt\_a14. a102 recorded no HOT statistics.}\par
-VACUUM made no measurable difference to the HOT share. orders was already about 80\% HOT without it, likely because the load's update of \texttt{total\_\allowbreak{}amount} leaves dead rows that page pruning reclaims. Overall TPS was -3.8\% to +0.5\% of a102. Write latencies moved in both directions (at 8 clients T9's p50 fell from 7.29 to 3.66 ms while T8's rose from 5.33 to 7.23 ms), and one serialization failure was recorded at 32 clients. a14 has no measurable effect, and we drop it.\par
-\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}a11}}
-When PostgreSQL updates a row it writes a new row version. If the page has free space and no indexed column changes, this is a HOT (heap-only tuple) update: the new version stays on the same page and no index entries are added. Otherwise the new version goes to another page and every index on the table gets a new entry. Tables are loaded with full pages (fillfactor 100), so most inventory updates in a14 moved to a new page. Leaving 20\% free space on each page should make them HOT.\par
-\needspace{4\baselineskip}\subsubsection*{Key Changes}
-\begin{itemize}
-\item Create customers, products, inventory and orders \texttt{WITH (fillfactor = 80)}. a11's schema log confirms \texttt{fillfactor=80} on the shards of all four tables.
-\item Keep a14's VACUUM and CHECKPOINT after every load, so a11 differs from a14 only in fillfactor.
-\item No index covers an updated column (\texttt{quantity}, \texttt{order\_\allowbreak{}status}, \texttt{email}, \texttt{price}), so every update stays HOT-eligible.
-\end{itemize}
-\needspace{4\baselineskip}\subsubsection*{Benchmark Results and Analysis}
-\needspace{10\baselineskip}
-{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{>{\raggedright\arraybackslash}p{52.67mm}>{\raggedright\arraybackslash}p{52.67mm}>{\raggedright\arraybackslash}p{52.67mm}}\toprule
-\textbf{ } & \textbf{HOT share of updates} & \textbf{Updates moved to a new page, per run} \\
-\midrule\endhead
-inventory & 23.3-37.0\% \ensuremath{\rightarrow} 100\% & 1,751-2,197 \ensuremath{\rightarrow} 0 \\
-orders & 76.2-81.5\% \ensuremath{\rightarrow} 100\% & 181-218 \ensuremath{\rightarrow} 0 \\
-customers & 0-19.0\% \ensuremath{\rightarrow} 100\% & 20-43 \ensuremath{\rightarrow} 0 \\
-products & 1.8-12.8\% \ensuremath{\rightarrow} 100\% & 32-54 \ensuremath{\rightarrow} 0 \\
-\bottomrule\end{longtable}}
-{\itshape Table 3.11.1: HOT updates per measured run, expt\_a14 \ensuremath{\rightarrow} expt\_a11 (range over six client counts).}\par
-\needspace{10\baselineskip}
-{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}}\toprule
-\textbf{ } & \textbf{TPS} & \textbf{p50 Latency (ms)} & \textbf{p95 Latency (ms)} \\
-\midrule\endhead
-T2 & 0.64 \ensuremath{\rightarrow} 0.63 & 1.48 \ensuremath{\rightarrow} 1.59 & 9.17 \ensuremath{\rightarrow} 2.31 \\
-T5 & 0.35 \ensuremath{\rightarrow} 0.35 & 1.37 \ensuremath{\rightarrow} 1.34 & 13.02 \ensuremath{\rightarrow} 2.11 \\
-T6 & 0.16 \ensuremath{\rightarrow} 0.15 & 266.4 \ensuremath{\rightarrow} 280.7 & 277.8 \ensuremath{\rightarrow} 292.3 \\
-Overall & 3.23 \ensuremath{\rightarrow} 3.19 & 11.30 \ensuremath{\rightarrow} 11.31 & 2,670 \ensuremath{\rightarrow} 2,667 \\
-\bottomrule\end{longtable}}
-{\itshape Table 3.11.2: Comparing expt\_a11 against expt\_a14 at 1 client, where contention does not mask per-statement cost.}\par
-Every update in a11 was HOT, at every client count, and none moved to a new page; fillfactor alone produced this. Even so, neither overall TPS (-2.4\% to +1.1\% of a102) nor write latency changed consistently. The update rate explains why: inventory received only about 2,500-3,100 updates per 10-minute run, roughly 4-5 per second across four workers, so the index maintenance saved is negligible. The cost shows in the scan: T6 at one client took 280.7 ms (p50) against 266.4 ms in a14, consistent with orders occupying up to 25\% more pages.\par
-a11 recorded zero retried transactions at every client count, whereas a102, a10, a14 and a12 recorded 23-26 each, mostly at 16+ clients. A plausible mechanism is that HOT updates insert no index entries, leaving SERIALIZABLE fewer index-page read/write conflicts to track. This is one run with small counts and needs a repeat before it can be claimed.\par
-The mechanism works but does not pay off at a102's update rate. It is worth revisiting on a112, which completes about 20 times more transactions per second.\par
-\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}a12}}
-By default every commit waits until its WAL record is flushed to disk on each node it wrote to. T1 and T7 write to several shards and commit with two-phase commit, so they wait for several flushes. With \texttt{synchronous\_\allowbreak{}commit = off} the commit returns before the flush.\par
-\needspace{4\baselineskip}\subsubsection*{Key Changes}
-\begin{itemize}
-\item Set \texttt{synchronous\_\allowbreak{}commit = off} in \texttt{postgresql.conf} on the coordinator and all four workers (written by \texttt{init\_\allowbreak{}node}).
-\item Leave \texttt{shared\_\allowbreak{}buffers} (1 GB), \texttt{max\_\allowbreak{}wal\_\allowbreak{}size} (16 GB) and \texttt{checkpoint\_\allowbreak{}timeout} (30 min) unchanged: no "checkpoints are occurring too frequently" warnings appeared, and each worker's data (estimated under 1 GB) already fits in the buffer pool. The memory a job can use is capped by Slurm's cgroup limit (3,072 MB per CPU \ensuremath{\times} 4 CPUs = 12 GB per node), not by the node's RAM. \texttt{synchronous\_\allowbreak{}commit = local} was not tested because without standbys it behaves the same as \texttt{on}.
-\end{itemize}
-\needspace{4\baselineskip}\subsubsection*{Benchmark Results and Analysis}
-\needspace{10\baselineskip}
-{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}}\toprule
-\textbf{ } & \textbf{TPS} & \textbf{p50 Latency (ms)} & \textbf{p95 Latency (ms)} \\
-\midrule\endhead
-T1 & 1.33 \ensuremath{\rightarrow} 1.34 & 44.86 \ensuremath{\rightarrow} 41.98 & 87.27 \ensuremath{\rightarrow} 89.38 \\
-T2 & 0.71 \ensuremath{\rightarrow} 0.72 & 6.04 \ensuremath{\rightarrow} 4.61 & 19.91 \ensuremath{\rightarrow} 16.99 \\
-T5 & 0.35 \ensuremath{\rightarrow} 0.36 & 5.58 \ensuremath{\rightarrow} 4.13 & 20.84 \ensuremath{\rightarrow} 15.80 \\
-T8 & 0.05 \ensuremath{\rightarrow} 0.05 & 5.33 \ensuremath{\rightarrow} 2.54 & 14.40 \ensuremath{\rightarrow} 12.11 \\
-T9 & 0.06 \ensuremath{\rightarrow} 0.06 & 7.29 \ensuremath{\rightarrow} 3.57 & 20.11 \ensuremath{\rightarrow} 17.71 \\
-Overall & 3.54 \ensuremath{\rightarrow} 3.59 & 41.88 \ensuremath{\rightarrow} 39.56 & 19,514 \ensuremath{\rightarrow} 19,627 \\
-\bottomrule\end{longtable}}
-{\itshape Table 3.12.1: Comparing expt\_a12 against expt\_a102 at 8 clients, on the write transactions  --  single runs.}\par
-Single-shard updates look faster at 8 clients, but a14, which does not change commit behaviour, shows similar drops at the same client count (p50 T2 4.76, T5 3.85, T9 3.66 ms), so these cannot be attributed to a12. T1, the transaction that waits for the most flushes, did not improve (one-client p50 11.68 \ensuremath{\rightarrow} 11.86 ms), and overall TPS was -0.4\% to +3.5\% of a102. T1's latency is therefore dominated by its many client round trips rather than by WAL flushes, which supports the one-call T1 approach in a103.\par
-The durability cost is real. With \texttt{synchronous\_\allowbreak{}commit = off}, a commit is acknowledged before its WAL reaches disk, so a crash of any node can lose roughly the last 0.6 seconds (three times \texttt{wal\_\allowbreak{}writer\_\allowbreak{}delay}) of transactions that clients were told had committed. The database stays consistent, but those orders and stock changes disappear. Because T1 and T7 commit across shards with two-phase commit, a worker crash could also lose that worker's part of a transaction the coordinator reported as committed. For an order-processing system this is not acceptable for no measurable gain, and we drop a12.\par
-\needspace{4\baselineskip}\subsection*{Unrun T7 rewrite proposal (a13)}
-a13 planned to rewrite T7 so that it locks its two inventory rows in a fixed order, to prevent deadlocks. The evidence removed its premise. The preserved baseline (918524) recorded zero deadlock failures; all 126 failed transactions at 16/32/64 clients were T7 serialization failures ("could not serialize access due to read/write dependencies"). T7 looked up its rows by \texttt{product\_\allowbreak{}id} while inventory was distributed by \texttt{inventory\_\allowbreak{}id}, so each lookup scanned every inventory shard, and under SERIALIZABLE those scans conflicted with concurrent T1/T2 writes. a102's \texttt{inventory(product\_\allowbreak{}id)} index removed those scans: T7's failures fell to zero and its one-client latency fell from 51.1 to 13.7 ms. a112 goes further by distributing inventory by \texttt{product\_\allowbreak{}id} (similar to expt\_b1), so a lock-order rewrite had nothing left to fix.\par
-\needspace{4\baselineskip}\subsection*{Write-path summary}
-On the a102 base, write-path tuning cannot move overall throughput while distributed reads take about 94\% of recorded time. a10's autocommit is the one change with a clear, consistent benefit for its own transactions (29-74\% lower median latency at every eligible client count) and is retained as a separately measured result. A combined a10/a112 design has not been benchmarked. a11 shows the HOT mechanism working (100\% HOT updates) but needs a higher update rate to matter. a12 trades durability for no measurable gain, and a14 has no effect. Two lessons carry into the rest of this section: identical code varied by 9-14\% in mean latency between single runs at one client, and more under contention, so smaller differences need repeats on matched nodes; and the client aborts that limit our fastest designs come mainly from T1's commit, not from the single-statement updates.\par
+% Owners: Hikaru and Kelvin.
+% This file controls the order. Edit one experiment file under workload-a/.
+\section{Task 2: Optimized Design for Workload A}
+\label{sec:optimized-a}
+
+Our strategy followed the measured bottlenecks. We investigated lookup indexes,
+data placement and read-only declarations, then targeted T6 after T3 and T4
+improved. In parallel, Kelvin evaluated the write path. The main progression was
+\expt{a0} to \expt{a102} to \expt{a111} to \expt{a112}: lookup indexes,
+join-key colocation, and read-only declarations.
+
+The final design preserves the workload mix, isolation and durability.
+Experiment a12 deliberately changes commit durability and is evaluated separately.
+Short diagnostics, local tests and full cluster benchmarks are distinguished.
+
+\input{sections/workload-a/a102_indexes}
+\input{sections/workload-a/a101_merchant}
+\input{sections/workload-a/a111_colocation}
+\input{sections/workload-a/a112_a113_read_only}
+\input{sections/workload-a/a112_full}
+\input{sections/workload-a/a114_summaries}
+\input{sections/workload-a/a115_timestamp_index}
+\input{sections/workload-a/a10_autocommit}
+\input{sections/workload-a/a14_maintenance}
+\input{sections/workload-a/a11_fillfactor}
+\input{sections/workload-a/a12_async_commit}
+\input{sections/workload-a/validation_selection}

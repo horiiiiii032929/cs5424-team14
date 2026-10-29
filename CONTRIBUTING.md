@@ -38,7 +38,7 @@ The editable source is `submission/report/`. `main.tex` loads the section files:
 | `00_cover.tex` | Names and AI declaration | Everyone |
 | `01_contributions.tex` | Each person's contribution | Everyone |
 | `02_baseline_a.tex` | Task 1 / A baseline | Hikaru and Kelvin |
-| `03_optimized_a.tex` | Task 2 / A optimizations | Hikaru and Kelvin |
+| `03_optimized_a.tex` and `workload-a/*.tex` | Task 2 / A introduction and individual experiments | Hikaru and Kelvin |
 | `04_baseline_b.tex` | Task 3 / B baseline | Desmond and Xincheng |
 | `05_optimized_b.tex` | Task 4 / B optimizations | Desmond and Xincheng |
 | `06_conclusion.tex` | Lessons and limitations | Both pairs |
@@ -49,7 +49,7 @@ not a second source to update in parallel. Do not run `prepare_report.py` over
 teammates' edits: it is an import/conversion helper that overwrites the report.
 Keep changes scoped to your section where possible to reduce merge conflicts.
 
-The current PDF is 20 pages including the cover. Keep text at least 10 pt;
+The latest PDF page count is recorded in `submission/validation.json`. Keep text at least 10 pt;
 shorten repeated material if adding content would exceed the limit. Sections
 2-5 must retain experiment IDs matching the result archive, methods, relevant
 tables/figures, and evidence for their claims.

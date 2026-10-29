@@ -1,0 +1,41 @@
+% Kelvin.
+\subsection{\expt{a10}: Autocommit for single-statement updates}
+\label{sec:a10}
+Kelvin's write-path experiments start from a102. On that base, T3 and T4
+still dominate recorded time, limiting the effect of faster updates on TPS.
+The full experiments retain scale 1, the workload mix, SERIALIZABLE isolation,
+60-second warmups and 600-second measurements.
+
+A10 removes explicit BEGIN and COMMIT commands around T2, T5, T8 and T9.
+Each already consists of one UPDATE, including T2's stock-validity predicate.
+Autocommit removes separate transaction-control commands while retaining
+statement atomicity and the configured isolation level.
+
+\begin{table}[htbp]
+\caption{Median latency, a102 $\rightarrow$ a10, in milliseconds.}
+\label{tab:a10}
+\begin{tabularx}{\linewidth}{@{}lZZZZ@{}}
+\toprule
+\textbf{Txn} & \textbf{1 client} & \textbf{4 clients} &
+\textbf{8 clients} & \textbf{64 clients} \\
+\midrule
+T2 & $1.543 \to 1.053$ & $2.427 \to 1.549$ & $6.035 \to 2.728$ & $11.742 \to 6.730$ \\
+T5 & $1.377 \to 0.920$ & $2.180 \to 1.204$ & $5.585 \to 1.431$ & $11.954 \to 6.708$ \\
+T8 & $1.678 \to 1.145$ & $2.285 \to 1.414$ & $5.331 \to 1.742$ & $15.167 \to 9.183$ \\
+T9 & $1.460 \to 1.039$ & $2.766 \to 1.243$ & $7.285 \to 3.733$ & $13.463 \to 5.896$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Median latency decreased by approximately 29--74\% across these sixteen
+comparisons, and p95 improved in twelve. Low transaction counts make T8/T9 tail
+estimates less stable. The 16-client comparison is excluded because a102's
+warmup aborted; the 32-client comparison is excluded because a10's measurement
+aborted during unchanged T1.
+
+The consistent median improvements support reducing transaction-control round
+trips. Overall TPS did not improve consistently because expensive reads remained
+unchanged. We retain a10 separately: it was not benchmarked on top of a112
+and is not part of the measured final design.
+\evidence{\expt{a102}/job 965657 and \expt{a10}/job 966308,
+\code{transaction_metrics.csv} and phase logs.}

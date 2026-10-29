@@ -1,13 +1,39 @@
-% Team report source. Edit this section in a feature branch and request peer review.
-\needspace{4\baselineskip}\section{Team Contribution}
-The following contribution allocation is a draft for each member to confirm before submission.\par
-\needspace{10\baselineskip}
-{\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
-\begin{longtable}{>{\raggedright\arraybackslash}p{52.67mm}>{\raggedright\arraybackslash}p{52.67mm}>{\raggedright\arraybackslash}p{52.67mm}}\toprule
-Person & Workload & Contribution \\
-\midrule\endhead
-Hikaru & A & Implemented a101-a115, correctness tooling, cluster evidence audits, figures and A analysis; assembled the submission draft. \\
-Kelvin & A & Ran a102 and a10/a11/a12/a14; investigated write-path tuning and drafted the write-path analysis. \\
-Dessi & B & Baseline installation and B b0-b6 design/results and B analysis; confirm individual attribution with the B pair. \\
-Xincheng & B & B placement/index proposals and supplementary B experiments; confirm precise implementation, validation and writing contributions. \\
-\bottomrule\end{longtable}}
+% Owners: everyone. B members must verify their individual attribution.
+\section{Individual Contributions}
+\label{sec:contributions}
+
+Hikaru and Kelvin investigated Workload A, while Desmond and Xincheng
+investigated Workload B. Findings were shared where an optimization could
+apply to both workloads.
+
+\begin{table}[htbp]
+\caption{Individual contributions.}
+\label{tab:contributions}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{36mm}Y@{}}
+\toprule
+\textbf{Member} & \textbf{Contribution} \\
+\midrule
+\Hikaru & Developed A variants involving indexes, placement, transaction
+implementations, settings and summaries. Adapted B placement ideas to A and
+implemented the a111--a115 follow-ups. Developed correctness checks, conducted
+and analysed cluster experiments, reviewed raw evidence and failures, prepared
+figures and A analysis, and organized the report source and submission artifacts. \\
+\addlinespace
+\Kelvin & Ran a102 and designed, implemented and evaluated a10, a11, a12 and
+a14. Investigated autocommit, HOT updates, asynchronous commit and maintenance.
+Added update-statistics collection, analysed transaction-level results and
+failures, and drafted the write-path analysis. Jointly evaluated the final A design. \\
+\addlinespace
+\Desmond & Established the initial Citus environment and baseline results.
+Contributed the B b0--b6 experiments and analysis, including placement ideas
+subsequently adapted for A. \\
+\addlinespace
+\Xincheng & Contributed B placement and indexing proposals, supplementary
+experiments, and the investigation of B results. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Hikaru and Kelvin selected \expt{a112} as the final A design. We retain
+\expt{a115} as follow-up evidence with its failure limitations and report
+\expt{a10} separately: its changes were not benchmarked together with a112.
