@@ -1,8 +1,8 @@
 % Hikaru.
 \subsection{\expt{a112} and \expt{a113}: Read-only declarations}
-Experiment a112 adds \code{READ ONLY} to T3, T4 and T6 on top of a111.
-Their query bodies and \code{SERIALIZABLE} isolation remain unchanged.
-Experiment a113 additionally declares them \code{DEFERRABLE}. PostgreSQL permits
+Experiment a112 adds \texttt{READ ONLY} to T3, T4 and T6 on top of a111.
+Their query bodies and \texttt{SERIALIZABLE} isolation remain unchanged.
+Experiment a113 additionally declares them \texttt{DEFERRABLE}. PostgreSQL permits
 a serializable, read-only, deferrable transaction to wait for a safe snapshot.
 That property applies to the qualifying transaction, not to every transaction
 in the distributed workload \citep{pg-set-transaction}.

@@ -1,7 +1,9 @@
 % Team report source. Edit this section in a feature branch and request peer review.
 \needspace{4\baselineskip}\section{Task 3: Baseline design for Workload B}
+\subsection{Workload characteristics and experimental setup}
 Workload B is made up of the same 9 transactions but with a different weight mix. Most notably, 80\% of the transactions involve writing data (T1, T2, T5, T7, T8, T9). T7 itself occupies the largest proportion at 30\%, 3 times higher than the next most frequent transaction.\par
-Evidence review  --  22 October: b0-b6 scripts and raw outputs are archived from branch commit 5fa38157a7c1cb9abf1097e731f934a97a3db7c4. All 42 cases have been checked for phase exits and transaction-log counts. Every 64-client B case has an aborted warmup or measurement; those values below are diagnostic observations, excluded from clean performance comparisons. Node allocations vary; no matched full-series speedup is established.\par
+The progressive \texttt{b0}--\texttt{b6} experiments use different node allocations, and their 64-client cases contain an aborted warmup or measurement. We therefore retain those values as diagnostic observations rather than clean performance comparisons. The final \texttt{b0}/\texttt{b6} comparison in Section 5 instead uses separately matched runs on the same xcnf nodes.\par
+The historical jobs for b0--b6 are 918781, 928267, 928583, 929009, 931181, 931635 and 956803, respectively; each is under its experiment's \code{slurm-results/job-N/benchmark-results/}.\par
 {\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
 \begin{longtable}{>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}>{\raggedright\arraybackslash}p{38.5mm}}\toprule
 \textbf{Txn} & \textbf{Name} & \textbf{Weight} & \textbf{Description} \\
@@ -17,7 +19,7 @@ T8 & Update Customer & 10\% & Updates a single customer's email \\
 T9 & Update Product & 10\% & Updates the price of a single product \\
 \bottomrule\end{longtable}}
 {\itshape Table 4.1.1 Transaction types and weights for workload B}\par
-\needspace{4\baselineskip}\subsection*{Experiment setup}
+\needspace{4\baselineskip}\subsubsection*{Experiment setup}
 Every benchmark experiment runs as a single Slurm job on NUS SoC compute cluster. The job deploys a 5-node Citus PostgreSQL distributed database, with a single coordinator and 4 workers. \texttt{pgbench} runs on the coordinator node and connects only to the coordinator, such that every statement passes through it.\par
 \begin{itemize}
 \item The software versions are Citus \texttt{14.1.0} on PostgreSQL \texttt{18.6}.
@@ -32,7 +34,7 @@ The default settings used for the benchmarking are:\par
 \item \texttt{citus.max\_\allowbreak{}adaptive\_\allowbreak{}executor\_\allowbreak{}pool\_\allowbreak{}size} 4
 \item \texttt{citus.max\_\allowbreak{}shared\_\allowbreak{}pool\_\allowbreak{}size} 300
 \end{itemize}
-\needspace{4\baselineskip}\subsection*{\texttt{expt\_\allowbreak{}b0}}
+\needspace{4\baselineskip}\subsection{\texttt{expt\_b0}: Baseline results}
 \needspace{10\baselineskip}
 {\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
 \begin{longtable}{>{\raggedright\arraybackslash}p{17.25mm}>{\raggedright\arraybackslash}p{17.25mm}>{\raggedright\arraybackslash}p{17.25mm}>{\raggedright\arraybackslash}p{17.25mm}>{\raggedright\arraybackslash}p{17.25mm}>{\raggedright\arraybackslash}p{17.25mm}>{\raggedright\arraybackslash}p{17.25mm}>{\raggedright\arraybackslash}p{17.25mm}}\toprule

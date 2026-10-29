@@ -175,7 +175,8 @@ and original citus-*.out/.err. source_snapshots/ preserves scripts from earlier
 imports and the 28 October readback without replacing the selected top-level
 source. Readback hashes are distinct from runtime code-sha256.txt evidence.
 Supplementary folder names are normalized to the required expt_bN format:
-expt_xc_b1 -> expt_b201. The owner-retired b202-b204 variants are excluded.
+expt_xc_b1 -> expt_b201; expt_xc_b2 -> expt_b202. The unbenchmarked b203/b204
+variants are preserved separately by the finalizer as historical supporting source.
 The original names and file paths remain in the
 provenance map and source snapshots. Original file bytes are preserved.
 

@@ -1,7 +1,7 @@
 % Kelvin. This is also the control for a11.
 \subsection{\expt{a14}: Maintenance before benchmarking}
-A14 runs \code{VACUUM (ANALYZE)} on each table after loading, followed by
-CHECKPOINT on all five nodes. The motivation was to reduce interference
+Experiment a14 runs \texttt{VACUUM (ANALYZE)} on each table after loading, followed by
+\texttt{CHECKPOINT} on all five nodes. The motivation was to reduce interference
 from dead tuples and pending writes left by data generation. It also provides
 the maintenance control for a11.
 
@@ -10,3 +10,5 @@ At eight clients, T9's median decreased but T8's increased. One final
 serialization failure occurred at 32 clients. The experiment did not justify
 including this procedure in the final A design; its principal value was as
 a control for fillfactor.
+\evidence{\expt{a14}/job 967194: \code{hot_updates.csv},
+\code{transaction_metrics.csv} and \code{summary.csv}.}

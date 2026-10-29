@@ -9,8 +9,8 @@ evidence are under **expt_b6**. No a10+a112 combined benchmark is claimed.
 ## Start here
 
 - `REPRODUCE.md`: running cluster experiments and locating reproduction utilities.
-- `experiment-inventory.json`: all 20 top-level folders and their job associations.
-- `job-source-map.json`: 43 distinct jobs, canonical experiment ownership, copies,
+- `experiment-inventory.json`: all 21 top-level folders and their job associations.
+- `job-source-map.json`: 45 distinct jobs, canonical experiment ownership, copies,
   and available runtime source-hash matches.
 - `supporting-implementation-inventory.json`: eight local-only a103–a110 designs.
 - `checksums.sha256`: final file integrity, excluding the checksum file itself.
@@ -19,15 +19,17 @@ evidence are under **expt_b6**. No a10+a112 combined benchmark is claimed.
 
 Each top-level `expt_aN`/`expt_bN` folder has `run.sh`, nine SQL transactions,
 Slurm job output directories and matching `citus-N.out`/`.err` logs.
-There are **20 folders and 44 job paths, representing 43 distinct jobs**.
+There are **21 folders and 46 job paths, representing 45 distinct jobs**.
 **b201/job-918781** is inherited **b0** baseline evidence, not an additional run.
 b201's later jobs remain separately identified. Its original cluster alias is
 `expt_xc_b1`; names are preserved in provenance and historical logs.
 
-Xincheng removed unused **b202–b204** in commit `1a5a2f3`. These experiments and
-their job copies are excluded from this submission. The older private archive
-and original cluster readback retain the historical files. In particular, the
-removed b203/b204 copies of job 928583 never established independent benchmarks.
+The brief requires all experiment code and outputs. **b202** (original
+`expt_xc_b2`) is retained with jobs 993186 and 994341 even though it was retired
+from active development and is not the final B design. **b203/b204** have no
+independent benchmark; their source and inherited b2/job-928583 files are under
+`supporting_implementations/retired/`, explicitly excluded from experiment/job
+counts. Historical aliases and source provenance remain available.
 Supplementary b0/b6 results are under each experiment's `slurm-results/`;
 their original `supplementary-results/` paths remain in provenance.
 

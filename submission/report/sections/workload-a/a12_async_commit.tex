@@ -13,5 +13,7 @@ was 4.613\,ms in a12 and 4.759\,ms in a14, compared with 6.035\,ms in a102.
 T1's one-client median changed from approximately 11.68 to 11.86\,ms.
 These results do not establish WAL-flush waiting as the dominant cost.
 
-A12 provided no convincing overall throughput benefit while weakening durability
-for affected transactions. We excluded it from the final design.
+A12 provided no convincing overall throughput benefit while weakening durability for affected transactions. We excluded it from the final design.
+\evidence{\expt{a12}/job 967217, compared with \expt{a102}/job 965657 and
+\expt{a14}/job 967194. An earlier a12 submission, job 967193, was allocated
+xcnc nodes and cancelled; it is kept in the archive but not compared.}
