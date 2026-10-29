@@ -1,0 +1,818 @@
+2026-10-16 13:46:46.279 +08 [1652288] LOG:  There is no designated Main database.
+2026-10-16 13:46:46.279 +08 [1652288] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-16 13:46:46.279 +08 [1652288] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-16 13:46:46.432 +08 [1652288] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-16 13:46:46.432 +08 [1652288] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-16 13:46:46.432 +08 [1652288] LOG:  listening on IPv6 address "::", port 5446
+2026-10-16 13:46:46.432 +08 [1652288] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-16 13:46:46.437 +08 [1652295] LOG:  database system was shut down at 2026-10-16 13:46:44 +08
+2026-10-16 13:46:46.442 +08 [1652288] LOG:  database system is ready to accept connections
+2026-10-16 13:46:48.962 +08 [1652303] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-16 13:46:48.962 +08 [1652303] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-16 14:02:19.551 +08 [1652288] LOG:  received fast shutdown request
+2026-10-16 14:02:19.551 +08 [1652288] LOG:  aborting any active transactions
+2026-10-16 14:02:19.552 +08 [1652708] FATAL:  terminating connection due to administrator command
+2026-10-16 14:02:19.552 +08 [1652553] FATAL:  terminating connection due to administrator command
+2026-10-16 14:02:19.552 +08 [1652554] FATAL:  terminating connection due to administrator command
+2026-10-16 14:02:19.552 +08 [1652552] FATAL:  terminating connection due to administrator command
+2026-10-16 14:02:19.558 +08 [1652288] LOG:  background worker "logical replication launcher" (PID 1652298) exited with exit code 1
+2026-10-16 14:02:19.563 +08 [1652293] LOG:  shutting down
+2026-10-16 14:02:19.564 +08 [1652293] LOG:  checkpoint starting: shutdown immediate
+2026-10-16 14:02:20.752 +08 [1653735] LOG:  PID 1652552 in cancel request did not match any process
+2026-10-16 14:02:20.752 +08 [1653736] LOG:  PID 1652554 in cancel request did not match any process
+2026-10-16 14:02:20.755 +08 [1653737] LOG:  PID 1652553 in cancel request did not match any process
+2026-10-16 14:02:20.821 +08 [1652293] LOG:  checkpoint complete: wrote 128358 buffers (97.9%), wrote 14 SLRU buffers; 0 WAL file(s) added, 0 removed, 274 recycled; write=1.207 s, sync=0.006 s, total=1.258 s; sync files=1092, longest=0.001 s, average=0.001 s; distance=4483733 kB, estimate=4483733 kB; lsn=1/13204330, redo lsn=1/13204330
+2026-10-16 14:02:21.188 +08 [1652288] LOG:  database system is shut down
+2026-10-16 14:02:26.825 +08 [1653759] LOG:  There is no designated Main database.
+2026-10-16 14:02:26.825 +08 [1653759] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-16 14:02:26.825 +08 [1653759] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-16 14:02:26.978 +08 [1653759] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-16 14:02:26.978 +08 [1653759] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-16 14:02:26.978 +08 [1653759] LOG:  listening on IPv6 address "::", port 5446
+2026-10-16 14:02:26.979 +08 [1653759] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-16 14:02:26.984 +08 [1653766] LOG:  database system was shut down at 2026-10-16 14:02:20 +08
+2026-10-16 14:02:26.989 +08 [1653759] LOG:  database system is ready to accept connections
+2026-10-16 14:02:27.883 +08 [1653774] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-16 14:02:27.883 +08 [1653774] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-16 14:08:52.804 +08 [1653933] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:08:52.804 +08 [1653933] DETAIL:  Reason code: Canceled on conflict out to pivot 48454, during read.
+2026-10-16 14:08:52.804 +08 [1653933] HINT:  The transaction might succeed if retried.
+2026-10-16 14:08:52.804 +08 [1653933] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:08:52.800939'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:12:46.149 +08 [1653957] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:12:46.149 +08 [1653957] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:12:46.149 +08 [1653957] HINT:  The transaction might succeed if retried.
+2026-10-16 14:12:46.149 +08 [1653957] STATEMENT:  PREPARE TRANSACTION 'citus_0_2301131_161228_24320'
+2026-10-16 14:15:45.839 +08 [1653759] LOG:  received fast shutdown request
+2026-10-16 14:15:45.840 +08 [1653759] LOG:  aborting any active transactions
+2026-10-16 14:15:45.840 +08 [1654185] FATAL:  terminating connection due to administrator command
+2026-10-16 14:15:45.840 +08 [1654125] FATAL:  terminating connection due to administrator command
+2026-10-16 14:15:45.840 +08 [1654124] FATAL:  terminating connection due to administrator command
+2026-10-16 14:15:45.840 +08 [1654123] FATAL:  terminating connection due to administrator command
+2026-10-16 14:15:45.845 +08 [1653759] LOG:  background worker "logical replication launcher" (PID 1653769) exited with exit code 1
+2026-10-16 14:15:45.852 +08 [1653764] LOG:  shutting down
+2026-10-16 14:15:45.852 +08 [1653764] LOG:  checkpoint starting: shutdown immediate
+2026-10-16 14:15:47.008 +08 [1654259] LOG:  PID 1654123 in cancel request did not match any process
+2026-10-16 14:15:47.029 +08 [1654260] LOG:  PID 1654124 in cancel request did not match any process
+2026-10-16 14:15:47.038 +08 [1654261] LOG:  PID 1654125 in cancel request did not match any process
+2026-10-16 14:15:47.039 +08 [1653764] LOG:  checkpoint complete: wrote 127477 buffers (97.3%), wrote 37 SLRU buffers; 0 WAL file(s) added, 0 removed, 139 recycled; write=1.161 s, sync=0.002 s, total=1.187 s; sync files=286, longest=0.001 s, average=0.001 s; distance=2279835 kB, estimate=2279835 kB; lsn=1/9E46B290, redo lsn=1/9E46B290
+2026-10-16 14:15:47.386 +08 [1653759] LOG:  database system is shut down
+2026-10-16 14:15:52.212 +08 [1654279] LOG:  There is no designated Main database.
+2026-10-16 14:15:52.212 +08 [1654279] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-16 14:15:52.212 +08 [1654279] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-16 14:15:52.379 +08 [1654279] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-16 14:15:52.379 +08 [1654279] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-16 14:15:52.379 +08 [1654279] LOG:  listening on IPv6 address "::", port 5446
+2026-10-16 14:15:52.380 +08 [1654279] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-16 14:15:52.385 +08 [1654286] LOG:  database system was shut down at 2026-10-16 14:15:47 +08
+2026-10-16 14:15:52.390 +08 [1654279] LOG:  database system is ready to accept connections
+2026-10-16 14:15:53.262 +08 [1654294] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-16 14:15:53.262 +08 [1654294] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-16 14:18:15.540 +08 [1654424] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:18:15.540 +08 [1654424] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:18:15.540 +08 [1654424] HINT:  The transaction might succeed if retried.
+2026-10-16 14:18:15.540 +08 [1654424] STATEMENT:  PREPARE TRANSACTION 'citus_0_2302496_3049_287'
+2026-10-16 14:19:29.864 +08 [1654490] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:19:29.864 +08 [1654490] DETAIL:  Reason code: Canceled on conflict out to pivot 99469, during read.
+2026-10-16 14:19:29.864 +08 [1654490] HINT:  The transaction might succeed if retried.
+2026-10-16 14:19:29.864 +08 [1654490] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:19:29.861089'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:19:39.024 +08 [1654475] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:19:39.024 +08 [1654475] DETAIL:  Reason code: Canceled on conflict out to pivot 100654, during read.
+2026-10-16 14:19:39.024 +08 [1654475] HINT:  The transaction might succeed if retried.
+2026-10-16 14:19:39.024 +08 [1654475] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:19:39.017187'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:20:21.461 +08 [1654481] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:20:21.461 +08 [1654481] DETAIL:  Reason code: Canceled on conflict out to pivot 106177, during read.
+2026-10-16 14:20:21.461 +08 [1654481] HINT:  The transaction might succeed if retried.
+2026-10-16 14:20:21.461 +08 [1654481] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:20:21.453145'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:20:21.480 +08 [1654475] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:20:21.480 +08 [1654475] DETAIL:  Reason code: Canceled on conflict out to pivot 106177, during read.
+2026-10-16 14:20:21.480 +08 [1654475] HINT:  The transaction might succeed if retried.
+2026-10-16 14:20:21.480 +08 [1654475] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:20:21.471194'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:22:36.036 +08 [1654572] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:22:36.036 +08 [1654572] DETAIL:  Reason code: Canceled on conflict out to pivot 127194, during read.
+2026-10-16 14:22:36.036 +08 [1654572] HINT:  The transaction might succeed if retried.
+2026-10-16 14:22:36.036 +08 [1654572] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102132 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:22:36.012435'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:22:57.995 +08 [1654554] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:22:57.995 +08 [1654554] DETAIL:  Reason code: Canceled on conflict out to pivot 130697, during read.
+2026-10-16 14:22:57.995 +08 [1654554] HINT:  The transaction might succeed if retried.
+2026-10-16 14:22:57.995 +08 [1654554] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:22:57.983591'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:23:53.833 +08 [1654572] ERROR:  could not serialize access due to concurrent update
+2026-10-16 14:23:53.833 +08 [1654572] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-16 14:23:53.82223'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '339060'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '60'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '339060'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-16 14:26:03.882 +08 [1654596] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:26:03.882 +08 [1654596] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:26:03.882 +08 [1654596] HINT:  The transaction might succeed if retried.
+2026-10-16 14:26:03.882 +08 [1654596] STATEMENT:  PREPARE TRANSACTION 'citus_0_2302538_239590_18656'
+2026-10-16 14:28:45.232 +08 [1654554] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:28:45.232 +08 [1654554] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-16 14:28:45.232 +08 [1654554] HINT:  The transaction might succeed if retried.
+2026-10-16 14:28:45.232 +08 [1654554] STATEMENT:  WITH debit AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-16 14:28:45.218617'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '282120'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '282120'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-16 14:29:12.656 +08 [1654279] LOG:  received fast shutdown request
+2026-10-16 14:29:12.656 +08 [1654279] LOG:  aborting any active transactions
+2026-10-16 14:29:12.656 +08 [1661291] FATAL:  terminating connection due to administrator command
+2026-10-16 14:29:12.656 +08 [1659728] FATAL:  terminating connection due to administrator command
+2026-10-16 14:29:12.656 +08 [1659727] FATAL:  terminating connection due to administrator command
+2026-10-16 14:29:12.656 +08 [1659726] FATAL:  terminating connection due to administrator command
+2026-10-16 14:29:12.660 +08 [1654279] LOG:  background worker "logical replication launcher" (PID 1654289) exited with exit code 1
+2026-10-16 14:29:12.667 +08 [1654284] LOG:  shutting down
+2026-10-16 14:29:12.667 +08 [1654284] LOG:  checkpoint starting: shutdown immediate
+2026-10-16 14:29:13.873 +08 [1654284] LOG:  checkpoint complete: wrote 127860 buffers (97.5%), wrote 55 SLRU buffers; 0 WAL file(s) added, 0 removed, 140 recycled; write=1.181 s, sync=0.002 s, total=1.206 s; sync files=285, longest=0.001 s, average=0.001 s; distance=2304665 kB, estimate=2304665 kB; lsn=2/2AF117C0, redo lsn=2/2AF117C0
+2026-10-16 14:29:14.224 +08 [1654279] LOG:  database system is shut down
+2026-10-16 14:29:19.026 +08 [1665134] LOG:  There is no designated Main database.
+2026-10-16 14:29:19.026 +08 [1665134] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-16 14:29:19.026 +08 [1665134] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-16 14:29:19.203 +08 [1665134] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-16 14:29:19.203 +08 [1665134] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-16 14:29:19.203 +08 [1665134] LOG:  listening on IPv6 address "::", port 5446
+2026-10-16 14:29:19.203 +08 [1665134] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-16 14:29:19.209 +08 [1665147] LOG:  database system was shut down at 2026-10-16 14:29:13 +08
+2026-10-16 14:29:19.213 +08 [1665134] LOG:  database system is ready to accept connections
+2026-10-16 14:29:20.079 +08 [1665176] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-16 14:29:20.079 +08 [1665176] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-16 14:31:37.157 +08 [1668604] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:31:37.157 +08 [1668604] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:31:37.157 +08 [1668604] HINT:  The transaction might succeed if retried.
+2026-10-16 14:31:37.157 +08 [1668604] STATEMENT:  PREPARE TRANSACTION 'citus_0_2303940_658_40'
+2026-10-16 14:31:37.513 +08 [1668590] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:31:37.513 +08 [1668590] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:31:37.513 +08 [1668590] HINT:  The transaction might succeed if retried.
+2026-10-16 14:31:37.513 +08 [1668590] STATEMENT:  PREPARE TRANSACTION 'citus_0_2303934_929_48'
+2026-10-16 14:31:39.029 +08 [1668589] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:31:39.029 +08 [1668589] DETAIL:  Reason code: Canceled on conflict out to pivot 189604, during read.
+2026-10-16 14:31:39.029 +08 [1668589] HINT:  The transaction might succeed if retried.
+2026-10-16 14:31:39.029 +08 [1668589] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:31:38.971796'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:31:40.276 +08 [1668587] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:31:40.276 +08 [1668587] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:31:40.276 +08 [1668587] HINT:  The transaction might succeed if retried.
+2026-10-16 14:31:40.276 +08 [1668587] STATEMENT:  PREPARE TRANSACTION 'citus_0_2303941_2845_114'
+2026-10-16 14:31:41.428 +08 [1668603] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:31:41.428 +08 [1668603] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:31:41.428 +08 [1668603] HINT:  The transaction might succeed if retried.
+2026-10-16 14:31:41.428 +08 [1668603] STATEMENT:  PREPARE TRANSACTION 'citus_0_2303931_3644_164'
+2026-10-16 14:31:41.930 +08 [1668589] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:31:41.930 +08 [1668589] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:31:41.930 +08 [1668589] HINT:  The transaction might succeed if retried.
+2026-10-16 14:31:41.930 +08 [1668589] STATEMENT:  PREPARE TRANSACTION 'citus_0_2303945_3997_177'
+2026-10-16 14:31:59.329 +08 [1668598] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:31:59.329 +08 [1668598] DETAIL:  Reason code: Canceled on conflict out to pivot 193607, during read.
+2026-10-16 14:31:59.329 +08 [1668598] HINT:  The transaction might succeed if retried.
+2026-10-16 14:31:59.329 +08 [1668598] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:31:59.288437'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:31:59.354 +08 [1668951] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:31:59.354 +08 [1668951] DETAIL:  Reason code: Canceled on conflict out to pivot 193607, during read.
+2026-10-16 14:31:59.354 +08 [1668951] HINT:  The transaction might succeed if retried.
+2026-10-16 14:31:59.354 +08 [1668951] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:31:59.280234'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:31:59.384 +08 [1668583] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:31:59.384 +08 [1668583] DETAIL:  Reason code: Canceled on conflict out to pivot 193629, during read.
+2026-10-16 14:31:59.384 +08 [1668583] HINT:  The transaction might succeed if retried.
+2026-10-16 14:31:59.384 +08 [1668583] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:31:59.348565'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:31:59.398 +08 [1668581] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:31:59.398 +08 [1668581] DETAIL:  Reason code: Canceled on conflict out to pivot 193629, during read.
+2026-10-16 14:31:59.398 +08 [1668581] HINT:  The transaction might succeed if retried.
+2026-10-16 14:31:59.398 +08 [1668581] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:31:59.353447'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:31:59.421 +08 [1668588] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:31:59.421 +08 [1668588] DETAIL:  Reason code: Canceled on conflict out to pivot 193629, during read.
+2026-10-16 14:31:59.421 +08 [1668588] HINT:  The transaction might succeed if retried.
+2026-10-16 14:31:59.421 +08 [1668588] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:31:59.33713'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:33:45.956 +08 [1672411] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:33:45.956 +08 [1672411] DETAIL:  Reason code: Canceled on conflict out to pivot 213450, during read.
+2026-10-16 14:33:45.956 +08 [1672411] HINT:  The transaction might succeed if retried.
+2026-10-16 14:33:45.956 +08 [1672411] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:33:45.895539'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:33:46.347 +08 [1672430] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:33:46.347 +08 [1672430] DETAIL:  Reason code: Canceled on conflict out to pivot 213509, during read.
+2026-10-16 14:33:46.347 +08 [1672430] HINT:  The transaction might succeed if retried.
+2026-10-16 14:33:46.347 +08 [1672430] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:33:46.274347'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:33:55.824 +08 [1672437] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:33:55.824 +08 [1672437] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-16 14:33:55.824 +08 [1672437] HINT:  The transaction might succeed if retried.
+2026-10-16 14:33:55.824 +08 [1672437] STATEMENT:  WITH debit AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-16 14:33:55.810124'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '218299'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '218299'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-16 14:34:29.138 +08 [1672751] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:34:29.138 +08 [1672751] DETAIL:  Reason code: Canceled on conflict out to pivot 220999, during read.
+2026-10-16 14:34:29.138 +08 [1672751] HINT:  The transaction might succeed if retried.
+2026-10-16 14:34:29.138 +08 [1672751] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:34:29.089256'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:34:29.143 +08 [1672424] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:34:29.143 +08 [1672424] DETAIL:  Reason code: Canceled on conflict out to pivot 220999, during read.
+2026-10-16 14:34:29.143 +08 [1672424] HINT:  The transaction might succeed if retried.
+2026-10-16 14:34:29.143 +08 [1672424] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:34:29.099915'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:34:46.213 +08 [1672411] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:34:46.213 +08 [1672411] DETAIL:  Reason code: Canceled on conflict out to pivot 224063, during read.
+2026-10-16 14:34:46.213 +08 [1672411] HINT:  The transaction might succeed if retried.
+2026-10-16 14:34:46.213 +08 [1672411] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:34:46.196249'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:35:13.123 +08 [1679012] LOG:  could not send data to client: Broken pipe
+2026-10-16 14:35:13.123 +08 [1679012] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:35:13.099513'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:35:13.123 +08 [1679012] FATAL:  connection to client lost
+2026-10-16 14:35:13.123 +08 [1679012] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:35:13.099513'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:35:22.638 +08 [1679424] ERROR:  canceling statement due to user request
+2026-10-16 14:35:22.638 +08 [1679424] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:35:22.609381'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:35:55.258 +08 [1679434] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:35:55.258 +08 [1679434] DETAIL:  Reason code: Canceled on conflict out to pivot 235641, during read.
+2026-10-16 14:35:55.258 +08 [1679434] HINT:  The transaction might succeed if retried.
+2026-10-16 14:35:55.258 +08 [1679434] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:35:55.2346'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:35:55.261 +08 [1680659] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:35:55.261 +08 [1680659] DETAIL:  Reason code: Canceled on conflict out to pivot 235641, during read.
+2026-10-16 14:35:55.261 +08 [1680659] HINT:  The transaction might succeed if retried.
+2026-10-16 14:35:55.261 +08 [1680659] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:35:55.24329'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:36:10.706 +08 [1680661] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:36:10.706 +08 [1680661] DETAIL:  Reason code: Canceled on conflict out to pivot 238007, during read.
+2026-10-16 14:36:10.706 +08 [1680661] HINT:  The transaction might succeed if retried.
+2026-10-16 14:36:10.706 +08 [1680661] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:36:10.673174'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:36:10.728 +08 [1672417] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:36:10.728 +08 [1672417] DETAIL:  Reason code: Canceled on conflict out to pivot 238007, during read.
+2026-10-16 14:36:10.728 +08 [1672417] HINT:  The transaction might succeed if retried.
+2026-10-16 14:36:10.728 +08 [1672417] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:36:10.696866'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:36:16.936 +08 [1672417] ERROR:  could not serialize access due to concurrent update
+2026-10-16 14:36:16.936 +08 [1672417] STATEMENT:  UPDATE public.inventory_102100 inventory SET quantity = (quantity OPERATOR(pg_catalog.+) '-2'::integer), updated_at = '2026-10-16 14:36:16.913746'::timestamp without time zone WHERE ((inventory_id OPERATOR(pg_catalog.=) '260088'::bigint) AND (merchant_id OPERATOR(pg_catalog.=) '88'::bigint) AND (product_id OPERATOR(pg_catalog.=) '260088'::bigint) AND ((quantity OPERATOR(pg_catalog.+) '-2'::integer) OPERATOR(pg_catalog.>=) 0))
+2026-10-16 14:36:20.590 +08 [1672751] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:36:20.590 +08 [1672751] DETAIL:  Reason code: Canceled on conflict out to pivot 239596, during read.
+2026-10-16 14:36:20.590 +08 [1672751] HINT:  The transaction might succeed if retried.
+2026-10-16 14:36:20.590 +08 [1672751] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:36:20.567913'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:37:52.988 +08 [1680660] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:37:52.988 +08 [1680660] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict in checking.
+2026-10-16 14:37:52.988 +08 [1680660] HINT:  The transaction might succeed if retried.
+2026-10-16 14:37:52.988 +08 [1680660] STATEMENT:  INSERT INTO public.order_items_102156 (order_item_id, merchant_id, order_id, product_id, quantity, unit_price) VALUES ('15066825'::bigint, '967'::bigint, '5022213'::bigint, '79967'::bigint, 2, 587.73::numeric(12,2))
+2026-10-16 14:38:59.730 +08 [1672428] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:38:59.730 +08 [1672428] DETAIL:  Reason code: Canceled on conflict out to pivot 264697, during read.
+2026-10-16 14:38:59.730 +08 [1672428] HINT:  The transaction might succeed if retried.
+2026-10-16 14:38:59.730 +08 [1672428] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:38:59.708387'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:39:06.805 +08 [1672417] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:39:06.805 +08 [1672417] DETAIL:  Reason code: Canceled on conflict out to pivot 265812, during read.
+2026-10-16 14:39:06.805 +08 [1672417] HINT:  The transaction might succeed if retried.
+2026-10-16 14:39:06.805 +08 [1672417] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:39:06.732262'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:39:27.980 +08 [1680659] ERROR:  canceling statement due to user request
+2026-10-16 14:39:27.980 +08 [1680659] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:39:27.955061'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:39:42.069 +08 [1681204] ERROR:  canceling statement due to user request
+2026-10-16 14:39:42.069 +08 [1681204] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:39:42.044017'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:39:48.817 +08 [1687921] ERROR:  canceling statement due to user request
+2026-10-16 14:39:48.817 +08 [1687921] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:39:48.773222'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:39:54.955 +08 [1681311] ERROR:  could not serialize access due to concurrent update
+2026-10-16 14:39:54.955 +08 [1681311] STATEMENT:  WITH credit AS (UPDATE public.inventory_102088 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-16 14:39:54.939039'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '248094'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '248094'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-16 14:40:05.763 +08 [1688332] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:40:05.763 +08 [1688332] DETAIL:  Reason code: Canceled on conflict out to pivot 274691, during read.
+2026-10-16 14:40:05.763 +08 [1688332] HINT:  The transaction might succeed if retried.
+2026-10-16 14:40:05.763 +08 [1688332] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:05.725081'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:40:05.774 +08 [1681311] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:40:05.774 +08 [1681311] DETAIL:  Reason code: Canceled on conflict out to pivot 274691, during read.
+2026-10-16 14:40:05.774 +08 [1681311] HINT:  The transaction might succeed if retried.
+2026-10-16 14:40:05.774 +08 [1681311] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:05.743313'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:40:05.797 +08 [1679433] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:40:05.797 +08 [1679433] DETAIL:  Reason code: Canceled on conflict out to pivot 274691, during read.
+2026-10-16 14:40:05.797 +08 [1679433] HINT:  The transaction might succeed if retried.
+2026-10-16 14:40:05.797 +08 [1679433] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:05.749758'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:40:06.473 +08 [1688331] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:40:06.473 +08 [1688331] DETAIL:  Reason code: Canceled on conflict out to pivot 274764, during read.
+2026-10-16 14:40:06.473 +08 [1688331] HINT:  The transaction might succeed if retried.
+2026-10-16 14:40:06.473 +08 [1688331] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:06.45741'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:40:08.670 +08 [1687139] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:40:08.670 +08 [1687139] DETAIL:  Reason code: Canceled on conflict out to pivot 275074, during read.
+2026-10-16 14:40:08.670 +08 [1687139] HINT:  The transaction might succeed if retried.
+2026-10-16 14:40:08.670 +08 [1687139] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102132 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:08.632833'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:40:17.404 +08 [1681311] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:40:17.404 +08 [1681311] DETAIL:  Reason code: Canceled on conflict out to pivot 276295, during read.
+2026-10-16 14:40:17.404 +08 [1681311] HINT:  The transaction might succeed if retried.
+2026-10-16 14:40:17.404 +08 [1681311] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102132 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:17.346836'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:40:17.431 +08 [1679434] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:40:17.431 +08 [1679434] DETAIL:  Reason code: Canceled on conflict out to pivot 276295, during read.
+2026-10-16 14:40:17.431 +08 [1679434] HINT:  The transaction might succeed if retried.
+2026-10-16 14:40:17.431 +08 [1679434] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102132 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:17.364178'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:40:22.964 +08 [1688331] ERROR:  canceling statement due to user request
+2026-10-16 14:40:22.964 +08 [1688331] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:22.917673'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:40:22.964 +08 [1688331] LOG:  could not send data to client: Broken pipe
+2026-10-16 14:40:22.964 +08 [1688331] FATAL:  connection to client lost
+2026-10-16 14:40:22.965 +08 [1687931] LOG:  could not send data to client: Broken pipe
+2026-10-16 14:40:22.965 +08 [1687931] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:22.927483'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:40:22.965 +08 [1687931] FATAL:  connection to client lost
+2026-10-16 14:40:22.965 +08 [1687931] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:22.927483'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:40:23.998 +08 [1687343] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:40:23.998 +08 [1687343] DETAIL:  Reason code: Canceled on conflict out to pivot 277242, during read.
+2026-10-16 14:40:23.998 +08 [1687343] HINT:  The transaction might succeed if retried.
+2026-10-16 14:40:23.998 +08 [1687343] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:23.921769'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:40:41.357 +08 [1681311] ERROR:  canceling statement due to user request
+2026-10-16 14:40:41.357 +08 [1681311] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:41.269767'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:40:50.680 +08 [1688524] ERROR:  canceling statement due to user request
+2026-10-16 14:40:50.680 +08 [1688524] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:40:50.656085'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:41:28.629 +08 [1689542] ERROR:  canceling statement due to user request
+2026-10-16 14:41:28.629 +08 [1689542] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:41:28.5856'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:41:47.063 +08 [1690702] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:41:47.063 +08 [1690702] DETAIL:  Reason code: Canceled on conflict out to pivot 289421, during read.
+2026-10-16 14:41:47.063 +08 [1690702] HINT:  The transaction might succeed if retried.
+2026-10-16 14:41:47.063 +08 [1690702] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:41:46.990811'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:41:47.081 +08 [1690225] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:41:47.081 +08 [1690225] DETAIL:  Reason code: Canceled on conflict out to pivot 289421, during read.
+2026-10-16 14:41:47.081 +08 [1690225] HINT:  The transaction might succeed if retried.
+2026-10-16 14:41:47.081 +08 [1690225] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:41:46.989384'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:41:47.081 +08 [1690713] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:41:47.081 +08 [1690713] DETAIL:  Reason code: Canceled on conflict out to pivot 289421, during read.
+2026-10-16 14:41:47.081 +08 [1690713] HINT:  The transaction might succeed if retried.
+2026-10-16 14:41:47.081 +08 [1690713] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:41:46.983892'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:42:05.579 +08 [1689732] ERROR:  canceling statement due to user request
+2026-10-16 14:42:05.579 +08 [1689732] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:42:05.559002'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:42:13.872 +08 [1690713] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:42:13.872 +08 [1690713] DETAIL:  Reason code: Canceled on conflict out to pivot 293382, during read.
+2026-10-16 14:42:13.872 +08 [1690713] HINT:  The transaction might succeed if retried.
+2026-10-16 14:42:13.872 +08 [1690713] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:42:13.848439'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:42:14.728 +08 [1690706] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:42:14.728 +08 [1690706] DETAIL:  Reason code: Canceled on conflict out to pivot 293477, during read.
+2026-10-16 14:42:14.728 +08 [1690706] HINT:  The transaction might succeed if retried.
+2026-10-16 14:42:14.728 +08 [1690706] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:42:14.658604'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:42:24.299 +08 [1690712] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:42:24.299 +08 [1690712] DETAIL:  Reason code: Canceled on conflict out to pivot 294943, during read.
+2026-10-16 14:42:24.299 +08 [1690712] HINT:  The transaction might succeed if retried.
+2026-10-16 14:42:24.299 +08 [1690712] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:42:24.252611'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:42:24.309 +08 [1690706] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:42:24.309 +08 [1690706] DETAIL:  Reason code: Canceled on conflict out to pivot 294943, during read.
+2026-10-16 14:42:24.309 +08 [1690706] HINT:  The transaction might succeed if retried.
+2026-10-16 14:42:24.309 +08 [1690706] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:42:24.265964'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:42:29.919 +08 [1690372] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:42:29.919 +08 [1690372] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-16 14:42:29.919 +08 [1690372] HINT:  The transaction might succeed if retried.
+2026-10-16 14:42:29.919 +08 [1690372] STATEMENT:  PREPARE TRANSACTION 'citus_0_2303988_359737_13906'
+2026-10-16 14:42:40.007 +08 [1665134] LOG:  received fast shutdown request
+2026-10-16 14:42:40.009 +08 [1665134] LOG:  aborting any active transactions
+2026-10-16 14:42:40.009 +08 [1688945] FATAL:  terminating connection due to administrator command
+2026-10-16 14:42:40.009 +08 [1687652] FATAL:  terminating connection due to administrator command
+2026-10-16 14:42:40.009 +08 [1687651] FATAL:  terminating connection due to administrator command
+2026-10-16 14:42:40.012 +08 [1687650] FATAL:  terminating connection due to administrator command
+2026-10-16 14:42:40.014 +08 [1665134] LOG:  background worker "logical replication launcher" (PID 1665150) exited with exit code 1
+2026-10-16 14:42:40.021 +08 [1665145] LOG:  shutting down
+2026-10-16 14:42:40.021 +08 [1665145] LOG:  checkpoint starting: shutdown immediate
+2026-10-16 14:42:41.243 +08 [1665145] LOG:  checkpoint complete: wrote 128358 buffers (97.9%), wrote 59 SLRU buffers; 0 WAL file(s) added, 0 removed, 141 recycled; write=1.186 s, sync=0.002 s, total=1.222 s; sync files=286, longest=0.001 s, average=0.001 s; distance=2310364 kB, estimate=2310364 kB; lsn=2/B7F48830, redo lsn=2/B7F48830
+2026-10-16 14:42:41.281 +08 [1692844] LOG:  PID 1687650 in cancel request did not match any process
+2026-10-16 14:42:41.613 +08 [1665134] LOG:  database system is shut down
+2026-10-16 14:42:47.063 +08 [1692861] LOG:  There is no designated Main database.
+2026-10-16 14:42:47.063 +08 [1692861] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-16 14:42:47.063 +08 [1692861] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-16 14:42:47.242 +08 [1692861] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-16 14:42:47.242 +08 [1692861] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-16 14:42:47.242 +08 [1692861] LOG:  listening on IPv6 address "::", port 5446
+2026-10-16 14:42:47.243 +08 [1692861] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-16 14:42:47.248 +08 [1692868] LOG:  database system was shut down at 2026-10-16 14:42:41 +08
+2026-10-16 14:42:47.253 +08 [1692861] LOG:  database system is ready to accept connections
+2026-10-16 14:42:48.126 +08 [1692876] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-16 14:42:48.126 +08 [1692876] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-16 14:45:07.451 +08 [1695799] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:45:07.451 +08 [1695799] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-16 14:45:07.451 +08 [1695799] HINT:  The transaction might succeed if retried.
+2026-10-16 14:45:07.451 +08 [1695799] STATEMENT:  WITH credit AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-16 14:45:07.406759'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '272565'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '272565'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-16 14:45:12.109 +08 [1695799] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:45:12.109 +08 [1695799] DETAIL:  Reason code: Canceled on conflict out to pivot 297995, during read.
+2026-10-16 14:45:12.109 +08 [1695799] HINT:  The transaction might succeed if retried.
+2026-10-16 14:45:12.109 +08 [1695799] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:45:12.045248'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:45:31.500 +08 [1695745] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:45:31.500 +08 [1695745] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-16 14:45:31.500 +08 [1695745] HINT:  The transaction might succeed if retried.
+2026-10-16 14:45:31.500 +08 [1695745] STATEMENT:  SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM public.products_102068 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (7)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (383007)::bigint)))) THEN 1 ELSE 0 END AS product_ok, (COALESCE((SELECT products.price FROM public.products_102068 products WHERE ((products.merchant_id OPERATOR(pg_catalog.=) (7)::bigint) AND (products.product_id OPERATOR(pg_catalog.=) (383007)::bigint)) LIMIT 1), 0.00))::numeric(12,2) AS price
+2026-10-16 14:45:37.112 +08 [1695799] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:45:37.112 +08 [1695799] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:45:37.112 +08 [1695799] HINT:  The transaction might succeed if retried.
+2026-10-16 14:45:37.112 +08 [1695799] STATEMENT:  PREPARE TRANSACTION 'citus_0_2306359_18267_334'
+2026-10-16 14:45:54.552 +08 [1695755] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:45:54.552 +08 [1695755] DETAIL:  Reason code: Canceled on conflict out to pivot 305214, during read.
+2026-10-16 14:45:54.552 +08 [1695755] HINT:  The transaction might succeed if retried.
+2026-10-16 14:45:54.552 +08 [1695755] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:45:54.459045'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:45:54.586 +08 [1695742] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:45:54.586 +08 [1695742] DETAIL:  Reason code: Canceled on conflict out to pivot 305214, during read.
+2026-10-16 14:45:54.586 +08 [1695742] HINT:  The transaction might succeed if retried.
+2026-10-16 14:45:54.586 +08 [1695742] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:45:54.430349'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:45:54.611 +08 [1695748] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:45:54.611 +08 [1695748] DETAIL:  Reason code: Canceled on conflict out to pivot 305214, during read.
+2026-10-16 14:45:54.611 +08 [1695748] HINT:  The transaction might succeed if retried.
+2026-10-16 14:45:54.611 +08 [1695748] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:45:54.474637'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:45:54.650 +08 [1695785] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:45:54.650 +08 [1695785] DETAIL:  Reason code: Canceled on conflict out to pivot 305214, during read.
+2026-10-16 14:45:54.650 +08 [1695785] HINT:  The transaction might succeed if retried.
+2026-10-16 14:45:54.650 +08 [1695785] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:45:54.473537'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:45:54.703 +08 [1695755] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:45:54.703 +08 [1695755] DETAIL:  Reason code: Canceled on conflict out to pivot 305234, during read.
+2026-10-16 14:45:54.703 +08 [1695755] HINT:  The transaction might succeed if retried.
+2026-10-16 14:45:54.703 +08 [1695755] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:45:54.577068'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:45:54.768 +08 [1695758] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:45:54.768 +08 [1695758] DETAIL:  Reason code: Canceled on conflict out to pivot 305234, during read.
+2026-10-16 14:45:54.768 +08 [1695758] HINT:  The transaction might succeed if retried.
+2026-10-16 14:45:54.768 +08 [1695758] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:45:54.574457'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:45:59.116 +08 [1695739] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:45:59.116 +08 [1695739] DETAIL:  Reason code: Canceled on conflict out to pivot 306008, during read.
+2026-10-16 14:45:59.116 +08 [1695739] HINT:  The transaction might succeed if retried.
+2026-10-16 14:45:59.116 +08 [1695739] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:45:59.005011'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:46:13.050 +08 [1707391] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:46:13.050 +08 [1707391] DETAIL:  Reason code: Canceled on conflict out to pivot 308324, during read.
+2026-10-16 14:46:13.050 +08 [1707391] HINT:  The transaction might succeed if retried.
+2026-10-16 14:46:13.050 +08 [1707391] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:46:12.933438'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:46:13.133 +08 [1707380] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:46:13.133 +08 [1707380] DETAIL:  Reason code: Canceled on conflict out to pivot 308324, during read.
+2026-10-16 14:46:13.133 +08 [1707380] HINT:  The transaction might succeed if retried.
+2026-10-16 14:46:13.133 +08 [1707380] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:46:12.97185'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:46:52.630 +08 [1707387] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:46:52.630 +08 [1707387] DETAIL:  Reason code: Canceled on conflict out to pivot 314765, during read.
+2026-10-16 14:46:52.630 +08 [1707387] HINT:  The transaction might succeed if retried.
+2026-10-16 14:46:52.630 +08 [1707387] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:46:52.49247'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:47:50.910 +08 [1728208] LOG:  could not send data to client: Broken pipe
+2026-10-16 14:47:50.910 +08 [1728208] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102132 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:47:50.766717'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:47:50.910 +08 [1728208] FATAL:  connection to client lost
+2026-10-16 14:47:50.910 +08 [1728208] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102132 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:47:50.766717'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:47:59.705 +08 [1707380] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:47:59.705 +08 [1707380] DETAIL:  Reason code: Canceled on conflict out to pivot 325672, during read.
+2026-10-16 14:47:59.705 +08 [1707380] HINT:  The transaction might succeed if retried.
+2026-10-16 14:47:59.705 +08 [1707380] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102132 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:47:59.536518'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:48:02.701 +08 [1728206] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:48:02.701 +08 [1728206] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-16 14:48:02.701 +08 [1728206] HINT:  The transaction might succeed if retried.
+2026-10-16 14:48:02.701 +08 [1728206] STATEMENT:  WITH debit AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-16 14:48:02.674732'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '256830'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '256830'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-16 14:48:41.287 +08 [1707384] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:48:41.287 +08 [1707384] DETAIL:  Reason code: Canceled on conflict out to pivot 332256, during read.
+2026-10-16 14:48:41.287 +08 [1707384] HINT:  The transaction might succeed if retried.
+2026-10-16 14:48:41.287 +08 [1707384] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:48:41.144725'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:49:41.876 +08 [1707366] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:49:41.876 +08 [1707366] DETAIL:  Reason code: Canceled on conflict out to pivot 341921, during read.
+2026-10-16 14:49:41.876 +08 [1707366] HINT:  The transaction might succeed if retried.
+2026-10-16 14:49:41.876 +08 [1707366] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:49:41.664708'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:49:51.775 +08 [1707355] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:49:51.775 +08 [1707355] DETAIL:  Reason code: Canceled on conflict out to pivot 343517, during read.
+2026-10-16 14:49:51.775 +08 [1707355] HINT:  The transaction might succeed if retried.
+2026-10-16 14:49:51.775 +08 [1707355] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:49:51.646459'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:49:51.844 +08 [1707341] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:49:51.844 +08 [1707341] DETAIL:  Reason code: Canceled on conflict out to pivot 343517, during read.
+2026-10-16 14:49:51.844 +08 [1707341] HINT:  The transaction might succeed if retried.
+2026-10-16 14:49:51.844 +08 [1707341] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102112 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:49:51.653781'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:49:52.979 +08 [1707358] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:49:52.979 +08 [1707358] DETAIL:  Reason code: Canceled on conflict out to pivot 343718, during read.
+2026-10-16 14:49:52.979 +08 [1707358] HINT:  The transaction might succeed if retried.
+2026-10-16 14:49:52.979 +08 [1707358] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:49:52.827156'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:49:52.995 +08 [1707370] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:49:52.995 +08 [1707370] DETAIL:  Reason code: Canceled on conflict out to pivot 343718, during read.
+2026-10-16 14:49:52.995 +08 [1707370] HINT:  The transaction might succeed if retried.
+2026-10-16 14:49:52.995 +08 [1707370] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:49:52.855423'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:49:55.841 +08 [1751944] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:49:55.841 +08 [1751944] DETAIL:  Reason code: Canceled on conflict out to pivot 344143, during read.
+2026-10-16 14:49:55.841 +08 [1751944] HINT:  The transaction might succeed if retried.
+2026-10-16 14:49:55.841 +08 [1751944] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:49:55.74451'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:50:25.800 +08 [1707349] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:50:25.800 +08 [1707349] DETAIL:  Reason code: Canceled on conflict out to pivot 348773, during read.
+2026-10-16 14:50:25.800 +08 [1707349] HINT:  The transaction might succeed if retried.
+2026-10-16 14:50:25.800 +08 [1707349] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:50:25.720903'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:50:25.822 +08 [1707341] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:50:25.822 +08 [1707341] DETAIL:  Reason code: Canceled on conflict out to pivot 348773, during read.
+2026-10-16 14:50:25.822 +08 [1707341] HINT:  The transaction might succeed if retried.
+2026-10-16 14:50:25.822 +08 [1707341] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:50:25.734137'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:50:43.035 +08 [1707384] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:50:43.035 +08 [1707384] DETAIL:  Reason code: Canceled on conflict out to pivot 351397, during read.
+2026-10-16 14:50:43.035 +08 [1707384] HINT:  The transaction might succeed if retried.
+2026-10-16 14:50:43.035 +08 [1707384] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:50:42.935185'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:50:43.054 +08 [1707341] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:50:43.054 +08 [1707341] DETAIL:  Reason code: Canceled on conflict out to pivot 351397, during read.
+2026-10-16 14:50:43.054 +08 [1707341] HINT:  The transaction might succeed if retried.
+2026-10-16 14:50:43.054 +08 [1707341] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:50:42.932297'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:50:43.062 +08 [1707337] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:50:43.062 +08 [1707337] DETAIL:  Reason code: Canceled on conflict out to pivot 351397, during read.
+2026-10-16 14:50:43.062 +08 [1707337] HINT:  The transaction might succeed if retried.
+2026-10-16 14:50:43.062 +08 [1707337] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:50:42.922237'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:50:50.988 +08 [1707376] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:50:50.988 +08 [1707376] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:50:50.988 +08 [1707376] HINT:  The transaction might succeed if retried.
+2026-10-16 14:50:50.988 +08 [1707376] STATEMENT:  COMMIT
+2026-10-16 14:50:50.988 +08 [1707376] WARNING:  there is no transaction in progress
+2026-10-16 14:50:52.933 +08 [1707370] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:50:52.933 +08 [1707370] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-16 14:50:52.933 +08 [1707370] HINT:  The transaction might succeed if retried.
+2026-10-16 14:50:52.933 +08 [1707370] STATEMENT:  WITH debit AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-16 14:50:52.907787'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '460778'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '460778'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-16 14:51:00.672 +08 [1707333] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:51:00.672 +08 [1707333] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-16 14:51:00.672 +08 [1707333] HINT:  The transaction might succeed if retried.
+2026-10-16 14:51:00.672 +08 [1707333] STATEMENT:  UPDATE public.orders_102124 orders SET total_amount = 5615.05::numeric(12,2) WHERE (order_id OPERATOR(pg_catalog.=) (5018925)::bigint)
+2026-10-16 14:52:02.369 +08 [1707340] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:52:02.369 +08 [1707340] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-16 14:52:02.369 +08 [1707340] HINT:  The transaction might succeed if retried.
+2026-10-16 14:52:02.369 +08 [1707340] STATEMENT:  UPDATE public.orders_102108 orders SET total_amount = 6686.64::numeric(12,2) WHERE (order_id OPERATOR(pg_catalog.=) (5022154)::bigint)
+2026-10-16 14:52:59.012 +08 [1707370] ERROR:  could not serialize access due to concurrent update
+2026-10-16 14:52:59.012 +08 [1707370] STATEMENT:  WITH debit AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-16 14:52:58.984141'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '455019'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '455019'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-16 14:53:47.831 +08 [1707341] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:53:47.831 +08 [1707341] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-16 14:53:47.831 +08 [1707341] HINT:  The transaction might succeed if retried.
+2026-10-16 14:53:47.831 +08 [1707341] STATEMENT:  PREPARE TRANSACTION 'citus_0_2306471_274044_5137'
+2026-10-16 14:53:53.597 +08 [1716740] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:53:53.597 +08 [1716740] DETAIL:  Reason code: Canceled on conflict out to pivot 379382, during read.
+2026-10-16 14:53:53.597 +08 [1716740] HINT:  The transaction might succeed if retried.
+2026-10-16 14:53:53.597 +08 [1716740] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:53:53.489421'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:53:54.270 +08 [1794870] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:53:54.270 +08 [1794870] DETAIL:  Reason code: Canceled on conflict out to pivot 379484, during read.
+2026-10-16 14:53:54.270 +08 [1794870] HINT:  The transaction might succeed if retried.
+2026-10-16 14:53:54.270 +08 [1794870] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:53:54.164727'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:53:54.423 +08 [1707366] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:53:54.423 +08 [1707366] DETAIL:  Reason code: Canceled on conflict out to pivot 379484, during read.
+2026-10-16 14:53:54.423 +08 [1707366] HINT:  The transaction might succeed if retried.
+2026-10-16 14:53:54.423 +08 [1707366] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:53:54.237762'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:54:00.794 +08 [1707384] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:54:00.794 +08 [1707384] DETAIL:  Reason code: Canceled on conflict out to pivot 380326, during read.
+2026-10-16 14:54:00.794 +08 [1707384] HINT:  The transaction might succeed if retried.
+2026-10-16 14:54:00.794 +08 [1707384] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:54:00.657582'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:54:00.985 +08 [1794870] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:54:00.985 +08 [1794870] DETAIL:  Reason code: Canceled on conflict out to pivot 380337, during read.
+2026-10-16 14:54:00.985 +08 [1794870] HINT:  The transaction might succeed if retried.
+2026-10-16 14:54:00.985 +08 [1794870] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:54:00.748185'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:54:01.028 +08 [1707347] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:54:01.028 +08 [1707347] DETAIL:  Reason code: Canceled on conflict out to pivot 380337, during read.
+2026-10-16 14:54:01.028 +08 [1707347] HINT:  The transaction might succeed if retried.
+2026-10-16 14:54:01.028 +08 [1707347] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:54:00.735941'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:54:01.037 +08 [1707361] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:54:01.037 +08 [1707361] DETAIL:  Reason code: Canceled on conflict out to pivot 380337, during read.
+2026-10-16 14:54:01.037 +08 [1707361] HINT:  The transaction might succeed if retried.
+2026-10-16 14:54:01.037 +08 [1707361] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:54:00.74413'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:56:09.835 +08 [1692861] LOG:  received fast shutdown request
+2026-10-16 14:56:09.836 +08 [1692861] LOG:  aborting any active transactions
+2026-10-16 14:56:09.836 +08 [1783495] FATAL:  terminating connection due to administrator command
+2026-10-16 14:56:09.836 +08 [1794076] FATAL:  terminating connection due to administrator command
+2026-10-16 14:56:09.836 +08 [1783476] FATAL:  terminating connection due to administrator command
+2026-10-16 14:56:09.836 +08 [1783463] FATAL:  terminating connection due to administrator command
+2026-10-16 14:56:09.842 +08 [1692861] LOG:  background worker "logical replication launcher" (PID 1692871) exited with exit code 1
+2026-10-16 14:56:09.848 +08 [1692866] LOG:  shutting down
+2026-10-16 14:56:09.848 +08 [1692866] LOG:  checkpoint starting: shutdown immediate
+2026-10-16 14:56:10.144 +08 [1815009] LOG:  PID 1783463 in cancel request did not match any process
+2026-10-16 14:56:10.228 +08 [1815010] LOG:  PID 1783476 in cancel request did not match any process
+2026-10-16 14:56:10.297 +08 [1815011] LOG:  PID 1783495 in cancel request did not match any process
+2026-10-16 14:56:11.085 +08 [1692866] LOG:  checkpoint complete: wrote 128598 buffers (98.1%), wrote 56 SLRU buffers; 0 WAL file(s) added, 0 removed, 141 recycled; write=1.212 s, sync=0.002 s, total=1.237 s; sync files=285, longest=0.001 s, average=0.001 s; distance=2304983 kB, estimate=2304983 kB; lsn=3/44A3E728, redo lsn=3/44A3E728
+2026-10-16 14:56:11.471 +08 [1692861] LOG:  database system is shut down
+2026-10-16 14:56:16.696 +08 [1815034] LOG:  There is no designated Main database.
+2026-10-16 14:56:16.696 +08 [1815034] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-16 14:56:16.696 +08 [1815034] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-16 14:56:16.872 +08 [1815034] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-16 14:56:16.872 +08 [1815034] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-16 14:56:16.872 +08 [1815034] LOG:  listening on IPv6 address "::", port 5446
+2026-10-16 14:56:16.873 +08 [1815034] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-16 14:56:16.878 +08 [1815041] LOG:  database system was shut down at 2026-10-16 14:56:11 +08
+2026-10-16 14:56:16.883 +08 [1815034] LOG:  database system is ready to accept connections
+2026-10-16 14:56:17.757 +08 [1815049] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-16 14:56:17.757 +08 [1815049] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-16 14:58:33.475 +08 [1815198] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:33.475 +08 [1815198] DETAIL:  Reason code: Canceled on conflict out to pivot 397957, during read.
+2026-10-16 14:58:33.475 +08 [1815198] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:33.475 +08 [1815198] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:58:33.30678'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:58:33.477 +08 [1815226] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:33.477 +08 [1815226] DETAIL:  Reason code: Canceled on conflict out to pivot 397957, during read.
+2026-10-16 14:58:33.477 +08 [1815226] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:33.477 +08 [1815226] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:58:33.218896'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:58:33.495 +08 [1815176] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:33.495 +08 [1815176] DETAIL:  Reason code: Canceled on conflict out to pivot 397957, during read.
+2026-10-16 14:58:33.495 +08 [1815176] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:33.495 +08 [1815176] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:58:33.298046'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:58:33.495 +08 [1815204] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:33.495 +08 [1815204] DETAIL:  Reason code: Canceled on conflict out to pivot 397957, during read.
+2026-10-16 14:58:33.495 +08 [1815204] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:33.495 +08 [1815204] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:58:33.306306'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:58:33.510 +08 [1815175] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:33.510 +08 [1815175] DETAIL:  Reason code: Canceled on conflict out to pivot 397957, during read.
+2026-10-16 14:58:33.510 +08 [1815175] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:33.510 +08 [1815175] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:58:33.328028'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:58:33.512 +08 [1815250] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:33.512 +08 [1815250] DETAIL:  Reason code: Canceled on conflict out to pivot 397957, during read.
+2026-10-16 14:58:33.512 +08 [1815250] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:33.512 +08 [1815250] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:58:33.265035'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:58:33.517 +08 [1815177] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:33.517 +08 [1815177] DETAIL:  Reason code: Canceled on conflict out to pivot 397957, during read.
+2026-10-16 14:58:33.517 +08 [1815177] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:33.517 +08 [1815177] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:58:33.348611'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:58:33.543 +08 [1815255] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:33.543 +08 [1815255] DETAIL:  Reason code: Canceled on conflict out to pivot 397957, during read.
+2026-10-16 14:58:33.543 +08 [1815255] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:33.543 +08 [1815255] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:58:33.28324'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:58:33.566 +08 [1815182] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:33.566 +08 [1815182] DETAIL:  Reason code: Canceled on conflict out to pivot 397957, during read.
+2026-10-16 14:58:33.566 +08 [1815182] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:33.566 +08 [1815182] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:58:33.32394'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:58:33.577 +08 [1815210] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:33.577 +08 [1815210] DETAIL:  Reason code: Canceled on conflict out to pivot 397957, during read.
+2026-10-16 14:58:33.577 +08 [1815210] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:33.577 +08 [1815210] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:58:33.346425'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:58:35.608 +08 [1815175] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:35.608 +08 [1815175] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:58:35.608 +08 [1815175] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:35.608 +08 [1815175] STATEMENT:  PREPARE TRANSACTION 'citus_0_2308508_1354_9'
+2026-10-16 14:58:36.827 +08 [1815172] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:36.827 +08 [1815172] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-16 14:58:36.827 +08 [1815172] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:36.827 +08 [1815172] STATEMENT:  WITH debit AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-16 14:58:36.779473'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '262478'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '262478'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-16 14:58:36.870 +08 [1815181] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:36.870 +08 [1815181] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-16 14:58:36.870 +08 [1815181] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:36.870 +08 [1815181] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-16 14:58:36.820895'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '192686'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '686'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '192686'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-16 14:58:36.961 +08 [1815236] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:36.961 +08 [1815236] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:58:36.961 +08 [1815236] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:36.961 +08 [1815236] STATEMENT:  PREPARE TRANSACTION 'citus_0_2308515_2231_51'
+2026-10-16 14:58:37.543 +08 [1815174] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:37.543 +08 [1815174] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-16 14:58:37.543 +08 [1815174] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:37.543 +08 [1815174] STATEMENT:  WITH credit AS (UPDATE public.inventory_102092 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-16 14:58:37.5004'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '291114'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '291114'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-16 14:58:43.932 +08 [1815259] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:43.932 +08 [1815259] DETAIL:  Reason code: Canceled on conflict out to pivot 399655, during read.
+2026-10-16 14:58:43.932 +08 [1815259] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:43.932 +08 [1815259] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:58:43.584202'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:58:44.494 +08 [1816092] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:44.494 +08 [1816092] DETAIL:  Reason code: Canceled on conflict out to pivot 399753, during read.
+2026-10-16 14:58:44.494 +08 [1816092] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:44.494 +08 [1816092] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:58:44.278298'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:58:51.221 +08 [1815189] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:51.221 +08 [1815189] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-16 14:58:51.221 +08 [1815189] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:51.221 +08 [1815189] STATEMENT:  WITH credit AS (UPDATE public.inventory_102092 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-16 14:58:51.156584'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '341858'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '341858'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-16 14:58:59.351 +08 [1815242] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:58:59.351 +08 [1815242] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-16 14:58:59.351 +08 [1815242] HINT:  The transaction might succeed if retried.
+2026-10-16 14:58:59.351 +08 [1815242] STATEMENT:  WITH debit AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-16 14:58:59.303309'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '481641'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '481641'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-16 14:59:02.267 +08 [1815237] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:59:02.267 +08 [1815237] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:59:02.267 +08 [1815237] HINT:  The transaction might succeed if retried.
+2026-10-16 14:59:02.267 +08 [1815237] STATEMENT:  COMMIT
+2026-10-16 14:59:02.278 +08 [1815237] WARNING:  there is no transaction in progress
+2026-10-16 14:59:09.281 +08 [1815198] ERROR:  could not serialize access due to concurrent update
+2026-10-16 14:59:09.281 +08 [1815198] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102076 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-16 14:59:09.142518'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '306083'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '83'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '306083'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-16 14:59:30.426 +08 [1820072] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:59:30.426 +08 [1820072] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-16 14:59:30.426 +08 [1820072] HINT:  The transaction might succeed if retried.
+2026-10-16 14:59:30.426 +08 [1820072] STATEMENT:  WITH credit AS (UPDATE public.inventory_102092 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-16 14:59:30.391565'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '88486'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '88486'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-16 14:59:37.695 +08 [1826898] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:59:37.695 +08 [1826898] DETAIL:  Reason code: Canceled on conflict out to pivot 408312, during read.
+2026-10-16 14:59:37.695 +08 [1826898] HINT:  The transaction might succeed if retried.
+2026-10-16 14:59:37.695 +08 [1826898] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:59:37.534576'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:59:37.762 +08 [1826832] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:59:37.762 +08 [1826832] DETAIL:  Reason code: Canceled on conflict out to pivot 408312, during read.
+2026-10-16 14:59:37.762 +08 [1826832] HINT:  The transaction might succeed if retried.
+2026-10-16 14:59:37.762 +08 [1826832] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:59:37.55093'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:59:48.934 +08 [1826800] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:59:48.934 +08 [1826800] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 14:59:48.934 +08 [1826800] HINT:  The transaction might succeed if retried.
+2026-10-16 14:59:48.934 +08 [1826800] STATEMENT:  PREPARE TRANSACTION 'citus_0_2308572_40415_82'
+2026-10-16 14:59:57.391 +08 [1831416] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:59:57.391 +08 [1831416] DETAIL:  Reason code: Canceled on conflict out to pivot 411429, during read.
+2026-10-16 14:59:57.391 +08 [1831416] HINT:  The transaction might succeed if retried.
+2026-10-16 14:59:57.391 +08 [1831416] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:59:57.216115'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:59:57.479 +08 [1826887] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:59:57.479 +08 [1826887] DETAIL:  Reason code: Canceled on conflict out to pivot 411429, during read.
+2026-10-16 14:59:57.479 +08 [1826887] HINT:  The transaction might succeed if retried.
+2026-10-16 14:59:57.479 +08 [1826887] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:59:57.262479'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 14:59:57.605 +08 [1826833] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 14:59:57.605 +08 [1826833] DETAIL:  Reason code: Canceled on conflict out to pivot 411429, during read.
+2026-10-16 14:59:57.605 +08 [1826833] HINT:  The transaction might succeed if retried.
+2026-10-16 14:59:57.605 +08 [1826833] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 14:59:57.303812'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:00:32.159 +08 [1826839] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:00:32.159 +08 [1826839] DETAIL:  Reason code: Canceled on conflict out to pivot 416764, during read.
+2026-10-16 15:00:32.159 +08 [1826839] HINT:  The transaction might succeed if retried.
+2026-10-16 15:00:32.159 +08 [1826839] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:00:31.982638'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:00:32.297 +08 [1826936] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:00:32.297 +08 [1826936] DETAIL:  Reason code: Canceled on conflict out to pivot 416764, during read.
+2026-10-16 15:00:32.297 +08 [1826936] HINT:  The transaction might succeed if retried.
+2026-10-16 15:00:32.297 +08 [1826936] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:00:32.003398'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:00:32.315 +08 [1826891] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:00:32.315 +08 [1826891] DETAIL:  Reason code: Canceled on conflict out to pivot 416764, during read.
+2026-10-16 15:00:32.315 +08 [1826891] HINT:  The transaction might succeed if retried.
+2026-10-16 15:00:32.315 +08 [1826891] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:00:32.022036'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:00:32.319 +08 [1826801] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:00:32.319 +08 [1826801] DETAIL:  Reason code: Canceled on conflict out to pivot 416764, during read.
+2026-10-16 15:00:32.319 +08 [1826801] HINT:  The transaction might succeed if retried.
+2026-10-16 15:00:32.319 +08 [1826801] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:00:32.011001'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:00:32.333 +08 [1826832] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:00:32.333 +08 [1826832] DETAIL:  Reason code: Canceled on conflict out to pivot 416764, during read.
+2026-10-16 15:00:32.333 +08 [1826832] HINT:  The transaction might succeed if retried.
+2026-10-16 15:00:32.333 +08 [1826832] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:00:32.00951'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:00:33.160 +08 [1830911] ERROR:  could not serialize access due to concurrent update
+2026-10-16 15:00:33.160 +08 [1830911] STATEMENT:  WITH credit AS (UPDATE public.inventory_102072 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-16 15:00:33.110136'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '9698'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '9698'::bigint)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-16 15:00:33.355 +08 [1826901] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:00:33.355 +08 [1826901] DETAIL:  Reason code: Canceled on conflict out to pivot 416926, during read.
+2026-10-16 15:00:33.355 +08 [1826901] HINT:  The transaction might succeed if retried.
+2026-10-16 15:00:33.355 +08 [1826901] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:00:33.033613'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:00:38.556 +08 [1826898] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:00:38.556 +08 [1826898] DETAIL:  Reason code: Canceled on conflict out to pivot 417805, during read.
+2026-10-16 15:00:38.556 +08 [1826898] HINT:  The transaction might succeed if retried.
+2026-10-16 15:00:38.556 +08 [1826898] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:00:38.314323'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:01:08.634 +08 [1826804] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:01:08.634 +08 [1826804] DETAIL:  Reason code: Canceled on conflict out to pivot 422494, during read.
+2026-10-16 15:01:08.634 +08 [1826804] HINT:  The transaction might succeed if retried.
+2026-10-16 15:01:08.634 +08 [1826804] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:01:08.41478'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:01:08.699 +08 [1826813] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:01:08.699 +08 [1826813] DETAIL:  Reason code: Canceled on conflict out to pivot 422494, during read.
+2026-10-16 15:01:08.699 +08 [1826813] HINT:  The transaction might succeed if retried.
+2026-10-16 15:01:08.699 +08 [1826813] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:01:08.418757'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:01:08.847 +08 [1826854] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:01:08.847 +08 [1826854] DETAIL:  Reason code: Canceled on conflict out to pivot 422494, during read.
+2026-10-16 15:01:08.847 +08 [1826854] HINT:  The transaction might succeed if retried.
+2026-10-16 15:01:08.847 +08 [1826854] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:01:08.414953'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:01:12.165 +08 [1826804] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:01:12.165 +08 [1826804] DETAIL:  Reason code: Canceled on conflict out to pivot 423039, during read.
+2026-10-16 15:01:12.165 +08 [1826804] HINT:  The transaction might succeed if retried.
+2026-10-16 15:01:12.165 +08 [1826804] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:01:11.975899'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:01:35.845 +08 [1826931] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:01:35.845 +08 [1826931] DETAIL:  Reason code: Canceled on conflict out to pivot 426592, during read.
+2026-10-16 15:01:35.845 +08 [1826931] HINT:  The transaction might succeed if retried.
+2026-10-16 15:01:35.845 +08 [1826931] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:01:35.713243'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:01:55.908 +08 [1826886] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:01:55.908 +08 [1826886] DETAIL:  Reason code: Canceled on conflict out to pivot 429563, during read.
+2026-10-16 15:01:55.908 +08 [1826886] HINT:  The transaction might succeed if retried.
+2026-10-16 15:01:55.908 +08 [1826886] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:01:55.463578'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:02:06.823 +08 [1826820] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:02:06.823 +08 [1826820] DETAIL:  Reason code: Canceled on conflict out to pivot 431353, during read.
+2026-10-16 15:02:06.823 +08 [1826820] HINT:  The transaction might succeed if retried.
+2026-10-16 15:02:06.823 +08 [1826820] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102116 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:02:06.538702'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:02:26.077 +08 [1826886] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:02:26.077 +08 [1826886] DETAIL:  Reason code: Canceled on conflict out to pivot 434209, during read.
+2026-10-16 15:02:26.077 +08 [1826886] HINT:  The transaction might succeed if retried.
+2026-10-16 15:02:26.077 +08 [1826886] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:02:25.699055'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:02:45.400 +08 [1826818] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:02:45.400 +08 [1826818] DETAIL:  Reason code: Canceled on conflict out to pivot 437160, during read.
+2026-10-16 15:02:45.400 +08 [1826818] HINT:  The transaction might succeed if retried.
+2026-10-16 15:02:45.400 +08 [1826818] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:02:45.247279'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:03:04.907 +08 [1827195] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:03:04.907 +08 [1827195] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-16 15:03:04.907 +08 [1827195] HINT:  The transaction might succeed if retried.
+2026-10-16 15:03:04.907 +08 [1827195] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102100 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-16 15:03:04.842975'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '293073'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '73'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '293073'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-16 15:03:50.591 +08 [1841630] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:03:50.591 +08 [1841630] DETAIL:  Reason code: Canceled on conflict out to pivot 446898, during read.
+2026-10-16 15:03:50.591 +08 [1841630] HINT:  The transaction might succeed if retried.
+2026-10-16 15:03:50.591 +08 [1841630] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:03:50.328774'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:03:50.732 +08 [1826936] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:03:50.732 +08 [1826936] DETAIL:  Reason code: Canceled on conflict out to pivot 446898, during read.
+2026-10-16 15:03:50.732 +08 [1826936] HINT:  The transaction might succeed if retried.
+2026-10-16 15:03:50.732 +08 [1826936] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:03:50.318718'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:03:50.760 +08 [1826834] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:03:50.760 +08 [1826834] DETAIL:  Reason code: Canceled on conflict out to pivot 446898, during read.
+2026-10-16 15:03:50.760 +08 [1826834] HINT:  The transaction might succeed if retried.
+2026-10-16 15:03:50.760 +08 [1826834] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:03:50.328983'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:04:48.503 +08 [1862047] ERROR:  could not serialize access due to concurrent update
+2026-10-16 15:04:48.503 +08 [1862047] STATEMENT:  WITH reserved AS (UPDATE public.inventory_102080 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-16 15:04:48.368639'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '89055'::bigint) AND (inventory.merchant_id OPERATOR(pg_catalog.=) '55'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '89055'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT CASE WHEN (EXISTS (SELECT 1 AS "?column?" FROM reserved reserved("?column?"))) THEN 1 ELSE 0 END AS stock_ok
+2026-10-16 15:04:55.529 +08 [1883506] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:04:55.529 +08 [1883506] DETAIL:  Reason code: Canceled on conflict out to pivot 456163, during read.
+2026-10-16 15:04:55.529 +08 [1883506] HINT:  The transaction might succeed if retried.
+2026-10-16 15:04:55.529 +08 [1883506] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102132 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:04:55.345397'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:04:55.797 +08 [1846264] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:04:55.797 +08 [1846264] DETAIL:  Reason code: Canceled on conflict out to pivot 456163, during read.
+2026-10-16 15:04:55.797 +08 [1846264] HINT:  The transaction might succeed if retried.
+2026-10-16 15:04:55.797 +08 [1846264] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102132 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:04:55.396983'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:05:17.096 +08 [1846251] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:05:17.096 +08 [1846251] DETAIL:  Reason code: Canceled on conflict out to pivot 459329, during read.
+2026-10-16 15:05:17.096 +08 [1846251] HINT:  The transaction might succeed if retried.
+2026-10-16 15:05:17.096 +08 [1846251] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:05:16.687237'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:05:17.127 +08 [1826812] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:05:17.127 +08 [1826812] DETAIL:  Reason code: Canceled on conflict out to pivot 459329, during read.
+2026-10-16 15:05:17.127 +08 [1826812] HINT:  The transaction might succeed if retried.
+2026-10-16 15:05:17.127 +08 [1826812] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:05:16.753058'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:05:17.136 +08 [1864891] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:05:17.136 +08 [1864891] DETAIL:  Reason code: Canceled on conflict out to pivot 459329, during read.
+2026-10-16 15:05:17.136 +08 [1864891] HINT:  The transaction might succeed if retried.
+2026-10-16 15:05:17.136 +08 [1864891] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:05:16.74921'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:05:17.177 +08 [1826837] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:05:17.177 +08 [1826837] DETAIL:  Reason code: Canceled on conflict out to pivot 459329, during read.
+2026-10-16 15:05:17.177 +08 [1826837] HINT:  The transaction might succeed if retried.
+2026-10-16 15:05:17.177 +08 [1826837] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:05:16.729646'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:05:17.192 +08 [1826842] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:05:17.192 +08 [1826842] DETAIL:  Reason code: Canceled on conflict out to pivot 459329, during read.
+2026-10-16 15:05:17.192 +08 [1826842] HINT:  The transaction might succeed if retried.
+2026-10-16 15:05:17.192 +08 [1826842] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:05:16.747968'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:05:17.201 +08 [1826880] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:05:17.201 +08 [1826880] DETAIL:  Reason code: Canceled on conflict out to pivot 459329, during read.
+2026-10-16 15:05:17.201 +08 [1826880] HINT:  The transaction might succeed if retried.
+2026-10-16 15:05:17.201 +08 [1826880] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:05:16.720243'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:05:17.252 +08 [1826867] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:05:17.252 +08 [1826867] DETAIL:  Reason code: Canceled on conflict out to pivot 459329, during read.
+2026-10-16 15:05:17.252 +08 [1826867] HINT:  The transaction might succeed if retried.
+2026-10-16 15:05:17.252 +08 [1826867] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102124 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:05:16.747501'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:07:06.728 +08 [1913828] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:07:06.728 +08 [1913828] DETAIL:  Reason code: Canceled on conflict out to pivot 474167, during read.
+2026-10-16 15:07:06.728 +08 [1913828] HINT:  The transaction might succeed if retried.
+2026-10-16 15:07:06.728 +08 [1913828] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:07:06.272312'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:07:27.196 +08 [1830911] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:07:27.196 +08 [1830911] DETAIL:  Reason code: Canceled on conflict out to pivot 476953, during read.
+2026-10-16 15:07:27.196 +08 [1830911] HINT:  The transaction might succeed if retried.
+2026-10-16 15:07:27.196 +08 [1830911] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:07:26.690027'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:07:55.194 +08 [1904237] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:07:55.194 +08 [1904237] DETAIL:  Reason code: Canceled on conflict out to pivot 480850, during read.
+2026-10-16 15:07:55.194 +08 [1904237] HINT:  The transaction might succeed if retried.
+2026-10-16 15:07:55.194 +08 [1904237] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:07:54.763359'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:07:55.319 +08 [1892731] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:07:55.319 +08 [1892731] DETAIL:  Reason code: Canceled on conflict out to pivot 480850, during read.
+2026-10-16 15:07:55.319 +08 [1892731] HINT:  The transaction might succeed if retried.
+2026-10-16 15:07:55.319 +08 [1892731] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102128 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:07:54.787'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:07:59.414 +08 [1904237] ERROR:  canceling statement due to user request
+2026-10-16 15:07:59.414 +08 [1904237] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102120 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:07:59.00519'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:08:01.802 +08 [1826898] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:08:01.802 +08 [1826898] DETAIL:  Reason code: Canceled on conflict out to pivot 481766, during read.
+2026-10-16 15:08:01.802 +08 [1826898] HINT:  The transaction might succeed if retried.
+2026-10-16 15:08:01.802 +08 [1826898] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:08:01.614938'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:08:01.899 +08 [1849513] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:08:01.899 +08 [1849513] DETAIL:  Reason code: Canceled on conflict out to pivot 481766, during read.
+2026-10-16 15:08:01.899 +08 [1849513] HINT:  The transaction might succeed if retried.
+2026-10-16 15:08:01.899 +08 [1849513] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102108 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:08:01.624848'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:08:26.274 +08 [1826817] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:08:26.274 +08 [1826817] DETAIL:  Reason code: Canceled on conflict out to pivot 484922, during read.
+2026-10-16 15:08:26.274 +08 [1826817] HINT:  The transaction might succeed if retried.
+2026-10-16 15:08:26.274 +08 [1826817] STATEMENT:  SELECT merchant_id, count(*) AS count, sum(total_amount) AS sum FROM public.orders_102104 orders WHERE ((created_at OPERATOR(pg_catalog.>=) '2026-10-16 00:00:00'::timestamp without time zone) AND (created_at OPERATOR(pg_catalog.<) '2026-10-16 15:08:26.100275'::timestamp without time zone)) GROUP BY merchant_id
+2026-10-16 15:09:26.289 +08 [1826911] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-16 15:09:26.289 +08 [1826911] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-16 15:09:26.289 +08 [1826911] HINT:  The transaction might succeed if retried.
+2026-10-16 15:09:26.289 +08 [1826911] STATEMENT:  PREPARE TRANSACTION 'citus_0_2308597_319392_3303'
+2026-10-16 15:09:37.674 +08 [1815034] LOG:  received fast shutdown request
+2026-10-16 15:09:37.675 +08 [1815034] LOG:  aborting any active transactions
+2026-10-16 15:09:37.675 +08 [1898834] FATAL:  terminating connection due to administrator command
+2026-10-16 15:09:37.675 +08 [1898915] FATAL:  terminating connection due to administrator command
+2026-10-16 15:09:37.675 +08 [1898922] FATAL:  terminating connection due to administrator command
+2026-10-16 15:09:37.678 +08 [1898825] FATAL:  terminating connection due to administrator command
+2026-10-16 15:09:37.682 +08 [1815034] LOG:  background worker "logical replication launcher" (PID 1815044) exited with exit code 1
+2026-10-16 15:09:37.687 +08 [1815039] LOG:  shutting down
+2026-10-16 15:09:37.687 +08 [1815039] LOG:  checkpoint starting: shutdown immediate
+2026-10-16 15:09:38.863 +08 [1949378] LOG:  PID 1898825 in cancel request did not match any process
+2026-10-16 15:09:38.897 +08 [1949381] LOG:  PID 1898834 in cancel request did not match any process
+2026-10-16 15:09:38.900 +08 [1815039] LOG:  checkpoint complete: wrote 128863 buffers (98.3%), wrote 53 SLRU buffers; 0 WAL file(s) added, 0 removed, 141 recycled; write=1.185 s, sync=0.002 s, total=1.213 s; sync files=287, longest=0.001 s, average=0.001 s; distance=2301742 kB, estimate=2301742 kB; lsn=3/D120A2B0, redo lsn=3/D120A2B0
+2026-10-16 15:09:39.263 +08 [1815034] LOG:  database system is shut down

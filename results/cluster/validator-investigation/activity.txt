@@ -1,0 +1,24 @@
+xcnf0
+1874223|active|||00:11:20.265143|DO $$
+BEGIN
+  IF EXISTS (SELECT 1 FROM inventory WHERE quantity < 0) THEN
+    RAISE EXCEPTION 'Correctness: negative inventory';
+  END IF;
+  IF EXISTS (SELECT order_id FROM orders GROUP BY order_id HAVING count(*) > 1) THEN
+    RAISE EXCEPT
+xcnf1
+3034644|idle in transaction|Client|ClientRead|00:11:20.225862|SELECT order_id, count(*) AS worker_column_2 FROM public.orders_102124 orders WHERE true GROUP BY order_id
+3034645|idle in transaction|Client|ClientRead|00:11:20.225773|SELECT order_id, count(*) AS worker_column_2 FROM public.orders_102128 orders WHERE true GROUP BY order_id
+3034643|idle in transaction|Client|ClientRead|00:11:17.363724|SELECT order_id, count(*) AS worker_column_2 FROM public.orders_102132 orders WHERE true GROUP BY order_id
+xcnf2
+2994350|idle in transaction|Client|ClientRead|00:11:20.236369|SELECT order_id, count(*) AS worker_column_2 FROM public.orders_102129 orders WHERE true GROUP BY order_id
+2994349|idle in transaction|Client|ClientRead|00:11:20.235402|SELECT order_id, count(*) AS worker_column_2 FROM public.orders_102125 orders WHERE true GROUP BY order_id
+2994348|idle in transaction|Client|ClientRead|00:11:17.723296|SELECT order_id, count(*) AS worker_column_2 FROM public.orders_102133 orders WHERE true GROUP BY order_id
+xcnf3
+3204729|idle in transaction|Client|ClientRead|00:11:20.267611|BEGIN TRANSACTION ISOLATION LEVEL SERIALIZABLE;SELECT assign_distributed_transaction_id(0, 7784, '2026-10-19 17:04:58.60153+08');
+3204728|idle in transaction|Client|ClientRead|00:11:20.250359|SELECT order_id, count(*) AS worker_column_2 FROM public.orders_102134 orders WHERE true GROUP BY order_id
+3204727|idle in transaction|Client|ClientRead|00:11:17.500783|SELECT order_id, count(*) AS worker_column_2 FROM public.orders_102130 orders WHERE true GROUP BY order_id
+xcnf4
+3637253|idle in transaction|Client|ClientRead|00:11:20.26765|SELECT order_id, count(*) AS worker_column_2 FROM public.orders_102123 orders WHERE true GROUP BY order_id
+3637252|idle in transaction|Client|ClientRead|00:11:19.284079|SELECT order_id, count(*) AS worker_column_2 FROM public.orders_102135 orders WHERE true GROUP BY order_id
+3637251|idle in transaction|Client|ClientRead|00:11:17.806557|SELECT order_id, count(*) AS worker_column_2 FROM public.orders_102131 orders WHERE true GROUP BY order_id

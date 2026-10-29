@@ -1,6 +1,7 @@
 # AI assistance record
 
-Tool: OpenAI Codex. Team 14; work attributed to Hikaru for team review.
+Tools recorded: OpenAI Codex and Claude Code. Team 14; work attributed to Hikaru
+for team review. Entries below are dated checkpoints, not current job status.
 
 - 10 October 2026: developed five Workload A proposals from the supplied
   assignment, baseline SQL and result files; added them to the team Google Doc.
@@ -15,6 +16,130 @@ Tool: OpenAI Codex. Team 14; work attributed to Hikaru for team review.
   hori0329@gmail.com, corrected stale coordination fields and submission names,
   added implementation/results evidence and potential overlaps for team review,
   and verified the saved content while preserving teammates' original ideas.
+- 19 October 2026: incorporated Kelvin's teammate-reported a102/job 965657 and
+  write-side findings; implemented attributed A adaptations and access-mode
+  experiments a109–a112; ran 122 additional passing correctness checks and six
+  four-client local stress cases, all of which aborted. Preserved failed cases
+  without performance rankings. Pinned xcnf submission hardware, added four-client
+  smoke coverage and focused experiment selection, and checked scheduling with
+  stubs. Drafted A report sections and a cluster runbook. SSH remained unavailable;
+  no new course-cluster jobs were submitted during that initial local phase.
+  Added the A draft to sections 2–3 of the shared Google Doc's Report tab and
+  appended a dated implementation update to its ideas tab. Readback confirmed
+  the A text, unchanged B report text, and all 15 existing tables. Published
+  code, evidence and the runbook for review in draft GitHub pull request #1.
+  Later, after access was restored, retrieved and reviewed Kelvin's 30 cases,
+  found a102's previously unreported 16-client warmup abort, preserved four new
+  smoke jobs, and started course-scale diagnostics. Diagnosed an expensive
+  post-run global-ID validator; exact replacement checks passed on the full
+  dataset in 25.753 seconds and in seven deliberate-corruption regression tests.
+  Cancelled only the affected own jobs and resubmitted diagnostics with the
+  replacement. a113 passed 29 correctness checks but its local warmup still
+  aborted. Added a reproducible baseline/index figure with the warmup caveat.
+  Reviewed completed scale-1 diagnostics 977617–977619: all phases and exact
+  validators passed, with observed configured-duration TPS 89.917/92.383/90.550.
+  Submitted the original full matrix for a0 control 977740 and a112 candidate
+  977773 on matched xcnf0–4 nodes; replaced only pending candidate 977741 to
+  correct its node request and verified the full settings. Full results remain
+  pending at that checkpoint (both later completed). Inserted and checked the
+  report figure in the shared Google Doc,
+  preserving the B text and all 15 existing tables.
+- 19 October 2026 (evening, Claude Code): monitored and imported full jobs
+  977740/977773 with a new reviewing importer, found the fresh a0 control is
+  faster than preserved job 918524 (revising the a102 gain claim), recorded
+  a112's matched 17–28× result and figure, and submitted seed-7 repeat 978177.
+
+- 19–20 October 2026 (Claude Code, per recorded commits and supplied work log):
+  imported a112 repeat 978177 and diagnosed its flagged 64-client warmup;
+  implemented and merged a114/a115 into the PR branch, recorded passing a114
+  correctness checks and completed cluster diagnostics, rejected a114's summary
+  design, and submitted a115 full jobs 979909/979910 for seeds 42/7. Their full
+  results had not been imported at the 20 October checkpoint.
+- 20 October 2026 (Codex): checked Git/PR and repository/Drive documentation;
+  reconciled current status, corrected the a115 diagnostic retry count to two,
+  updated the A analysis and team planning documents, and refreshed the draft PR.
+  Cluster access timed out, so no live a115 completion or final-selection claim
+  was made. Retain the readback/validation records with this interaction.
+
+- 22 October 2026 (Codex): read live Slurm accounting, a115 summary rows and
+  benchmark/validation excerpts; established completion with measured aborts.
+  Subsequent full archive imports failed with SSH timeout and VPN disconnected;
+  preserved a clearly labelled transcription rather than claiming a raw import.
+  Imported all 975 B branch files at 5fa38157a7c1cb9abf1097e731f934a97a3db7c4,
+  verified Git blob identity, all 42 transaction-log record counts, phase exits,
+  hardware/protocol differences and seven matching b6 T6 checks. Corrected B
+  warmup/measurement caveats and qualified the 64-client gain claims in repo
+  and shared documentation. a112 stays provisional; final team choices remain open.
+
+- 22 October 2026 (Codex, after VPN reconnection): completed both a115 imports,
+  preserving 275 files and the actual SQL source. Verified all 26 runtime hashes,
+  24 phase command lines/exits, 12 raw transaction/retry/per-script count audits
+  and 12 passing core validations. Classified 7 phase-eligible cases, 6 with zero
+  failed records; preserved both c64 warmup aborts and all five measured aborts.
+  Tightened the importer's missing-warmup policy and included SQL/transaction
+  source in future imports; negative checks reject missing warmup/validation.
+  Updated repo/shared documentation and the draft PR, removed the resolved
+  access/import blocker, and retained a112 as provisional pending team choice.
+  No benchmark SQL was changed or new jobs submitted during this review.
+
+- 27 October 2026 (Codex): used Kelvin's message supplied by Hikaru and the
+  existing local evidence to prepare the A design recommendation and limitations.
+  Clarified that a112 has one clean full matrix plus a seed-7 repeat with a
+  flagged 64-client warmup, and separated client-abort counts from aborted
+  measurements. No team confirmation was inferred, no shared documents were
+  edited, and no new cluster experiments were submitted.
+  Before committing, reran the complete archived a115 audit (275 files, 26
+  runtime hash comparisons, 24 phase commands/exits, 12 raw-log count audits and
+  12 validations), independently recalculated a112's speedup/repeat differences
+  and a115's phase-specific abort counts, and checked the Git diff formatting.
+
+- 28 October 2026 (Codex): checked live SSH/Slurm, fetched repository refs and
+  read PR status and the shared report. Backed up today's supplementary B
+  evidence and current b0/b6 source into a fresh readback directory; verified
+  all 263 files against remote SHA-256 checks, nine cases' raw success/failure
+  and retry counts, phase exits and TPS, five matched T6 checks and separate
+  correctness/T7-conservation records. Rechecked 1,641 prior archive hashes
+  with no mismatches. Recorded report inconsistencies and packaging gaps;
+  updated local status pointers. No jobs, remote source, shared documents or
+  GitHub content were changed. Readback hashes are not runtime authentication.
+
+- 28 October 2026 (Codex, submission preparation): at Hikaru's request, prepared
+  a local LaTeX/Overleaf report from the existing report text, retained A/B
+  caveats, added the separate B correctness evidence, corrected the A write
+  share to 75%, and distinguished a10's separate result from measured a112.
+  Recreated two readable vector figures from the verified figure data. Prepared
+  a review archive with 31 experiment directories and 48 job folders, normalized
+  four supplementary B folder names with provenance mapping, and preserved
+  source snapshots and failed attempts. Recovered project-specific local Codex
+  and Claude visible dialogue and tool traces with known credentials redacted;
+  excluded hidden reasoning, system/developer metadata and automated approval
+  review sessions. Earlier/cloud and teammates' AI records remain to be checked.
+  Drafted a Kelvin message; no messages, shared document edits or uploads were
+  performed. The report and contributions remain for team review.
+
+- 28 October 2026 (Codex, assignment overview reconciliation): read Hikaru's
+  pasted Canvas Project overview directly and checked its tasks, experiment
+  naming/output requirements, report structure, metrics, AI records and Q&A.
+  Reorganized A into explicit experiment subsections, added baseline and a112
+  percentile tables from preserved CSVs, reduced operational-history prose,
+  and qualified a supplementary B T7 comparison across different hardware.
+  Separated eight local-only source variants from 23 top-level Slurm experiment
+  folders, retaining all original code/evidence and 48 job-directory paths
+  (45 distinct IDs). Verified every cluster job has its Slurm output/error
+  pair and every primary experiment has nine transaction scripts. Recompiled
+  the review report within the 20-page/10-point limits and refreshed the
+  Overleaf source/package checks. Contribution, design-choice, reference and
+  team-wide AI-record confirmations remain open; no uploads were performed.
+
+- 28 October 2026 (Codex, repository collaboration): at Hikaru's request,
+  split the LaTeX report into eight shared section files, added contribution
+  instructions, a PR template and CODEOWNERS, and provided a portable build/
+  Overleaf export command. Guarded the old conversion script against accidental
+  overwrites. Checked the report still compiles to 20 pages and that the source
+  ZIP includes all sections. Checked collaborator accounts and prepared PR #1
+  for peer review; no Xincheng account was guessed. The main branch is configured
+  to require one approving peer review, dismiss stale approvals, resolve review
+  conversations and enforce the rules for administrators.
 
 Keep the conversation export with prompts and outputs for the required
 `14_ai_tool.zip` reports. This short record is an index, not a replacement for

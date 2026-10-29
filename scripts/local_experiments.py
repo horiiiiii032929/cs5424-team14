@@ -104,7 +104,7 @@ psqlx() { psql -X -v ON_ERROR_STOP=1 -U postgres -h coordinator "$@"; }
     return manifest
 
 
-def verify(summary=False, prefix=''):
+def verify(summary=False, prefix='', report='T6_sales_summary.sql'):
     checks = {
         'nonnegative_inventory': 'SELECT count(*) FROM inventory WHERE quantity<0',
         'unique_order_ids': 'SELECT count(*) FROM (SELECT order_id FROM orders GROUP BY order_id HAVING count(*)>1) s',
@@ -117,11 +117,14 @@ def verify(summary=False, prefix=''):
           WHERE o.total_amount IS DISTINCT FROM COALESCE(x.amount,0)''',
     }
     if summary:
+        # Grouping also sums a114's per-day stripes; unstriped tables have one
+        # row per merchant/day, so the comparison is unchanged for them.
         checks['exact_daily_summary'] = '''WITH raw AS (SELECT merchant_id,date_trunc('day',created_at) sales_day,count(*) order_count,sum(total_amount) revenue
-          FROM orders GROUP BY merchant_id,date_trunc('day',created_at)), mismatch AS
-          ((SELECT * FROM raw EXCEPT SELECT * FROM sales_daily) UNION ALL
-           (SELECT * FROM sales_daily EXCEPT SELECT * FROM raw)) SELECT count(*) FROM mismatch'''
-        template = (ROOT / 'optimizations/T6_sales_summary.sql').read_text()
+          FROM orders GROUP BY merchant_id,date_trunc('day',created_at)), summary AS
+          (SELECT merchant_id,sales_day,sum(order_count) order_count,sum(revenue) revenue FROM sales_daily GROUP BY merchant_id,sales_day), mismatch AS
+          ((SELECT * FROM raw EXCEPT SELECT * FROM summary) UNION ALL
+           (SELECT * FROM summary EXCEPT SELECT * FROM raw)) SELECT count(*) FROM mismatch'''
+        template = (ROOT / 'optimizations' / report).read_text()
         # Remove top-20/order for an exact all-merchant equivalence test at one snapshot.
         optimized = template.replace('BEGIN;', '').replace('COMMIT;', '').strip().rstrip(';')
         optimized = optimized.replace(' ORDER BY revenue DESC LIMIT 20', '')
@@ -233,7 +236,7 @@ def main():
                 raise RuntimeError(f'Result directory already has data: {target}. Use a fresh --output.')
             print(f'{expt} c{clients}: setting up',flush=True)
             manifest=prepare(expt,target)
-            checks=verify(manifest.get('summary',False),'before_')
+            checks=verify(manifest.get('summary',False),report=manifest.get('summary_report','T6_sales_summary.sql'),prefix='before_')
             if args.setup_only:
                 (target/'setup-verification.json').write_text(json.dumps(checks,indent=2)+'\n')
                 print(f'{expt}: setup checks passed',flush=True)
@@ -241,11 +244,11 @@ def main():
             print(f'{expt} c{clients}: benchmarking',flush=True)
             try:
                 result=benchmark(expt,target,clients,args.duration,args.seed)
-                checks.update(verify(manifest.get('summary',False),'after_'))
+                checks.update(verify(manifest.get('summary',False),report=manifest.get('summary_report','T6_sales_summary.sql'),prefix='after_'))
             except Exception as error:
                 failure=dict(experiment=expt,clients=clients,status='FAILED',error=str(error))
                 try:
-                    failure['post_failure_checks']=verify(manifest.get('summary',False),'after_failure_')
+                    failure['post_failure_checks']=verify(manifest.get('summary',False),report=manifest.get('summary_report','T6_sales_summary.sql'),prefix='after_failure_')
                 except Exception as check_error:
                     failure['post_failure_check_error']=str(check_error)
                 (target/'failure.json').write_text(json.dumps(failure,indent=2)+'\n')

@@ -1,0 +1,171 @@
+2026-10-18 00:39:44.422 +08 [1456536] LOG:  There is no designated Main database.
+2026-10-18 00:39:44.422 +08 [1456536] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 00:39:44.422 +08 [1456536] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 00:39:44.573 +08 [1456536] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 00:39:44.574 +08 [1456536] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 00:39:44.574 +08 [1456536] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 00:39:44.574 +08 [1456536] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 00:39:44.579 +08 [1456546] LOG:  database system was shut down at 2026-10-18 00:39:44 +08
+2026-10-18 00:39:44.584 +08 [1456536] LOG:  database system is ready to accept connections
+2026-10-18 00:39:47.295 +08 [1456813] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 00:39:47.295 +08 [1456813] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 00:42:41.738 +08 [1456544] LOG:  checkpoint starting: immediate force wait
+2026-10-18 00:42:42.932 +08 [1456544] LOG:  checkpoint complete: wrote 123593 buffers (94.3%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 130 recycled; write=1.167 s, sync=0.005 s, total=1.195 s; sync files=907, longest=0.002 s, average=0.001 s; distance=2132592 kB, estimate=2132592 kB; lsn=0/839FB1A0, redo lsn=0/839FB148
+2026-10-18 00:45:31.924 +08 [1456544] LOG:  checkpoint starting: immediate force wait
+2026-10-18 00:45:32.998 +08 [1456544] LOG:  checkpoint complete: wrote 122408 buffers (93.4%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 130 recycled; write=1.049 s, sync=0.003 s, total=1.075 s; sync files=286, longest=0.002 s, average=0.001 s; distance=2125053 kB, estimate=2131838 kB; lsn=1/553A960, redo lsn=1/553A908
+2026-10-18 00:57:50.632 +08 [1456813] ERROR:  terminating connection due to administrator command
+2026-10-18 00:57:50.632 +08 [1456813] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 00:57:50.729 +08 [1456536] LOG:  background worker "Citus Maintenance Daemon: 16384/10" (PID 1456813) exited with exit code 1
+2026-10-18 00:57:51.205 +08 [1456536] LOG:  received fast shutdown request
+2026-10-18 00:57:51.213 +08 [1456536] LOG:  aborting any active transactions
+2026-10-18 00:57:51.216 +08 [1456536] LOG:  background worker "logical replication launcher" (PID 1456549) exited with exit code 1
+2026-10-18 00:57:51.219 +08 [1456544] LOG:  shutting down
+2026-10-18 00:57:51.219 +08 [1456544] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 00:57:51.276 +08 [1456544] LOG:  checkpoint complete: wrote 1663 buffers (1.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.054 s, sync=0.001 s, total=0.057 s; sync files=137, longest=0.001 s, average=0.001 s; distance=10845 kB, estimate=1919739 kB; lsn=1/5FD1E08, redo lsn=1/5FD1E08
+2026-10-18 00:57:51.615 +08 [1456536] LOG:  database system is shut down
+2026-10-18 00:57:51.827 +08 [1663084] LOG:  There is no designated Main database.
+2026-10-18 00:57:51.827 +08 [1663084] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 00:57:51.827 +08 [1663084] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 00:57:51.979 +08 [1663084] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 00:57:51.979 +08 [1663084] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 00:57:51.979 +08 [1663084] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 00:57:51.980 +08 [1663084] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 00:57:51.985 +08 [1663113] LOG:  database system was shut down at 2026-10-18 00:57:51 +08
+2026-10-18 00:57:51.990 +08 [1663084] LOG:  database system is ready to accept connections
+2026-10-18 00:57:52.894 +08 [1663297] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 00:57:52.894 +08 [1663297] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 01:00:44.106 +08 [1663110] LOG:  checkpoint starting: immediate force wait
+2026-10-18 01:00:45.288 +08 [1663110] LOG:  checkpoint complete: wrote 122391 buffers (93.4%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 130 recycled; write=1.157 s, sync=0.002 s, total=1.183 s; sync files=287, longest=0.001 s, average=0.001 s; distance=2124617 kB, estimate=2124617 kB; lsn=1/87AA45F8, redo lsn=1/87AA45A0
+2026-10-18 01:13:07.626 +08 [1663297] WARNING:  terminating connection due to administrator command
+2026-10-18 01:13:07.626 +08 [1663297] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 01:13:09.421 +08 [1663084] LOG:  received fast shutdown request
+2026-10-18 01:13:09.436 +08 [1663084] LOG:  aborting any active transactions
+2026-10-18 01:13:09.436 +08 [1797323] FATAL:  terminating connection due to administrator command
+2026-10-18 01:13:09.441 +08 [1663084] LOG:  background worker "logical replication launcher" (PID 1663117) exited with exit code 1
+2026-10-18 01:13:09.442 +08 [1663110] LOG:  shutting down
+2026-10-18 01:13:09.442 +08 [1663110] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 01:13:09.471 +08 [1663110] LOG:  checkpoint complete: wrote 1919 buffers (1.5%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.028 s, sync=0.001 s, total=0.030 s; sync files=133, longest=0.001 s, average=0.001 s; distance=12356 kB, estimate=1913391 kB; lsn=1/886B5760, redo lsn=1/886B5760
+2026-10-18 01:13:09.827 +08 [1663084] LOG:  database system is shut down
+2026-10-18 01:13:10.043 +08 [1857564] LOG:  There is no designated Main database.
+2026-10-18 01:13:10.043 +08 [1857564] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 01:13:10.043 +08 [1857564] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 01:13:10.199 +08 [1857564] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 01:13:10.200 +08 [1857564] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 01:13:10.200 +08 [1857564] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 01:13:10.200 +08 [1857564] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 01:13:10.205 +08 [1857600] LOG:  database system was shut down at 2026-10-18 01:13:09 +08
+2026-10-18 01:13:10.210 +08 [1857564] LOG:  database system is ready to accept connections
+2026-10-18 01:13:11.112 +08 [1857728] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 01:13:11.112 +08 [1857728] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 01:16:00.878 +08 [1857598] LOG:  checkpoint starting: immediate force wait
+2026-10-18 01:16:02.042 +08 [1857598] LOG:  checkpoint complete: wrote 122477 buffers (93.4%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 130 recycled; write=1.139 s, sync=0.002 s, total=1.164 s; sync files=287, longest=0.001 s, average=0.001 s; distance=2124779 kB, estimate=2124779 kB; lsn=2/A1B0668, redo lsn=2/A1B0610
+2026-10-18 01:28:30.621 +08 [1857564] LOG:  received fast shutdown request
+2026-10-18 01:28:30.633 +08 [1857564] LOG:  aborting any active transactions
+2026-10-18 01:28:30.633 +08 [1972777] FATAL:  terminating connection due to administrator command
+2026-10-18 01:28:30.638 +08 [1857564] LOG:  background worker "logical replication launcher" (PID 1857605) exited with exit code 1
+2026-10-18 01:28:30.640 +08 [1857598] LOG:  shutting down
+2026-10-18 01:28:30.641 +08 [1857598] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 01:28:30.673 +08 [1857598] LOG:  checkpoint complete: wrote 1952 buffers (1.5%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.028 s, sync=0.001 s, total=0.033 s; sync files=127, longest=0.001 s, average=0.001 s; distance=12327 kB, estimate=1913534 kB; lsn=2/ADBA280, redo lsn=2/ADBA280
+2026-10-18 01:28:31.035 +08 [1857564] LOG:  database system is shut down
+2026-10-18 01:28:31.229 +08 [2048949] LOG:  There is no designated Main database.
+2026-10-18 01:28:31.229 +08 [2048949] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 01:28:31.229 +08 [2048949] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 01:28:31.385 +08 [2048949] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 01:28:31.385 +08 [2048949] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 01:28:31.385 +08 [2048949] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 01:28:31.386 +08 [2048949] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 01:28:31.391 +08 [2048978] LOG:  database system was shut down at 2026-10-18 01:28:30 +08
+2026-10-18 01:28:31.396 +08 [2048949] LOG:  database system is ready to accept connections
+2026-10-18 01:28:32.318 +08 [2049093] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 01:28:32.318 +08 [2049093] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 01:31:20.463 +08 [2048976] LOG:  checkpoint starting: immediate force wait
+2026-10-18 01:31:21.627 +08 [2048976] LOG:  checkpoint complete: wrote 122477 buffers (93.4%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 130 recycled; write=1.139 s, sync=0.002 s, total=1.164 s; sync files=288, longest=0.001 s, average=0.001 s; distance=2124786 kB, estimate=2124786 kB; lsn=2/8C8B6DE8, redo lsn=2/8C8B6D90
+2026-10-18 01:44:15.504 +08 [2049093] WARNING:  terminating connection due to administrator command
+2026-10-18 01:44:15.504 +08 [2049093] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 01:44:15.504 +08 [2049093] WARNING:  terminating connection due to administrator command
+2026-10-18 01:44:15.504 +08 [2049093] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 01:44:15.504 +08 [2049093] WARNING:  terminating connection due to administrator command
+2026-10-18 01:44:15.504 +08 [2049093] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 01:44:15.504 +08 [2049093] WARNING:  could not issue cancel request
+2026-10-18 01:44:15.504 +08 [2049093] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-18 01:44:15.504 +08 [2049093] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 01:44:15.517 +08 [2049093] WARNING:  could not issue cancel request
+2026-10-18 01:44:15.517 +08 [2049093] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-18 01:44:15.517 +08 [2049093] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 01:44:15.674 +08 [2048949] LOG:  received fast shutdown request
+2026-10-18 01:44:15.703 +08 [2048949] LOG:  aborting any active transactions
+2026-10-18 01:44:15.703 +08 [2161988] FATAL:  terminating connection due to administrator command
+2026-10-18 01:44:15.707 +08 [2048949] LOG:  background worker "logical replication launcher" (PID 2048982) exited with exit code 1
+2026-10-18 01:44:15.710 +08 [2048976] LOG:  shutting down
+2026-10-18 01:44:15.710 +08 [2048976] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 01:44:15.739 +08 [2048976] LOG:  checkpoint complete: wrote 1942 buffers (1.5%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.028 s, sync=0.001 s, total=0.030 s; sync files=125, longest=0.001 s, average=0.001 s; distance=12061 kB, estimate=1913514 kB; lsn=2/8D47E210, redo lsn=2/8D47E210
+2026-10-18 01:44:16.106 +08 [2048949] LOG:  database system is shut down
+2026-10-18 01:44:16.294 +08 [2244930] LOG:  There is no designated Main database.
+2026-10-18 01:44:16.294 +08 [2244930] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 01:44:16.294 +08 [2244930] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 01:44:16.450 +08 [2244930] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 01:44:16.451 +08 [2244930] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 01:44:16.451 +08 [2244930] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 01:44:16.451 +08 [2244930] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 01:44:16.457 +08 [2244970] LOG:  database system was shut down at 2026-10-18 01:44:15 +08
+2026-10-18 01:44:16.462 +08 [2244930] LOG:  database system is ready to accept connections
+2026-10-18 01:44:17.380 +08 [2245150] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 01:44:17.380 +08 [2245150] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 01:47:04.846 +08 [2244968] LOG:  checkpoint starting: immediate force wait
+2026-10-18 01:47:06.004 +08 [2244968] LOG:  checkpoint complete: wrote 122409 buffers (93.4%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 129 recycled; write=1.132 s, sync=0.002 s, total=1.159 s; sync files=288, longest=0.001 s, average=0.001 s; distance=2124589 kB, estimate=2124589 kB; lsn=3/EF49938, redo lsn=3/EF498E0
+2026-10-18 02:00:16.842 +08 [2245150] WARNING:  terminating connection due to administrator command
+2026-10-18 02:00:16.842 +08 [2245150] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:00:18.099 +08 [2244930] LOG:  received fast shutdown request
+2026-10-18 02:00:18.120 +08 [2244930] LOG:  aborting any active transactions
+2026-10-18 02:00:18.120 +08 [2357163] FATAL:  terminating connection due to administrator command
+2026-10-18 02:00:18.127 +08 [2244930] LOG:  background worker "logical replication launcher" (PID 2244973) exited with exit code 1
+2026-10-18 02:00:18.128 +08 [2244968] LOG:  shutting down
+2026-10-18 02:00:18.129 +08 [2244968] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 02:00:18.165 +08 [2244968] LOG:  checkpoint complete: wrote 2174 buffers (1.7%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.035 s, sync=0.001 s, total=0.037 s; sync files=133, longest=0.001 s, average=0.001 s; distance=13322 kB, estimate=1913462 kB; lsn=3/FC4C1F8, redo lsn=3/FC4C1F8
+2026-10-18 02:00:18.526 +08 [2244930] LOG:  database system is shut down
+2026-10-18 02:00:18.716 +08 [2446628] LOG:  There is no designated Main database.
+2026-10-18 02:00:18.716 +08 [2446628] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-18 02:00:18.716 +08 [2446628] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-18 02:00:18.871 +08 [2446628] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-18 02:00:18.871 +08 [2446628] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-18 02:00:18.871 +08 [2446628] LOG:  listening on IPv6 address "::", port 5446
+2026-10-18 02:00:18.872 +08 [2446628] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-18 02:00:18.877 +08 [2446703] LOG:  database system was shut down at 2026-10-18 02:00:18 +08
+2026-10-18 02:00:18.882 +08 [2446628] LOG:  database system is ready to accept connections
+2026-10-18 02:00:19.790 +08 [2446983] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-18 02:00:19.790 +08 [2446983] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:03:06.239 +08 [2446700] LOG:  checkpoint starting: immediate force wait
+2026-10-18 02:03:07.408 +08 [2446700] LOG:  checkpoint complete: wrote 122391 buffers (93.4%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 130 recycled; write=1.145 s, sync=0.002 s, total=1.169 s; sync files=289, longest=0.001 s, average=0.001 s; distance=2124541 kB, estimate=2124541 kB; lsn=3/9170B798, redo lsn=3/9170B740
+2026-10-18 02:17:30.762 +08 [2446983] WARNING:  terminating connection due to administrator command
+2026-10-18 02:17:30.762 +08 [2446983] CONTEXT:  while executing command on xcnf2:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:17:30.763 +08 [2446983] WARNING:  terminating connection due to administrator command
+2026-10-18 02:17:30.763 +08 [2446983] CONTEXT:  while executing command on xcnf3:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:17:30.763 +08 [2446983] WARNING:  terminating connection due to administrator command
+2026-10-18 02:17:30.763 +08 [2446983] CONTEXT:  while executing command on xcnf1:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:17:30.763 +08 [2446983] WARNING:  could not issue cancel request
+2026-10-18 02:17:30.763 +08 [2446983] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-18 02:17:30.763 +08 [2446983] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:17:30.965 +08 [2446983] WARNING:  could not issue cancel request
+2026-10-18 02:17:30.965 +08 [2446983] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-18 02:17:30.965 +08 [2446983] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-18 02:17:31.042 +08 [2446628] LOG:  received fast shutdown request
+2026-10-18 02:17:31.042 +08 [2446628] LOG:  aborting any active transactions
+2026-10-18 02:17:31.042 +08 [2506180] FATAL:  terminating connection due to administrator command
+2026-10-18 02:17:31.046 +08 [2446628] LOG:  background worker "logical replication launcher" (PID 2446710) exited with exit code 1
+2026-10-18 02:17:31.049 +08 [2446700] LOG:  shutting down
+2026-10-18 02:17:31.049 +08 [2446700] LOG:  checkpoint starting: shutdown immediate
+2026-10-18 02:17:31.082 +08 [2446700] LOG:  checkpoint complete: wrote 1935 buffers (1.5%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.032 s, sync=0.001 s, total=0.034 s; sync files=141, longest=0.001 s, average=0.001 s; distance=11806 kB, estimate=1913267 kB; lsn=3/92293250, redo lsn=3/92293250
+2026-10-18 02:17:31.457 +08 [2446628] LOG:  database system is shut down

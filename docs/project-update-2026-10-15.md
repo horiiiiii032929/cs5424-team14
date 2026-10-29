@@ -1,5 +1,9 @@
 # Team 14 project update — 15 October 2026
 
+Historical checkpoint. For completed full runs and the 20 October a114/a115
+decisions, use [current project status](project-status.md). The access blockers
+and next steps below describe 15 October, not the current project state.
+
 Applied to the existing Drive planning documents on 15 October 2026 using
 `hori0329@gmail.com`: Project Hub, Our Optimization Ideas and Plan, Workload A
 plan, Workload B plan, Project Schedule, Report Checklist and AI Usage Log.

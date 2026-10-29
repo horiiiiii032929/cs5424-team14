@@ -1,0 +1,33 @@
+2026-10-28 18:19:11.304 +08 [2891402] LOG:  There is no designated Main database.
+2026-10-28 18:19:11.304 +08 [2891402] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-28 18:19:11.304 +08 [2891402] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-28 18:19:11.457 +08 [2891402] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-28 18:19:11.458 +08 [2891402] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-28 18:19:11.458 +08 [2891402] LOG:  listening on IPv6 address "::", port 5446
+2026-10-28 18:19:11.458 +08 [2891402] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-28 18:19:11.463 +08 [2891409] LOG:  database system was shut down at 2026-10-28 18:19:08 +08
+2026-10-28 18:19:11.468 +08 [2891402] LOG:  database system is ready to accept connections
+2026-10-28 18:19:14.022 +08 [2891417] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-28 18:19:14.022 +08 [2891417] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-28 18:28:42.970 +08 [2891776] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 18:28:42.970 +08 [2891776] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 18:28:42.970 +08 [2891776] HINT:  The transaction might succeed if retried.
+2026-10-28 18:28:42.970 +08 [2891776] STATEMENT:  WITH debit AS (UPDATE public.inventory_102092 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-28 18:28:43.015913'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '381537'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '381537'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-28 18:29:20.631 +08 [2891772] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-28 18:29:20.631 +08 [2891772] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-28 18:29:20.631 +08 [2891772] HINT:  The transaction might succeed if retried.
+2026-10-28 18:29:20.631 +08 [2891772] STATEMENT:  WITH debit AS (UPDATE public.inventory_102084 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-28 18:29:20.678368'::timestamp without time zone WHERE ((inventory.inventory_id OPERATOR(pg_catalog.=) '406143'::bigint) AND (inventory.product_id OPERATOR(pg_catalog.=) '406143'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-28 18:34:24.670 +08 [2891402] LOG:  received fast shutdown request
+2026-10-28 18:34:24.670 +08 [2891402] LOG:  aborting any active transactions
+2026-10-28 18:34:24.670 +08 [2891786] FATAL:  terminating connection due to administrator command
+2026-10-28 18:34:24.670 +08 [2891808] FATAL:  terminating connection due to administrator command
+2026-10-28 18:34:24.670 +08 [2891785] FATAL:  terminating connection due to administrator command
+2026-10-28 18:34:24.670 +08 [2891784] FATAL:  terminating connection due to administrator command
+2026-10-28 18:34:24.679 +08 [2891402] LOG:  background worker "logical replication launcher" (PID 2891412) exited with exit code 1
+2026-10-28 18:34:24.682 +08 [2891407] LOG:  shutting down
+2026-10-28 18:34:24.682 +08 [2891407] LOG:  checkpoint starting: shutdown immediate
+2026-10-28 18:34:25.806 +08 [2891862] LOG:  PID 2891784 in cancel request did not match any process
+2026-10-28 18:34:25.818 +08 [2891863] LOG:  PID 2891786 in cancel request did not match any process
+2026-10-28 18:34:25.825 +08 [2891864] LOG:  PID 2891785 in cancel request did not match any process
+2026-10-28 18:34:25.970 +08 [2891407] LOG:  checkpoint complete: wrote 128521 buffers (98.1%), wrote 24 SLRU buffers; 0 WAL file(s) added, 0 removed, 411 recycled; write=1.209 s, sync=0.007 s, total=1.288 s; sync files=1280, longest=0.001 s, average=0.001 s; distance=6731647 kB, estimate=6731647 kB; lsn=1/9C53EBE0, redo lsn=1/9C53EBE0
+2026-10-28 18:34:26.340 +08 [2891402] LOG:  database system is shut down

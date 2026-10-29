@@ -1,0 +1,25 @@
+{
+  "baseline_job": 977740,
+  "candidate_job": 977773,
+  "superseded_pending_candidate": 977741,
+  "baseline_actual_nodes": "xcnf[0-4]",
+  "candidate_requested_nodes": "xcnf[0-4]",
+  "baseline_verified_settings": {
+    "scale": "1",
+    "DURATION": "600",
+    "WARMUP_DURATION": "60",
+    "CLIENT_COUNTS": "1 4 8 16 32 64",
+    "RESET_BETWEEN_CLIENT_COUNTS": "1",
+    "LOG_SAMPLE_RATE": "1.0",
+    "PG_ISOLATION_LEVEL": "serializable",
+    "PG_WORK_MEM": "32MB",
+    "PG_SHARED_BUFFERS": "1GB",
+    "NUM_MERCHANTS": "1000",
+    "NUM_CUSTOMERS": "1000000",
+    "NUM_PRODUCTS": "500000",
+    "INITIAL_NUM_ORDERS": "5000000",
+    "PGBENCH_SEED": "42",
+    "DATA_SEED": "42"
+  },
+  "verification": "baseline full config and pending candidate Slurm request verified; full results pending"
+}

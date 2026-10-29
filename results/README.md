@@ -1,4 +1,62 @@
-# Results — 14 October 2026
+# Results
+
+## Current status — 22 October 2026
+
+The [B branch import/review](b-branch-review-20261022/README.md) preserves 975
+original files and reviews 42 cases. b6/c16 supports 539.437 TPS with both phases
+complete; c8 warmup and c32/c64 warmup/measurement aborts are excluded. All seven
+saved b6 T6 comparisons match, but runtime hashes and general integrity checks
+are not recorded. Hardware differs across the B series.
+
+Both a115 jobs are [fully imported and audited](cluster-full-a115-20261022/README.md)
+after VPN reconnection. The 275-file archive verifies 26 runtime hash comparisons,
+24 phase commands/exits, raw transaction/retry counts and all 12 validations.
+Seven cases complete both phases; six also have zero failed records. Seed-42
+c32/c64 and seed-7 c8/c16/c64 measurements abort, as do both c64 warmups.
+a112 remains provisional; eligible a115 cases support the index but do not
+establish a reliable full matrix. The clean a0/a112 figure is retained.
+See [project status](../docs/project-status.md) and [runbook](../docs/workload-a-cluster-runbook.md).
+
+## Verified 19–20 October follow-up
+
+Kelvin's a102/job 965657 source and raw results are now verified, along with his
+write-side runs. All six a102 measurements completed, but its 16-client warmup
+aborted and is flagged. Clean concurrent observations show 49–57% gains over preserved a0 job 918524,
+but only −3% to +6% over the fresh matched-family a0 control 977740.
+See the [verified import](cluster-import-20261019/README.md).
+
+Five follow-up variants a109–a113 passed **151 additional correctness checks**.
+All seven local four-client stress cases aborted, including the additional
+READ ONLY DEFERRABLE test. Failed performance metrics are excluded.
+The [course smoke suite](cluster-smoke-20261019/README.md) completed five cases
+and aborted three. The [first scale-1 a101 diagnostic](cluster-diagnostic-original-20261019/README.md)
+also aborted. Seven deliberate-corruption tests and a 25.753-second full-data
+check validated an exact, faster post-run validator. The [revised scale-1 diagnostics](cluster-diagnostic-20261019/README.md)
+then completed cleanly: a111/a112/a113 observed 89.9/92.4/90.6 TPS at four clients
+over 60 seconds. The [matched full comparison](cluster-full-20261019/README.md)
+(a0 977740 and a112 977773, xcnf0–4, 600 s, six client counts) completed with
+all exits zero: a112 54.2–90.8 TPS versus a0 3.2–3.6 TPS (17–28×), no failed
+transactions, and passing validation at every count. T6 now dominates a112's time.
+See [live cluster work](cluster/README.md).
+Seed-7 repeat 978177 agreed within 2.5% (64-client warmup abort flagged).
+a112 is the provisional A selection, pending Kelvin's review.
+See the [A report draft](../docs/workload-a-report-draft.md) and
+[cluster runbook](../docs/workload-a-cluster-runbook.md).
+
+a114 (a112 + exact daily sales summaries, eight stripes per merchant/day, and a
+T6 that reads raw orders only for the two partial days) passed
+[42 correctness checks](correctness-summary-20261019/README.md). In the
+[local pilot](summary-pilot-20261019/README.md) it completed at one client
+(285 vs a112's 306 TPS on the 50k-order fixture) and aborted at four clients,
+like a112. A [1M-order T6 check](t6-plan-check-20261019/README.md) measured
+25.5 ms versus 78.0 ms for a112's query, but 17.0 ms for the original query
+with only the `created_at` index. Completed cluster diagnostics 979865/979866
+confirmed that a114 is slower: 85.333 TPS versus a115's 288.633 TPS, with T6
+764.5 versus 115.9 ms. Both validated; a115 had two retried transactions and no
+failed transactions. a114 is not promoted. For a115 full-run aborts and the remaining archive audit, see the 22 October status above.
+See [T6 diagnostic evidence](cluster-diagnostic-t6-20261020/README.md).
+
+## Original results — 14 October 2026
 
 All five of Hikaru's Workload A proposals are implemented. They produce seven
 individual experiments and one combined experiment. The local distributed
@@ -68,17 +126,18 @@ timings for design comparisons.
 
 ## What remains for the course submission
 
-1. Reproduce and investigate the four-client colocation/combined failures on the
-   course cluster, without weakening isolation or changing the workload.
-2. Once the smoke runs are reviewed, run scale-1 measurements at 1, 4, 8, 16, 32
-   and 64 clients, with the original 60-second warmup and 600-second measurement.
-   Repeat promising designs to assess variability; report aborts and retries.
-3. Choose the final design from that evidence. Retain unsuccessful experiments
-   as useful findings and match report experiment IDs to the submitted folders.
+1. Confirm A with Kelvin using the completed a115 audit and its phase/failure
+   classifications; neither full a115 seed is a clean six-count matrix.
+2. Preserve a112's flagged seed-7/c64 warmup and all earlier local/smoke aborts.
+   The commit-time serialization issue is not established as generally resolved.
+3. Confirm B selection using the archived review; retain all abort/hardware caveats and fill core validation/runtime provenance gaps.
+4. Confirm both final designs, contribution statements and AI records, then
+   assemble the report and submission archives. See the [current action list](../docs/project-status.md).
 
-SoC SSH timed out before authentication on 14 October. No new Slurm jobs have
-been submitted and no existing team-cluster files were changed. The isolated
-upload and submission commands are in the [main README](../README.md).
+At the 14 October checkpoint, SoC SSH timed out before authentication and no
+new Slurm jobs had been submitted. Access was restored on 19 October; see the
+current follow-up above. Existing team files remain preserved. Isolated upload
+and submission commands are in the [main README](../README.md).
 
 ## Dessi's existing course-cluster baselines
 

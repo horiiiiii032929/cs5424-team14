@@ -1,0 +1,273 @@
+[
+  {
+    "Plan": {
+      "Node Type": "Limit",
+      "Parallel Aware": false,
+      "Async Capable": false,
+      "Startup Cost": 759.32,
+      "Total Cost": 759.37,
+      "Plan Rows": 20,
+      "Plan Width": 48,
+      "Actual Startup Time": 11.918,
+      "Actual Total Time": 11.92,
+      "Actual Rows": 10.0,
+      "Actual Loops": 1,
+      "Disabled": false,
+      "Output": [
+        "remote_scan.merchant_id",
+        "(COALESCE((pg_catalog.sum(remote_scan.order_count))::bigint, '0'::bigint))",
+        "(sum(remote_scan.revenue))"
+      ],
+      "Shared Hit Blocks": 91,
+      "Shared Read Blocks": 0,
+      "Shared Dirtied Blocks": 0,
+      "Shared Written Blocks": 0,
+      "Local Hit Blocks": 0,
+      "Local Read Blocks": 0,
+      "Local Dirtied Blocks": 0,
+      "Local Written Blocks": 0,
+      "Temp Read Blocks": 0,
+      "Temp Written Blocks": 0,
+      "Plans": [
+        {
+          "Node Type": "Sort",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 759.32,
+          "Total Cost": 759.82,
+          "Plan Rows": 200,
+          "Plan Width": 48,
+          "Actual Startup Time": 11.917,
+          "Actual Total Time": 11.918,
+          "Actual Rows": 10.0,
+          "Actual Loops": 1,
+          "Disabled": false,
+          "Output": [
+            "remote_scan.merchant_id",
+            "(COALESCE((pg_catalog.sum(remote_scan.order_count))::bigint, '0'::bigint))",
+            "(sum(remote_scan.revenue))"
+          ],
+          "Sort Key": [
+            "(sum(remote_scan.revenue)) DESC"
+          ],
+          "Sort Method": "quicksort",
+          "Sort Space Used": 25,
+          "Sort Space Type": "Memory",
+          "Shared Hit Blocks": 91,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0,
+          "Plans": [
+            {
+              "Node Type": "Aggregate",
+              "Strategy": "Hashed",
+              "Partial Mode": "Simple",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Startup Cost": 750.0,
+              "Total Cost": 754.0,
+              "Plan Rows": 200,
+              "Plan Width": 48,
+              "Actual Startup Time": 11.892,
+              "Actual Total Time": 11.896,
+              "Actual Rows": 10.0,
+              "Actual Loops": 1,
+              "Disabled": false,
+              "Output": [
+                "remote_scan.merchant_id",
+                "COALESCE((pg_catalog.sum(remote_scan.order_count))::bigint, '0'::bigint)",
+                "sum(remote_scan.revenue)"
+              ],
+              "Group Key": [
+                "remote_scan.merchant_id"
+              ],
+              "Planned Partitions": 0,
+              "HashAgg Batches": 1,
+              "Peak Memory Usage": 32,
+              "Disk Usage": 0,
+              "Shared Hit Blocks": 88,
+              "Shared Read Blocks": 0,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0,
+              "Plans": [
+                {
+                  "Node Type": "Custom Scan",
+                  "Parent Relationship": "Outer",
+                  "Custom Plan Provider": "Citus Adaptive",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Startup Cost": 0.0,
+                  "Total Cost": 0.0,
+                  "Plan Rows": 100000,
+                  "Plan Width": 48,
+                  "Actual Startup Time": 11.873,
+                  "Actual Total Time": 11.876,
+                  "Actual Rows": 38.0,
+                  "Actual Loops": 1,
+                  "Disabled": false,
+                  "Output": [
+                    "remote_scan.merchant_id",
+                    "remote_scan.order_count",
+                    "remote_scan.revenue"
+                  ],
+                  "Distributed Query": {
+                    "Job": {
+                      "Task Count": 32,
+                      "Tuple data received from nodes": "1066 bytes",
+                      "Tasks Shown": "One of 32",
+                      "Tasks": [
+                        {
+                          "Query": "SELECT merchant_id, count(*) AS order_count, sum(total_amount) AS revenue FROM public.orders_103353 orders WHERE ((created_at OPERATOR(pg_catalog.>=) (CURRENT_TIMESTAMP OPERATOR(pg_catalog.-) '30 days'::interval)) AND (created_at OPERATOR(pg_catalog.<) CURRENT_TIMESTAMP)) GROUP BY merchant_id",
+                          "Tuple data received from node": "28 bytes",
+                          "Node": "host=worker1 port=5432 dbname=postgres",
+                          "Remote Plan": [
+                            [
+                              {
+                                "Plan": {
+                                  "Node Type": "Aggregate",
+                                  "Strategy": "Hashed",
+                                  "Partial Mode": "Simple",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Startup Cost": 1.31,
+                                  "Total Cost": 1.33,
+                                  "Plan Rows": 2,
+                                  "Plan Width": 48,
+                                  "Actual Startup Time": 0.031,
+                                  "Actual Total Time": 0.031,
+                                  "Actual Rows": 1.0,
+                                  "Actual Loops": 1,
+                                  "Disabled": false,
+                                  "Output": [
+                                    "merchant_id",
+                                    "count(*)",
+                                    "sum(total_amount)"
+                                  ],
+                                  "Group Key": [
+                                    "orders.merchant_id"
+                                  ],
+                                  "Planned Partitions": 0,
+                                  "HashAgg Batches": 1,
+                                  "Peak Memory Usage": 32,
+                                  "Disk Usage": 0,
+                                  "Shared Hit Blocks": 1,
+                                  "Shared Read Blocks": 0,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0,
+                                  "Plans": [
+                                    {
+                                      "Node Type": "Seq Scan",
+                                      "Parent Relationship": "Outer",
+                                      "Parallel Aware": false,
+                                      "Async Capable": false,
+                                      "Relation Name": "orders_103353",
+                                      "Schema": "public",
+                                      "Alias": "orders",
+                                      "Startup Cost": 0.0,
+                                      "Total Cost": 1.29,
+                                      "Plan Rows": 2,
+                                      "Plan Width": 15,
+                                      "Actual Startup Time": 0.023,
+                                      "Actual Total Time": 0.023,
+                                      "Actual Rows": 1.0,
+                                      "Actual Loops": 1,
+                                      "Disabled": false,
+                                      "Output": [
+                                        "order_id",
+                                        "merchant_id",
+                                        "customer_id",
+                                        "order_status",
+                                        "total_amount",
+                                        "created_at"
+                                      ],
+                                      "Filter": "((orders.created_at < CURRENT_TIMESTAMP) AND (orders.created_at >= (CURRENT_TIMESTAMP - '30 days'::interval)))",
+                                      "Rows Removed by Filter": 12,
+                                      "Shared Hit Blocks": 1,
+                                      "Shared Read Blocks": 0,
+                                      "Shared Dirtied Blocks": 0,
+                                      "Shared Written Blocks": 0,
+                                      "Local Hit Blocks": 0,
+                                      "Local Read Blocks": 0,
+                                      "Local Dirtied Blocks": 0,
+                                      "Local Written Blocks": 0,
+                                      "Temp Read Blocks": 0,
+                                      "Temp Written Blocks": 0
+                                    }
+                                  ]
+                                },
+                                "Planning": {
+                                  "Shared Hit Blocks": 206,
+                                  "Shared Read Blocks": 0,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0
+                                },
+                                "Planning Time": 0.327,
+                                "Triggers": [],
+                                "Execution Time": 0.055
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "Shared Hit Blocks": 88,
+                  "Shared Read Blocks": 0,
+                  "Shared Dirtied Blocks": 0,
+                  "Shared Written Blocks": 0,
+                  "Local Hit Blocks": 0,
+                  "Local Read Blocks": 0,
+                  "Local Dirtied Blocks": 0,
+                  "Local Written Blocks": 0,
+                  "Temp Read Blocks": 0,
+                  "Temp Written Blocks": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning": {
+      "Shared Hit Blocks": 463,
+      "Shared Read Blocks": 0,
+      "Shared Dirtied Blocks": 0,
+      "Shared Written Blocks": 0,
+      "Local Hit Blocks": 0,
+      "Local Read Blocks": 0,
+      "Local Dirtied Blocks": 0,
+      "Local Written Blocks": 0,
+      "Temp Read Blocks": 0,
+      "Temp Written Blocks": 0
+    },
+    "Planning Time": 1.731,
+    "Triggers": [],
+    "Execution Time": 11.979
+  }
+]

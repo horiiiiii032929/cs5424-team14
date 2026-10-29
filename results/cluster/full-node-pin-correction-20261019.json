@@ -1,0 +1,20 @@
+{
+  "old_pending_job": 977741,
+  "replacement_job": 977773,
+  "baseline_job": 977740,
+  "reason": "SBATCH_NODELIST was not recognized as a node request. Baseline already allocated xcnf0\u20134. Cancel only the pending candidate and resubmit using explicit --nodelist=xcnf[0-4].",
+  "source_directory": "/home/stuproj/cs14/citus_hikaru_20261019-172259_cf48c8d",
+  "source_commit": "cf48c8d",
+  "submitted_at_utc": "2026-10-19T09:48:25.259049+00:00",
+  "sbatch_arguments": [
+    "sbatch",
+    "--parsable",
+    "--mail-type=NONE",
+    "--constraint=xcnf",
+    "--nodelist=xcnf[0-4]",
+    "--job-name=team14-hikaru-full",
+    "--dependency=afterok:977740",
+    "--export=ALL,TEAM_ID=14,WORKLOAD=A,PG_ISOLATION_LEVEL=serializable,LOG_SAMPLE_RATE=1.0,DATA_SEED=42,PGBENCH_SEED=42,NUM_MERCHANTS=1000,NUM_CUSTOMERS=1000000,NUM_PRODUCTS=500000,NUM_ORDERS=5000000,NUM_ORDER_ITEMS=15000000,SCALE=1,DURATION=600,WARMUP_DURATION=60,CLIENT_COUNTS=1 4 8 16 32 64,RESET_BETWEEN_CLIENT_COUNTS=1",
+    "run.sh"
+  ]
+}
