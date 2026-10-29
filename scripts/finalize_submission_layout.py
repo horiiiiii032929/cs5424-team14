@@ -64,4 +64,4 @@ with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
     for p in sorted(STAGE.rglob('*')):
         if p.is_file():z.write(p,p.relative_to(STAGE.parent))
 with zipfile.ZipFile(target) as z:assert z.testzip() is None
-print('Final layout:',len(cluster),'experiment folders (including two unbenchmarked variants with inherited results),',len(local),'local-only supporting implementations;',sum(len(e['jobs']) for e in cluster),'job folders; ZIP CRC passed.')
+print('Final layout:',len(cluster),'experiment folders,',len(local),'local-only supporting implementations;',sum(len(e['jobs']) for e in cluster),'job folders; ZIP CRC passed.')

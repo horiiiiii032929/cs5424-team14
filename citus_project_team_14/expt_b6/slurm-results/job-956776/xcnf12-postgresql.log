@@ -1,0 +1,22 @@
+2026-10-16 13:39:00.297 +08 [1428607] LOG:  There is no designated Main database.
+2026-10-16 13:39:00.297 +08 [1428607] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-16 13:39:00.297 +08 [1428607] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-16 13:39:00.447 +08 [1428607] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-16 13:39:00.447 +08 [1428607] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-16 13:39:00.447 +08 [1428607] LOG:  listening on IPv6 address "::", port 5446
+2026-10-16 13:39:00.447 +08 [1428607] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-16 13:39:00.453 +08 [1428614] LOG:  database system was shut down at 2026-10-16 13:38:58 +08
+2026-10-16 13:39:00.457 +08 [1428607] LOG:  database system is ready to accept connections
+2026-10-16 13:39:02.971 +08 [1428622] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-16 13:39:02.971 +08 [1428622] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-16 13:44:03.834 +08 [1428622] ERROR:  terminating connection due to administrator command
+2026-10-16 13:44:03.834 +08 [1428622] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-16 13:44:03.844 +08 [1428607] LOG:  background worker "Citus Maintenance Daemon: 16384/10" (PID 1428622) exited with exit code 1
+2026-10-16 13:44:04.265 +08 [1428607] LOG:  received fast shutdown request
+2026-10-16 13:44:04.265 +08 [1428607] LOG:  aborting any active transactions
+2026-10-16 13:44:04.269 +08 [1428607] LOG:  background worker "logical replication launcher" (PID 1428617) exited with exit code 1
+2026-10-16 13:44:04.270 +08 [1428612] LOG:  shutting down
+2026-10-16 13:44:04.270 +08 [1428612] LOG:  checkpoint starting: shutdown immediate
+2026-10-16 13:44:05.500 +08 [1428612] LOG:  checkpoint complete: wrote 128109 buffers (97.7%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 272 recycled; write=1.175 s, sync=0.006 s, total=1.231 s; sync files=1090, longest=0.001 s, average=0.001 s; distance=4464024 kB, estimate=4464024 kB; lsn=1/11EC4F30, redo lsn=1/11EC4F30
+2026-10-16 13:44:05.853 +08 [1428607] LOG:  database system is shut down

@@ -8,8 +8,8 @@ Proposed review draft cutoff: **29 October at 18:00**; upload target:
 
 The generated `upload/` directory contains exactly the three required names:
 
-- `14_files.zip`: one top-level `citus_project_team_14/`, including 23
-  experiment folders (b203/b204 contain inherited b2 evidence only), 48 job folders representing 45 jobs, eight separate local-only implementations,
+- `14_files.zip`: one top-level `citus_project_team_14/`, including 20
+  experiment folders, 44 job folders representing 43 jobs, eight separate local-only implementations,
   source snapshots, audit evidence and SHA-256 checksums.
   Local-only evidence is explicitly separate. Original source and failed runs
   are preserved; included files do not imply a performance result is clean.
@@ -58,7 +58,7 @@ copyable message and the remaining owners/actions.
 - [ ] Remove review wording and confirm the final PDF is at most 20 pages,
   with minimum 10-point text, all figures readable, and no placeholders.
 - [ ] Check the result ZIP inventory against experiments cited in the final
-  report; confirm the normalized supplementary IDs below with the B pair.
+  report; b202–b204 are excluded following Xincheng's removal.
 - [ ] Upload each of the three files to its corresponding Canvas assignment,
   verify receipts/downloads, and confirm week-13 Q&A registration.
 
@@ -69,14 +69,13 @@ To satisfy the required `expt_bN` directory format without changing source bytes
 | Original remote folder | Submitted folder |
 |---|---|
 | `expt_xc_b1` | `expt_b201` |
-| `expt_xc_b2` | `expt_b202` |
-| `expt_b3v_control` | `expt_b203` |
-| `expt_b3v_cover` | `expt_b204` |
+| `expt_xc_b2`, `expt_b3v_control`, `expt_b3v_cover` | Excluded: owner-retired b202–b204 |
 
 The original names remain in the provenance map and historical logs. These
 aliases concern packaging only and do not establish a new experiment or owner.
-**b203/b204 have no independent benchmark:** their copied job 928583 belongs to
-b2. b201's copied 918781 belongs to b0. The package identifies these in each
+Xincheng removed b202–b204 as unused in commit `1a5a2f3`; the packaging
+rules exclude both their submitted names and original cluster aliases.
+b201's copied 918781 belongs to b0. The package identifies these in each
 README, the experiment inventory and `job-source-map.json`.
 Supplementary b0/b6 results have been moved from `supplementary-results/` into
 their respective experiment's `slurm-results/job-N/` in the ZIP; provenance
@@ -101,9 +100,11 @@ The provenance file distinguishes original `source_sha256` from final
 The prior result and AI ZIPs are retained privately under
 `_build/before-organization-20261029/`. The original review remains in
 [the audit](non-report-audit-2026-10-29.md); the changes and current outstanding
-items are in [the organization follow-up](organization-2026-10-29.md).
+items were recorded in [the organization follow-up](organization-2026-10-29.md).
+The current package is described by [the 30 October reconciliation](reconciliation-2026-10-30.md).
 
 `scripts/prepare_ai_archive.py` uses the bundled Python runtime with ReportLab.
 It exports only project sessions, excluding hidden reasoning, system/developer
 metadata and automated approval-review sessions; known credentials are redacted.
-No teammate message, remote edit, commit, push or Canvas upload was performed.
+Canvas upload remains a separate step. Generated upload files and private AI
+records exist locally; a GitHub clone does not include them.

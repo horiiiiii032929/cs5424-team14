@@ -12,9 +12,11 @@ EXTRA_EVIDENCE = (
     'scalable-validator-checks-20261019', 'readonly-pilot-20261019',
     'join-placement-pilot-20261019', 'local-native-20261014',
 )
-INHERITED = {('expt_b201', 'job-918781'): 'expt_b0',
-             ('expt_b203', 'job-928583'): 'expt_b2',
-             ('expt_b204', 'job-928583'): 'expt_b2'}
+# Xincheng retired these in commit 1a5a2f3e380eb93dd8840ec51a34d388c160c49d.
+# Include original cluster aliases so stale snapshots cannot resurrect them.
+RETIRED_EXPERIMENTS = frozenset(('expt_b202', 'expt_b203', 'expt_b204',
+                               'expt_xc_b2', 'expt_b3v_control', 'expt_b3v_cover'))
+INHERITED = {('expt_b201', 'job-918781'): 'expt_b0'}
 
 
 def digest(path):
@@ -22,6 +24,9 @@ def digest(path):
 
 
 def organize(stage):
+    retired = [p.name for p in stage.glob('expt_*') if p.name in RETIRED_EXPERIMENTS]
+    if retired:
+        raise RuntimeError(f'Rebuild from prepare_submission.py to exclude retired experiments: {retired}')
     provenance_file = stage / 'packaging-provenance.json'
     provenance = json.loads(provenance_file.read_text())
     known = {(p['source'], p['destination']) for p in provenance}
@@ -68,12 +73,7 @@ def organize(stage):
     inventory = json.loads((stage / 'experiment-inventory.json').read_text())
     for entry in inventory:
         name = entry['experiment']
-        if name in ('expt_b203', 'expt_b204'):
-            entry['classification'] = 'unbenchmarked supporting variant; inherited expt_b2 results only'
-            entry['description'] = ('T6 ' + ('control' if name == 'expt_b203' else 'covering-index') +
-                                    ' source variant. No independent Slurm benchmark; job 928583 ran expt_b2.')
-        else:
-            entry['classification'] = 'Slurm experiment; retained failed attempts are not clean results'
+        entry['classification'] = 'Slurm experiment; retained failed attempts are not clean results'
         if name == 'expt_a112':
             entry['description'] = 'Selected A design: a111 plus READ ONLY; retain seed-7/c64 warmup caveat.'
         for job in entry['jobs']:

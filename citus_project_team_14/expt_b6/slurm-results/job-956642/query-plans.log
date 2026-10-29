@@ -1,0 +1,140 @@
+\timing on
+Timing is on.
+\echo ===== T6 Global Sales (rollup version) =====
+===== T6 Global Sales (rollup version) =====
+SELECT window_start, window_end, first_whole_day, cutoff_day, GREATEST(cutoff_day, first_whole_day) AS tail_start FROM (SELECT w.window_start, w.window_end, CASE WHEN w.window_start = date_trunc('day', w.window_start) THEN w.window_start::date ELSE w.window_start::date + 1 END AS first_whole_day, c.cutoff_day FROM (SELECT LOCALTIMESTAMP - 30 * INTERVAL '1 day' AS window_start, LOCALTIMESTAMP AS window_end) AS w CROSS JOIN merchant_daily_sales_cutoff AS c) AS t \gset
+Time: 3.971 ms
+\echo window_start=:window_start window_end=:window_end first_whole_day=:first_whole_day cutoff_day=:cutoff_day tail_start=:tail_start
+window_start=2026-09-16 13:29:44.350161 window_end=2026-10-16 13:29:44.350161 first_whole_day=2026-09-17 cutoff_day=2026-10-16 tail_start=2026-10-16
+EXPLAIN (VERBOSE) SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue FROM (SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue) FROM merchant_daily_sales WHERE sales_day >= :'first_whole_day'::date AND sales_day < :'cutoff_day'::date GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= :'window_start'::timestamp AND created_at < :'first_whole_day'::timestamp GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= :'tail_start'::timestamp AND created_at < :'window_end'::timestamp GROUP BY merchant_id) AS parts GROUP BY merchant_id ORDER BY revenue DESC LIMIT 20;
+ERROR:  column "order_count" does not exist
+LINE 1: EXPLAIN (VERBOSE) SELECT merchant_id, SUM(order_count)::bigi...
+                                                  ^
+Time: 0.579 ms
+EXPLAIN (ANALYZE, VERBOSE, BUFFERS) SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue FROM (SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue) FROM merchant_daily_sales WHERE sales_day >= :'first_whole_day'::date AND sales_day < :'cutoff_day'::date GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= :'window_start'::timestamp AND created_at < :'first_whole_day'::timestamp GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= :'tail_start'::timestamp AND created_at < :'window_end'::timestamp GROUP BY merchant_id) AS parts GROUP BY merchant_id ORDER BY revenue DESC LIMIT 20;
+ERROR:  column "order_count" does not exist
+LINE 1: ...NALYZE, VERBOSE, BUFFERS) SELECT merchant_id, SUM(order_coun...
+                                                             ^
+Time: 0.191 ms
+EXPLAIN (ANALYZE, VERBOSE, BUFFERS) SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue FROM (SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue) FROM merchant_daily_sales WHERE sales_day >= :'first_whole_day'::date AND sales_day < :'cutoff_day'::date GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= :'window_start'::timestamp AND created_at < :'first_whole_day'::timestamp GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= :'tail_start'::timestamp AND created_at < :'window_end'::timestamp GROUP BY merchant_id) AS parts GROUP BY merchant_id ORDER BY revenue DESC LIMIT 20;
+ERROR:  column "order_count" does not exist
+LINE 1: ...NALYZE, VERBOSE, BUFFERS) SELECT merchant_id, SUM(order_coun...
+                                                             ^
+Time: 0.167 ms
+\echo ===== T6 check: per-merchant totals, old query against rollup version (expect only_in_old = only_in_new = 0) =====
+===== T6 check: per-merchant totals, old query against rollup version (expect only_in_old = only_in_new = 0) =====
+WITH old_t6 AS (SELECT merchant_id, COUNT(*) AS order_count, SUM(total_amount) AS revenue FROM orders WHERE created_at >= :'window_start'::timestamp AND created_at < :'window_end'::timestamp GROUP BY merchant_id), new_t6 AS (SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue FROM (SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue) FROM merchant_daily_sales WHERE sales_day >= :'first_whole_day'::date AND sales_day < :'cutoff_day'::date GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= :'window_start'::timestamp AND created_at < :'first_whole_day'::timestamp GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= :'tail_start'::timestamp AND created_at < :'window_end'::timestamp GROUP BY merchant_id) AS parts GROUP BY merchant_id) SELECT (SELECT count(*) FROM old_t6) AS old_merchants, (SELECT count(*) FROM new_t6) AS new_merchants, (SELECT count(*) FROM (SELECT * FROM old_t6 EXCEPT SELECT * FROM new_t6) AS a) AS only_in_old, (SELECT count(*) FROM (SELECT * FROM new_t6 EXCEPT SELECT * FROM old_t6) AS b) AS only_in_new;
+ERROR:  column "order_count" does not exist
+LINE 1: ... merchant_id), new_t6 AS (SELECT merchant_id, SUM(order_coun...
+                                                             ^
+Time: 0.255 ms
+\echo ===== T3 Customer Order History (merchant 1, customer 1) =====
+===== T3 Customer Order History (merchant 1, customer 1) =====
+EXPLAIN (VERBOSE) SELECT o.order_id, o.order_status, o.total_amount, o.created_at, oi.product_id, oi.quantity, oi.unit_price FROM orders AS o JOIN order_items AS oi ON oi.order_id = o.order_id WHERE o.merchant_id = 1 AND o.customer_id = 1 ORDER BY o.created_at DESC LIMIT 20;
+                                                                                                                                                                                               QUERY PLAN                                                                                                                                                                                               
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=2660.96..2661.01 rows=20 width=92)
+   Output: remote_scan.order_id, remote_scan.order_status, remote_scan.total_amount, remote_scan.created_at, remote_scan.product_id, remote_scan.quantity, remote_scan.unit_price
+   ->  Sort  (cost=2660.96..2910.96 rows=100000 width=92)
+         Output: remote_scan.order_id, remote_scan.order_status, remote_scan.total_amount, remote_scan.created_at, remote_scan.product_id, remote_scan.quantity, remote_scan.unit_price
+         Sort Key: remote_scan.created_at DESC
+         ->  Custom Scan (Citus Adaptive)  (cost=0.00..0.00 rows=100000 width=92)
+               Output: remote_scan.order_id, remote_scan.order_status, remote_scan.total_amount, remote_scan.created_at, remote_scan.product_id, remote_scan.quantity, remote_scan.unit_price
+               Task Count: 32
+               Tasks Shown: One of 32
+               ->  Task
+                     Query: SELECT o.order_id, o.order_status, o.total_amount, o.created_at, oi.product_id, oi.quantity, oi.unit_price FROM (public.orders_102104 o JOIN public.order_items_102136 oi ON ((oi.order_id OPERATOR(pg_catalog.=) o.order_id))) WHERE ((o.merchant_id OPERATOR(pg_catalog.=) 1) AND (o.customer_id OPERATOR(pg_catalog.=) 1)) ORDER BY o.created_at DESC LIMIT '20'::bigint
+                     Node: host=xcnf11 port=5446 dbname=project-956642
+                     ->  Limit  (cost=24.74..24.75 rows=3 width=50)
+                           Output: o.order_id, o.order_status, o.total_amount, o.created_at, oi.product_id, oi.quantity, oi.unit_price
+                           ->  Sort  (cost=24.74..24.75 rows=3 width=50)
+                                 Output: o.order_id, o.order_status, o.total_amount, o.created_at, oi.product_id, oi.quantity, oi.unit_price
+                                 Sort Key: o.created_at DESC
+                                 ->  Nested Loop  (cost=4.87..24.72 rows=3 width=50)
+                                       Output: o.order_id, o.order_status, o.total_amount, o.created_at, oi.product_id, oi.quantity, oi.unit_price
+                                       ->  Index Scan using idx_orders_merchant_customer_102104 on public.orders_102104 o  (cost=0.42..8.44 rows=1 width=32)
+                                             Output: o.order_id, o.merchant_id, o.customer_id, o.order_status, o.total_amount, o.created_at
+                                             Index Cond: ((o.merchant_id = 1) AND (o.customer_id = 1))
+                                       ->  Bitmap Heap Scan on public.order_items_102136 oi  (cost=4.45..16.25 rows=3 width=26)
+                                             Output: oi.order_item_id, oi.merchant_id, oi.order_id, oi.product_id, oi.quantity, oi.unit_price
+                                             Recheck Cond: (o.order_id = oi.order_id)
+                                             ->  Bitmap Index Scan on order_items_pkey_102136  (cost=0.00..4.45 rows=3 width=0)
+                                                   Index Cond: (oi.order_id = o.order_id)
+(27 rows)
+
+Time: 17.257 ms
+EXPLAIN (ANALYZE, VERBOSE, BUFFERS) SELECT o.order_id, o.order_status, o.total_amount, o.created_at, oi.product_id, oi.quantity, oi.unit_price FROM orders AS o JOIN order_items AS oi ON oi.order_id = o.order_id WHERE o.merchant_id = 1 AND o.customer_id = 1 ORDER BY o.created_at DESC LIMIT 20;
+                                                                                                                                                                                               QUERY PLAN                                                                                                                                                                                               
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=2660.96..2661.01 rows=20 width=92) (actual time=31.770..31.773 rows=20.00 loops=1)
+   Output: remote_scan.order_id, remote_scan.order_status, remote_scan.total_amount, remote_scan.created_at, remote_scan.product_id, remote_scan.quantity, remote_scan.unit_price
+   Buffers: shared hit=21
+   ->  Sort  (cost=2660.96..2910.96 rows=100000 width=92) (actual time=31.769..31.770 rows=20.00 loops=1)
+         Output: remote_scan.order_id, remote_scan.order_status, remote_scan.total_amount, remote_scan.created_at, remote_scan.product_id, remote_scan.quantity, remote_scan.unit_price
+         Sort Key: remote_scan.created_at DESC
+         Sort Method: top-N heapsort  Memory: 29kB
+         Buffers: shared hit=21
+         ->  Custom Scan (Citus Adaptive)  (cost=0.00..0.00 rows=100000 width=92) (actual time=31.730..31.734 rows=78.00 loops=1)
+               Output: remote_scan.order_id, remote_scan.order_status, remote_scan.total_amount, remote_scan.created_at, remote_scan.product_id, remote_scan.quantity, remote_scan.unit_price
+               Task Count: 32
+               Tuple data received from nodes: 4764 bytes
+               Tasks Shown: One of 32
+               ->  Task
+                     Query: SELECT o.order_id, o.order_status, o.total_amount, o.created_at, oi.product_id, oi.quantity, oi.unit_price FROM (public.orders_102117 o JOIN public.order_items_102149 oi ON ((oi.order_id OPERATOR(pg_catalog.=) o.order_id))) WHERE ((o.merchant_id OPERATOR(pg_catalog.=) 1) AND (o.customer_id OPERATOR(pg_catalog.=) 1)) ORDER BY o.created_at DESC LIMIT '20'::bigint
+                     Tuple data received from node: 549 bytes
+                     Node: host=xcnf12 port=5446 dbname=project-956642
+                     ->  Limit  (cost=24.74..24.75 rows=3 width=50) (actual time=0.750..0.753 rows=9.00 loops=1)
+                           Output: o.order_id, o.order_status, o.total_amount, o.created_at, oi.product_id, oi.quantity, oi.unit_price
+                           Buffers: shared hit=30
+                           ->  Sort  (cost=24.74..24.75 rows=3 width=50) (actual time=0.749..0.751 rows=9.00 loops=1)
+                                 Output: o.order_id, o.order_status, o.total_amount, o.created_at, oi.product_id, oi.quantity, oi.unit_price
+                                 Sort Key: o.created_at DESC
+                                 Sort Method: quicksort  Memory: 26kB
+                                 Buffers: shared hit=30
+                                 ->  Nested Loop  (cost=4.87..24.72 rows=3 width=50) (actual time=0.245..0.701 rows=9.00 loops=1)
+                                       Output: o.order_id, o.order_status, o.total_amount, o.created_at, oi.product_id, oi.quantity, oi.unit_price
+                                       Buffers: shared hit=27
+                                       ->  Index Scan using idx_orders_merchant_customer_102117 on public.orders_102117 o  (cost=0.42..8.44 rows=1 width=32) (actual time=0.114..0.198 rows=3.00 loops=1)
+                                             Output: o.order_id, o.merchant_id, o.customer_id, o.order_status, o.total_amount, o.created_at
+                                             Index Cond: ((o.merchant_id = 1) AND (o.customer_id = 1))
+                                             Index Searches: 1
+                                             Buffers: shared hit=9
+                                       ->  Bitmap Heap Scan on public.order_items_102149 oi  (cost=4.45..16.25 rows=3 width=26) (actual time=0.102..0.163 rows=3.00 loops=3)
+                                             Output: oi.order_item_id, oi.merchant_id, oi.order_id, oi.product_id, oi.quantity, oi.unit_price
+                                             Recheck Cond: (o.order_id = oi.order_id)
+                                             Heap Blocks: exact=9
+                                             Buffers: shared hit=18
+                                             ->  Bitmap Index Scan on order_items_pkey_102149  (cost=0.00..4.45 rows=3 width=0) (actual time=0.064..0.064 rows=3.00 loops=3)
+                                                   Index Cond: (oi.order_id = o.order_id)
+                                                   Index Searches: 3
+                                                   Buffers: shared hit=9
+                         Planning:
+                           Buffers: shared hit=374
+                         Planning Time: 1.199 ms
+                         Execution Time: 0.819 ms
+               Buffers: shared hit=18
+ Planning:
+   Buffers: shared hit=6
+ Planning Time: 0.813 ms
+ Execution Time: 31.787 ms
+(51 rows)
+
+Time: 33.482 ms
+\echo ===== T5 Update Order Status (order 1; plan only, not executed) =====
+===== T5 Update Order Status (order 1; plan only, not executed) =====
+EXPLAIN (VERBOSE) UPDATE orders SET order_status = 'SHIPPED'::text WHERE order_id = 1;
+                                                           QUERY PLAN                                                           
+--------------------------------------------------------------------------------------------------------------------------------
+ Custom Scan (Citus Adaptive)  (cost=0.00..0.00 rows=0 width=0)
+   Task Count: 1
+   Tasks Shown: All
+   ->  Task
+         Query: UPDATE public.orders_102105 orders SET order_status = 'SHIPPED'::text WHERE (order_id OPERATOR(pg_catalog.=) 1)
+         Node: host=xcnf12 port=5446 dbname=project-956642
+         ->  Update on public.orders_102105 orders  (cost=0.42..8.44 rows=0 width=0)
+               ->  Index Scan using orders_pkey_102105 on public.orders_102105 orders  (cost=0.42..8.44 rows=1 width=38)
+                     Output: 'SHIPPED'::text, ctid
+                     Index Cond: (orders.order_id = 1)
+(10 rows)
+
+Time: 1.303 ms

@@ -1,0 +1,22 @@
+2026-10-21 15:55:35.652 +08 [1007587] LOG:  There is no designated Main database.
+2026-10-21 15:55:35.652 +08 [1007587] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-21 15:55:35.652 +08 [1007587] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-21 15:55:35.799 +08 [1007587] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-21 15:55:35.800 +08 [1007587] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-21 15:55:35.800 +08 [1007587] LOG:  listening on IPv6 address "::", port 5446
+2026-10-21 15:55:35.800 +08 [1007587] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-21 15:55:35.805 +08 [1007594] LOG:  database system was shut down at 2026-10-21 15:55:32 +08
+2026-10-21 15:55:35.809 +08 [1007587] LOG:  database system is ready to accept connections
+2026-10-21 15:55:38.349 +08 [1007622] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-21 15:55:38.349 +08 [1007622] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 15:55:44.976 +08 [1007902] LOG:  starting maintenance daemon on database 17532 user 10
+2026-10-21 15:55:44.976 +08 [1007902] CONTEXT:  Citus maintenance daemon for database 17532 user 10
+2026-10-21 15:59:35.814 +08 [1007587] LOG:  received fast shutdown request
+2026-10-21 15:59:35.814 +08 [1007587] LOG:  aborting any active transactions
+2026-10-21 15:59:35.815 +08 [1007941] FATAL:  terminating connection due to administrator command
+2026-10-21 15:59:35.815 +08 [1007941] STATEMENT:  UPDATE orders o SET total_amount=x.total FROM (SELECT order_id,SUM(quantity*unit_price)::numeric(12,2) total FROM order_items GROUP BY order_id) x WHERE o.order_id=x.order_id;
+2026-10-21 15:59:35.818 +08 [1007587] LOG:  background worker "logical replication launcher" (PID 1007597) exited with exit code 1
+2026-10-21 15:59:35.917 +08 [1007592] LOG:  shutting down
+2026-10-21 15:59:35.917 +08 [1007592] LOG:  checkpoint starting: shutdown immediate
+2026-10-21 15:59:35.978 +08 [1007592] LOG:  checkpoint complete: wrote 2519 buffers (1.9%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.055 s, sync=0.004 s, total=0.062 s; sync files=929, longest=0.001 s, average=0.001 s; distance=15197 kB, estimate=15197 kB; lsn=0/26364C8, redo lsn=0/26364C8
+2026-10-21 15:59:36.047 +08 [1007587] LOG:  database system is shut down

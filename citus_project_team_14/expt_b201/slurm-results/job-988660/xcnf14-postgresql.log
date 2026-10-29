@@ -1,0 +1,28 @@
+2026-10-21 15:44:17.038 +08 [1227100] LOG:  There is no designated Main database.
+2026-10-21 15:44:17.038 +08 [1227100] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-21 15:44:17.038 +08 [1227100] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-21 15:44:17.151 +08 [1227100] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-21 15:44:17.151 +08 [1227100] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-21 15:44:17.151 +08 [1227100] LOG:  listening on IPv6 address "::", port 5446
+2026-10-21 15:44:17.152 +08 [1227100] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-21 15:44:17.155 +08 [1227164] LOG:  database system was shut down at 2026-10-21 15:44:16 +08
+2026-10-21 15:44:17.159 +08 [1227100] LOG:  database system is ready to accept connections
+2026-10-21 15:44:19.935 +08 [1228002] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-21 15:44:19.935 +08 [1228002] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 15:45:06.950 +08 [1228002] WARNING:  terminating connection due to administrator command
+2026-10-21 15:45:06.950 +08 [1228002] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 15:45:06.950 +08 [1228002] WARNING:  terminating connection due to administrator command
+2026-10-21 15:45:06.950 +08 [1228002] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 15:45:06.968 +08 [1228002] WARNING:  could not issue cancel request
+2026-10-21 15:45:06.968 +08 [1228002] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-21 15:45:06.968 +08 [1228002] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 15:45:07.409 +08 [1227100] LOG:  received fast shutdown request
+2026-10-21 15:45:07.413 +08 [1227100] LOG:  aborting any active transactions
+2026-10-21 15:45:07.417 +08 [1227100] LOG:  background worker "logical replication launcher" (PID 1227169) exited with exit code 1
+2026-10-21 15:45:07.417 +08 [1227162] LOG:  shutting down
+2026-10-21 15:45:07.417 +08 [1227162] LOG:  checkpoint starting: shutdown immediate
+2026-10-21 15:45:07.461 +08 [1227162] LOG:  checkpoint complete: wrote 2576 buffers (2.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 3 recycled; write=0.031 s, sync=0.005 s, total=0.044 s; sync files=1000, longest=0.001 s, average=0.001 s; distance=43692 kB, estimate=43692 kB; lsn=0/420A078, redo lsn=0/420A078
+2026-10-21 15:45:07.508 +08 [1227100] LOG:  database system is shut down

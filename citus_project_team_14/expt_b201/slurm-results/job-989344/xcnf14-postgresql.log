@@ -1,0 +1,953 @@
+2026-10-21 17:47:57.668 +08 [2700274] LOG:  There is no designated Main database.
+2026-10-21 17:47:57.668 +08 [2700274] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-21 17:47:57.668 +08 [2700274] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-21 17:47:57.778 +08 [2700274] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-21 17:47:57.779 +08 [2700274] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-21 17:47:57.779 +08 [2700274] LOG:  listening on IPv6 address "::", port 5446
+2026-10-21 17:47:57.779 +08 [2700274] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-21 17:47:57.783 +08 [2700281] LOG:  database system was shut down at 2026-10-21 17:47:57 +08
+2026-10-21 17:47:57.786 +08 [2700274] LOG:  database system is ready to accept connections
+2026-10-21 17:48:00.490 +08 [2700289] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-21 17:48:00.490 +08 [2700289] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:04:16.258 +08 [2700289] WARNING:  terminating connection due to administrator command
+2026-10-21 18:04:16.258 +08 [2700289] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:04:18.267 +08 [2700289] WARNING:  connection to the remote node cs14@xcnf11:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 18:04:18.267 +08 [2700289] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:04:18.267 +08 [2700289] WARNING:  terminating connection due to administrator command
+2026-10-21 18:04:18.267 +08 [2700289] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:04:18.267 +08 [2700289] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 18:04:18.267 +08 [2700289] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:04:20.279 +08 [2700289] WARNING:  connection to the remote node cs14@xcnf12:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-21 18:04:20.279 +08 [2700289] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:04:20.279 +08 [2700289] WARNING:  connection to the remote node cs14@xcnf11:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 18:04:20.279 +08 [2700289] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:04:20.279 +08 [2700289] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-21 18:04:20.279 +08 [2700289] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:04:20.279 +08 [2700289] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 18:04:20.279 +08 [2700289] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:04:20.279 +08 [2700289] WARNING:  terminating connection due to administrator command
+2026-10-21 18:04:20.279 +08 [2700289] CONTEXT:  while executing command on xcnf13:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:04:20.279 +08 [2700289] WARNING:  could not issue cancel request
+2026-10-21 18:04:20.279 +08 [2700289] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-21 18:04:20.279 +08 [2700289] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:04:20.327 +08 [2700274] LOG:  received fast shutdown request
+2026-10-21 18:04:20.327 +08 [2700274] LOG:  aborting any active transactions
+2026-10-21 18:04:20.327 +08 [2700506] FATAL:  terminating connection due to administrator command
+2026-10-21 18:04:20.330 +08 [2700274] LOG:  background worker "logical replication launcher" (PID 2700284) exited with exit code 1
+2026-10-21 18:04:20.333 +08 [2700279] LOG:  shutting down
+2026-10-21 18:04:20.333 +08 [2700279] LOG:  checkpoint starting: shutdown immediate
+2026-10-21 18:04:21.033 +08 [2700279] LOG:  checkpoint complete: wrote 96201 buffers (73.4%), wrote 52 SLRU buffers; 0 WAL file(s) added, 0 removed, 210 recycled; write=0.665 s, sync=0.004 s, total=0.701 s; sync files=1049, longest=0.001 s, average=0.001 s; distance=3438388 kB, estimate=3438388 kB; lsn=0/D352C1B8, redo lsn=0/D352C1B8
+2026-10-21 18:04:21.237 +08 [2700274] LOG:  database system is shut down
+2026-10-21 18:04:21.427 +08 [2700575] LOG:  There is no designated Main database.
+2026-10-21 18:04:21.427 +08 [2700575] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-21 18:04:21.427 +08 [2700575] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-21 18:04:21.537 +08 [2700575] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-21 18:04:21.537 +08 [2700575] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-21 18:04:21.537 +08 [2700575] LOG:  listening on IPv6 address "::", port 5446
+2026-10-21 18:04:21.538 +08 [2700575] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-21 18:04:21.541 +08 [2700582] LOG:  database system was shut down at 2026-10-21 18:04:21 +08
+2026-10-21 18:04:21.545 +08 [2700575] LOG:  database system is ready to accept connections
+2026-10-21 18:04:22.526 +08 [2700591] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-21 18:04:22.526 +08 [2700591] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:07:27.548 +08 [2700658] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:07:27.548 +08 [2700658] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:07:27.548 +08 [2700658] HINT:  The transaction might succeed if retried.
+2026-10-21 18:07:27.548 +08 [2700658] STATEMENT:  PREPARE TRANSACTION 'citus_0_1015486_43074_16072'
+2026-10-21 18:08:52.701 +08 [2700673] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:08:52.701 +08 [2700673] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:08:52.707796'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '414499'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:09:19.593 +08 [2700673] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:09:19.593 +08 [2700673] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:09:19.599771'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '140167'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:09:48.002 +08 [2700673] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:09:48.002 +08 [2700673] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:09:48.002 +08 [2700673] HINT:  The transaction might succeed if retried.
+2026-10-21 18:09:48.002 +08 [2700673] STATEMENT:  PREPARE TRANSACTION 'citus_0_1015513_248702_60458'
+2026-10-21 18:11:42.350 +08 [2700692] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:11:42.350 +08 [2700692] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:11:42.355284'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '57090'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:18:03.653 +08 [2700591] WARNING:  terminating connection due to administrator command
+2026-10-21 18:18:03.653 +08 [2700591] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:18:03.654 +08 [2700591] WARNING:  terminating connection due to administrator command
+2026-10-21 18:18:03.654 +08 [2700591] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:18:03.659 +08 [2700591] WARNING:  could not issue cancel request
+2026-10-21 18:18:03.659 +08 [2700591] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-21 18:18:03.659 +08 [2700591] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:18:05.664 +08 [2700591] WARNING:  connection to the remote node cs14@xcnf12:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-21 18:18:05.664 +08 [2700591] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:18:05.664 +08 [2700591] WARNING:  connection to the remote node cs14@xcnf11:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 18:18:05.664 +08 [2700591] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:18:05.664 +08 [2700591] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-21 18:18:05.664 +08 [2700591] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:18:05.664 +08 [2700591] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 18:18:05.664 +08 [2700591] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:18:05.664 +08 [2700591] WARNING:  terminating connection due to administrator command
+2026-10-21 18:18:05.664 +08 [2700591] CONTEXT:  while executing command on xcnf13:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:18:06.027 +08 [2700575] LOG:  received fast shutdown request
+2026-10-21 18:18:06.027 +08 [2700575] LOG:  aborting any active transactions
+2026-10-21 18:18:06.027 +08 [2701342] FATAL:  terminating connection due to administrator command
+2026-10-21 18:18:06.031 +08 [2700575] LOG:  background worker "logical replication launcher" (PID 2700585) exited with exit code 1
+2026-10-21 18:18:06.033 +08 [2700580] LOG:  shutting down
+2026-10-21 18:18:06.033 +08 [2700580] LOG:  checkpoint starting: shutdown immediate
+2026-10-21 18:18:06.688 +08 [2700580] LOG:  checkpoint complete: wrote 95087 buffers (72.5%), wrote 221 SLRU buffers; 0 WAL file(s) added, 0 removed, 119 recycled; write=0.639 s, sync=0.002 s, total=0.655 s; sync files=272, longest=0.001 s, average=0.001 s; distance=1953138 kB, estimate=1953138 kB; lsn=1/4A888CE8, redo lsn=1/4A888CE8
+2026-10-21 18:18:06.896 +08 [2700575] LOG:  database system is shut down
+2026-10-21 18:18:07.035 +08 [2704704] LOG:  There is no designated Main database.
+2026-10-21 18:18:07.035 +08 [2704704] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-21 18:18:07.035 +08 [2704704] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-21 18:18:07.146 +08 [2704704] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-21 18:18:07.146 +08 [2704704] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-21 18:18:07.146 +08 [2704704] LOG:  listening on IPv6 address "::", port 5446
+2026-10-21 18:18:07.147 +08 [2704704] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-21 18:18:07.150 +08 [2704714] LOG:  database system was shut down at 2026-10-21 18:18:06 +08
+2026-10-21 18:18:07.154 +08 [2704704] LOG:  database system is ready to accept connections
+2026-10-21 18:18:08.120 +08 [2704738] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-21 18:18:08.120 +08 [2704738] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:21:04.698 +08 [2707746] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:21:04.698 +08 [2707746] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:21:04.698 +08 [2707746] HINT:  The transaction might succeed if retried.
+2026-10-21 18:21:04.698 +08 [2707746] STATEMENT:  PREPARE TRANSACTION 'citus_0_1016224_47711_8990'
+2026-10-21 18:21:57.916 +08 [2708995] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:21:57.916 +08 [2708995] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:21:57.919097'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '83124'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:22:20.534 +08 [2708998] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:22:20.534 +08 [2708998] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:22:20.534844'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '434823'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:22:22.917 +08 [2708995] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:22:22.917 +08 [2708995] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:22:22.917925'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '165563'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:22:38.124 +08 [2708998] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:22:38.124 +08 [2708998] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-21 18:22:38.124 +08 [2708998] HINT:  The transaction might succeed if retried.
+2026-10-21 18:22:38.124 +08 [2708998] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:22:38.125755'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '329655'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:22:54.244 +08 [2708995] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:22:54.244 +08 [2708995] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:22:54.246299'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '107763'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:23:49.224 +08 [2708996] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:23:49.224 +08 [2708996] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:23:49.223894'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '23246'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:24:00.117 +08 [2708995] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:24:00.117 +08 [2708995] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:24:00.117 +08 [2708995] HINT:  The transaction might succeed if retried.
+2026-10-21 18:24:00.117 +08 [2708995] STATEMENT:  PREPARE TRANSACTION 'citus_0_1016263_471951_62050'
+2026-10-21 18:24:49.994 +08 [2708996] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:24:49.994 +08 [2708996] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:24:49.994873'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '293732'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:25:34.776 +08 [2708998] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:25:34.776 +08 [2708998] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:25:34.776 +08 [2708998] HINT:  The transaction might succeed if retried.
+2026-10-21 18:25:34.776 +08 [2708998] STATEMENT:  PREPARE TRANSACTION 'citus_0_1016261_686416_109274'
+2026-10-21 18:25:40.292 +08 [2709001] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:25:40.292 +08 [2709001] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:25:40.292 +08 [2709001] HINT:  The transaction might succeed if retried.
+2026-10-21 18:25:40.292 +08 [2709001] STATEMENT:  PREPARE TRANSACTION 'citus_0_1016257_698059_113050'
+2026-10-21 18:26:02.469 +08 [2709000] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:26:02.469 +08 [2709000] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 18:26:02.469605'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '450773'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:26:08.745 +08 [2708996] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:26:08.745 +08 [2708996] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:26:08.745 +08 [2708996] HINT:  The transaction might succeed if retried.
+2026-10-21 18:26:08.745 +08 [2708996] STATEMENT:  COMMIT
+2026-10-21 18:26:08.745 +08 [2708996] WARNING:  there is no transaction in progress
+2026-10-21 18:27:30.658 +08 [2708997] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:27:30.658 +08 [2708997] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:27:30.657887'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '189041'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:28:27.622 +08 [2713592] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:28:27.622 +08 [2713592] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:28:27.621726'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '302099'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:30:09.478 +08 [2708997] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:30:09.478 +08 [2708997] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:30:09.478 +08 [2708997] HINT:  The transaction might succeed if retried.
+2026-10-21 18:30:09.478 +08 [2708997] STATEMENT:  PREPARE TRANSACTION 'citus_0_1016264_1187705_254972'
+2026-10-21 18:30:35.835 +08 [2713494] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:30:35.835 +08 [2713494] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:30:35.835 +08 [2713494] HINT:  The transaction might succeed if retried.
+2026-10-21 18:30:35.835 +08 [2713494] STATEMENT:  PREPARE TRANSACTION 'citus_0_1016261_1238988_271359'
+2026-10-21 18:31:51.223 +08 [2704738] WARNING:  terminating connection due to administrator command
+2026-10-21 18:31:51.223 +08 [2704738] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:31:53.232 +08 [2704738] WARNING:  connection to the remote node cs14@xcnf11:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 18:31:53.232 +08 [2704738] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:31:53.232 +08 [2704738] WARNING:  terminating connection due to administrator command
+2026-10-21 18:31:53.232 +08 [2704738] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:31:53.232 +08 [2704738] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 18:31:53.232 +08 [2704738] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:31:53.232 +08 [2704738] WARNING:  terminating connection due to administrator command
+2026-10-21 18:31:53.232 +08 [2704738] CONTEXT:  while executing command on xcnf13:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:31:53.233 +08 [2704738] WARNING:  could not issue cancel request
+2026-10-21 18:31:53.233 +08 [2704738] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-21 18:31:53.233 +08 [2704738] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:31:54.488 +08 [2704704] LOG:  received fast shutdown request
+2026-10-21 18:31:54.489 +08 [2704704] LOG:  aborting any active transactions
+2026-10-21 18:31:54.489 +08 [2716635] FATAL:  terminating connection due to administrator command
+2026-10-21 18:31:54.493 +08 [2704704] LOG:  background worker "logical replication launcher" (PID 2704717) exited with exit code 1
+2026-10-21 18:31:54.495 +08 [2704712] LOG:  shutting down
+2026-10-21 18:31:54.495 +08 [2704712] LOG:  checkpoint starting: shutdown immediate
+2026-10-21 18:31:55.170 +08 [2704712] LOG:  checkpoint complete: wrote 95154 buffers (72.6%), wrote 277 SLRU buffers; 0 WAL file(s) added, 0 removed, 126 recycled; write=0.655 s, sync=0.002 s, total=0.676 s; sync files=272, longest=0.001 s, average=0.001 s; distance=2065296 kB, estimate=2065296 kB; lsn=1/C896D050, redo lsn=1/C896D050
+2026-10-21 18:31:55.385 +08 [2704704] LOG:  database system is shut down
+2026-10-21 18:31:55.494 +08 [2726772] LOG:  There is no designated Main database.
+2026-10-21 18:31:55.494 +08 [2726772] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-21 18:31:55.494 +08 [2726772] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-21 18:31:55.609 +08 [2726772] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-21 18:31:55.609 +08 [2726772] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-21 18:31:55.609 +08 [2726772] LOG:  listening on IPv6 address "::", port 5446
+2026-10-21 18:31:55.610 +08 [2726772] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-21 18:31:55.613 +08 [2726787] LOG:  database system was shut down at 2026-10-21 18:31:55 +08
+2026-10-21 18:31:55.617 +08 [2726772] LOG:  database system is ready to accept connections
+2026-10-21 18:31:56.587 +08 [2726848] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-21 18:31:56.587 +08 [2726848] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:35:43.529 +08 [2738736] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:35:43.529 +08 [2738736] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:35:43.524948'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '259641'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:35:56.987 +08 [2738756] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:35:56.987 +08 [2738756] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:35:56.983474'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '166066'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:36:07.254 +08 [2738743] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:36:07.254 +08 [2738743] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:36:07.249945'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '240523'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:36:07.586 +08 [2738748] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:36:07.586 +08 [2738748] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:36:07.580586'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '253299'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:36:20.814 +08 [2738746] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:36:20.814 +08 [2738746] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:36:20.810748'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '90982'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:36:35.874 +08 [2738743] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:36:35.874 +08 [2738743] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:36:35.866892'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '149717'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:37:28.138 +08 [2738734] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:37:28.138 +08 [2738734] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:37:28.134281'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '326901'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:37:40.764 +08 [2738748] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:37:40.764 +08 [2738748] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:37:40.764 +08 [2738748] HINT:  The transaction might succeed if retried.
+2026-10-21 18:37:40.764 +08 [2738748] STATEMENT:  PREPARE TRANSACTION 'citus_0_1016980_513872_34831'
+2026-10-21 18:38:01.115 +08 [2738741] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:38:01.115 +08 [2738741] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:38:01.11107'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '427236'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:38:27.885 +08 [2738735] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:38:27.885 +08 [2738735] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:38:27.885 +08 [2738735] HINT:  The transaction might succeed if retried.
+2026-10-21 18:38:27.885 +08 [2738735] STATEMENT:  PREPARE TRANSACTION 'citus_0_1016967_644517_47382'
+2026-10-21 18:38:29.983 +08 [2745489] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:38:29.983 +08 [2745489] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 18:38:29.971781'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '379010'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:39:06.576 +08 [2738747] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:39:06.576 +08 [2738747] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:39:06.576 +08 [2738747] HINT:  The transaction might succeed if retried.
+2026-10-21 18:39:06.576 +08 [2738747] STATEMENT:  PREPARE TRANSACTION 'citus_0_1016977_751530_58096'
+2026-10-21 18:39:23.207 +08 [2738741] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:39:23.207 +08 [2738741] DETAIL:  Reason code: Canceled on identification as a pivot, during conflict out checking.
+2026-10-21 18:39:23.207 +08 [2738741] HINT:  The transaction might succeed if retried.
+2026-10-21 18:39:23.207 +08 [2738741] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:39:23.201917'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '311771'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:39:33.697 +08 [2738743] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:39:33.697 +08 [2738743] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 18:39:33.691302'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '142735'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:39:58.056 +08 [2738751] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:39:58.056 +08 [2738751] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 18:39:58.048156'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '239749'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:39:58.322 +08 [2738743] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:39:58.322 +08 [2738743] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:39:58.316966'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '139173'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:40:27.286 +08 [2738734] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:40:27.286 +08 [2738734] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:40:27.278056'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '229404'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:41:22.187 +08 [2738744] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:41:22.187 +08 [2738744] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:41:22.178874'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '380404'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:41:26.986 +08 [2738746] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:41:26.986 +08 [2738746] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:41:26.980346'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '417940'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:41:47.844 +08 [2747899] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:41:47.844 +08 [2747899] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:41:47.83873'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '206854'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:41:50.774 +08 [2738751] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:41:50.774 +08 [2738751] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:41:50.774 +08 [2738751] HINT:  The transaction might succeed if retried.
+2026-10-21 18:41:50.774 +08 [2738751] STATEMENT:  PREPARE TRANSACTION 'citus_0_1016974_1159168_101414'
+2026-10-21 18:41:57.565 +08 [2747899] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:41:57.565 +08 [2747899] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 18:41:57.558237'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '325100'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:42:01.184 +08 [2738743] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:42:01.184 +08 [2738743] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 18:42:01.176838'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '184307'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:42:16.328 +08 [2738737] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:42:16.328 +08 [2738737] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 18:42:16.320686'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '41858'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:42:34.150 +08 [2738739] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:42:34.150 +08 [2738739] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:42:34.150 +08 [2738739] HINT:  The transaction might succeed if retried.
+2026-10-21 18:42:34.150 +08 [2738739] STATEMENT:  PREPARE TRANSACTION 'citus_0_1016966_1278965_114250'
+2026-10-21 18:43:25.573 +08 [2749900] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:43:25.573 +08 [2749900] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 18:43:25.566597'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '43776'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:43:59.046 +08 [2754251] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:43:59.046 +08 [2754251] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 18:43:59.037616'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '17472'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:44:12.057 +08 [2738737] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:44:12.057 +08 [2738737] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:44:12.05034'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '233844'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:45:03.926 +08 [2749900] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:45:03.926 +08 [2749900] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:45:03.921072'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '273767'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:45:09.464 +08 [2738756] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:45:09.464 +08 [2738756] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:45:09.457515'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '418391'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:45:10.848 +08 [2738742] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:45:10.848 +08 [2738742] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:45:10.83851'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '269263'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:45:14.982 +08 [2738755] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:45:14.982 +08 [2738755] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:45:14.974522'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '45329'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:45:21.418 +08 [2738742] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:45:21.418 +08 [2738742] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:45:21.410689'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '84239'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:45:27.848 +08 [2738737] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:45:27.848 +08 [2738737] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:45:27.840971'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '196724'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:45:43.618 +08 [2726848] WARNING:  terminating connection due to administrator command
+2026-10-21 18:45:43.618 +08 [2726848] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:45:43.618 +08 [2726848] WARNING:  terminating connection due to administrator command
+2026-10-21 18:45:43.618 +08 [2726848] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:45:43.623 +08 [2726848] WARNING:  could not issue cancel request
+2026-10-21 18:45:43.623 +08 [2726848] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-21 18:45:43.623 +08 [2726848] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:45:45.628 +08 [2726848] WARNING:  connection to the remote node cs14@xcnf12:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-21 18:45:45.628 +08 [2726848] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:45:45.628 +08 [2726848] WARNING:  connection to the remote node cs14@xcnf11:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 18:45:45.628 +08 [2726848] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:45:45.628 +08 [2726848] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-21 18:45:45.628 +08 [2726848] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:45:45.628 +08 [2726848] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 18:45:45.628 +08 [2726848] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:45:45.628 +08 [2726848] WARNING:  terminating connection due to administrator command
+2026-10-21 18:45:45.628 +08 [2726848] CONTEXT:  while executing command on xcnf13:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:45:46.330 +08 [2726772] LOG:  received fast shutdown request
+2026-10-21 18:45:46.330 +08 [2726772] LOG:  aborting any active transactions
+2026-10-21 18:45:46.330 +08 [2756122] FATAL:  terminating connection due to administrator command
+2026-10-21 18:45:46.335 +08 [2726772] LOG:  background worker "logical replication launcher" (PID 2726790) exited with exit code 1
+2026-10-21 18:45:46.336 +08 [2726785] LOG:  shutting down
+2026-10-21 18:45:46.337 +08 [2726785] LOG:  checkpoint starting: shutdown immediate
+2026-10-21 18:45:47.025 +08 [2726785] LOG:  checkpoint complete: wrote 95328 buffers (72.7%), wrote 281 SLRU buffers; 0 WAL file(s) added, 0 removed, 133 recycled; write=0.669 s, sync=0.002 s, total=0.689 s; sync files=272, longest=0.001 s, average=0.001 s; distance=2174321 kB, estimate=2174321 kB; lsn=2/4D4C9778, redo lsn=2/4D4C9778
+2026-10-21 18:45:47.242 +08 [2726772] LOG:  database system is shut down
+2026-10-21 18:45:47.435 +08 [2768957] LOG:  There is no designated Main database.
+2026-10-21 18:45:47.435 +08 [2768957] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-21 18:45:47.435 +08 [2768957] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-21 18:45:47.551 +08 [2768957] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-21 18:45:47.551 +08 [2768957] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-21 18:45:47.551 +08 [2768957] LOG:  listening on IPv6 address "::", port 5446
+2026-10-21 18:45:47.552 +08 [2768957] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-21 18:45:47.555 +08 [2768976] LOG:  database system was shut down at 2026-10-21 18:45:47 +08
+2026-10-21 18:45:47.559 +08 [2768957] LOG:  database system is ready to accept connections
+2026-10-21 18:45:48.532 +08 [2769054] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-21 18:45:48.532 +08 [2769054] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:48:27.655 +08 [2779553] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:48:27.655 +08 [2779553] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:48:27.655 +08 [2779553] HINT:  The transaction might succeed if retried.
+2026-10-21 18:48:27.655 +08 [2779553] STATEMENT:  PREPARE TRANSACTION 'citus_0_1017652_466_18'
+2026-10-21 18:48:27.723 +08 [2779546] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:48:27.723 +08 [2779546] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:48:27.723 +08 [2779546] HINT:  The transaction might succeed if retried.
+2026-10-21 18:48:27.723 +08 [2779546] STATEMENT:  COMMIT
+2026-10-21 18:48:27.724 +08 [2779546] WARNING:  there is no transaction in progress
+2026-10-21 18:48:30.200 +08 [2779571] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:48:30.200 +08 [2779571] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:48:30.200 +08 [2779571] HINT:  The transaction might succeed if retried.
+2026-10-21 18:48:30.200 +08 [2779571] STATEMENT:  PREPARE TRANSACTION 'citus_0_1017659_7558_346'
+2026-10-21 18:48:30.665 +08 [2779547] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:48:30.665 +08 [2779547] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:48:30.652404'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '102553'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:48:46.319 +08 [2779564] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:48:46.319 +08 [2779564] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:48:46.311029'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '81380'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:48:56.011 +08 [2779552] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:48:56.011 +08 [2779552] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:48:55.998712'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '410516'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:49:01.127 +08 [2779545] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:49:01.127 +08 [2779545] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:49:01.114192'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '320598'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:49:01.510 +08 [2779556] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:49:01.510 +08 [2779556] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:49:01.494166'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '430518'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:49:13.076 +08 [2779550] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:49:13.076 +08 [2779550] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 18:49:13.063954'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '209294'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:49:29.595 +08 [2783528] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:49:29.595 +08 [2783528] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:49:29.584278'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '84860'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:49:32.267 +08 [2783542] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:49:32.267 +08 [2783542] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:49:32.249455'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '114398'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:49:33.779 +08 [2783533] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:49:33.779 +08 [2783533] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-21 18:49:33.779 +08 [2783533] HINT:  The transaction might succeed if retried.
+2026-10-21 18:49:33.779 +08 [2783533] STATEMENT:  PREPARE TRANSACTION 'citus_0_1017711_185903_785'
+2026-10-21 18:49:55.322 +08 [2783565] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:49:55.322 +08 [2783565] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:49:55.309859'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '93307'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:49:56.313 +08 [2783564] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:49:56.313 +08 [2783564] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:49:56.303365'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '257508'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:49:59.612 +08 [2783537] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:49:59.612 +08 [2783537] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:49:59.597436'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '312623'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:50:07.038 +08 [2783543] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:50:07.038 +08 [2783543] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:50:07.027505'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '372850'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:50:09.284 +08 [2783535] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:50:09.284 +08 [2783535] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 18:50:09.265454'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '141494'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:50:24.252 +08 [2783546] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:50:24.252 +08 [2783546] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:50:24.240133'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '77034'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:50:24.472 +08 [2783541] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:50:24.472 +08 [2783541] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:50:24.461202'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '397380'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:50:25.756 +08 [2783531] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:50:25.756 +08 [2783531] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:50:25.742618'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '184346'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:50:27.299 +08 [2783565] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:50:27.299 +08 [2783565] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:50:27.290619'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '124184'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:50:38.769 +08 [2783546] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:50:38.769 +08 [2783546] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:50:38.758322'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '370151'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:50:39.061 +08 [2783965] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:50:39.061 +08 [2783965] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 18:50:39.045827'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '39154'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:50:45.059 +08 [2783525] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:50:45.059 +08 [2783525] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:50:45.047103'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '415583'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:50:50.258 +08 [2783564] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:50:50.258 +08 [2783564] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:50:50.246959'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '213886'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:50:56.629 +08 [2783524] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:50:56.629 +08 [2783524] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 18:50:56.612218'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '24468'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:51:02.020 +08 [2783535] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:51:02.020 +08 [2783535] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:51:02.020 +08 [2783535] HINT:  The transaction might succeed if retried.
+2026-10-21 18:51:02.020 +08 [2783535] STATEMENT:  COMMIT
+2026-10-21 18:51:02.021 +08 [2783535] WARNING:  there is no transaction in progress
+2026-10-21 18:51:06.599 +08 [2783537] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:51:06.599 +08 [2783537] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:51:06.588937'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '138059'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:51:08.667 +08 [2783551] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:51:08.667 +08 [2783551] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:51:08.654882'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '357237'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:51:17.612 +08 [2783526] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:51:17.612 +08 [2783526] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:51:17.605733'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '363327'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:51:19.014 +08 [2783541] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:51:19.014 +08 [2783541] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:51:19.000596'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '253508'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:51:23.025 +08 [2783554] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:51:23.025 +08 [2783554] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 18:51:23.01492'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '60697'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:51:35.705 +08 [2783547] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:51:35.705 +08 [2783547] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:51:35.691205'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '442207'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:51:46.252 +08 [2783554] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:51:46.252 +08 [2783554] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 18:51:46.244822'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '398243'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:51:53.046 +08 [2783538] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:51:53.046 +08 [2783538] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:51:53.033973'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '208397'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:52:02.298 +08 [2783525] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:52:02.298 +08 [2783525] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:52:02.285642'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '426118'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:52:05.810 +08 [2783546] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:52:05.810 +08 [2783546] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:52:05.802941'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '471216'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:52:12.924 +08 [2783537] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 18:52:12.924 +08 [2783537] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 18:52:12.924 +08 [2783537] HINT:  The transaction might succeed if retried.
+2026-10-21 18:52:12.924 +08 [2783537] STATEMENT:  PREPARE TRANSACTION 'citus_0_1017719_629097_21713'
+2026-10-21 18:52:14.295 +08 [2783556] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:52:14.295 +08 [2783556] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 18:52:14.283857'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '470464'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:52:19.569 +08 [2783524] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:52:19.569 +08 [2783524] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 18:52:19.556778'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '151145'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:52:21.761 +08 [2783555] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:52:21.761 +08 [2783555] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:52:21.747867'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '447526'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:52:28.750 +08 [2783531] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:52:28.750 +08 [2783531] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 18:52:28.736334'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '80249'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:52:31.147 +08 [2783551] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:52:31.147 +08 [2783551] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:52:31.136829'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '324224'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:52:40.494 +08 [2783542] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:52:40.494 +08 [2783542] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:52:40.4852'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '477369'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:52:40.816 +08 [2783523] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:52:40.816 +08 [2783523] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 18:52:40.806164'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '138856'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:52:46.424 +08 [2783542] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:52:46.424 +08 [2783542] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:52:46.412476'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '104812'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:52:53.642 +08 [2783551] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:52:53.642 +08 [2783551] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:52:53.634403'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '252671'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:52:55.768 +08 [2783561] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:52:55.768 +08 [2783561] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 18:52:55.760169'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '415911'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:53:19.634 +08 [2783538] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:53:19.634 +08 [2783538] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:53:19.624735'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '102140'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:53:26.112 +08 [2783559] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:53:26.112 +08 [2783559] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:53:26.099503'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '125094'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:53:31.159 +08 [2783541] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:53:31.159 +08 [2783541] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:53:31.152965'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '284884'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:54:08.021 +08 [2783529] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:54:08.021 +08 [2783529] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 18:54:08.007846'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '61373'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:54:14.190 +08 [2783523] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:54:14.190 +08 [2783523] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:54:14.170321'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '315141'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:54:19.411 +08 [2783536] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:54:19.411 +08 [2783536] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 18:54:19.402216'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '50502'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:54:20.903 +08 [2783525] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:54:20.903 +08 [2783525] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 18:54:20.882782'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '393107'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:54:27.693 +08 [2783525] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:54:27.693 +08 [2783525] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:54:27.680015'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '11479'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:54:32.796 +08 [2783541] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:54:32.796 +08 [2783541] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 18:54:32.780333'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '275665'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:54:36.545 +08 [2783565] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:54:36.545 +08 [2783565] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:54:36.530825'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '239974'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:54:37.379 +08 [2783534] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:54:37.379 +08 [2783534] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:54:37.36824'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '164715'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:54:55.237 +08 [2783556] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:54:55.237 +08 [2783556] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:54:55.222933'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '56399'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:55:06.716 +08 [2783565] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:55:06.716 +08 [2783565] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 18:55:06.705436'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '221394'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:55:33.728 +08 [2783561] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:55:33.728 +08 [2783561] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:55:33.721883'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '391988'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:55:40.536 +08 [2783556] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:55:40.536 +08 [2783556] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 18:55:40.523051'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '389712'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:55:54.236 +08 [2783544] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:55:54.236 +08 [2783544] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:55:54.227676'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '159880'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:55:57.961 +08 [2783554] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:55:57.961 +08 [2783554] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 18:55:57.955206'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '361390'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:56:00.517 +08 [2783536] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:56:00.517 +08 [2783536] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 18:56:00.505635'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '414891'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:56:08.445 +08 [2783555] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:56:08.445 +08 [2783555] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:56:08.435722'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '159385'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:56:30.450 +08 [2783541] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:56:30.450 +08 [2783541] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 18:56:30.4343'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '21484'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:56:37.321 +08 [2783559] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:56:37.321 +08 [2783559] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:56:37.312611'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '194645'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:56:42.875 +08 [2783527] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:56:42.875 +08 [2783527] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:56:42.866621'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '41827'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:56:47.750 +08 [2783555] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:56:47.750 +08 [2783555] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 18:56:47.741876'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '111886'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:57:05.083 +08 [2783559] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:57:05.083 +08 [2783559] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:57:05.076075'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '208803'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:57:10.684 +08 [2783564] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:57:10.684 +08 [2783564] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 18:57:10.677764'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '67005'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:57:10.949 +08 [2783559] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:57:10.949 +08 [2783559] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 18:57:10.939353'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '19563'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:57:18.767 +08 [2783965] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:57:18.767 +08 [2783965] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:57:18.758768'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '392934'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:57:27.415 +08 [2783523] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:57:27.415 +08 [2783523] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 18:57:27.405376'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '77252'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:57:41.076 +08 [2783529] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:57:41.076 +08 [2783529] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 18:57:41.068467'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '83892'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:57:42.206 +08 [2783524] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:57:42.206 +08 [2783524] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:57:42.196228'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '90403'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:57:46.127 +08 [2783965] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:57:46.127 +08 [2783965] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:57:46.115227'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '137484'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:57:46.622 +08 [2783965] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:57:46.622 +08 [2783965] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:57:46.608836'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '92795'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:57:51.605 +08 [2783524] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:57:51.605 +08 [2783524] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:57:51.598874'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '314770'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:58:00.066 +08 [2783542] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:58:00.066 +08 [2783542] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 18:58:00.056356'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '197085'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:58:01.166 +08 [2783529] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:58:01.166 +08 [2783529] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:58:01.159933'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '261578'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:58:05.544 +08 [2783555] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:58:05.544 +08 [2783555] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:58:05.537295'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '66668'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:58:24.746 +08 [2783534] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:58:24.746 +08 [2783534] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 18:58:24.736562'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '228661'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:58:25.054 +08 [2783530] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:58:25.054 +08 [2783530] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 18:58:25.049227'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '213093'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:58:44.422 +08 [2783551] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:58:44.422 +08 [2783551] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 18:58:44.416927'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '278865'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:59:01.632 +08 [2783526] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:59:01.632 +08 [2783526] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 18:59:01.62594'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '239210'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 18:59:27.426 +08 [2783564] ERROR:  could not serialize access due to concurrent update
+2026-10-21 18:59:27.426 +08 [2783564] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 18:59:27.415155'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '197056'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 18:59:35.560 +08 [2769054] WARNING:  terminating connection due to administrator command
+2026-10-21 18:59:35.560 +08 [2769054] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:59:37.731 +08 [2769054] WARNING:  connection to the remote node cs14@xcnf11:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 18:59:37.731 +08 [2769054] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:59:37.731 +08 [2769054] WARNING:  terminating connection due to administrator command
+2026-10-21 18:59:37.731 +08 [2769054] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:59:37.731 +08 [2769054] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 18:59:37.731 +08 [2769054] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:59:37.731 +08 [2769054] WARNING:  terminating connection due to administrator command
+2026-10-21 18:59:37.731 +08 [2769054] CONTEXT:  while executing command on xcnf13:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:59:37.731 +08 [2769054] WARNING:  could not issue cancel request
+2026-10-21 18:59:37.731 +08 [2769054] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-21 18:59:37.731 +08 [2769054] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 18:59:38.616 +08 [2768957] LOG:  received fast shutdown request
+2026-10-21 18:59:38.616 +08 [2768957] LOG:  aborting any active transactions
+2026-10-21 18:59:38.616 +08 [2805240] FATAL:  terminating connection due to administrator command
+2026-10-21 18:59:38.620 +08 [2768957] LOG:  background worker "logical replication launcher" (PID 2768979) exited with exit code 1
+2026-10-21 18:59:38.623 +08 [2768974] LOG:  shutting down
+2026-10-21 18:59:38.623 +08 [2768974] LOG:  checkpoint starting: shutdown immediate
+2026-10-21 18:59:39.307 +08 [2768974] LOG:  checkpoint complete: wrote 95580 buffers (72.9%), wrote 283 SLRU buffers; 0 WAL file(s) added, 0 removed, 133 recycled; write=0.664 s, sync=0.002 s, total=0.685 s; sync files=272, longest=0.001 s, average=0.001 s; distance=2181272 kB, estimate=2181272 kB; lsn=2/D26EF988, redo lsn=2/D26EF988
+2026-10-21 18:59:39.522 +08 [2768957] LOG:  database system is shut down
+2026-10-21 18:59:39.728 +08 [2820807] LOG:  There is no designated Main database.
+2026-10-21 18:59:39.728 +08 [2820807] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-21 18:59:39.728 +08 [2820807] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-21 18:59:39.843 +08 [2820807] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-21 18:59:39.843 +08 [2820807] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-21 18:59:39.843 +08 [2820807] LOG:  listening on IPv6 address "::", port 5446
+2026-10-21 18:59:39.843 +08 [2820807] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-21 18:59:39.847 +08 [2820830] LOG:  database system was shut down at 2026-10-21 18:59:39 +08
+2026-10-21 18:59:39.850 +08 [2820807] LOG:  database system is ready to accept connections
+2026-10-21 18:59:40.818 +08 [2820936] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-21 18:59:40.818 +08 [2820936] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 19:02:20.406 +08 [2833175] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 19:02:20.406 +08 [2833175] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 19:02:20.406 +08 [2833175] HINT:  The transaction might succeed if retried.
+2026-10-21 19:02:20.406 +08 [2833175] STATEMENT:  COMMIT
+2026-10-21 19:02:20.410 +08 [2833175] WARNING:  there is no transaction in progress
+2026-10-21 19:02:21.733 +08 [2833190] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:02:21.733 +08 [2833190] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:02:21.716454'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '473225'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:02:21.823 +08 [2833206] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:02:21.823 +08 [2833206] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:02:21.812969'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '373436'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:02:23.774 +08 [2833185] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:02:23.774 +08 [2833185] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:02:23.763328'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '28811'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:02:26.068 +08 [2833181] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:02:26.068 +08 [2833181] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 19:02:26.057141'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '430889'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:02:32.616 +08 [2833231] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:02:32.616 +08 [2833231] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:02:32.584384'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '307772'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:02:36.034 +08 [2833211] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 19:02:36.034 +08 [2833211] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 19:02:36.034 +08 [2833211] HINT:  The transaction might succeed if retried.
+2026-10-21 19:02:36.034 +08 [2833211] STATEMENT:  COMMIT
+2026-10-21 19:02:36.036 +08 [2833211] WARNING:  there is no transaction in progress
+2026-10-21 19:02:37.961 +08 [2833162] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:02:37.961 +08 [2833162] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:02:37.943923'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '151283'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:02:38.850 +08 [2833168] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:02:38.850 +08 [2833168] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:02:38.82676'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '78953'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:02:39.780 +08 [2833177] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:02:39.780 +08 [2833177] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:02:39.76931'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '242736'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:02:41.161 +08 [2833243] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:02:41.161 +08 [2833243] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:02:41.148977'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '328986'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:02:46.423 +08 [2833225] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:02:46.423 +08 [2833225] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:02:46.41253'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '349635'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:02:48.957 +08 [2833230] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:02:48.957 +08 [2833230] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:02:48.946283'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '414305'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:02:58.685 +08 [2833206] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 19:02:58.685 +08 [2833206] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 19:02:58.685 +08 [2833206] HINT:  The transaction might succeed if retried.
+2026-10-21 19:02:58.685 +08 [2833206] STATEMENT:  PREPARE TRANSACTION 'citus_0_1018536_101502_2520'
+2026-10-21 19:02:59.420 +08 [2833218] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:02:59.420 +08 [2833218] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:02:59.410378'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '155700'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:03:07.008 +08 [2833217] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:07.008 +08 [2833217] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:03:06.999079'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '480994'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:03:07.911 +08 [2833225] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 19:03:07.911 +08 [2833225] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 19:03:07.911 +08 [2833225] HINT:  The transaction might succeed if retried.
+2026-10-21 19:03:07.911 +08 [2833225] STATEMENT:  COMMIT
+2026-10-21 19:03:07.913 +08 [2833225] WARNING:  there is no transaction in progress
+2026-10-21 19:03:12.662 +08 [2833205] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:12.662 +08 [2833205] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:03:12.642778'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '183874'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:03:15.487 +08 [2833195] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 19:03:15.487 +08 [2833195] DETAIL:  Reason code: Canceled on identification as a pivot, during write.
+2026-10-21 19:03:15.487 +08 [2833195] HINT:  The transaction might succeed if retried.
+2026-10-21 19:03:15.487 +08 [2833195] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:03:15.471552'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '276317'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:03:18.074 +08 [2833177] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:18.074 +08 [2833177] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:03:18.054429'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '205790'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:03:18.709 +08 [2833192] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:18.709 +08 [2833192] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:03:18.703283'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '146624'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:03:19.502 +08 [2833188] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:19.502 +08 [2833188] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:03:19.490513'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '379776'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:03:25.416 +08 [2837337] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:25.416 +08 [2837337] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:03:25.396537'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '320684'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:03:30.008 +08 [2837360] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:30.008 +08 [2837360] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:03:29.981513'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '114398'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:03:30.144 +08 [2837335] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:30.144 +08 [2837335] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:03:30.107406'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '300062'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:03:31.521 +08 [2837341] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:31.521 +08 [2837341] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:03:31.513284'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '227638'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:03:33.019 +08 [2837342] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:33.019 +08 [2837342] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 19:03:33.011384'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '248818'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:03:39.189 +08 [2837343] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:39.189 +08 [2837343] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 19:03:39.162072'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '163823'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:03:45.059 +08 [2837309] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:45.059 +08 [2837309] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:03:45.041227'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '314820'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:03:45.609 +08 [2837334] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:45.609 +08 [2837334] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:03:45.585852'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '264648'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:03:54.161 +08 [2837299] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:54.161 +08 [2837299] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:03:54.147136'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '20060'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:03:57.002 +08 [2837304] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:03:57.002 +08 [2837304] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:03:56.9786'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '243417'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:04:02.189 +08 [2837304] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:02.189 +08 [2837304] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 19:04:02.170586'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '235458'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:04:03.097 +08 [2837365] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:03.097 +08 [2837365] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:04:03.083877'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '55358'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:04:05.884 +08 [2837309] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:05.884 +08 [2837309] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:04:05.874162'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '104879'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:04:10.538 +08 [2837300] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:10.538 +08 [2837300] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:04:10.513963'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '309842'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:04:16.107 +08 [2837299] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:16.107 +08 [2837299] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:04:16.087283'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '428317'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:04:19.650 +08 [2837361] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:19.650 +08 [2837361] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:04:19.623334'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '93307'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:04:25.187 +08 [2837370] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:25.187 +08 [2837370] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:04:25.172551'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '477994'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:04:34.280 +08 [2837313] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:34.280 +08 [2837313] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:04:34.272484'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '253818'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:04:34.546 +08 [2837376] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:34.546 +08 [2837376] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:04:34.521257'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '302238'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:04:40.113 +08 [2837302] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:40.113 +08 [2837302] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:04:40.089052'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '265194'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:04:46.737 +08 [2837311] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:46.737 +08 [2837311] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:04:46.715844'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '420768'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:04:56.627 +08 [2837354] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:56.627 +08 [2837354] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 19:04:56.614418'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '104197'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:04:57.426 +08 [2837319] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:57.426 +08 [2837319] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:04:57.402994'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '282405'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:04:57.913 +08 [2837352] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:04:57.913 +08 [2837352] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:04:57.884807'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '256210'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:05:08.929 +08 [2837337] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:05:08.929 +08 [2837337] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:05:08.911852'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '278234'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:05:16.132 +08 [2837326] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:05:16.132 +08 [2837326] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:05:16.1122'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '246224'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:05:22.623 +08 [2837352] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:05:22.623 +08 [2837352] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:05:22.597931'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '197816'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:05:22.882 +08 [2837351] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:05:22.882 +08 [2837351] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:05:22.869213'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '230263'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:05:27.213 +08 [2837328] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:05:27.213 +08 [2837328] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:05:27.199292'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '361092'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:05:38.537 +08 [2837299] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:05:38.537 +08 [2837299] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:05:38.514035'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '362514'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:05:52.356 +08 [2837328] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:05:52.356 +08 [2837328] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:05:52.336181'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '278356'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:05:57.061 +08 [2837351] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:05:57.061 +08 [2837351] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:05:57.048156'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '210550'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:06:09.083 +08 [2837312] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:09.083 +08 [2837312] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:06:09.073266'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '365301'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:06:10.637 +08 [2837361] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:10.637 +08 [2837361] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:06:10.628883'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '128121'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:06:13.958 +08 [2837346] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:13.958 +08 [2837346] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:06:13.94602'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '143744'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:06:17.182 +08 [2837320] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:17.182 +08 [2837320] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 19:06:17.167168'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '366552'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:06:22.559 +08 [2837336] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:22.559 +08 [2837336] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:06:22.548141'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '14525'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:06:27.950 +08 [2837338] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:27.950 +08 [2837338] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:06:27.941739'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '234403'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:06:30.744 +08 [2837370] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:30.744 +08 [2837370] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:06:30.722013'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '454894'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:06:38.139 +08 [2837320] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:38.139 +08 [2837320] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:06:38.12338'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '110045'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:06:39.055 +08 [2837354] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:39.055 +08 [2837354] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:06:39.038497'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '429310'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:06:47.074 +08 [2837301] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:47.074 +08 [2837301] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:06:47.063904'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '57670'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:06:47.241 +08 [2837307] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:47.241 +08 [2837307] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:06:47.217473'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '146973'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:06:47.419 +08 [2837320] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:47.419 +08 [2837320] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:06:47.407568'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '210242'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:06:48.185 +08 [2837348] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:48.185 +08 [2837348] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:06:48.175285'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '411206'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:06:52.997 +08 [2837337] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:52.997 +08 [2837337] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:06:52.977951'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '452884'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:06:54.217 +08 [2837328] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:54.217 +08 [2837328] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:06:54.206653'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '344482'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:06:59.360 +08 [2837312] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:06:59.360 +08 [2837312] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:06:59.352921'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '135894'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:07:01.900 +08 [2837333] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:07:01.900 +08 [2837333] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:07:01.881189'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '451382'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:07:02.503 +08 [2837359] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:07:02.503 +08 [2837359] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:07:02.494525'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '386348'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:07:03.192 +08 [2837351] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:07:03.192 +08 [2837351] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:07:03.138316'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '442925'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:07:05.397 +08 [2837309] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:07:05.397 +08 [2837309] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 19:07:05.377458'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '342046'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:07:17.405 +08 [2837338] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:07:17.405 +08 [2837338] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:07:17.396403'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '313350'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:07:18.257 +08 [2837347] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 19:07:18.257 +08 [2837347] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-21 19:07:18.257 +08 [2837347] HINT:  The transaction might succeed if retried.
+2026-10-21 19:07:18.257 +08 [2837347] STATEMENT:  PREPARE TRANSACTION 'citus_0_1018639_786842_14870'
+2026-10-21 19:07:18.274 +08 [2847155] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 19:07:18.274 +08 [2847155] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-21 19:07:18.274 +08 [2847155] HINT:  The transaction might succeed if retried.
+2026-10-21 19:07:18.274 +08 [2847155] STATEMENT:  PREPARE TRANSACTION 'citus_0_1018639_786858_14872'
+2026-10-21 19:07:18.291 +08 [2847157] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 19:07:18.291 +08 [2847157] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-21 19:07:18.291 +08 [2847157] HINT:  The transaction might succeed if retried.
+2026-10-21 19:07:18.291 +08 [2847157] STATEMENT:  PREPARE TRANSACTION 'citus_0_1018639_786900_14874'
+2026-10-21 19:07:30.452 +08 [2837336] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 19:07:30.452 +08 [2837336] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-21 19:07:30.452 +08 [2837336] HINT:  The transaction might succeed if retried.
+2026-10-21 19:07:30.452 +08 [2837336] STATEMENT:  PREPARE TRANSACTION 'citus_0_1018638_816388_15740'
+2026-10-21 19:07:41.951 +08 [2837362] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:07:41.951 +08 [2837362] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:07:41.934195'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '274649'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:07:45.654 +08 [2837358] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:07:45.654 +08 [2837358] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:07:45.642971'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '399630'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:07:47.463 +08 [2837319] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:07:47.463 +08 [2837319] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:07:47.451604'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '230678'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:07:50.371 +08 [2837320] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:07:50.371 +08 [2837320] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:07:50.345581'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '67634'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:07:52.127 +08 [2837348] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:07:52.127 +08 [2837348] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:07:52.103585'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '135307'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:07:56.922 +08 [2837354] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:07:56.922 +08 [2837354] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 19:07:56.91287'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '397215'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:07:57.802 +08 [2837360] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 19:07:57.802 +08 [2837360] DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+2026-10-21 19:07:57.802 +08 [2837360] HINT:  The transaction might succeed if retried.
+2026-10-21 19:07:57.802 +08 [2837360] STATEMENT:  PREPARE TRANSACTION 'citus_0_1018648_886587_17434'
+2026-10-21 19:07:58.947 +08 [2837324] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:07:58.947 +08 [2837324] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:07:58.939043'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '305345'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:08:06.692 +08 [2847159] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:06.692 +08 [2847159] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:08:06.667861'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '121417'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:08:09.611 +08 [2847151] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:09.611 +08 [2847151] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:08:09.595001'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '80543'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:08:12.207 +08 [2837363] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:12.207 +08 [2837363] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:08:12.195353'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '230106'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:08:26.111 +08 [2837379] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:26.111 +08 [2837379] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:08:26.089321'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '448248'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:08:35.725 +08 [2837337] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:35.725 +08 [2837337] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:08:35.715802'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '149948'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:08:40.760 +08 [2837343] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:40.760 +08 [2837343] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:08:40.744169'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '104663'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:08:41.465 +08 [2837359] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:41.465 +08 [2837359] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:08:41.452759'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '148113'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:08:41.653 +08 [2837345] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:41.653 +08 [2837345] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:08:41.63833'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '179974'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:08:44.986 +08 [2837299] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:44.986 +08 [2837299] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:08:44.961561'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '150738'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:08:48.736 +08 [2837300] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:48.736 +08 [2837300] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:08:48.723823'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '413182'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:08:50.221 +08 [2837343] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:50.221 +08 [2837343] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:08:50.209352'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '317910'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:08:50.933 +08 [2837370] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:50.933 +08 [2837370] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:08:50.916318'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '478915'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:08:58.323 +08 [2837328] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:08:58.323 +08 [2837328] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:08:58.301908'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '136432'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:09:00.327 +08 [2837314] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:00.327 +08 [2837314] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:09:00.319263'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '5864'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:09:06.303 +08 [2837300] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:06.303 +08 [2837300] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:09:06.283555'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '311351'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:09:07.704 +08 [2837307] ERROR:  could not serialize access due to read/write dependencies among transactions
+2026-10-21 19:09:07.704 +08 [2837307] DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+2026-10-21 19:09:07.704 +08 [2837307] HINT:  The transaction might succeed if retried.
+2026-10-21 19:09:07.704 +08 [2837307] STATEMENT:  COMMIT
+2026-10-21 19:09:07.706 +08 [2837307] WARNING:  there is no transaction in progress
+2026-10-21 19:09:27.430 +08 [2837348] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:27.430 +08 [2837348] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:09:27.405286'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '75458'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:09:28.663 +08 [2837329] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:28.663 +08 [2837329] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:09:28.644626'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '290952'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:09:31.854 +08 [2837362] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:31.854 +08 [2837362] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:09:31.841251'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '193308'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:09:34.595 +08 [2837343] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:34.595 +08 [2837343] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:09:34.58384'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '31993'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:09:35.376 +08 [2847179] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:35.376 +08 [2847179] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:09:35.352839'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '208572'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:09:43.429 +08 [2837356] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:43.429 +08 [2837356] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 19:09:43.41415'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '54756'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:09:43.434 +08 [2837352] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:43.434 +08 [2837352] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:09:43.4119'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '77215'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:09:52.760 +08 [2837348] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:52.760 +08 [2837348] STATEMENT:  WITH debit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:09:52.743241'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '368002'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:09:55.435 +08 [2837320] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:55.435 +08 [2837320] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:09:55.407774'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '323939'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:09:55.600 +08 [2837326] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:55.600 +08 [2837326] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:09:55.571404'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '326790'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:09:56.288 +08 [2837315] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:56.288 +08 [2837315] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:09:56.278451'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '217243'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:09:58.211 +08 [2837302] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:58.211 +08 [2837302] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:09:58.187193'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '63031'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:09:59.019 +08 [2837332] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:09:59.019 +08 [2837332] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:09:58.993556'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '276755'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:10:04.452 +08 [2837362] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:10:04.452 +08 [2837362] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:10:04.435567'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '100208'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:10:06.305 +08 [2847159] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:10:06.305 +08 [2847159] STATEMENT:  WITH credit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:10:06.279372'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '211475'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:10:13.742 +08 [2837357] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:10:13.742 +08 [2837357] STATEMENT:  WITH debit AS (UPDATE public.inventory_102087 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:10:13.724439'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '380436'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:10:18.871 +08 [2837345] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:10:18.871 +08 [2837345] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:10:18.86079'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '108962'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:10:23.094 +08 [2837344] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:10:23.094 +08 [2837344] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:10:23.075443'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '420253'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:10:26.961 +08 [2837314] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:10:26.961 +08 [2837314] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:10:26.946822'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '161353'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:10:31.092 +08 [2837301] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:10:31.092 +08 [2837301] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:10:31.074504'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '51312'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:10:44.782 +08 [2837326] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:10:44.782 +08 [2837326] STATEMENT:  WITH debit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 19:10:44.774405'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '233206'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:10:46.790 +08 [2837357] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:10:46.790 +08 [2837357] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:10:46.774822'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '225985'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:10:51.594 +08 [2837358] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:10:51.594 +08 [2837358] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:10:51.577829'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '261931'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:11:04.475 +08 [2837354] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:04.475 +08 [2837354] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:11:04.458876'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '322431'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:11:06.413 +08 [2837349] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:06.413 +08 [2837349] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:11:06.392935'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '169515'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:11:10.980 +08 [2837325] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:10.980 +08 [2837325] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:11:10.966701'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '267008'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:11:12.121 +08 [2847164] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:12.121 +08 [2847164] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:11:12.103918'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '319062'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:11:13.154 +08 [2837363] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:13.154 +08 [2837363] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:11:13.134675'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '232739'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:11:13.940 +08 [2837353] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:13.940 +08 [2837353] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:11:13.923281'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '44057'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:11:17.329 +08 [2837326] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:17.329 +08 [2837326] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:11:17.31847'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '234758'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:11:20.529 +08 [2837301] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:20.529 +08 [2837301] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:11:20.512056'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '474445'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:11:21.973 +08 [2847164] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:21.973 +08 [2847164] STATEMENT:  WITH debit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:11:21.963293'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '289719'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:11:24.561 +08 [2837324] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:24.561 +08 [2837324] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:11:24.542185'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '133243'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:11:25.096 +08 [2837337] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:25.096 +08 [2837337] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:11:25.062057'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '121562'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:11:38.275 +08 [2847179] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:38.275 +08 [2847179] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:11:38.258789'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '386341'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:11:44.881 +08 [2837332] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:44.881 +08 [2837332] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:11:44.864137'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '7839'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:11:45.729 +08 [2837363] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:45.729 +08 [2837363] STATEMENT:  WITH credit AS (UPDATE public.inventory_102083 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:11:45.710867'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '3121'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:11:48.912 +08 [2837363] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:11:48.912 +08 [2837363] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:11:48.90127'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '411332'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:12:00.573 +08 [2837333] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:12:00.573 +08 [2837333] STATEMENT:  WITH credit AS (UPDATE public.inventory_102099 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:12:00.554602'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '120486'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:12:17.535 +08 [2837359] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:12:17.535 +08 [2837359] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:12:17.524471'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '136005'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:12:19.462 +08 [2837299] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:12:19.462 +08 [2837299] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 1), updated_at = '2026-10-21 19:12:19.444516'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '163225'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:12:29.856 +08 [2837314] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:12:29.856 +08 [2837314] STATEMENT:  WITH debit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:12:29.833429'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '422834'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:12:33.814 +08 [2837352] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:12:33.814 +08 [2837352] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 2), updated_at = '2026-10-21 19:12:33.795878'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '355308'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 2)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:12:38.414 +08 [2837359] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:12:38.414 +08 [2837359] STATEMENT:  WITH credit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:12:38.397241'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '77404'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:12:50.128 +08 [2837339] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:12:50.128 +08 [2837339] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:12:50.119488'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '364869'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:12:51.383 +08 [2847151] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:12:51.383 +08 [2847151] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 3), updated_at = '2026-10-21 19:12:51.373931'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '488835'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 3)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:12:54.948 +08 [2837359] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:12:54.948 +08 [2837359] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:12:54.934736'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '53787'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:12:58.978 +08 [2837335] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:12:58.978 +08 [2837335] STATEMENT:  WITH credit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 5), updated_at = '2026-10-21 19:12:58.961231'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '494864'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:12:59.104 +08 [2837325] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:12:59.104 +08 [2837325] STATEMENT:  WITH debit AS (UPDATE public.inventory_102075 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 5), updated_at = '2026-10-21 19:12:59.089107'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '267462'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 5)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:13:00.596 +08 [2837356] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:13:00.596 +08 [2837356] STATEMENT:  WITH credit AS (UPDATE public.inventory_102103 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 3), updated_at = '2026-10-21 19:13:00.585675'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '432463'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:13:02.076 +08 [2837364] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:13:02.076 +08 [2837364] STATEMENT:  WITH credit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 2), updated_at = '2026-10-21 19:13:02.056378'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '401822'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:13:08.776 +08 [2837326] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:13:08.776 +08 [2837326] STATEMENT:  WITH credit AS (UPDATE public.inventory_102091 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.+) 4), updated_at = '2026-10-21 19:13:08.752236'::timestamp without time zone WHERE (inventory.product_id OPERATOR(pg_catalog.=) '92530'::bigint) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM credit credit("?column?"))) AS credit_ok
+2026-10-21 19:13:10.583 +08 [2837306] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:13:10.583 +08 [2837306] STATEMENT:  WITH debit AS (UPDATE public.inventory_102079 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 4), updated_at = '2026-10-21 19:13:10.566611'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '231921'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 4)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:13:18.919 +08 [2837324] ERROR:  could not serialize access due to concurrent update
+2026-10-21 19:13:18.919 +08 [2837324] STATEMENT:  WITH debit AS (UPDATE public.inventory_102095 inventory SET quantity = (inventory.quantity OPERATOR(pg_catalog.-) 1), updated_at = '2026-10-21 19:13:18.90792'::timestamp without time zone WHERE ((inventory.product_id OPERATOR(pg_catalog.=) '345000'::bigint) AND (inventory.quantity OPERATOR(pg_catalog.>=) 1)) RETURNING 1 AS "?column?") SELECT (EXISTS (SELECT 1 AS "?column?" FROM debit debit("?column?"))) AS debit_ok
+2026-10-21 19:13:27.847 +08 [2820936] WARNING:  terminating connection due to administrator command
+2026-10-21 19:13:27.847 +08 [2820936] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 19:13:29.856 +08 [2820936] WARNING:  connection to the remote node cs14@xcnf11:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 19:13:29.856 +08 [2820936] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 19:13:29.856 +08 [2820936] WARNING:  terminating connection due to administrator command
+2026-10-21 19:13:29.856 +08 [2820936] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 19:13:29.856 +08 [2820936] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-21 19:13:29.856 +08 [2820936] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 19:13:29.856 +08 [2820936] WARNING:  terminating connection due to administrator command
+2026-10-21 19:13:29.856 +08 [2820936] CONTEXT:  while executing command on xcnf13:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-21 19:13:29.856 +08 [2820936] WARNING:  could not issue cancel request
+2026-10-21 19:13:29.856 +08 [2820936] DETAIL:  Client error: PQcancel() -- connect() failed: error 111
+	
+2026-10-21 19:13:29.856 +08 [2820936] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 19:13:31.088 +08 [2820807] LOG:  received fast shutdown request
+2026-10-21 19:13:31.088 +08 [2820807] LOG:  aborting any active transactions
+2026-10-21 19:13:31.088 +08 [2866988] FATAL:  terminating connection due to administrator command
+2026-10-21 19:13:31.093 +08 [2820807] LOG:  background worker "logical replication launcher" (PID 2820833) exited with exit code 1
+2026-10-21 19:13:31.094 +08 [2820828] LOG:  shutting down
+2026-10-21 19:13:31.094 +08 [2820828] LOG:  checkpoint starting: shutdown immediate
+2026-10-21 19:13:31.784 +08 [2820828] LOG:  checkpoint complete: wrote 95777 buffers (73.1%), wrote 281 SLRU buffers; 0 WAL file(s) added, 0 removed, 132 recycled; write=0.669 s, sync=0.002 s, total=0.690 s; sync files=274, longest=0.001 s, average=0.001 s; distance=2160050 kB, estimate=2160050 kB; lsn=3/5645C1B0, redo lsn=3/5645C1B0
+2026-10-21 19:13:32.005 +08 [2820807] LOG:  database system is shut down

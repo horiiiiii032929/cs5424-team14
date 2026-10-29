@@ -2,6 +2,7 @@
 """Assemble a reviewable result ZIP, preserving conflicting source snapshots."""
 from pathlib import Path
 import csv, hashlib, json, re, shutil, zipfile
+from organize_submission import RETIRED_EXPERIMENTS
 
 ROOT=Path(__file__).resolve().parents[1]
 STAGE=ROOT/'submission/files/citus_project_team_14'
@@ -27,7 +28,7 @@ def copy_file(src,dest,source):
 
 def merge_tree(src,dest,label):
     for p in sorted(src.rglob('*')):
-        if p.is_file() and '.git' not in p.parts and '__pycache__' not in p.parts:
+        if p.is_file() and not any(part in RETIRED_EXPERIMENTS for part in p.relative_to(src).parts) and '.git' not in p.parts and '__pycache__' not in p.parts:
             copy_file(p,dest/p.relative_to(src),label)
 
 if STAGE.exists():
@@ -41,6 +42,7 @@ merge_tree(ROOT/'citus_project_team_14',STAGE,'repository baseline and A impleme
 for dirname in ['cluster-import-20261019','b-branch-review-20261022/raw']:
     source=ROOT/'results'/dirname
     for expt in sorted(source.glob('expt_*')):
+        if expt.name in RETIRED_EXPERIMENTS: continue
         if not (STAGE/expt.name).exists(): merge_tree(expt,STAGE/expt.name,dirname)
 
 # Merge job outputs and retain each import's available source separately.
@@ -52,7 +54,7 @@ for label in archives:
     base=ROOT/'results'/label
     if (base/'citus_project_team_14').exists(): base=base/'citus_project_team_14'
     for expt in sorted(base.glob('expt_*')):
-        if not expt.is_dir(): continue
+        if not expt.is_dir() or expt.name in RETIRED_EXPERIMENTS: continue
         dest=STAGE/expt.name
         if not dest.exists(): merge_tree(expt,dest,label)
         if (expt/'slurm-results').exists(): merge_tree(expt/'slurm-results',dest/'slurm-results',label)
@@ -64,8 +66,9 @@ for label in archives:
             if p.is_dir():merge_tree(p,snap/p.name,label)
             elif p.is_file():copy_file(p,snap/p.name,label)
 
-# Complete live team folders, including Xincheng's supplementary controls.
+# Complete retained live team folders; never resurrect owner-retired experiments.
 for expt in sorted(REMOTE.glob('expt_*')):
+    if expt.name in RETIRED_EXPERIMENTS: continue
     dest=STAGE/RENAMES.get(expt.name,expt.name)
     if not dest.exists():merge_tree(expt,dest,'live remote readback 2026-10-28')
     if (expt/'slurm-results').exists():merge_tree(expt/'slurm-results',dest/'slurm-results','live remote readback 2026-10-28')
@@ -172,8 +175,8 @@ and original citus-*.out/.err. source_snapshots/ preserves scripts from earlier
 imports and the 28 October readback without replacing the selected top-level
 source. Readback hashes are distinct from runtime code-sha256.txt evidence.
 Supplementary folder names are normalized to the required expt_bN format:
-expt_xc_b1 -> expt_b201; expt_xc_b2 -> expt_b202; expt_b3v_control -> expt_b203;
-expt_b3v_cover -> expt_b204. The original names and file paths remain in the
+expt_xc_b1 -> expt_b201. The owner-retired b202-b204 variants are excluded.
+The original names and file paths remain in the
 provenance map and source snapshots. Original file bytes are preserved.
 
 The supplementary b0/b6 jobs originally stored under supplementary-results/ are

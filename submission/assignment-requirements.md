@@ -24,19 +24,19 @@ from a team preference or a previous working draft.
 ## Required result-folder structure
 
 The ZIP has a single `citus_project_team_14/` root, `install_citus_slurm.sh`,
-and a README describing the experiments. Every one of the **23 top-level
+and a README describing the experiments. Every one of the **20 top-level
 experiment folders** follows `expt_[ab]N` and has `run.sh`, nine transaction SQL
 files, `slurm-results/job-N/`, and matching `citus-N.out` and `citus-N.err` files.
-There are 48 job-directory paths representing 45 distinct Slurm IDs; some
+There are 44 job-directory paths representing 43 distinct Slurm IDs; some
 historical control folders retain the same original job ID and are not counted
 as independent runs.
 
-The organization follow-up explicitly labels b203/b204 as unbenchmarked source
-variants containing inherited b2/job-928583 evidence, and b201/job-918781 as an
-inherited b0 baseline. The 23 folders do not represent 23 independently measured
-designs. `job-source-map.json` records canonical job ownership and runtime source
-matches where available. Additional local correctness/pilot evidence has been
-included; see [the organization follow-up](organization-2026-10-29.md).
+Xincheng retired b202–b204 as unused in commit `1a5a2f3`; the rebuilt archive
+excludes them, including their inherited b2 job copies. b201/job-918781 remains
+an explicitly inherited b0 baseline. `job-source-map.json` records canonical
+job ownership and runtime source matches where available. Additional local
+correctness/pilot evidence remains included. The dated 29 October audit records
+the earlier archive; see the 30 October reconciliation for current counts.
 
 Eight local-only designs (a103-a110) have no Slurm run. Their code is retained
 under `supporting_implementations/local_only/`, separately from the course
@@ -46,7 +46,7 @@ No missing job output is fabricated. The report discusses these only as
 supporting implementations/validation and focuses its performance findings on
 the available cluster experiments.
 
-The source-folder aliases b201-b204 are documented in the archive README and
+The retained b201 alias and excluded b202-b204 aliases are documented in the archive README and
 provenance map. Baselines a0/b0 are preserved. Failed and cancelled attempts
 are retained with their actual exit/failure evidence.
 

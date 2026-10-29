@@ -1,0 +1,123 @@
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=42 --max-tries=3 -h xcnf10 -p 5446 -U cs14 -d project-989344 -n -c 16 -j 4 -T 600 -M simple -P 10 -r --failures-detailed -l --log-prefix=/home/stuproj/cs14/citus_project/expt_xc_b1/slurm-results/job-989344/benchmark-results/logs/pgbench-c16 --sampling-rate=1.0 -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_xc_b1/transactions/T7_inventory_transfer.sql@100
+pgbench: setting random seed to 42
+pgbench (18.6)
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnf13:5446
+pgbench: error: client 0 script 0 aborted in command 26 query 0: ERROR:  could not commit transaction for shard 102102 on at least one active node
+progress: 10.0 s, 2744.3 tps, lat 5.652 ms stddev 1.401, 0 failed, 5 retried, 5 retries
+progress: 20.0 s, 2778.2 tps, lat 5.390 ms stddev 0.984, 0 failed, 3 retried, 3 retries
+progress: 30.0 s, 2753.1 tps, lat 5.439 ms stddev 1.055, 0 failed, 3 retried, 3 retries
+progress: 40.0 s, 2781.1 tps, lat 5.385 ms stddev 1.004, 0 failed, 3 retried, 3 retries
+progress: 50.0 s, 2777.4 tps, lat 5.391 ms stddev 1.011, 0 failed, 3 retried, 3 retries
+progress: 60.0 s, 2777.3 tps, lat 5.392 ms stddev 0.989, 0 failed, 4 retried, 4 retries
+progress: 70.0 s, 2764.9 tps, lat 5.416 ms stddev 1.021, 0 failed, 2 retried, 2 retries
+progress: 80.0 s, 2772.6 tps, lat 5.401 ms stddev 1.020, 0 failed, 5 retried, 5 retries
+progress: 90.0 s, 2745.4 tps, lat 5.454 ms stddev 1.075, 0 failed, 3 retried, 3 retries
+progress: 100.0 s, 2774.3 tps, lat 5.397 ms stddev 1.002, 0 failed, 2 retried, 2 retries
+progress: 110.0 s, 2775.3 tps, lat 5.396 ms stddev 0.990, 0 failed, 2 retried, 2 retries
+progress: 120.0 s, 2771.9 tps, lat 5.402 ms stddev 0.985, 0 failed, 1 retried, 1 retries
+progress: 130.0 s, 2762.4 tps, lat 5.421 ms stddev 1.040, 0 failed, 5 retried, 5 retries
+progress: 140.0 s, 2776.2 tps, lat 5.394 ms stddev 1.014, 0 failed, 4 retried, 4 retries
+progress: 150.0 s, 2750.3 tps, lat 5.444 ms stddev 1.052, 0 failed, 5 retried, 5 retries
+progress: 160.0 s, 2783.6 tps, lat 5.380 ms stddev 0.992, 0 failed, 0 retried, 0 retries
+progress: 170.0 s, 2775.7 tps, lat 5.395 ms stddev 0.993, 0 failed, 2 retried, 2 retries
+progress: 180.0 s, 2780.4 tps, lat 5.386 ms stddev 1.000, 0 failed, 3 retried, 3 retries
+progress: 190.0 s, 2765.2 tps, lat 5.415 ms stddev 1.018, 0 failed, 0 retried, 0 retries
+progress: 200.0 s, 2780.2 tps, lat 5.386 ms stddev 1.003, 0 failed, 2 retried, 2 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnf11:5446
+pgbench: error: client 3 script 0 aborted in command 26 query 0: ERROR:  could not commit transaction for shard 102088 on at least one active node
+progress: 210.0 s, 2740.6 tps, lat 5.259 ms stddev 1.068, 0 failed, 5 retried, 5 retries
+progress: 220.0 s, 2770.2 tps, lat 5.044 ms stddev 0.937, 0 failed, 5 retried, 5 retries
+progress: 230.0 s, 2729.0 tps, lat 5.120 ms stddev 0.948, 0 failed, 5 retried, 5 retries
+progress: 240.0 s, 2719.6 tps, lat 5.138 ms stddev 0.999, 0 failed, 2 retried, 2 retries
+progress: 250.0 s, 2608.7 tps, lat 5.357 ms stddev 2.317, 0 failed, 0 retried, 0 retries
+progress: 260.0 s, 2359.8 tps, lat 5.924 ms stddev 6.710, 0 failed, 1 retried, 1 retries
+progress: 270.0 s, 2331.2 tps, lat 5.996 ms stddev 6.847, 0 failed, 5 retried, 5 retries
+progress: 280.0 s, 2707.3 tps, lat 5.161 ms stddev 2.216, 0 failed, 1 retried, 1 retries
+progress: 290.0 s, 2669.3 tps, lat 5.236 ms stddev 2.955, 0 failed, 0 retried, 0 retries
+progress: 300.0 s, 2678.1 tps, lat 5.219 ms stddev 2.662, 0 failed, 5 retried, 5 retries
+progress: 310.0 s, 2335.8 tps, lat 5.966 ms stddev 6.943, 0 failed, 1 retried, 1 retries
+progress: 320.0 s, 1793.6 tps, lat 7.795 ms stddev 11.682, 0 failed, 1 retried, 1 retries
+progress: 330.0 s, 1809.3 tps, lat 7.751 ms stddev 11.556, 0 failed, 1 retried, 1 retries
+progress: 340.0 s, 2335.2 tps, lat 5.986 ms stddev 6.057, 0 failed, 0 retried, 0 retries
+progress: 350.0 s, 2351.3 tps, lat 5.944 ms stddev 5.933, 0 failed, 2 retried, 2 retries
+progress: 360.0 s, 2645.4 tps, lat 5.283 ms stddev 2.545, 0 failed, 1 retried, 1 retries
+progress: 370.0 s, 2754.5 tps, lat 5.073 ms stddev 0.949, 0 failed, 0 retried, 0 retries
+progress: 380.0 s, 2767.8 tps, lat 5.049 ms stddev 0.938, 0 failed, 8 retried, 8 retries
+progress: 390.0 s, 2738.0 tps, lat 5.103 ms stddev 0.982, 0 failed, 2 retried, 2 retries
+progress: 400.0 s, 2769.7 tps, lat 5.046 ms stddev 0.927, 0 failed, 0 retried, 0 retries
+progress: 410.0 s, 2768.4 tps, lat 5.047 ms stddev 0.912, 0 failed, 1 retried, 1 retries
+progress: 420.0 s, 2769.5 tps, lat 5.046 ms stddev 0.931, 0 failed, 3 retried, 3 retries
+progress: 430.0 s, 2759.4 tps, lat 5.065 ms stddev 0.940, 0 failed, 1 retried, 1 retries
+progress: 440.0 s, 2770.4 tps, lat 5.043 ms stddev 0.924, 0 failed, 2 retried, 2 retries
+progress: 450.0 s, 2739.9 tps, lat 5.100 ms stddev 0.981, 0 failed, 0 retried, 0 retries
+progress: 460.0 s, 2767.4 tps, lat 5.050 ms stddev 0.919, 0 failed, 2 retried, 2 retries
+progress: 470.0 s, 2764.3 tps, lat 5.055 ms stddev 0.943, 0 failed, 1 retried, 1 retries
+progress: 480.0 s, 2764.1 tps, lat 5.055 ms stddev 0.937, 0 failed, 2 retried, 2 retries
+progress: 490.0 s, 2749.9 tps, lat 5.082 ms stddev 0.963, 0 failed, 0 retried, 0 retries
+progress: 500.0 s, 2764.7 tps, lat 5.054 ms stddev 0.940, 0 failed, 1 retried, 1 retries
+progress: 510.0 s, 2736.7 tps, lat 5.106 ms stddev 1.009, 0 failed, 2 retried, 2 retries
+progress: 520.0 s, 2763.8 tps, lat 5.056 ms stddev 0.936, 0 failed, 5 retried, 5 retries
+progress: 530.0 s, 2762.7 tps, lat 5.058 ms stddev 0.939, 0 failed, 0 retried, 0 retries
+progress: 540.0 s, 2762.9 tps, lat 5.058 ms stddev 0.941, 0 failed, 1 retried, 1 retries
+progress: 550.0 s, 2751.6 tps, lat 5.079 ms stddev 0.966, 0 failed, 1 retried, 1 retries
+progress: 560.0 s, 2762.6 tps, lat 5.059 ms stddev 0.942, 0 failed, 2 retried, 2 retries
+progress: 570.0 s, 2734.2 tps, lat 5.111 ms stddev 1.014, 0 failed, 2 retried, 2 retries
+progress: 580.0 s, 2764.0 tps, lat 5.056 ms stddev 0.938, 0 failed, 5 retried, 5 retries
+progress: 590.0 s, 2762.5 tps, lat 5.058 ms stddev 0.936, 0 failed, 1 retried, 1 retries
+transaction type: /home/stuproj/cs14/citus_project/expt_xc_b1/transactions/T7_inventory_transfer.sql
+scaling factor: 1
+query mode: simple
+number of clients: 16
+number of threads: 4
+maximum number of tries: 3
+duration: 600 s
+number of transactions actually processed: 1611890
+number of failed transactions: 0 (0.000%)
+number of serialization failures: 0 (0.000%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 137 (0.008%)
+total number of retries: 137
+latency average = 5.332 ms
+latency stddev = 2.764 ms
+initial connection time = 23.771 ms
+tps = 2686.486047 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.001           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set source_product_id :DEBUG_T7_SOURCE_PRODUCT_ID
+         0.000           0          0 \set dest_product_id :DEBUG_T7_DEST_PRODUCT_ID
+         0.000           0          0 \set transfer_qty :DEBUG_T7_TRANSFER_QTY
+         0.000           0          0 \else
+         0.001           0          0 \set source_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set dest_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set transfer_qty random(:T7_MIN_TRANSFER_QTY, :T7_MAX_TRANSFER_QTY)
+         0.000           0          0 \endif
+         0.000           0          0 \set transfer_ok 1
+         0.260           0          0 BEGIN;
+         0.004           0          0 \if :source_product_id = :dest_product_id
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \else
+         1.795           0         48 WITH debit AS (
+         0.001           0          0 \if :t7_debit_ok
+         1.690           0         64 WITH credit AS (
+         0.001           0          0 \if :t7_credit_ok
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \else
+         0.001           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.000           0          0 \if :transfer_ok
+         1.579           0         25 COMMIT;
+         0.000           0          0 \else
+         0.668           0          0 ROLLBACK;
+         0.000           0          0 \endif
+pgbench: error: Run was aborted; the above results are incomplete.
+pgbench_exit_code=2
+tee_exit_code=0

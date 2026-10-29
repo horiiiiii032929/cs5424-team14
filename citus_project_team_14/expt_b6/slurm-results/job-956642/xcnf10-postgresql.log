@@ -1,0 +1,61 @@
+2026-10-16 13:27:26.290 +08 [2294338] LOG:  There is no designated Main database.
+2026-10-16 13:27:26.290 +08 [2294338] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-16 13:27:26.290 +08 [2294338] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-16 13:27:26.440 +08 [2294338] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-16 13:27:26.441 +08 [2294338] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-16 13:27:26.441 +08 [2294338] LOG:  listening on IPv6 address "::", port 5446
+2026-10-16 13:27:26.441 +08 [2294338] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-16 13:27:26.446 +08 [2294345] LOG:  database system was shut down at 2026-10-16 13:27:23 +08
+2026-10-16 13:27:26.451 +08 [2294338] LOG:  database system is ready to accept connections
+2026-10-16 13:27:28.907 +08 [2294373] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-16 13:27:28.907 +08 [2294373] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-16 13:29:44.354 +08 [2294509] ERROR:  column "order_count" does not exist at character 43
+2026-10-16 13:29:44.354 +08 [2294509] STATEMENT:  EXPLAIN (VERBOSE) SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue FROM (SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue) FROM merchant_daily_sales WHERE sales_day >= '2026-09-17'::date AND sales_day < '2026-10-16'::date GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-09-16 13:29:44.350161'::timestamp AND created_at < '2026-09-17'::timestamp GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-10-16'::timestamp AND created_at < '2026-10-16 13:29:44.350161'::timestamp GROUP BY merchant_id) AS parts GROUP BY merchant_id ORDER BY revenue DESC LIMIT 20;
+2026-10-16 13:29:44.354 +08 [2294509] ERROR:  column "order_count" does not exist at character 61
+2026-10-16 13:29:44.354 +08 [2294509] STATEMENT:  EXPLAIN (ANALYZE, VERBOSE, BUFFERS) SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue FROM (SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue) FROM merchant_daily_sales WHERE sales_day >= '2026-09-17'::date AND sales_day < '2026-10-16'::date GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-09-16 13:29:44.350161'::timestamp AND created_at < '2026-09-17'::timestamp GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-10-16'::timestamp AND created_at < '2026-10-16 13:29:44.350161'::timestamp GROUP BY merchant_id) AS parts GROUP BY merchant_id ORDER BY revenue DESC LIMIT 20;
+2026-10-16 13:29:44.355 +08 [2294509] ERROR:  column "order_count" does not exist at character 61
+2026-10-16 13:29:44.355 +08 [2294509] STATEMENT:  EXPLAIN (ANALYZE, VERBOSE, BUFFERS) SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue FROM (SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue) FROM merchant_daily_sales WHERE sales_day >= '2026-09-17'::date AND sales_day < '2026-10-16'::date GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-09-16 13:29:44.350161'::timestamp AND created_at < '2026-09-17'::timestamp GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-10-16'::timestamp AND created_at < '2026-10-16 13:29:44.350161'::timestamp GROUP BY merchant_id) AS parts GROUP BY merchant_id ORDER BY revenue DESC LIMIT 20;
+2026-10-16 13:29:44.355 +08 [2294509] ERROR:  column "order_count" does not exist at character 278
+2026-10-16 13:29:44.355 +08 [2294509] STATEMENT:  WITH old_t6 AS (SELECT merchant_id, COUNT(*) AS order_count, SUM(total_amount) AS revenue FROM orders WHERE created_at >= '2026-09-16 13:29:44.350161'::timestamp AND created_at < '2026-10-16 13:29:44.350161'::timestamp GROUP BY merchant_id), new_t6 AS (SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue FROM (SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue) FROM merchant_daily_sales WHERE sales_day >= '2026-09-17'::date AND sales_day < '2026-10-16'::date GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-09-16 13:29:44.350161'::timestamp AND created_at < '2026-09-17'::timestamp GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-10-16'::timestamp AND created_at < '2026-10-16 13:29:44.350161'::timestamp GROUP BY merchant_id) AS parts GROUP BY merchant_id) SELECT (SELECT count(*) FROM old_t6) AS old_merchants, (SELECT count(*) FROM new_t6) AS new_merchants, (SELECT count(*) FROM (SELECT * FROM old_t6 EXCEPT SELECT * FROM new_t6) AS a) AS only_in_old, (SELECT count(*) FROM (SELECT * FROM new_t6 EXCEPT SELECT * FROM old_t6) AS b) AS only_in_new;
+2026-10-16 13:31:58.279 +08 [2294589] ERROR:  column "order_count" does not exist at character 29
+2026-10-16 13:31:58.279 +08 [2294589] STATEMENT:  SELECT
+	  merchant_id,
+	  SUM(order_count)::bigint AS order_count,
+	  SUM(revenue) AS revenue
+	FROM (
+	  SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue)
+	  FROM merchant_daily_sales
+	  WHERE sales_day >= DATE '2026-09-17'
+	    AND sales_day < DATE '2026-10-16'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-09-16 13:31:58.278407'
+	    AND created_at < TIMESTAMP '2026-09-17'
+	  GROUP BY merchant_id
+	  UNION ALL
+	  SELECT merchant_id, COUNT(*), SUM(total_amount)
+	  FROM orders
+	  WHERE created_at >= TIMESTAMP '2026-10-16'
+	    AND created_at < TIMESTAMP '2026-10-16 13:31:58.278407'
+	  GROUP BY merchant_id
+	) AS parts
+	GROUP BY merchant_id
+	ORDER BY revenue DESC
+	LIMIT 20;
+2026-10-16 13:31:58.507 +08 [2294649] ERROR:  column "order_count" does not exist at character 43
+2026-10-16 13:31:58.507 +08 [2294649] STATEMENT:  EXPLAIN (VERBOSE) SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue FROM (SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue) FROM merchant_daily_sales WHERE sales_day >= '2026-09-17'::date AND sales_day < '2026-10-16'::date GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-09-16 13:31:58.504518'::timestamp AND created_at < '2026-09-17'::timestamp GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-10-16'::timestamp AND created_at < '2026-10-16 13:31:58.504518'::timestamp GROUP BY merchant_id) AS parts GROUP BY merchant_id ORDER BY revenue DESC LIMIT 20;
+2026-10-16 13:31:58.507 +08 [2294649] ERROR:  column "order_count" does not exist at character 61
+2026-10-16 13:31:58.507 +08 [2294649] STATEMENT:  EXPLAIN (ANALYZE, VERBOSE, BUFFERS) SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue FROM (SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue) FROM merchant_daily_sales WHERE sales_day >= '2026-09-17'::date AND sales_day < '2026-10-16'::date GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-09-16 13:31:58.504518'::timestamp AND created_at < '2026-09-17'::timestamp GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-10-16'::timestamp AND created_at < '2026-10-16 13:31:58.504518'::timestamp GROUP BY merchant_id) AS parts GROUP BY merchant_id ORDER BY revenue DESC LIMIT 20;
+2026-10-16 13:31:58.507 +08 [2294649] ERROR:  column "order_count" does not exist at character 61
+2026-10-16 13:31:58.507 +08 [2294649] STATEMENT:  EXPLAIN (ANALYZE, VERBOSE, BUFFERS) SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue FROM (SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue) FROM merchant_daily_sales WHERE sales_day >= '2026-09-17'::date AND sales_day < '2026-10-16'::date GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-09-16 13:31:58.504518'::timestamp AND created_at < '2026-09-17'::timestamp GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-10-16'::timestamp AND created_at < '2026-10-16 13:31:58.504518'::timestamp GROUP BY merchant_id) AS parts GROUP BY merchant_id ORDER BY revenue DESC LIMIT 20;
+2026-10-16 13:31:58.508 +08 [2294649] ERROR:  column "order_count" does not exist at character 278
+2026-10-16 13:31:58.508 +08 [2294649] STATEMENT:  WITH old_t6 AS (SELECT merchant_id, COUNT(*) AS order_count, SUM(total_amount) AS revenue FROM orders WHERE created_at >= '2026-09-16 13:31:58.504518'::timestamp AND created_at < '2026-10-16 13:31:58.504518'::timestamp GROUP BY merchant_id), new_t6 AS (SELECT merchant_id, SUM(order_count)::bigint AS order_count, SUM(revenue) AS revenue FROM (SELECT merchant_id, SUM(order_count)::bigint, SUM(revenue) FROM merchant_daily_sales WHERE sales_day >= '2026-09-17'::date AND sales_day < '2026-10-16'::date GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-09-16 13:31:58.504518'::timestamp AND created_at < '2026-09-17'::timestamp GROUP BY merchant_id UNION ALL SELECT merchant_id, COUNT(*), SUM(total_amount) FROM orders WHERE created_at >= '2026-10-16'::timestamp AND created_at < '2026-10-16 13:31:58.504518'::timestamp GROUP BY merchant_id) AS parts GROUP BY merchant_id) SELECT (SELECT count(*) FROM old_t6) AS old_merchants, (SELECT count(*) FROM new_t6) AS new_merchants, (SELECT count(*) FROM (SELECT * FROM old_t6 EXCEPT SELECT * FROM new_t6) AS a) AS only_in_old, (SELECT count(*) FROM (SELECT * FROM new_t6 EXCEPT SELECT * FROM old_t6) AS b) AS only_in_new;
+2026-10-16 13:31:58.695 +08 [2294338] LOG:  received fast shutdown request
+2026-10-16 13:31:58.695 +08 [2294338] LOG:  aborting any active transactions
+2026-10-16 13:31:58.701 +08 [2294338] LOG:  background worker "logical replication launcher" (PID 2294348) exited with exit code 1
+2026-10-16 13:31:58.701 +08 [2294343] LOG:  shutting down
+2026-10-16 13:31:58.701 +08 [2294343] LOG:  checkpoint starting: shutdown immediate
+2026-10-16 13:31:58.731 +08 [2294343] LOG:  checkpoint complete: wrote 1301 buffers (1.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.026 s, sync=0.003 s, total=0.031 s; sync files=518, longest=0.001 s, average=0.001 s; distance=8376 kB, estimate=8376 kB; lsn=0/1F8D2D0, redo lsn=0/1F8D2D0
+2026-10-16 13:31:58.789 +08 [2294338] LOG:  database system is shut down
