@@ -1,22 +1,20 @@
+% Overleaf: select main.tex and the pdfLaTeX compiler.
+% Content: sections/. Names: metadata.tex. Formatting: report-style.tex.
 \documentclass[11pt,a4paper]{article}
-\usepackage[margin=20mm]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern,graphicx,longtable,booktabs,array,hyperref,enumitem,fancyhdr,needspace}
-\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black,pdftitle={Team 14 Distributed Databases Report},pdfauthor={Team 14}}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{4pt}
-\setlength{\emergencystretch}{3em}
-\setlist{nosep,leftmargin=1.5em}
-\pagestyle{fancy}\fancyhf{}\fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0pt}
+\input{metadata}
+\input{report-style}
+
 \begin{document}
-\input{sections/00_cover.tex}
-\input{sections/01_contributions.tex}
-\input{sections/02_baseline_a.tex}
-\input{sections/03_optimized_a.tex}
-\input{sections/04_baseline_b.tex}
-\input{sections/05_optimized_b.tex}
-\input{sections/06_conclusion.tex}
-\input{sections/07_references.tex}
+\input{sections/00_cover}
+\input{sections/01_contributions}
+\clearpage
+\input{sections/02_baseline_a}
+\input{sections/03_optimized_a}
+\clearpage
+% Workload B belongs to Desmond and Xincheng. Existing content is preserved.
+\input{sections/04_baseline_b}
+\input{sections/05_optimized_b}
+\input{sections/06_conclusion}
+\clearpage
+\input{sections/07_references}
 \end{document}

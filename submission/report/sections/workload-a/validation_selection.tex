@@ -1,0 +1,25 @@
+% Both A authors. Local-only tests must not be presented as full benchmarks.
+\subsection{Supporting experiments, validation and final selection}
+An unrun proposal, a13, would have imposed a fixed lock order on T7. We did
+not run it because the preserved baseline recorded serialization failures,
+not deadlock failures. A deadlock-prevention rewrite would not directly
+address that error category \citep{pg-isolation}.
+
+Local-only implementations explored a one-call T1 function, maintained
+summaries, memory settings, executor concurrency and alternative read-only
+declarations. They supported implementation and correctness testing; their
+small datasets and short runs do not substitute for course-cluster benchmarks.
+Their code is packaged under \code{supporting_implementations/local_only/},
+with outputs under \code{evidence/local-only/}.
+
+Validation covered inventory non-negativity, order totals, identifier uniqueness,
+rollback behaviour, placement metadata and selected transaction semantics.
+Tests included transfers with different inventory and product identifiers.
+Validation ran outside the timed interval. Passing checks establish the tested
+invariants at inspected checkpoints, not correctness under every concurrent
+schedule. Passing checks after an abort do not make a performance run successful.
+
+\textbf{A112 is the final Workload A design.} It supplies a complete successful
+seed-42 matrix and a substantial matched improvement. A115 is a promising but
+unreliable follow-up. A10 demonstrates a separate transaction-level improvement
+that has not yet been combined with a112.

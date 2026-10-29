@@ -1,0 +1,36 @@
+% Kelvin. Compare to a14 to isolate fillfactor.
+\subsection{\expt{a11}: Fillfactor and HOT updates}
+A11 retains a14's maintenance and sets \code{fillfactor = 80} on customers,
+products, inventory and orders. Leaving free space can enable heap-only tuple
+(HOT) updates when the relevant indexed columns are unchanged, avoiding new
+entries in ordinary indexes \citep{pg-hot}. Kelvin collected update statistics
+from worker shards before and after each measured run, outside the timed interval.
+
+\begin{table}[htbp]
+\caption{HOT share of updates across six client counts.}
+\label{tab:a11}
+\begin{tabularx}{\linewidth}{@{}YZZ@{}}
+\toprule
+\textbf{Table} & \textbf{a14: default fillfactor} & \textbf{a11: fillfactor 80} \\
+\midrule
+Inventory & 23.3--37.0\% & 100\% \\
+Orders & 76.2--81.5\% & 100\% \\
+Customers & 0--19.0\% & 100\% \\
+Products & 1.8--12.8\% & 100\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+All recorded a11 updates were HOT and none moved to a new page. Nevertheless,
+overall TPS and write latency did not improve consistently. Inventory received
+only about 2,500--3,100 updates per ten-minute measurement across four workers,
+because distributed reads still limited throughput. Avoiding index maintenance
+at that rate had limited effect on total runtime.
+
+Lower fillfactor also has a storage trade-off. T6's one-client median increased
+from 266.425 to 280.749\,ms, consistent with a larger footprint, though this
+experiment does not independently establish the cause. A11 recorded zero retries
+at every client count; repetition is needed before attributing that observation
+to fillfactor. Testing the change on a112 remains future work.
+\evidence{\expt{a14}/job 967194 and \expt{a11}/job 967195:
+\code{hot_updates.csv}, \code{transaction_metrics.csv} and \code{summary.csv}.}

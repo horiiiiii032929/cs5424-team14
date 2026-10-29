@@ -1,0 +1,28 @@
+% Hikaru.
+\subsection{\expt{a112} and \expt{a113}: Read-only declarations}
+Experiment a112 adds \code{READ ONLY} to T3, T4 and T6 on top of a111.
+Their query bodies and \code{SERIALIZABLE} isolation remain unchanged.
+Experiment a113 additionally declares them \code{DEFERRABLE}. PostgreSQL permits
+a serializable, read-only, deferrable transaction to wait for a safe snapshot.
+That property applies to the qualifying transaction, not to every transaction
+in the distributed workload \citep{pg-set-transaction}.
+
+\begin{table}[htbp]
+\caption{Four-client diagnostics: 60-second warmups and measurements.}
+\label{tab:a-read-only}
+\begin{tabularx}{\linewidth}{@{}llYr@{}}
+\toprule
+\textbf{Experiment} & \textbf{Job} & \textbf{Change} & \textbf{TPS} \\
+\midrule
+\expt{a111} & 977617 & Indexes and join-key colocation & 89.917 \\
+\expt{a112} & 977618 & a111 plus READ ONLY & 92.383 \\
+\expt{a113} & 977619 & a112 plus DEFERRABLE & 90.550 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+All three completed both phases without measured failures or retries and passed
+validation. Their small differences do not establish a reliable ranking from
+single short runs. The table neither isolates a substantial READ ONLY benefit
+nor demonstrates a general concurrency fix. We selected a112 for full evaluation;
+the deferrable variant did not demonstrate an additional performance benefit.

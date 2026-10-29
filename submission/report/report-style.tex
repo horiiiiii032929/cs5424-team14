@@ -1,0 +1,60 @@
+% Shared presentation only. Keep report text and results out of this file.
+% Assignment: at most 20 pages including the cover; minimum 10 pt text.
+\usepackage[margin=20mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage{graphicx,booktabs,longtable,array,tabularx,xcolor}
+\usepackage{enumitem,needspace,etoolbox}
+\usepackage{caption,listings}
+\usepackage[section]{placeins}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+\hypersetup{pdftitle={Team \TeamNumber: Distributed Databases Report},
+  pdfauthor={Team \TeamNumber}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\emergencystretch}{2em}
+\setlist{nosep,leftmargin=1.5em,topsep=3pt}
+\raggedbottom
+\widowpenalty=10000
+\clubpenalty=10000
+
+% 10.5 TeX pt exceeds 10 PDF pt, including captions, references and SQL.
+% Never scale a table down to make it fit.
+\renewcommand{\small}{\fontsize{10.5}{12.6}\selectfont}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{Z}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.14}
+\captionsetup{font=small,labelfont=bf,skip=6pt}
+\AtBeginEnvironment{table}{\small\centering}
+\AtBeginEnvironment{figure}{\centering}
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+\setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.8}
+
+% Helpers for identifiers and provenance; standard LaTeX everywhere else.
+\newcommand{\expt}[1]{\texttt{expt\_#1}}
+\newcommand{\code}[1]{\nolinkurl{#1}}
+\newcommand{\evidence}[1]{\par\smallskip{\small\textit{Evidence:} #1\par}}
+\pdfstringdefDisableCommands{\def\expt#1{expt\_#1}\def\code#1{#1}}
+\lstset{language=SQL,basicstyle=\small\ttfamily,columns=fullflexible,
+  keepspaces=true,showstringspaces=false,breaklines=true,frame=single,
+  rulecolor=\color{black},aboveskip=8pt,belowskip=8pt}
+\renewcommand{\bibfont}{\small}
+\setlength{\bibsep}{4pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
