@@ -33,8 +33,8 @@ order ranges under READ ONLY. a115 is its control: a112 plus only the
 
 `expt_b1`–`expt_b6` are Desmond's Workload B optimization experiments. Each
 folder contains a complete run.sh, transactions, Slurm output and benchmark
-results. The b201–b204 names are submission aliases for supplementary B
-experiments; their original server names are retained below for reference.
+results. `expt_b201` is the submission alias for the supplementary T7-only
+experiment; its original server name is retained below for reference.
 
 | Experiment | Change from baseline |
 |---|---|
@@ -46,9 +46,6 @@ experiments; their original server names are retained below for reference.
 | expt_b5 | Merchant/customer order index |
 | expt_b6 | Daily-sales rollup for T6 |
 | expt_b201 | T7-only placement experiment (`expt_xc_b1`) |
-| expt_b202 | Supplementary T6 time-index experiment (`expt_xc_b2`) |
-| expt_b203 | Supplementary T6 control (`expt_b3v_control`) |
-| expt_b204 | Supplementary T6 covering-index variant (`expt_b3v_cover`) |
 
 The matched b0/b6 jobs are stored under `expt_b0` and `expt_b6`; b6 also
 contains the separate correctness jobs and their supporting scripts.
