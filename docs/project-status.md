@@ -10,8 +10,9 @@ Hikaru supplied the [shared Overleaf project](https://www.overleaf.com/project/6
 29 October. Use it for joint final edits and export reviewed source back to Git.
 Its live contents/access were not checked or changed in this cleanup.
 [PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1) is now merged
-into `main`; new teammate PRs should target `main`. The report cleanup PR also
-includes the earlier A confirmation/Overleaf handoff changes.
+into `main`; new teammate PRs should target `main`. [PR #4](https://github.com/horiiiiii032929/cs5424-team14/pull/4) includes the report
+cleanup and earlier A confirmation/Overleaf handoff changes. PR #3 is closed
+as superseded by #4; #4 requires a teammate approval before merging.
 
 A selection is confirmed: **a112 final, a115 follow-up, a10 separate**.
 Kelvin's write-path analysis is included. The B pair still needs to confirm its

@@ -2,6 +2,9 @@
 
 ## Ready for review
 
+GitHub review: [PR #4](https://github.com/horiiiiii032929/cs5424-team14/pull/4), targeting `main`.
+PR #1 is merged; the earlier handoff PR #3 is closed as superseded by #4.
+
 - Maintained LaTeX source: `submission/report/`. Names/tools are in
   `metadata.tex`; individual contributions are in `sections/01_contributions.tex`.
 - Shared report: [Overleaf project](https://www.overleaf.com/project/6ae2d836f7dbb8dab0442621). Hikaru supplied this

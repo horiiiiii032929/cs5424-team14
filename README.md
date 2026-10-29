@@ -23,7 +23,8 @@ Follow [CONTRIBUTING.md](CONTRIBUTING.md) for peer review.
 
 Code and evidence were merged into `main` through
 [PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1) on 29 October.
-The current local report cleanup branch is `codex/maintainable-latex-report`.
+Review the remaining report cleanup in [PR #4](https://github.com/horiiiiii032929/cs5424-team14/pull/4).
+The branch is `codex/maintainable-latex-report`; PR #3 is superseded by #4.
 See [the dated evidence status](docs/project-status.md) and
 [results](results/README.md) for the audit history and comparison limitations.
 
