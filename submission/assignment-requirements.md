@@ -24,12 +24,19 @@ from a team preference or a previous working draft.
 ## Required result-folder structure
 
 The ZIP has a single `citus_project_team_14/` root, `install_citus_slurm.sh`,
-and a README describing the experiments. Every one of the **23 top-level Slurm
+and a README describing the experiments. Every one of the **23 top-level
 experiment folders** follows `expt_[ab]N` and has `run.sh`, nine transaction SQL
 files, `slurm-results/job-N/`, and matching `citus-N.out` and `citus-N.err` files.
 There are 48 job-directory paths representing 45 distinct Slurm IDs; some
 historical control folders retain the same original job ID and are not counted
 as independent runs.
+
+The organization follow-up explicitly labels b203/b204 as unbenchmarked source
+variants containing inherited b2/job-928583 evidence, and b201/job-918781 as an
+inherited b0 baseline. The 23 folders do not represent 23 independently measured
+designs. `job-source-map.json` records canonical job ownership and runtime source
+matches where available. Additional local correctness/pilot evidence has been
+included; see [the organization follow-up](organization-2026-10-29.md).
 
 Eight local-only designs (a103-a110) have no Slurm run. Their code is retained
 under `supporting_implementations/local_only/`, separately from the course

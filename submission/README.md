@@ -8,8 +8,8 @@ Proposed review draft cutoff: **29 October at 18:00**; upload target:
 
 The generated `upload/` directory contains exactly the three required names:
 
-- `14_files.zip`: one top-level `citus_project_team_14/`, including 23 Slurm
-  experiment folders, 48 job folders, eight separate local-only implementations,
+- `14_files.zip`: one top-level `citus_project_team_14/`, including 23
+  experiment folders (b203/b204 contain inherited b2 evidence only), 48 job folders representing 45 jobs, eight separate local-only implementations,
   source snapshots, audit evidence and SHA-256 checksums.
   Local-only evidence is explicitly separate. Original source and failed runs
   are preserved; included files do not imply a performance result is clean.
@@ -75,6 +75,9 @@ To satisfy the required `expt_bN` directory format without changing source bytes
 
 The original names remain in the provenance map and historical logs. These
 aliases concern packaging only and do not establish a new experiment or owner.
+**b203/b204 have no independent benchmark:** their copied job 928583 belongs to
+b2. b201's copied 918781 belongs to b0. The package identifies these in each
+README, the experiment inventory and `job-source-map.json`.
 Supplementary b0/b6 results have been moved from `supplementary-results/` into
 their respective experiment's `slurm-results/job-N/` in the ZIP; provenance
 retains their original paths. The archive README describes every experiment.
@@ -87,8 +90,18 @@ existing staging tree. Preserve manual edits before rebuilding. It checks
 collisions, required run/transaction structure, ZIP CRCs and the single root.
 Then run `scripts/finalize_submission_layout.py` to move local-only designs into
 supporting implementations, check every recorded job's Slurm output/error pair,
-and regenerate the final archive/checksums. This second step is required.
+apply `scripts/organize_submission.py` and regenerate the final archive/checksums.
+This second step is required. It includes the additional correctness/pilot suites,
+configured installer, explicit inherited-job labels, job-to-source map and the
+documentation templates `package-readme.md` and `reproduction-guide.md`.
 `checksums.sha256` records every staged file except the checksum file itself.
+The provenance file distinguishes original `source_sha256` from final
+`packaged_sha256`; its legacy `sha256` field is an original-source hash.
+
+The prior result and AI ZIPs are retained privately under
+`_build/before-organization-20261029/`. The original review remains in
+[the audit](non-report-audit-2026-10-29.md); the changes and current outstanding
+items are in [the organization follow-up](organization-2026-10-29.md).
 
 `scripts/prepare_ai_archive.py` uses the bundled Python runtime with ReportLab.
 It exports only project sessions, excluding hidden reasoning, system/developer
