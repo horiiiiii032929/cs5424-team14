@@ -15,8 +15,8 @@ For B use `expt_b6`. Baselines are `expt_a0` and `expt_b0`. Review each runner's
 defaults and the intended historical job's `benchmark-results/config.txt`.
 Reproducing a particular result may require its recorded seed, client counts,
 duration, workload weights, resets, hardware allocation and source snapshot.
-Defaults alone do not reproduce every stored job. Do not use inherited
-b203/b204 results as measurements of those source variants.
+Defaults alone do not reproduce every stored job. Count the inherited
+b201 baseline only once; its canonical owner is b0.
 
 Look in `slurm-results/job-N/benchmark-results/` for config, summary and
 per-transaction CSVs, textual warmup/result files and raw transaction logs.
@@ -25,12 +25,12 @@ Keep the Slurm `citus-N.out` and `.err` files in the experiment directory.
 
 ## Separate b6 correctness harness
 
-The preserved 28 October source snapshot contains `run_correctness.sh`,
-`correctness.sql` and its transaction directory. Submit from that directory
+The current b6 directory contains `run_correctness.sh`, `correctness.sql`
+and its transaction directory, verified against the 28 October readback. Submit there
 so that Slurm's submit directory and all relative dependencies agree:
 
 ```sh
-cd expt_b6/source_snapshots/live-readback-20261028
+cd expt_b6
 sbatch run_correctness.sh
 ```
 

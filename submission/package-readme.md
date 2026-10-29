@@ -9,8 +9,8 @@ evidence are under **expt_b6**. No a10+a112 combined benchmark is claimed.
 ## Start here
 
 - `REPRODUCE.md`: running cluster experiments and locating reproduction utilities.
-- `experiment-inventory.json`: all 23 top-level folders and their job associations.
-- `job-source-map.json`: 45 distinct jobs, canonical experiment ownership, copies,
+- `experiment-inventory.json`: all 20 top-level folders and their job associations.
+- `job-source-map.json`: 43 distinct jobs, canonical experiment ownership, copies,
   and available runtime source-hash matches.
 - `supporting-implementation-inventory.json`: eight local-only a103–a110 designs.
 - `checksums.sha256`: final file integrity, excluding the checksum file itself.
@@ -19,18 +19,15 @@ evidence are under **expt_b6**. No a10+a112 combined benchmark is claimed.
 
 Each top-level `expt_aN`/`expt_bN` folder has `run.sh`, nine SQL transactions,
 Slurm job output directories and matching `citus-N.out`/`.err` logs.
-There are **23 folders and 48 job paths, representing 45 distinct jobs**.
-These are not 23 independently benchmarked designs:
+There are **20 folders and 44 job paths, representing 43 distinct jobs**.
+**b201/job-918781** is inherited **b0** baseline evidence, not an additional run.
+b201's later jobs remain separately identified. Its original cluster alias is
+`expt_xc_b1`; names are preserved in provenance and historical logs.
 
-- **b203 and b204 are unbenchmarked supporting source variants.** Their only
-  stored job, 928583, is an inherited copy of **b2**. Its pgbench commands name
-  b2's transaction scripts. Those results do not measure b203 or b204.
-- **b201/job-918781** is inherited **b0** baseline evidence. b201's later jobs
-  remain separately identified.
-
-The original cluster folder aliases are b201 = `expt_xc_b1`, b202 = `expt_xc_b2`,
-b203 = `expt_b3v_control`, and b204 = `expt_b3v_cover`. Names are preserved in
-provenance and historical logs. Aliases do not imply a new run or ownership.
+Xincheng removed unused **b202–b204** in commit `1a5a2f3`. These experiments and
+their job copies are excluded from this submission. The older private archive
+and original cluster readback retain the historical files. In particular, the
+removed b203/b204 copies of job 928583 never established independent benchmarks.
 Supplementary b0/b6 results are under each experiment's `slurm-results/`;
 their original `supplementary-results/` paths remain in provenance.
 
