@@ -14,14 +14,15 @@ abort caveats; a10 is separate and was not benchmarked on top of a112.
 Kelvin's write-path analysis is incorporated. The B pair must confirm their
 final design, attribution and evidence wording.
 
-The editable source is [submission/report/](submission/report/). Use
-`bash scripts/build_report.sh` to build the PDF and portable Overleaf ZIP.
-Follow [CONTRIBUTING.md](CONTRIBUTING.md) for peer review. Once an Overleaf
-project is created and shared, use it for joint final edits and export reviewed
-snapshots back to Git. An Overleaf project/link is not recorded yet.
+Use the [shared Overleaf project](https://www.overleaf.com/project/6ae2d836f7dbb8dab0442621) for final report
+edits. Hikaru supplied this project on 29 October; its contents have not been
+synchronized or compared with the local draft in this cleanup. Keep reviewed
+source snapshots in [submission/report/](submission/report/). Use
+`bash scripts/build_report.sh` to build the local PDF and portable source ZIP.
+Follow [CONTRIBUTING.md](CONTRIBUTING.md) for peer review.
 
-Code and evidence were assembled for
-[PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1).
+Code and evidence were merged into `main` through
+[PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1) on 29 October.
 The current local report cleanup branch is `codex/maintainable-latex-report`.
 See [the dated evidence status](docs/project-status.md) and
 [results](results/README.md) for the audit history and comparison limitations.

@@ -23,7 +23,9 @@ experiments split under `report/sections/workload-a/`. Names and formatting live
 in `metadata.tex` and `report-style.tex`; citations use `references.bib`. Follow
 [the peer-review workflow](../CONTRIBUTING.md) and edit the appropriate A/B
 section. `14_report_overleaf.zip` contains the same source and images for
-Overleaf; it is not one of the three Canvas uploads.
+Overleaf; it is not one of the three Canvas uploads. Use the
+[shared Overleaf project](https://www.overleaf.com/project/6ae2d836f7dbb8dab0442621) for final edits, comparing its
+live contents before importing any local ZIP.
 Build storage and private AI records are ignored by Git.
 
 The [assignment requirements check](assignment-requirements.md) maps the supplied

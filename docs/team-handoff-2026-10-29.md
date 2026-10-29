@@ -1,11 +1,13 @@
 # Team 14 handoff — 29 October 2026
 
-## Ready locally
+## Ready for review
 
 - Maintained LaTeX source: `submission/report/`. Names/tools are in
   `metadata.tex`; individual contributions are in `sections/01_contributions.tex`.
-- Shared-editing import: `submission/14_report_overleaf.zip`. Set `main.tex` as
-  the main document. An Overleaf project/link has not been recorded yet.
+- Shared report: [Overleaf project](https://www.overleaf.com/project/6ae2d836f7dbb8dab0442621). Hikaru supplied this
+  link on 29 October; live contents/access have not been checked here.
+- Local source import: `submission/14_report_overleaf.zip`. Compare with live
+  Overleaf edits before importing. Set `main.tex` as the main document.
 - Report preview: `submission/upload/14_report.pdf`, currently 19 pages including
   the cover. Recheck the page count and minimum 10 pt text after final edits.
 - Result archive: `submission/upload/14_files.zip`, with 23 Slurm experiments,
@@ -24,7 +26,7 @@ Canvas receives only the three required upload files in their respective tasks.
 | Hikaru + Kelvin | Review A wording and individual contributions. a112 is final; a115 is follow-up with aborts; a10 is separate. Keep the a112 repeat/c64 warmup caveat. |
 | Desmond + Xincheng | Confirm final B choice, B contributions and supplementary experiment attribution. Review Sections 4–5, conclusion and folder aliases b201–b204. The matched 20.86× result applies to one client; higher-count failures/aborts and separate correctness scope stay visible. |
 | All four | Confirm names, contributions, sources actually consulted and every AI tool used. Supply complete prompts/responses or interaction PDFs. |
-| Report coordinator | Create/share one Overleaf project, or agree to continue using repo source. Avoid concurrent independent report copies. Export final reviewed source and rebuild the PDF. |
+| Report coordinator | Use the linked Overleaf project, confirm access for all four members and compare its current source before importing any local ZIP. Export reviewed source back to Git and rebuild/check the PDF. |
 | Submission coordinator, to be agreed | Recheck all three artifacts, upload to the corresponding Canvas assignments, verify receipts/downloads, and confirm week-13 Q&A registration for everyone. |
 
 Official deadline: **30 October 2026, 23:59 Singapore time**.
@@ -43,8 +45,8 @@ Desmond and Xincheng: please confirm the final B design, review Sections 4–5 a
 the B conclusion, and check your contributions and supplementary experiments.
 
 Everyone: please confirm your full name, contribution, references and all AI
-tools used, and provide any missing AI interaction records. Let's use one shared
-Overleaf project for final edits once its link is shared.
+tools used, and provide any missing AI interaction records. Use our
+[shared Overleaf project](https://www.overleaf.com/project/6ae2d836f7dbb8dab0442621) for final edits.
 
 After joint review, we need to upload `14_files.zip`, `14_report.pdf` and
 `14_ai_tool.zip` to their respective Canvas assignments and verify the receipts.

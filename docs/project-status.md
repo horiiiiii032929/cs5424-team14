@@ -6,6 +6,13 @@ body text is 11 pt and table/caption/reference text is 10.5 pt. Report source is
 modular, with shared metadata/style and a bibliography. The generated Overleaf
 ZIP is the import package; `submission/report/` is the maintained local source.
 
+Hikaru supplied the [shared Overleaf project](https://www.overleaf.com/project/6ae2d836f7dbb8dab0442621) on
+29 October. Use it for joint final edits and export reviewed source back to Git.
+Its live contents/access were not checked or changed in this cleanup.
+[PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1) is now merged
+into `main`; new teammate PRs should target `main`. The report cleanup PR also
+includes the earlier A confirmation/Overleaf handoff changes.
+
 A selection is confirmed: **a112 final, a115 follow-up, a10 separate**.
 Kelvin's write-path analysis is included. The B pair still needs to confirm its
 final choice and individual attribution. Everyone must check names,

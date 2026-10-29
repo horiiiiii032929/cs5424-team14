@@ -14,40 +14,34 @@ On 28 October 2026, Kelvin confirmed Hikaru's proposed selection:
 This resolves A selection; it does not finalize B selection, contributions,
 the bibliography or team-wide AI documentation.
 
-## One editable report
+## Shared project
 
-The local LaTeX draft consolidates the existing report text and audited evidence;
-it is not intended to compete with a second report in Google Docs. Kelvin
-proposed moving it to Overleaf so all four members can edit together.
+Hikaru supplied the [shared Overleaf project](https://www.overleaf.com/project/6ae2d836f7dbb8dab0442621) on
+29 October 2026. Use this project for final joint report edits. Keep the Google
+Doc as historical reference and GitHub for experiment code, results, evidence
+and reviewed source snapshots.
 
-Once the Overleaf project is created and its link is shared, use that project
-for final report edits. Keep the Google Doc as the historical draft/reference.
-Use GitHub for experiment code, results, evidence and reviewed snapshots of the
-Overleaf source. Avoid editing the same report independently in all three places.
-Until an actual Overleaf project exists, the repo section files remain the
-available working source. No Overleaf URL or invitations have been created.
+The public repository records the standard project URL. Share access links and
+arrange collaborator access through the team's existing channel. Project
+contents, invitations and access have not been checked in this cleanup.
 
-## Set up the shared project
+## Finish the shared report
 
-1. Sign into [NUS Overleaf](https://www.overleaf.com/edu/nus) and link the account
-   to NUS SSO to claim the institutional premium features. The official NUS
-   Overleaf page lists unlimited collaborators, track changes and full history.
-   A normal free account allows only one collaborator per project, so use the
-   institutional entitlement for this four-person team.
-2. Build the current source with `bash scripts/build_report.sh`.
-3. Upload `submission/14_report_overleaf.zip` as a new project, named
-   **CS5424 Team 14 Final Report**. Select `main.tex` as the main document.
-4. Invite Kelvin, Desmond and Xincheng using the email addresses they use for
-   Overleaf, with edit access. Do not guess email addresses or enable a public
-   edit link as a substitute for the intended recipients.
-5. Compile and verify all figures and section files. The 29 October local draft
-   is 19 pages. Keep the final PDF within 20 pages including the cover.
-6. Share the verified project link with the team and state that it is the
-   shared report. Use comments/track changes for partner review before final
-   wording is accepted; GitHub branch protection does not govern Overleaf edits.
-7. After the final joint review, export the source back to the repository in a
-   PR and export the submission PDF as `14_report.pdf`. Do not overwrite newer
-   Overleaf edits with an older repo export.
+1. Open the existing project and compare its source with the current repository
+   draft before importing anything. Do not create another competing project or
+   overwrite newer team edits with the local ZIP.
+2. If the live project needs the local draft, coordinate the import of
+   `submission/14_report_overleaf.zip`. Select `main.tex` as the main document.
+   Names/tools are in `metadata.tex`; A experiments are in
+   `sections/workload-a/`; the B pair owns Sections 4–5.
+3. Confirm all four members can edit. Use comments/track changes for partner
+   review; GitHub branch protection does not govern Overleaf edits.
+4. Compile and check all figures, references and section files. The 29 October
+   local draft is 19 pages; the final PDF must stay within 20 pages including
+   the cover, with all text at least 10 pt.
+5. After joint review, export the source back to a repository feature branch
+   targeting `main`, and export the PDF as `14_report.pdf`. Recheck the actual
+   exported PDF before coordinating the three Canvas uploads.
 
 ## Immediate division of work
 
@@ -60,7 +54,3 @@ available working source. No Overleaf URL or invitations have been created.
 
 A review draft by 29 October at 18:00 Singapore time is a proposed team target.
 Official submission deadline: 30 October 2026 at 23:59 Singapore time.
-
-Sources checked 28 October:
-[NUS institutional Overleaf](https://www.overleaf.com/edu/nus),
-[Overleaf free/premium plan description](https://docs.overleaf.com/getting-started/free-and-premium-plans).
