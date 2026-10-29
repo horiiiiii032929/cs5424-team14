@@ -1,0 +1,44 @@
+2026-10-21 15:55:35.670 +08 [2900480] LOG:  There is no designated Main database.
+2026-10-21 15:55:35.670 +08 [2900480] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-21 15:55:35.670 +08 [2900480] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-21 15:55:35.822 +08 [2900480] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-21 15:55:35.822 +08 [2900480] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-21 15:55:35.822 +08 [2900480] LOG:  listening on IPv6 address "::", port 5446
+2026-10-21 15:55:35.823 +08 [2900480] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-21 15:55:35.828 +08 [2900487] LOG:  database system was shut down at 2026-10-21 15:55:33 +08
+2026-10-21 15:55:35.832 +08 [2900480] LOG:  database system is ready to accept connections
+2026-10-21 15:55:38.383 +08 [2900495] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-21 15:55:38.383 +08 [2900495] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-21 15:55:45.009 +08 [2900610] LOG:  starting maintenance daemon on database 18193 user 10
+2026-10-21 15:55:45.009 +08 [2900610] CONTEXT:  Citus maintenance daemon for database 18193 user 10
+2026-10-21 15:59:35.906 +08 [2900658] ERROR:  canceling statement due to user request
+2026-10-21 15:59:35.906 +08 [2900658] STATEMENT:  UPDATE public.orders_102120 o SET total_amount = x.total FROM (SELECT intermediate_result.order_id, intermediate_result.total FROM read_intermediate_result('5_1'::text, 'binary'::citus_copy_format) intermediate_result(order_id bigint, total numeric(12,2))) x WHERE (o.order_id OPERATOR(pg_catalog.=) x.order_id)
+2026-10-21 15:59:35.916 +08 [2940287] ERROR:  canceling statement due to user request
+2026-10-21 15:59:35.916 +08 [2940287] STATEMENT:  UPDATE public.orders_102128 o SET total_amount = x.total FROM (SELECT intermediate_result.order_id, intermediate_result.total FROM read_intermediate_result('5_1'::text, 'binary'::citus_copy_format) intermediate_result(order_id bigint, total numeric(12,2))) x WHERE (o.order_id OPERATOR(pg_catalog.=) x.order_id)
+2026-10-21 15:59:35.916 +08 [2940286] ERROR:  canceling statement due to user request
+2026-10-21 15:59:35.916 +08 [2940286] STATEMENT:  UPDATE public.orders_102132 o SET total_amount = x.total FROM (SELECT intermediate_result.order_id, intermediate_result.total FROM read_intermediate_result('5_1'::text, 'binary'::citus_copy_format) intermediate_result(order_id bigint, total numeric(12,2))) x WHERE (o.order_id OPERATOR(pg_catalog.=) x.order_id)
+2026-10-21 15:59:35.925 +08 [2940289] ERROR:  canceling statement due to user request
+2026-10-21 15:59:35.925 +08 [2940289] STATEMENT:  UPDATE public.orders_102124 o SET total_amount = x.total FROM (SELECT intermediate_result.order_id, intermediate_result.total FROM read_intermediate_result('5_1'::text, 'binary'::citus_copy_format) intermediate_result(order_id bigint, total numeric(12,2))) x WHERE (o.order_id OPERATOR(pg_catalog.=) x.order_id)
+2026-10-21 15:59:35.971 +08 [2940287] LOG:  could not send data to client: Connection reset by peer
+2026-10-21 15:59:35.971 +08 [2940287] FATAL:  connection to client lost
+2026-10-21 15:59:35.974 +08 [2940286] LOG:  could not send data to client: Broken pipe
+2026-10-21 15:59:35.974 +08 [2940286] FATAL:  connection to client lost
+2026-10-21 15:59:35.976 +08 [2940289] LOG:  could not send data to client: Connection reset by peer
+2026-10-21 15:59:35.976 +08 [2940289] FATAL:  connection to client lost
+2026-10-21 15:59:35.988 +08 [2900658] LOG:  could not send data to client: Connection reset by peer
+2026-10-21 15:59:35.988 +08 [2900658] FATAL:  connection to client lost
+2026-10-21 15:59:36.217 +08 [2900480] LOG:  received fast shutdown request
+2026-10-21 15:59:36.218 +08 [2900480] LOG:  aborting any active transactions
+2026-10-21 15:59:36.218 +08 [2900911] FATAL:  terminating connection due to administrator command
+2026-10-21 15:59:36.218 +08 [2900637] FATAL:  terminating connection due to administrator command
+2026-10-21 15:59:36.218 +08 [2900671] FATAL:  terminating connection due to administrator command
+2026-10-21 15:59:36.223 +08 [2900628] FATAL:  terminating connection due to administrator command
+2026-10-21 15:59:36.224 +08 [2900509] FATAL:  terminating connection due to administrator command
+2026-10-21 15:59:36.224 +08 [2900508] FATAL:  terminating connection due to administrator command
+2026-10-21 15:59:36.226 +08 [2900627] FATAL:  terminating connection due to administrator command
+2026-10-21 15:59:36.227 +08 [2900510] FATAL:  terminating connection due to administrator command
+2026-10-21 15:59:36.227 +08 [2900480] LOG:  background worker "logical replication launcher" (PID 2900490) exited with exit code 1
+2026-10-21 15:59:36.251 +08 [2900485] LOG:  shutting down
+2026-10-21 15:59:36.252 +08 [2900485] LOG:  checkpoint starting: shutdown immediate
+2026-10-21 15:59:37.497 +08 [2900485] LOG:  checkpoint complete: wrote 130113 buffers (99.3%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 198 recycled; write=1.188 s, sync=0.020 s, total=1.246 s; sync files=1708, longest=0.006 s, average=0.001 s; distance=3244852 kB, estimate=3244852 kB; lsn=0/C782C118, redo lsn=0/C782C118
+2026-10-21 15:59:37.898 +08 [2900480] LOG:  database system is shut down

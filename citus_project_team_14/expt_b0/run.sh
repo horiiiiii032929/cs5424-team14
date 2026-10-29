@@ -879,7 +879,7 @@ require_integer() {
 ### add workload
 add_workload() {
 	local txn="$1" file="$2" weight="$3" name="$4"
-	((weight > 0)) || return
+	((weight > 0)) || return 0
 	workload+=("-f" "$TX_DIR/$file@$weight")
 	SCRIPT_NUMBER["$txn"]="$idx"
 	SCRIPT_NAME["$txn"]="$name"

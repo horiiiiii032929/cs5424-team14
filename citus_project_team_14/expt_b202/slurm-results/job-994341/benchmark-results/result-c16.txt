@@ -1,0 +1,82 @@
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=101 --max-tries=3 -h xcnf10 -p 5446 -U cs14 -d project-994341 -n -c 16 -j 4 -T 600 -M simple -P 10 -r --failures-detailed -l --log-prefix=/home/stuproj/cs14/citus_project/expt_xc_b2/slurm-results/job-994341/benchmark-results/logs/pgbench-c16 --sampling-rate=1.0 -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_xc_b2/transactions/T6_global_sales.sql@100
+pgbench: setting random seed to 101
+pgbench (18.6)
+progress: 10.0 s, 16.3 tps, lat 914.563 ms stddev 81.561, 0 failed, 0 retried, 0 retries
+progress: 20.0 s, 17.7 tps, lat 905.126 ms stddev 93.067, 0 failed, 0 retried, 0 retries
+progress: 30.0 s, 20.1 tps, lat 813.950 ms stddev 102.150, 0 failed, 0 retried, 0 retries
+progress: 40.0 s, 20.8 tps, lat 780.707 ms stddev 106.423, 0 failed, 0 retried, 0 retries
+progress: 50.0 s, 20.6 tps, lat 763.518 ms stddev 85.276, 0 failed, 0 retried, 0 retries
+progress: 60.0 s, 21.2 tps, lat 764.502 ms stddev 100.397, 0 failed, 0 retried, 0 retries
+progress: 70.0 s, 21.1 tps, lat 763.054 ms stddev 77.304, 0 failed, 0 retried, 0 retries
+pgbench: error: client 12 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 11 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 5 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf12:5446
+pgbench: error: client 6 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf11:5446
+pgbench: error: client 14 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf11:5446
+pgbench: error: client 15 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 2 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf11:5446
+pgbench: error: client 3 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 0 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 13 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 1 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 8 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 9 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf12:5446
+pgbench: error: client 10 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf12:5446
+pgbench: error: client 7 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 4 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+transaction type: /home/stuproj/cs14/citus_project/expt_xc_b2/transactions/T6_global_sales.sql
+scaling factor: 1
+query mode: simple
+number of clients: 16
+number of threads: 4
+maximum number of tries: 3
+duration: 600 s
+number of transactions actually processed: 1462
+number of failed transactions: 0 (0.000%)
+number of serialization failures: 0 (0.000%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 0 (0.000%)
+total number of retries: 0
+latency average = 806.938 ms
+latency stddev = 110.446 ms
+initial connection time = 23.951 ms
+tps = 19.716338 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.163           0          0 BEGIN;
+       775.801           0          0 SELECT
+        30.975           0          0 COMMIT;
+pgbench: error: Run was aborted; the above results are incomplete.
+pgbench_exit_code=2
+tee_exit_code=0

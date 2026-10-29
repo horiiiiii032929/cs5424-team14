@@ -1,0 +1,26 @@
+2026-10-16 13:27:26.291 +08 [1428251] LOG:  There is no designated Main database.
+2026-10-16 13:27:26.291 +08 [1428251] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-16 13:27:26.291 +08 [1428251] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-16 13:27:26.441 +08 [1428251] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-16 13:27:26.441 +08 [1428251] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-16 13:27:26.441 +08 [1428251] LOG:  listening on IPv6 address "::", port 5446
+2026-10-16 13:27:26.442 +08 [1428251] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-16 13:27:26.447 +08 [1428258] LOG:  database system was shut down at 2026-10-16 13:27:24 +08
+2026-10-16 13:27:26.451 +08 [1428251] LOG:  database system is ready to accept connections
+2026-10-16 13:27:28.959 +08 [1428266] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-16 13:27:28.959 +08 [1428266] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-16 13:31:59.335 +08 [1428266] WARNING:  terminating connection due to administrator command
+2026-10-16 13:31:59.335 +08 [1428266] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-16 13:32:00.557 +08 [1428251] LOG:  received fast shutdown request
+2026-10-16 13:32:00.557 +08 [1428251] LOG:  aborting any active transactions
+2026-10-16 13:32:00.557 +08 [1428311] FATAL:  terminating connection due to administrator command
+2026-10-16 13:32:00.557 +08 [1428280] FATAL:  terminating connection due to administrator command
+2026-10-16 13:32:00.557 +08 [1428279] FATAL:  terminating connection due to administrator command
+2026-10-16 13:32:00.561 +08 [1428251] LOG:  background worker "logical replication launcher" (PID 1428261) exited with exit code 1
+2026-10-16 13:32:00.567 +08 [1428256] LOG:  shutting down
+2026-10-16 13:32:00.567 +08 [1428256] LOG:  checkpoint starting: shutdown immediate
+2026-10-16 13:32:01.345 +08 [1428484] LOG:  PID 1428280 in cancel request did not match any process
+2026-10-16 13:32:01.800 +08 [1428256] LOG:  checkpoint complete: wrote 128103 buffers (97.7%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 272 recycled; write=1.166 s, sync=0.011 s, total=1.233 s; sync files=1090, longest=0.005 s, average=0.001 s; distance=4463151 kB, estimate=4463151 kB; lsn=1/11DEAE98, redo lsn=1/11DEAE98
+2026-10-16 13:32:01.827 +08 [1428485] LOG:  PID 1428279 in cancel request did not match any process
+2026-10-16 13:32:02.151 +08 [1428251] LOG:  database system is shut down

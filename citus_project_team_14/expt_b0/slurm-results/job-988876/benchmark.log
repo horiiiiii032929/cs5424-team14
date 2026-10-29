@@ -1,0 +1,1189 @@
+Loaded data dimensions:
+  merchants = 1000
+  customers = 1000000
+  products  = 500000
+  orders    = 5000000
+DO
+[2026-10-21 16:23:00] Resetting database to somewhat deterministic initial state: before client-count c1
+TRUNCATE TABLE
+INSERT 0 1000
+INSERT 0 1000000
+INSERT 0 500000
+INSERT 0 500000
+INSERT 0 5000000
+INSERT 0 15000000
+UPDATE 5000000
+ANALYZE
+Synthetic data generation complete. Default scale creates about 3 historical items/order.
+DO
+[2026-10-21 16:29:28] Database reset complete: before client-count c1
+[2026-10-21 16:29:28] Warmup: clients=1 threads=1 duration=60s
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=42 --max-tries=3 -h xcnc34 -p 5446 -U cs14 -d project-988876 -n -c 1 -j 1 -T 60 -M simple -P 10 -r --failures-detailed -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql@100
+pgbench: setting random seed to 42
+pgbench (18.6)
+progress: 10.0 s, 4.4 tps, lat 201.848 ms stddev 197.449, 0 failed, 0 retried, 0 retries
+progress: 20.0 s, 6.3 tps, lat 174.811 ms stddev 166.447, 0 failed, 0 retried, 0 retries
+progress: 30.0 s, 6.3 tps, lat 159.901 ms stddev 108.958, 0 failed, 0 retried, 0 retries
+progress: 40.0 s, 5.2 tps, lat 190.509 ms stddev 190.361, 0 failed, 0 retried, 0 retries
+progress: 50.0 s, 6.7 tps, lat 148.877 ms stddev 25.110, 0 failed, 0 retried, 0 retries
+progress: 60.0 s, 6.5 tps, lat 154.487 ms stddev 44.512, 0 failed, 0 retried, 0 retries
+transaction type: /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql
+scaling factor: 1
+query mode: simple
+number of clients: 1
+number of threads: 1
+maximum number of tries: 3
+duration: 60 s
+number of transactions actually processed: 355
+number of failed transactions: 0 (0.000%)
+number of serialization failures: 0 (0.000%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 0 (0.000%)
+total number of retries: 0
+latency average = 169.025 ms
+latency stddev = 134.132 ms
+initial connection time = 3.892 ms
+tps = 5.916205 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.002           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set source_product_id :DEBUG_T7_SOURCE_PRODUCT_ID
+         0.000           0          0 \set dest_product_id :DEBUG_T7_DEST_PRODUCT_ID
+         0.000           0          0 \set transfer_qty :DEBUG_T7_TRANSFER_QTY
+         0.000           0          0 \else
+         0.003           0          0 \set source_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set dest_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set transfer_qty random(:T7_MIN_TRANSFER_QTY, :T7_MAX_TRANSFER_QTY)
+         0.000           0          0 \endif
+         0.001           0          0 \set transfer_ok 1
+         0.147           0          0 BEGIN;
+        41.087           0          0 SELECT EXISTS(
+        23.092           0          0 SELECT EXISTS(
+         0.002           0          0 \if :t7_source_exists
+        22.251           0          0 SELECT inventory_id AS source_inventory_id FROM inventory WHERE product_id = (:source_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.002           0          0 \if :t7_dest_exists
+        20.932           0          0 SELECT inventory_id AS dest_inventory_id FROM inventory WHERE product_id = (:dest_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.003           0          0 \if :source_product_id = :dest_product_id
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+         1.756           0          0 WITH debit AS (
+         0.002           0          0 \if :t7_debit_ok
+         1.641           0          0 WITH credit AS (
+         0.002           0          0 \if :t7_credit_ok
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+        58.096           0          0 COMMIT;
+         0.001           0          0 \else
+         0.000           0          0 ROLLBACK;
+         0.000           0          0 \endif
+[2026-10-21 16:30:28] Measured run: clients=1 threads=1 duration=600s
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=42 --max-tries=3 -h xcnc34 -p 5446 -U cs14 -d project-988876 -n -c 1 -j 1 -T 600 -M simple -P 10 -r --failures-detailed -l --log-prefix=/home/stuproj/cs14/citus_project/expt_b0/slurm-results/job-988876/benchmark-results/logs/pgbench-c1 --sampling-rate=1.0 -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql@100
+pgbench: setting random seed to 42
+pgbench (18.6)
+progress: 10.0 s, 6.2 tps, lat 160.941 ms stddev 106.031, 0 failed, 0 retried, 0 retries
+progress: 20.0 s, 6.7 tps, lat 148.336 ms stddev 25.730, 0 failed, 0 retried, 0 retries
+progress: 30.0 s, 6.8 tps, lat 148.109 ms stddev 41.360, 0 failed, 0 retried, 0 retries
+progress: 40.0 s, 6.9 tps, lat 144.950 ms stddev 33.641, 0 failed, 0 retried, 0 retries
+progress: 50.0 s, 6.1 tps, lat 161.977 ms stddev 116.657, 0 failed, 0 retried, 0 retries
+progress: 60.0 s, 6.9 tps, lat 146.264 ms stddev 29.475, 0 failed, 0 retried, 0 retries
+progress: 70.0 s, 6.1 tps, lat 163.711 ms stddev 116.343, 0 failed, 0 retried, 0 retries
+progress: 80.0 s, 6.1 tps, lat 162.851 ms stddev 62.508, 0 failed, 0 retried, 0 retries
+progress: 90.0 s, 6.7 tps, lat 149.906 ms stddev 83.400, 0 failed, 0 retried, 0 retries
+progress: 100.0 s, 6.1 tps, lat 150.887 ms stddev 41.111, 0 failed, 0 retried, 0 retries
+progress: 110.0 s, 6.2 tps, lat 162.535 ms stddev 126.305, 0 failed, 0 retried, 0 retries
+progress: 120.0 s, 5.9 tps, lat 180.495 ms stddev 216.074, 0 failed, 0 retried, 0 retries
+progress: 130.0 s, 6.8 tps, lat 148.025 ms stddev 48.024, 0 failed, 0 retried, 0 retries
+progress: 140.0 s, 6.4 tps, lat 156.565 ms stddev 119.083, 0 failed, 0 retried, 0 retries
+progress: 150.0 s, 6.7 tps, lat 147.926 ms stddev 32.316, 0 failed, 0 retried, 0 retries
+progress: 160.0 s, 6.9 tps, lat 145.832 ms stddev 23.018, 0 failed, 0 retried, 0 retries
+progress: 170.0 s, 6.4 tps, lat 156.243 ms stddev 83.673, 0 failed, 0 retried, 0 retries
+progress: 180.0 s, 6.9 tps, lat 144.174 ms stddev 27.807, 0 failed, 0 retried, 0 retries
+progress: 190.0 s, 6.9 tps, lat 145.337 ms stddev 92.415, 0 failed, 0 retried, 0 retries
+progress: 200.0 s, 6.9 tps, lat 144.951 ms stddev 40.127, 0 failed, 0 retried, 0 retries
+progress: 210.0 s, 6.3 tps, lat 158.049 ms stddev 95.769, 0 failed, 0 retried, 0 retries
+progress: 220.0 s, 6.8 tps, lat 146.303 ms stddev 66.951, 0 failed, 0 retried, 0 retries
+progress: 230.0 s, 6.7 tps, lat 151.070 ms stddev 45.666, 0 failed, 0 retried, 0 retries
+progress: 240.0 s, 6.3 tps, lat 158.975 ms stddev 94.069, 0 failed, 0 retried, 0 retries
+progress: 250.0 s, 6.6 tps, lat 150.118 ms stddev 45.964, 0 failed, 0 retried, 0 retries
+progress: 260.0 s, 7.0 tps, lat 143.436 ms stddev 50.785, 0 failed, 0 retried, 0 retries
+progress: 270.0 s, 6.8 tps, lat 147.488 ms stddev 37.535, 0 failed, 0 retried, 0 retries
+progress: 280.0 s, 6.6 tps, lat 151.755 ms stddev 71.149, 0 failed, 0 retried, 0 retries
+progress: 290.0 s, 6.6 tps, lat 151.518 ms stddev 44.873, 0 failed, 0 retried, 0 retries
+progress: 300.0 s, 6.2 tps, lat 160.900 ms stddev 62.601, 0 failed, 0 retried, 0 retries
+progress: 310.0 s, 6.2 tps, lat 162.079 ms stddev 83.634, 0 failed, 0 retried, 0 retries
+progress: 320.0 s, 6.3 tps, lat 157.659 ms stddev 88.793, 0 failed, 0 retried, 0 retries
+progress: 330.0 s, 6.7 tps, lat 150.153 ms stddev 82.252, 0 failed, 0 retried, 0 retries
+progress: 340.0 s, 7.0 tps, lat 142.140 ms stddev 31.443, 0 failed, 0 retried, 0 retries
+progress: 350.0 s, 6.4 tps, lat 156.690 ms stddev 145.604, 0 failed, 0 retried, 0 retries
+progress: 360.0 s, 6.4 tps, lat 155.063 ms stddev 104.108, 0 failed, 0 retried, 0 retries
+progress: 370.0 s, 7.1 tps, lat 140.710 ms stddev 22.905, 0 failed, 0 retried, 0 retries
+progress: 380.0 s, 6.6 tps, lat 152.901 ms stddev 93.103, 0 failed, 0 retried, 0 retries
+progress: 390.0 s, 4.6 tps, lat 217.711 ms stddev 141.117, 0 failed, 0 retried, 0 retries
+progress: 400.0 s, 2.2 tps, lat 452.400 ms stddev 321.151, 0 failed, 0 retried, 0 retries
+progress: 410.0 s, 1.7 tps, lat 588.212 ms stddev 343.193, 0 failed, 0 retried, 0 retries
+progress: 420.0 s, 2.0 tps, lat 484.021 ms stddev 315.728, 0 failed, 0 retried, 0 retries
+progress: 430.0 s, 2.2 tps, lat 432.947 ms stddev 370.216, 0 failed, 0 retried, 0 retries
+progress: 440.0 s, 4.5 tps, lat 237.514 ms stddev 469.855, 0 failed, 0 retried, 0 retries
+progress: 450.0 s, 6.1 tps, lat 166.412 ms stddev 143.450, 0 failed, 0 retried, 0 retries
+progress: 460.0 s, 4.9 tps, lat 198.037 ms stddev 126.257, 0 failed, 0 retried, 0 retries
+progress: 470.0 s, 3.2 tps, lat 303.196 ms stddev 309.885, 0 failed, 0 retried, 0 retries
+progress: 480.0 s, 2.5 tps, lat 405.989 ms stddev 395.677, 0 failed, 0 retried, 0 retries
+progress: 490.0 s, 3.0 tps, lat 342.747 ms stddev 322.940, 0 failed, 0 retried, 0 retries
+progress: 500.0 s, 3.7 tps, lat 270.454 ms stddev 213.132, 0 failed, 0 retried, 0 retries
+progress: 510.0 s, 4.6 tps, lat 220.627 ms stddev 76.539, 0 failed, 0 retried, 0 retries
+progress: 520.0 s, 2.5 tps, lat 388.273 ms stddev 534.568, 0 failed, 0 retried, 0 retries
+progress: 530.0 s, 2.3 tps, lat 362.346 ms stddev 635.822, 0 failed, 0 retried, 0 retries
+progress: 540.0 s, 1.1 tps, lat 1060.563 ms stddev 767.228, 0 failed, 0 retried, 0 retries
+progress: 550.0 s, 1.4 tps, lat 714.523 ms stddev 304.074, 0 failed, 0 retried, 0 retries
+progress: 560.0 s, 1.5 tps, lat 576.361 ms stddev 314.359, 0 failed, 0 retried, 0 retries
+progress: 570.0 s, 1.2 tps, lat 945.938 ms stddev 379.636, 0 failed, 0 retried, 0 retries
+progress: 580.0 s, 1.1 tps, lat 931.791 ms stddev 428.199, 0 failed, 0 retried, 0 retries
+progress: 590.0 s, 3.3 tps, lat 295.450 ms stddev 206.777, 0 failed, 0 retried, 0 retries
+progress: 600.0 s, 2.4 tps, lat 383.940 ms stddev 252.060, 0 failed, 0 retried, 0 retries
+transaction type: /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql
+scaling factor: 1
+query mode: simple
+number of clients: 1
+number of threads: 1
+maximum number of tries: 3
+duration: 600 s
+number of transactions actually processed: 3113
+number of failed transactions: 0 (0.000%)
+number of serialization failures: 0 (0.000%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 0 (0.000%)
+total number of retries: 0
+latency average = 192.786 ms
+latency stddev = 202.845 ms
+initial connection time = 5.146 ms
+tps = 5.186661 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.001           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set source_product_id :DEBUG_T7_SOURCE_PRODUCT_ID
+         0.000           0          0 \set dest_product_id :DEBUG_T7_DEST_PRODUCT_ID
+         0.000           0          0 \set transfer_qty :DEBUG_T7_TRANSFER_QTY
+         0.000           0          0 \else
+         0.003           0          0 \set source_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set dest_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set transfer_qty random(:T7_MIN_TRANSFER_QTY, :T7_MAX_TRANSFER_QTY)
+         0.000           0          0 \endif
+         0.001           0          0 \set transfer_ok 1
+         0.148           0          0 BEGIN;
+        38.143           0          0 SELECT EXISTS(
+        25.697           0          0 SELECT EXISTS(
+         0.002           0          0 \if :t7_source_exists
+        23.995           0          0 SELECT inventory_id AS source_inventory_id FROM inventory WHERE product_id = (:source_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.002           0          0 \if :t7_dest_exists
+        22.168           0          0 SELECT inventory_id AS dest_inventory_id FROM inventory WHERE product_id = (:dest_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.003           0          0 \if :source_product_id = :dest_product_id
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+         1.821           0          0 WITH debit AS (
+         0.002           0          0 \if :t7_debit_ok
+         1.625           0          0 WITH credit AS (
+         0.002           0          0 \if :t7_credit_ok
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+        79.165           0          0 COMMIT;
+         0.001           0          0 \else
+         0.000           0          0 ROLLBACK;
+         0.000           0          0 \endif
+[2026-10-21 16:40:29] Restarting PostgreSQL servers before next client-count experiment
+[2026-10-21 16:41:23] All PostgreSQL servers restarted successfully
+[2026-10-21 16:41:23] Resetting database to somewhat deterministic initial state: before client-count c4
+TRUNCATE TABLE
+INSERT 0 1000
+INSERT 0 1000000
+INSERT 0 500000
+INSERT 0 500000
+INSERT 0 5000000
+INSERT 0 15000000
+UPDATE 5000000
+ANALYZE
+Synthetic data generation complete. Default scale creates about 3 historical items/order.
+DO
+[2026-10-21 16:45:44] Database reset complete: before client-count c4
+[2026-10-21 16:45:44] Warmup: clients=4 threads=4 duration=60s
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=42 --max-tries=3 -h xcnc34 -p 5446 -U cs14 -d project-988876 -n -c 4 -j 4 -T 60 -M simple -P 10 -r --failures-detailed -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql@100
+pgbench: setting random seed to 42
+pgbench (18.6)
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 3 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102075 on at least one active node
+progress: 10.0 s, 6.2 tps, lat 354.711 ms stddev 436.446, 65 failed, 90 retried, 162 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 20.0 s, 10.5 tps, lat 183.310 ms stddev 99.357, 34 failed, 68 retried, 113 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 30.0 s, 10.1 tps, lat 183.372 ms stddev 98.031, 36 failed, 64 retried, 113 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc35:5446
+pgbench: error: client 2 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102100 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 0 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102098 on at least one active node
+transaction type: /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql
+scaling factor: 1
+query mode: simple
+number of clients: 4
+number of threads: 4
+maximum number of tries: 3
+duration: 60 s
+number of transactions actually processed: 495
+number of failed transactions: 169 (25.452%)
+number of serialization failures: 169 (25.452%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 285 (42.922%)
+total number of retries: 492
+latency average = 196.779 ms
+latency stddev = 189.206 ms
+initial connection time = 7.316 ms
+tps = 8.230660 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.002           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set source_product_id :DEBUG_T7_SOURCE_PRODUCT_ID
+         0.000           0          0 \set dest_product_id :DEBUG_T7_DEST_PRODUCT_ID
+         0.000           0          0 \set transfer_qty :DEBUG_T7_TRANSFER_QTY
+         0.000           0          0 \else
+         0.003           0          0 \set source_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set dest_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set transfer_qty random(:T7_MIN_TRANSFER_QTY, :T7_MAX_TRANSFER_QTY)
+         0.000           0          0 \endif
+         0.001           0          0 \set transfer_ok 1
+         0.140           0          0 BEGIN;
+        30.773           0          1 SELECT EXISTS(
+        22.339           0          0 SELECT EXISTS(
+         0.002           0          0 \if :t7_source_exists
+        21.531           0          0 SELECT inventory_id AS source_inventory_id FROM inventory WHERE product_id = (:source_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.002           0          0 \if :t7_dest_exists
+        21.036           0          0 SELECT inventory_id AS dest_inventory_id FROM inventory WHERE product_id = (:dest_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.002           0          0 \if :source_product_id = :dest_product_id
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+         1.667         119        326 WITH debit AS (
+         0.002           0          0 \if :t7_debit_ok
+         1.552          50        146 WITH credit AS (
+         0.002           0          0 \if :t7_credit_ok
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+        60.853           0         19 COMMIT;
+         0.001           0          0 \else
+         0.000           0          0 ROLLBACK;
+         0.000           0          0 \endif
+pgbench: error: Run was aborted; the above results are incomplete.
+[2026-10-21 16:46:44] Warmup c4 completed with pgbench exit code 2; continuing
+[2026-10-21 16:46:44] Measured run: clients=4 threads=4 duration=600s
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=42 --max-tries=3 -h xcnc34 -p 5446 -U cs14 -d project-988876 -n -c 4 -j 4 -T 600 -M simple -P 10 -r --failures-detailed -l --log-prefix=/home/stuproj/cs14/citus_project/expt_b0/slurm-results/job-988876/benchmark-results/logs/pgbench-c4 --sampling-rate=1.0 -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql@100
+pgbench: setting random seed to 42
+pgbench (18.6)
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 0 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102090 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc36:5446
+pgbench: error: client 2 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102085 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc36:5446
+pgbench: error: client 3 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102093 on at least one active node
+transaction type: /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql
+scaling factor: 1
+query mode: simple
+number of clients: 4
+number of threads: 4
+maximum number of tries: 3
+duration: 600 s
+number of transactions actually processed: 3333
+number of failed transactions: 158 (4.526%)
+number of serialization failures: 158 (4.526%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 327 (9.367%)
+total number of retries: 557
+latency average = 195.518 ms
+latency stddev = 228.562 ms
+initial connection time = 12.507 ms
+tps = 5.549372 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.002           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set source_product_id :DEBUG_T7_SOURCE_PRODUCT_ID
+         0.000           0          0 \set dest_product_id :DEBUG_T7_DEST_PRODUCT_ID
+         0.000           0          0 \set transfer_qty :DEBUG_T7_TRANSFER_QTY
+         0.000           0          0 \else
+         0.003           0          0 \set source_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set dest_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set transfer_qty random(:T7_MIN_TRANSFER_QTY, :T7_MAX_TRANSFER_QTY)
+         0.000           0          0 \endif
+         0.001           0          0 \set transfer_ok 1
+         0.150           0          0 BEGIN;
+        39.251           8         30 SELECT EXISTS(
+        23.425           0          0 SELECT EXISTS(
+         0.002           0          0 \if :t7_source_exists
+        22.444           0          0 SELECT inventory_id AS source_inventory_id FROM inventory WHERE product_id = (:source_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.002           0          0 \if :t7_dest_exists
+        21.221           0          0 SELECT inventory_id AS dest_inventory_id FROM inventory WHERE product_id = (:dest_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.003           0          0 \if :source_product_id = :dest_product_id
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+         1.758          90        310 WITH debit AS (
+         0.002           0          0 \if :t7_debit_ok
+         1.632          55        187 WITH credit AS (
+         0.002           0          0 \if :t7_credit_ok
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+        76.099           5         31 COMMIT;
+         0.001           0          0 \else
+         0.000           0          0 ROLLBACK;
+         0.000           0          0 \endif
+pgbench: error: Run was aborted; the above results are incomplete.
+[2026-10-21 16:56:45] Measured c4 completed with pgbench exit code 2; results retained and benchmark continues
+[2026-10-21 16:56:45] Restarting PostgreSQL servers before next client-count experiment
+[2026-10-21 16:57:40] All PostgreSQL servers restarted successfully
+[2026-10-21 16:57:40] Resetting database to somewhat deterministic initial state: before client-count c8
+TRUNCATE TABLE
+INSERT 0 1000
+INSERT 0 1000000
+INSERT 0 500000
+INSERT 0 500000
+INSERT 0 5000000
+INSERT 0 15000000
+UPDATE 5000000
+ANALYZE
+Synthetic data generation complete. Default scale creates about 3 historical items/order.
+DO
+[2026-10-21 17:02:12] Database reset complete: before client-count c8
+[2026-10-21 17:02:12] Warmup: clients=8 threads=4 duration=60s
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=42 --max-tries=3 -h xcnc34 -p 5446 -U cs14 -d project-988876 -n -c 8 -j 4 -T 60 -M simple -P 10 -r --failures-detailed -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql@100
+pgbench: setting random seed to 42
+pgbench (18.6)
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc36:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc36:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 10.0 s, 6.7 tps, lat 453.446 ms stddev 337.474, 81 failed, 115 retried, 212 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 6 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102075 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 20.0 s, 8.7 tps, lat 346.505 ms stddev 184.705, 77 failed, 118 retried, 210 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc36:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 4 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102091 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc35:5446
+pgbench: error: client 1 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102088 on at least one active node
+progress: 30.0 s, 9.7 tps, lat 276.854 ms stddev 112.346, 73 failed, 114 retried, 195 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 2 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102075 on at least one active node
+progress: 40.0 s, 10.4 tps, lat 236.663 ms stddev 128.829, 72 failed, 115 retried, 203 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 7 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102075 on at least one active node
+progress: 50.0 s, 11.2 tps, lat 187.284 ms stddev 95.853, 36 failed, 71 retried, 124 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc36:5446
+pgbench: error: client 0 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102093 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+transaction type: /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql
+scaling factor: 1
+query mode: simple
+number of clients: 8
+number of threads: 4
+maximum number of tries: 3
+duration: 60 s
+number of transactions actually processed: 545
+number of failed transactions: 353 (39.310%)
+number of serialization failures: 353 (39.310%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 564 (62.806%)
+total number of retries: 992
+latency average = 274.716 ms
+latency stddev = 193.202 ms
+initial connection time = 13.299 ms
+tps = 9.072391 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.002           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set source_product_id :DEBUG_T7_SOURCE_PRODUCT_ID
+         0.000           0          0 \set dest_product_id :DEBUG_T7_DEST_PRODUCT_ID
+         0.000           0          0 \set transfer_qty :DEBUG_T7_TRANSFER_QTY
+         0.000           0          0 \else
+         0.003           0          0 \set source_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set dest_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set transfer_qty random(:T7_MIN_TRANSFER_QTY, :T7_MAX_TRANSFER_QTY)
+         0.000           0          0 \endif
+         0.001           0          0 \set transfer_ok 1
+         0.156           0          0 BEGIN;
+        47.310           0          2 SELECT EXISTS(
+        32.675           0          0 SELECT EXISTS(
+         0.002           0          0 \if :t7_source_exists
+        31.457           0          0 SELECT inventory_id AS source_inventory_id FROM inventory WHERE product_id = (:source_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.002           0          0 \if :t7_dest_exists
+        30.704           0          0 SELECT inventory_id AS dest_inventory_id FROM inventory WHERE product_id = (:dest_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.002           0          0 \if :source_product_id = :dest_product_id
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+         2.452         257        673 WITH debit AS (
+         0.002           0          0 \if :t7_debit_ok
+         2.176          92        295 WITH credit AS (
+         0.002           0          0 \if :t7_credit_ok
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+        56.710           4         27 COMMIT;
+         0.001           0          0 \else
+         0.000           0          0 ROLLBACK;
+         0.000           0          0 \endif
+pgbench: error: Run was aborted; the above results are incomplete.
+[2026-10-21 17:03:12] Warmup c8 completed with pgbench exit code 2; continuing
+[2026-10-21 17:03:12] Measured run: clients=8 threads=4 duration=600s
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=42 --max-tries=3 -h xcnc34 -p 5446 -U cs14 -d project-988876 -n -c 8 -j 4 -T 600 -M simple -P 10 -r --failures-detailed -l --log-prefix=/home/stuproj/cs14/citus_project/expt_b0/slurm-results/job-988876/benchmark-results/logs/pgbench-c8 --sampling-rate=1.0 -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql@100
+pgbench: setting random seed to 42
+pgbench (18.6)
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 3 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102090 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 10.0 s, 7.7 tps, lat 395.741 ms stddev 197.785, 73 failed, 110 retried, 202 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 6 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102074 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 0 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102075 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc35:5446
+pgbench: error: client 5 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102088 on at least one active node
+progress: 20.0 s, 9.8 tps, lat 268.647 ms stddev 136.635, 71 failed, 106 retried, 195 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 1 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102083 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 4 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102079 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 7 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102083 on at least one active node
+transaction type: /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql
+scaling factor: 1
+query mode: simple
+number of clients: 8
+number of threads: 4
+maximum number of tries: 3
+duration: 600 s
+number of transactions actually processed: 3244
+number of failed transactions: 280 (7.946%)
+number of serialization failures: 280 (7.946%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 493 (13.990%)
+total number of retries: 858
+latency average = 208.895 ms
+latency stddev = 209.659 ms
+initial connection time = 20.067 ms
+tps = 5.406065 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.002           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set source_product_id :DEBUG_T7_SOURCE_PRODUCT_ID
+         0.000           0          0 \set dest_product_id :DEBUG_T7_DEST_PRODUCT_ID
+         0.000           0          0 \set transfer_qty :DEBUG_T7_TRANSFER_QTY
+         0.000           0          0 \else
+         0.003           0          0 \set source_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set dest_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set transfer_qty random(:T7_MIN_TRANSFER_QTY, :T7_MAX_TRANSFER_QTY)
+         0.000           0          0 \endif
+         0.001           0          0 \set transfer_ok 1
+         0.149           0          0 BEGIN;
+        38.316           2         13 SELECT EXISTS(
+        26.808           0          0 SELECT EXISTS(
+         0.002           0          0 \if :t7_source_exists
+        25.317           0          0 SELECT inventory_id AS source_inventory_id FROM inventory WHERE product_id = (:source_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.002           0          0 \if :t7_dest_exists
+        23.976           0          0 SELECT inventory_id AS dest_inventory_id FROM inventory WHERE product_id = (:dest_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.003           0          0 \if :source_product_id = :dest_product_id
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+         1.862         183        573 WITH debit AS (
+         0.002           0          0 \if :t7_debit_ok
+         1.688          84        253 WITH credit AS (
+         0.002           0          0 \if :t7_credit_ok
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+        82.559          11         26 COMMIT;
+         0.001           0          0 \else
+         0.000           0          0 ROLLBACK;
+         0.000           0          0 \endif
+pgbench: error: Run was aborted; the above results are incomplete.
+[2026-10-21 17:13:12] Measured c8 completed with pgbench exit code 2; results retained and benchmark continues
+[2026-10-21 17:13:12] Restarting PostgreSQL servers before next client-count experiment
+[2026-10-21 17:14:39] All PostgreSQL servers restarted successfully
+[2026-10-21 17:14:39] Resetting database to somewhat deterministic initial state: before client-count c16
+TRUNCATE TABLE
+INSERT 0 1000
+INSERT 0 1000000
+INSERT 0 500000
+INSERT 0 500000
+INSERT 0 5000000
+INSERT 0 15000000
+UPDATE 5000000
+ANALYZE
+Synthetic data generation complete. Default scale creates about 3 historical items/order.
+DO
+[2026-10-21 17:19:02] Database reset complete: before client-count c16
+[2026-10-21 17:19:02] Warmup: clients=16 threads=4 duration=60s
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=42 --max-tries=3 -h xcnc34 -p 5446 -U cs14 -d project-988876 -n -c 16 -j 4 -T 60 -M simple -P 10 -r --failures-detailed -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql@100
+pgbench: setting random seed to 42
+pgbench (18.6)
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc36:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 10.0 s, 5.9 tps, lat 813.586 ms stddev 330.205, 76 failed, 111 retried, 199 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc36:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 20.0 s, 5.8 tps, lat 782.075 ms stddev 383.012, 87 failed, 115 retried, 214 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 7 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102098 on at least one active node
+progress: 30.0 s, 5.9 tps, lat 730.559 ms stddev 352.972, 87 failed, 117 retried, 218 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 5 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102103 on at least one active node
+progress: 40.0 s, 6.0 tps, lat 696.282 ms stddev 335.762, 84 failed, 114 retried, 215 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc36:5446
+pgbench: error: client 6 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102093 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 50.0 s, 5.3 tps, lat 747.605 ms stddev 456.375, 87 failed, 116 retried, 219 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 0 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102083 on at least one active node
+progress: 60.0 s, 6.3 tps, lat 588.718 ms stddev 320.211, 87 failed, 116 retried, 214 retries
+transaction type: /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql
+scaling factor: 1
+query mode: simple
+number of clients: 16
+number of threads: 4
+maximum number of tries: 3
+duration: 60 s
+number of transactions actually processed: 355
+number of failed transactions: 508 (58.864%)
+number of serialization failures: 508 (58.864%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 690 (79.954%)
+total number of retries: 1280
+latency average = 721.450 ms
+latency stddev = 371.095 ms
+initial connection time = 24.789 ms
+tps = 5.903828 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.001           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set source_product_id :DEBUG_T7_SOURCE_PRODUCT_ID
+         0.000           0          0 \set dest_product_id :DEBUG_T7_DEST_PRODUCT_ID
+         0.000           0          0 \set transfer_qty :DEBUG_T7_TRANSFER_QTY
+         0.000           0          0 \else
+         0.002           0          0 \set source_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set dest_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set transfer_qty random(:T7_MIN_TRANSFER_QTY, :T7_MAX_TRANSFER_QTY)
+         0.000           0          0 \endif
+         0.001           0          0 \set transfer_ok 1
+         0.193           0          0 BEGIN;
+       101.998           0          0 SELECT EXISTS(
+        89.507           0          0 SELECT EXISTS(
+         0.001           0          0 \if :t7_source_exists
+        87.410           0          0 SELECT inventory_id AS source_inventory_id FROM inventory WHERE product_id = (:source_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.002           0          0 \if :t7_dest_exists
+        87.119           0          0 SELECT inventory_id AS dest_inventory_id FROM inventory WHERE product_id = (:dest_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.002           0          0 \if :source_product_id = :dest_product_id
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+         6.838         387        963 WITH debit AS (
+         0.001           0          0 \if :t7_debit_ok
+         5.834         116        302 WITH credit AS (
+         0.002           0          0 \if :t7_credit_ok
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+        64.999           5         25 COMMIT;
+         0.001           0          0 \else
+         0.000           0          0 ROLLBACK;
+         0.000           0          0 \endif
+pgbench: error: Run was aborted; the above results are incomplete.
+[2026-10-21 17:20:02] Warmup c16 completed with pgbench exit code 2; continuing
+[2026-10-21 17:20:02] Measured run: clients=16 threads=4 duration=600s
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=42 --max-tries=3 -h xcnc34 -p 5446 -U cs14 -d project-988876 -n -c 16 -j 4 -T 600 -M simple -P 10 -r --failures-detailed -l --log-prefix=/home/stuproj/cs14/citus_project/expt_b0/slurm-results/job-988876/benchmark-results/logs/pgbench-c16 --sampling-rate=1.0 -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql@100
+pgbench: setting random seed to 42
+pgbench (18.6)
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 10.0 s, 5.4 tps, lat 806.648 ms stddev 420.764, 78 failed, 105 retried, 196 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 20.0 s, 5.4 tps, lat 787.789 ms stddev 407.558, 89 failed, 113 retried, 216 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc36:5446
+pgbench: error: client 15 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102081 on at least one active node
+progress: 30.0 s, 5.5 tps, lat 832.005 ms stddev 315.203, 85 failed, 124 retried, 220 retries
+progress: 40.0 s, 6.4 tps, lat 670.083 ms stddev 315.538, 85 failed, 114 retried, 208 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 10 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102074 on at least one active node
+progress: 50.0 s, 6.1 tps, lat 709.817 ms stddev 348.836, 85 failed, 119 retried, 215 retries
+progress: 60.0 s, 6.4 tps, lat 641.711 ms stddev 303.026, 85 failed, 115 retried, 208 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 12 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102078 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 0 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102078 on at least one active node
+progress: 70.0 s, 6.2 tps, lat 706.302 ms stddev 325.134, 79 failed, 114 retried, 213 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc35:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 80.0 s, 6.3 tps, lat 648.819 ms stddev 313.535, 81 failed, 116 retried, 216 retries
+progress: 90.0 s, 7.6 tps, lat 533.033 ms stddev 241.063, 77 failed, 110 retried, 196 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 100.0 s, 6.4 tps, lat 548.249 ms stddev 265.391, 86 failed, 112 retried, 207 retries
+progress: 110.0 s, 7.3 tps, lat 647.656 ms stddev 298.961, 73 failed, 117 retried, 210 retries
+progress: 120.0 s, 7.5 tps, lat 543.126 ms stddev 245.781, 74 failed, 110 retried, 195 retries
+progress: 130.0 s, 6.7 tps, lat 607.939 ms stddev 283.895, 79 failed, 111 retried, 208 retries
+progress: 140.0 s, 6.9 tps, lat 592.094 ms stddev 365.301, 82 failed, 116 retried, 209 retries
+progress: 150.0 s, 6.6 tps, lat 631.355 ms stddev 284.824, 78 failed, 116 retried, 212 retries
+progress: 160.0 s, 6.4 tps, lat 605.856 ms stddev 276.094, 80 failed, 116 retried, 208 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 14 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102095 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 11 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102083 on at least one active node
+progress: 170.0 s, 8.3 tps, lat 509.379 ms stddev 245.282, 72 failed, 110 retried, 198 retries
+progress: 180.0 s, 7.7 tps, lat 515.938 ms stddev 268.112, 75 failed, 115 retried, 208 retries
+progress: 190.0 s, 8.0 tps, lat 474.957 ms stddev 230.195, 73 failed, 110 retried, 199 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 200.0 s, 5.5 tps, lat 550.784 ms stddev 540.227, 96 failed, 114 retried, 218 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 13 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102098 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 6 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102074 on at least one active node
+progress: 210.0 s, 4.9 tps, lat 534.200 ms stddev 558.715, 107 failed, 124 retried, 239 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 220.0 s, 5.7 tps, lat 505.078 ms stddev 659.060, 102 failed, 126 retried, 238 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 3 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102082 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 1 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102102 on at least one active node
+progress: 230.0 s, 5.7 tps, lat 457.500 ms stddev 553.580, 105 failed, 122 retried, 232 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc36:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 240.0 s, 6.0 tps, lat 386.167 ms stddev 520.427, 113 failed, 134 retried, 255 retries
+progress: 250.0 s, 6.2 tps, lat 399.756 ms stddev 485.705, 109 failed, 132 retried, 252 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 260.5 s, 5.0 tps, lat 398.821 ms stddev 534.038, 116 failed, 129 retried, 250 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc36:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc38:5446
+pgbench: error: client 9 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102075 on at least one active node
+progress: 270.0 s, 7.9 tps, lat 313.465 ms stddev 419.503, 88 failed, 114 retried, 212 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+progress: 280.0 s, 5.5 tps, lat 387.256 ms stddev 510.965, 99 failed, 113 retried, 220 retries
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc36:5446
+pgbench: error: client 2 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102081 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 7 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102078 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc38:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc35:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc35:5446
+pgbench: error: client 5 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102072 on at least one active node
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc37:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on identification as a pivot, during commit attempt.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  connection to the remote node cs14@xcnc35:5446 failed with the following error: ERROR:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+another command is already in progress
+WARNING:  could not serialize access due to read/write dependencies among transactions
+DETAIL:  Reason code: Canceled on commit attempt with conflict in from prepared pivot.
+HINT:  The transaction might succeed if retried.
+WARNING:  failed to commit transaction on xcnc37:5446
+pgbench: error: client 4 script 0 aborted in command 39 query 0: ERROR:  could not commit transaction for shard 102094 on at least one active node
+transaction type: /home/stuproj/cs14/citus_project/expt_b0/transactions/T7_inventory_transfer.sql
+scaling factor: 1
+query mode: simple
+number of clients: 16
+number of threads: 4
+maximum number of tries: 3
+duration: 600 s
+number of transactions actually processed: 2726
+number of failed transactions: 3260 (54.460%)
+number of serialization failures: 3260 (54.460%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 4287 (71.617%)
+total number of retries: 7977
+latency average = 567.613 ms
+latency stddev = 503.739 ms
+initial connection time = 31.698 ms
+tps = 4.543204 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.002           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set source_product_id :DEBUG_T7_SOURCE_PRODUCT_ID
+         0.000           0          0 \set dest_product_id :DEBUG_T7_DEST_PRODUCT_ID
+         0.000           0          0 \set transfer_qty :DEBUG_T7_TRANSFER_QTY
+         0.000           0          0 \else
+         0.002           0          0 \set source_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set dest_product_id random(1, :NUM_PRODUCTS)
+         0.001           0          0 \set transfer_qty random(:T7_MIN_TRANSFER_QTY, :T7_MAX_TRANSFER_QTY)
+         0.000           0          0 \endif
+         0.001           0          0 \set transfer_ok 1
+         0.215           0          0 BEGIN;
+        63.868           8         23 SELECT EXISTS(
+        52.689           0          0 SELECT EXISTS(
+         0.001           0          0 \if :t7_source_exists
+        51.293           0          0 SELECT inventory_id AS source_inventory_id FROM inventory WHERE product_id = (:source_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.002           0          0 \if :t7_dest_exists
+        50.277           0          0 SELECT inventory_id AS dest_inventory_id FROM inventory WHERE product_id = (:dest_product_id)::bigint
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.002           0          0 \if :source_product_id = :dest_product_id
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+         3.862        2361       5735 WITH debit AS (
+         0.002           0          0 \if :t7_debit_ok
+         3.226         840       2058 WITH credit AS (
+         0.002           0          0 \if :t7_credit_ok
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.001           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.001           0          0 \if :transfer_ok
+       206.226          51        163 COMMIT;
+         0.001           0          0 \else
+         0.000           0          0 ROLLBACK;
+         0.000           0          0 \endif
+pgbench: error: Run was aborted; the above results are incomplete.
+[2026-10-21 17:30:03] Measured c16 completed with pgbench exit code 2; results retained and benchmark continues
+[2026-10-21 17:30:03] Restarting PostgreSQL servers before next client-count experiment
+srun: forcing job termination
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+[2026-10-21T17:31:57.476] error: *** STEP 988876.41 ON xcnc36 CANCELLED AT 2026-10-21T17:31:57 DUE to SIGNAL Killed ***
+srun: error: xcnc36: task 0: Killed
+srun: Force Terminated StepId=988876.41
+ERROR: PostgreSQL failed to restart on xcnc36
+Running cleanup after failure; exit code=1
+srun: forcing job termination
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+[2026-10-21T17:34:37.170] error: *** STEP 988876.52 ON xcnc36 CANCELLED AT 2026-10-21T17:34:37 DUE to SIGNAL Killed ***
+srun: error: xcnc36: task 0: Killed
+srun: Force Terminated StepId=988876.52

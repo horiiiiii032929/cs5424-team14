@@ -1,0 +1,113 @@
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=42 --max-tries=3 -h xcnf10 -p 5446 -U cs14 -d project-989344 -n -c 1 -j 1 -T 600 -M simple -P 10 -r --failures-detailed -l --log-prefix=/home/stuproj/cs14/citus_project/expt_xc_b1/slurm-results/job-989344/benchmark-results/logs/pgbench-c1 --sampling-rate=1.0 -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_xc_b1/transactions/T7_inventory_transfer.sql@100
+pgbench: setting random seed to 42
+pgbench (18.6)
+progress: 10.0 s, 325.9 tps, lat 3.060 ms stddev 0.720, 0 failed, 0 retried, 0 retries
+progress: 20.0 s, 330.9 tps, lat 3.015 ms stddev 0.469, 0 failed, 0 retried, 0 retries
+progress: 30.0 s, 333.9 tps, lat 2.990 ms stddev 0.487, 0 failed, 0 retried, 0 retries
+progress: 40.0 s, 337.0 tps, lat 2.962 ms stddev 0.511, 0 failed, 0 retried, 0 retries
+progress: 50.0 s, 335.5 tps, lat 2.976 ms stddev 0.458, 0 failed, 0 retried, 0 retries
+progress: 60.0 s, 340.2 tps, lat 2.935 ms stddev 0.474, 0 failed, 0 retried, 0 retries
+progress: 70.0 s, 335.8 tps, lat 2.972 ms stddev 0.400, 0 failed, 0 retried, 0 retries
+progress: 80.0 s, 337.1 tps, lat 2.962 ms stddev 0.344, 0 failed, 0 retried, 0 retries
+progress: 90.0 s, 335.4 tps, lat 2.975 ms stddev 0.337, 0 failed, 0 retried, 0 retries
+progress: 100.0 s, 337.4 tps, lat 2.959 ms stddev 0.322, 0 failed, 0 retried, 0 retries
+progress: 110.0 s, 331.3 tps, lat 3.011 ms stddev 0.429, 0 failed, 0 retried, 0 retries
+progress: 120.0 s, 330.4 tps, lat 3.020 ms stddev 0.443, 0 failed, 0 retried, 0 retries
+progress: 130.0 s, 332.9 tps, lat 2.998 ms stddev 0.453, 0 failed, 0 retried, 0 retries
+progress: 140.0 s, 336.6 tps, lat 2.967 ms stddev 0.460, 0 failed, 0 retried, 0 retries
+progress: 150.0 s, 339.4 tps, lat 2.942 ms stddev 0.464, 0 failed, 0 retried, 0 retries
+progress: 160.0 s, 333.7 tps, lat 2.991 ms stddev 0.418, 0 failed, 0 retried, 0 retries
+progress: 170.0 s, 339.8 tps, lat 2.938 ms stddev 0.482, 0 failed, 0 retried, 0 retries
+progress: 180.0 s, 339.9 tps, lat 2.938 ms stddev 0.490, 0 failed, 0 retried, 0 retries
+progress: 190.0 s, 339.6 tps, lat 2.940 ms stddev 0.547, 0 failed, 0 retried, 0 retries
+progress: 200.0 s, 332.8 tps, lat 2.999 ms stddev 0.433, 0 failed, 0 retried, 0 retries
+progress: 210.0 s, 332.5 tps, lat 3.001 ms stddev 0.397, 0 failed, 0 retried, 0 retries
+progress: 220.0 s, 336.2 tps, lat 2.968 ms stddev 0.460, 0 failed, 0 retried, 0 retries
+progress: 230.0 s, 337.5 tps, lat 2.957 ms stddev 0.370, 0 failed, 0 retried, 0 retries
+progress: 240.0 s, 329.8 tps, lat 3.026 ms stddev 0.424, 0 failed, 0 retried, 0 retries
+progress: 250.0 s, 332.7 tps, lat 2.999 ms stddev 0.378, 0 failed, 0 retried, 0 retries
+progress: 260.0 s, 330.7 tps, lat 3.018 ms stddev 0.431, 0 failed, 0 retried, 0 retries
+progress: 270.0 s, 333.0 tps, lat 2.997 ms stddev 0.427, 0 failed, 0 retried, 0 retries
+progress: 280.0 s, 334.5 tps, lat 2.984 ms stddev 0.429, 0 failed, 0 retried, 0 retries
+progress: 290.0 s, 335.3 tps, lat 2.977 ms stddev 0.439, 0 failed, 0 retried, 0 retries
+progress: 300.0 s, 332.3 tps, lat 3.002 ms stddev 0.446, 0 failed, 0 retried, 0 retries
+progress: 310.0 s, 330.9 tps, lat 3.016 ms stddev 0.494, 0 failed, 0 retried, 0 retries
+progress: 320.0 s, 335.8 tps, lat 2.973 ms stddev 0.519, 0 failed, 0 retried, 0 retries
+progress: 330.0 s, 339.2 tps, lat 2.944 ms stddev 0.490, 0 failed, 0 retried, 0 retries
+progress: 340.0 s, 330.3 tps, lat 3.020 ms stddev 0.436, 0 failed, 0 retried, 0 retries
+progress: 350.0 s, 331.7 tps, lat 3.009 ms stddev 0.455, 0 failed, 0 retried, 0 retries
+progress: 360.0 s, 332.7 tps, lat 3.000 ms stddev 0.576, 0 failed, 0 retried, 0 retries
+progress: 370.0 s, 338.0 tps, lat 2.955 ms stddev 0.548, 0 failed, 0 retried, 0 retries
+progress: 380.0 s, 332.3 tps, lat 3.003 ms stddev 0.523, 0 failed, 0 retried, 0 retries
+progress: 390.0 s, 341.0 tps, lat 2.929 ms stddev 0.468, 0 failed, 0 retried, 0 retries
+progress: 400.0 s, 336.9 tps, lat 2.964 ms stddev 0.430, 0 failed, 0 retried, 0 retries
+progress: 410.0 s, 334.1 tps, lat 2.987 ms stddev 0.506, 0 failed, 0 retried, 0 retries
+progress: 420.0 s, 338.4 tps, lat 2.950 ms stddev 0.371, 0 failed, 0 retried, 0 retries
+progress: 430.0 s, 330.4 tps, lat 3.020 ms stddev 0.500, 0 failed, 0 retried, 0 retries
+progress: 440.0 s, 335.2 tps, lat 2.977 ms stddev 0.419, 0 failed, 0 retried, 0 retries
+progress: 450.0 s, 332.8 tps, lat 2.998 ms stddev 0.362, 0 failed, 0 retried, 0 retries
+progress: 460.0 s, 340.2 tps, lat 2.935 ms stddev 0.453, 0 failed, 0 retried, 0 retries
+progress: 470.0 s, 338.2 tps, lat 2.953 ms stddev 0.462, 0 failed, 0 retried, 0 retries
+progress: 480.0 s, 328.4 tps, lat 3.038 ms stddev 0.393, 0 failed, 0 retried, 0 retries
+progress: 490.0 s, 333.4 tps, lat 2.993 ms stddev 0.417, 0 failed, 0 retried, 0 retries
+progress: 500.0 s, 334.5 tps, lat 2.984 ms stddev 0.436, 0 failed, 0 retried, 0 retries
+progress: 510.0 s, 331.2 tps, lat 3.013 ms stddev 0.432, 0 failed, 0 retried, 0 retries
+progress: 520.0 s, 330.0 tps, lat 3.024 ms stddev 0.414, 0 failed, 0 retried, 0 retries
+progress: 530.0 s, 343.3 tps, lat 2.908 ms stddev 0.507, 0 failed, 0 retried, 0 retries
+progress: 540.0 s, 332.7 tps, lat 3.001 ms stddev 0.513, 0 failed, 0 retried, 0 retries
+progress: 550.0 s, 333.9 tps, lat 2.988 ms stddev 0.481, 0 failed, 0 retried, 0 retries
+progress: 560.0 s, 336.5 tps, lat 2.966 ms stddev 0.408, 0 failed, 0 retried, 0 retries
+progress: 570.0 s, 331.2 tps, lat 3.013 ms stddev 0.442, 0 failed, 0 retried, 0 retries
+progress: 580.0 s, 334.3 tps, lat 2.986 ms stddev 0.441, 0 failed, 0 retried, 0 retries
+progress: 590.0 s, 332.9 tps, lat 2.998 ms stddev 0.416, 0 failed, 0 retried, 0 retries
+progress: 600.0 s, 330.6 tps, lat 3.018 ms stddev 0.416, 0 failed, 0 retried, 0 retries
+transaction type: /home/stuproj/cs14/citus_project/expt_xc_b1/transactions/T7_inventory_transfer.sql
+scaling factor: 1
+query mode: simple
+number of clients: 1
+number of threads: 1
+maximum number of tries: 3
+duration: 600 s
+number of transactions actually processed: 200711
+number of failed transactions: 0 (0.000%)
+number of serialization failures: 0 (0.000%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 0 (0.000%)
+total number of retries: 0
+latency average = 2.984 ms
+latency stddev = 0.456 ms
+initial connection time = 4.860 ms
+tps = 334.518942 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.000           0          0 \if :DEBUG_MODE
+         0.000           0          0 \set source_product_id :DEBUG_T7_SOURCE_PRODUCT_ID
+         0.000           0          0 \set dest_product_id :DEBUG_T7_DEST_PRODUCT_ID
+         0.000           0          0 \set transfer_qty :DEBUG_T7_TRANSFER_QTY
+         0.000           0          0 \else
+         0.001           0          0 \set source_product_id random(1, :NUM_PRODUCTS)
+         0.000           0          0 \set dest_product_id random(1, :NUM_PRODUCTS)
+         0.000           0          0 \set transfer_qty random(:T7_MIN_TRANSFER_QTY, :T7_MAX_TRANSFER_QTY)
+         0.000           0          0 \endif
+         0.000           0          0 \set transfer_ok 1
+         0.087           0          0 BEGIN;
+         0.001           0          0 \if :source_product_id = :dest_product_id
+         0.001           0          0 \set transfer_ok 0
+         0.000           0          0 \else
+         1.121           0          0 WITH debit AS (
+         0.001           0          0 \if :t7_debit_ok
+         1.027           0          0 WITH credit AS (
+         0.001           0          0 \if :t7_credit_ok
+         0.000           0          0 \else
+         0.000           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \else
+         0.001           0          0 \set transfer_ok 0
+         0.000           0          0 \endif
+         0.000           0          0 \endif
+         0.000           0          0 \if :transfer_ok
+         0.744           0          0 COMMIT;
+         0.000           0          0 \else
+         0.270           0          0 ROLLBACK;
+         0.000           0          0 \endif
+pgbench_exit_code=0
+tee_exit_code=0

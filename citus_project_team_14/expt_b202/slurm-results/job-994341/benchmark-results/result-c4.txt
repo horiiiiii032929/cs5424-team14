@@ -1,0 +1,86 @@
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=101 --max-tries=3 -h xcnf10 -p 5446 -U cs14 -d project-994341 -n -c 4 -j 4 -T 600 -M simple -P 10 -r --failures-detailed -l --log-prefix=/home/stuproj/cs14/citus_project/expt_xc_b2/slurm-results/job-994341/benchmark-results/logs/pgbench-c4 --sampling-rate=1.0 -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_xc_b2/transactions/T6_global_sales.sql@100
+pgbench: setting random seed to 101
+pgbench (18.6)
+progress: 10.0 s, 17.2 tps, lat 229.073 ms stddev 10.147, 0 failed, 0 retried, 0 retries
+progress: 20.0 s, 17.2 tps, lat 232.489 ms stddev 8.737, 0 failed, 0 retried, 0 retries
+progress: 30.0 s, 17.2 tps, lat 233.840 ms stddev 14.307, 0 failed, 0 retried, 0 retries
+progress: 40.0 s, 18.4 tps, lat 215.383 ms stddev 13.162, 0 failed, 0 retried, 0 retries
+progress: 50.0 s, 19.7 tps, lat 204.137 ms stddev 15.935, 0 failed, 0 retried, 0 retries
+progress: 60.0 s, 20.8 tps, lat 192.544 ms stddev 10.996, 0 failed, 0 retried, 0 retries
+progress: 70.0 s, 20.9 tps, lat 190.654 ms stddev 20.638, 0 failed, 0 retried, 0 retries
+progress: 80.0 s, 21.2 tps, lat 190.717 ms stddev 6.533, 0 failed, 0 retried, 0 retries
+progress: 90.0 s, 20.4 tps, lat 194.194 ms stddev 6.536, 0 failed, 0 retried, 0 retries
+progress: 100.0 s, 20.4 tps, lat 197.719 ms stddev 11.393, 0 failed, 0 retried, 0 retries
+progress: 110.0 s, 19.9 tps, lat 200.923 ms stddev 8.635, 0 failed, 0 retried, 0 retries
+progress: 120.0 s, 20.1 tps, lat 198.464 ms stddev 9.097, 0 failed, 0 retried, 0 retries
+progress: 130.0 s, 20.4 tps, lat 196.319 ms stddev 6.625, 0 failed, 0 retried, 0 retries
+progress: 140.0 s, 20.2 tps, lat 199.084 ms stddev 17.324, 0 failed, 0 retried, 0 retries
+progress: 150.0 s, 20.4 tps, lat 193.963 ms stddev 9.597, 0 failed, 0 retried, 0 retries
+progress: 160.0 s, 20.8 tps, lat 191.807 ms stddev 10.021, 0 failed, 0 retried, 0 retries
+progress: 170.0 s, 21.1 tps, lat 190.600 ms stddev 13.415, 0 failed, 0 retried, 0 retries
+progress: 180.0 s, 20.8 tps, lat 191.188 ms stddev 5.641, 0 failed, 0 retried, 0 retries
+progress: 190.0 s, 21.2 tps, lat 189.118 ms stddev 13.020, 0 failed, 0 retried, 0 retries
+progress: 200.0 s, 21.1 tps, lat 189.225 ms stddev 365.641, 0 failed, 0 retried, 0 retries
+progress: 210.0 s, 21.2 tps, lat 191.326 ms stddev 7.051, 0 failed, 0 retried, 0 retries
+progress: 220.0 s, 20.8 tps, lat 190.755 ms stddev 9.229, 0 failed, 0 retried, 0 retries
+progress: 230.0 s, 20.8 tps, lat 191.448 ms stddev 9.832, 0 failed, 0 retried, 0 retries
+progress: 240.0 s, 20.8 tps, lat 191.979 ms stddev 8.925, 0 failed, 0 retried, 0 retries
+progress: 250.0 s, 21.1 tps, lat 191.378 ms stddev 11.677, 0 failed, 0 retried, 0 retries
+progress: 260.0 s, 20.9 tps, lat 189.762 ms stddev 9.429, 0 failed, 0 retried, 0 retries
+progress: 270.0 s, 20.8 tps, lat 191.960 ms stddev 8.615, 0 failed, 0 retried, 0 retries
+progress: 280.0 s, 21.2 tps, lat 191.238 ms stddev 9.314, 0 failed, 0 retried, 0 retries
+progress: 290.0 s, 20.7 tps, lat 191.229 ms stddev 9.480, 0 failed, 0 retried, 0 retries
+progress: 300.0 s, 20.8 tps, lat 191.229 ms stddev 5.916, 0 failed, 0 retried, 0 retries
+progress: 310.0 s, 21.2 tps, lat 190.106 ms stddev 10.698, 0 failed, 0 retried, 0 retries
+progress: 320.0 s, 20.8 tps, lat 192.073 ms stddev 6.637, 0 failed, 0 retried, 0 retries
+progress: 330.0 s, 20.8 tps, lat 191.767 ms stddev 8.253, 0 failed, 0 retried, 0 retries
+progress: 340.0 s, 20.8 tps, lat 191.408 ms stddev 6.700, 0 failed, 0 retried, 0 retries
+progress: 350.0 s, 21.2 tps, lat 190.928 ms stddev 10.396, 0 failed, 0 retried, 0 retries
+progress: 360.0 s, 21.2 tps, lat 189.573 ms stddev 14.539, 0 failed, 0 retried, 0 retries
+progress: 370.0 s, 20.8 tps, lat 191.652 ms stddev 6.585, 0 failed, 0 retried, 0 retries
+progress: 380.0 s, 20.8 tps, lat 191.319 ms stddev 6.471, 0 failed, 0 retried, 0 retries
+progress: 390.0 s, 20.8 tps, lat 193.479 ms stddev 6.971, 0 failed, 0 retried, 0 retries
+progress: 400.0 s, 20.4 tps, lat 194.491 ms stddev 9.893, 0 failed, 0 retried, 0 retries
+progress: 410.0 s, 20.4 tps, lat 195.038 ms stddev 9.877, 0 failed, 0 retried, 0 retries
+progress: 420.0 s, 20.4 tps, lat 196.791 ms stddev 6.959, 0 failed, 0 retried, 0 retries
+progress: 430.0 s, 20.7 tps, lat 192.707 ms stddev 11.077, 0 failed, 0 retried, 0 retries
+progress: 440.0 s, 20.8 tps, lat 192.012 ms stddev 6.905, 0 failed, 0 retried, 0 retries
+progress: 450.0 s, 20.8 tps, lat 192.376 ms stddev 9.658, 0 failed, 0 retried, 0 retries
+progress: 460.0 s, 20.7 tps, lat 194.259 ms stddev 14.922, 0 failed, 0 retried, 0 retries
+progress: 470.0 s, 20.7 tps, lat 194.218 ms stddev 8.233, 0 failed, 0 retried, 0 retries
+progress: 480.0 s, 20.4 tps, lat 195.165 ms stddev 6.838, 0 failed, 0 retried, 0 retries
+progress: 490.0 s, 20.4 tps, lat 196.391 ms stddev 6.938, 0 failed, 0 retried, 0 retries
+progress: 500.0 s, 20.4 tps, lat 197.175 ms stddev 8.998, 0 failed, 0 retried, 0 retries
+progress: 510.0 s, 20.3 tps, lat 197.013 ms stddev 15.137, 0 failed, 0 retried, 0 retries
+progress: 520.0 s, 20.3 tps, lat 194.287 ms stddev 13.222, 0 failed, 0 retried, 0 retries
+progress: 530.0 s, 20.8 tps, lat 193.650 ms stddev 11.885, 0 failed, 0 retried, 0 retries
+progress: 540.0 s, 20.8 tps, lat 193.804 ms stddev 9.849, 0 failed, 0 retried, 0 retries
+progress: 550.0 s, 20.4 tps, lat 195.854 ms stddev 13.717, 0 failed, 0 retried, 0 retries
+progress: 560.0 s, 20.4 tps, lat 194.320 ms stddev 7.886, 0 failed, 0 retried, 0 retries
+progress: 570.0 s, 20.8 tps, lat 191.390 ms stddev 11.587, 0 failed, 0 retried, 0 retries
+progress: 580.0 s, 21.2 tps, lat 191.461 ms stddev 6.423, 0 failed, 0 retried, 0 retries
+progress: 590.0 s, 20.7 tps, lat 192.539 ms stddev 11.598, 0 failed, 0 retried, 0 retries
+progress: 600.0 s, 20.4 tps, lat 195.280 ms stddev 10.811, 0 failed, 0 retried, 0 retries
+transaction type: /home/stuproj/cs14/citus_project/expt_xc_b2/transactions/T6_global_sales.sql
+scaling factor: 1
+query mode: simple
+number of clients: 4
+number of threads: 4
+maximum number of tries: 3
+duration: 600 s
+number of transactions actually processed: 12295
+number of failed transactions: 0 (0.000%)
+number of serialization failures: 0 (0.000%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 0 (0.000%)
+total number of retries: 0
+latency average = 195.219 ms
+latency stddev = 49.764 ms
+initial connection time = 9.143 ms
+tps = 20.487445 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.072           0          0 BEGIN;
+       190.230           0          0 SELECT
+         5.021           0          0 COMMIT;
+pgbench_exit_code=0
+tee_exit_code=0

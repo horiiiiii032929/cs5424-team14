@@ -1,0 +1,177 @@
+# Command: /home/stuproj/cs14/pgsql/bin/pgbench --random-seed=101 --max-tries=3 -h xcnf10 -p 5446 -U cs14 -d project-994341 -n -c 32 -j 4 -T 600 -M simple -P 10 -r --failures-detailed -l --log-prefix=/home/stuproj/cs14/citus_project/expt_xc_b2/slurm-results/job-994341/benchmark-results/logs/pgbench-c32 --sampling-rate=1.0 -D DEBUG_MODE=0 -D NUM_MERCHANTS=1000 -D NUM_CUSTOMERS=1000000 -D NUM_PRODUCTS=500000 -D INITIAL_NUM_ORDERS=5000000 -D HOT_ORDER_PERCENT=50 -D HOT_MERCHANTS=100 -D MIN_ITEMS_PER_ORDER=1 -D MAX_ITEMS_PER_ORDER=5 -D MIN_ORDER_QTY=1 -D MAX_ORDER_QTY=5 -D INVENTORY_CHANGE_MIN=-5 -D INVENTORY_CHANGE_MAX=20 -D REPORT_DAYS=30 -D T7_MIN_TRANSFER_QTY=1 -D T7_MAX_TRANSFER_QTY=5 -f /home/stuproj/cs14/citus_project/expt_xc_b2/transactions/T6_global_sales.sql@100
+pgbench: setting random seed to 101
+pgbench (18.6)
+progress: 10.0 s, 16.6 tps, lat 1819.145 ms stddev 232.760, 0 failed, 0 retried, 0 retries
+progress: 20.0 s, 16.7 tps, lat 1799.890 ms stddev 238.030, 0 failed, 0 retried, 0 retries
+progress: 30.0 s, 19.0 tps, lat 1718.474 ms stddev 285.209, 0 failed, 0 retried, 0 retries
+progress: 40.0 s, 20.9 tps, lat 1536.138 ms stddev 317.172, 0 failed, 0 retried, 0 retries
+progress: 50.0 s, 20.7 tps, lat 1518.241 ms stddev 288.329, 0 failed, 0 retried, 0 retries
+progress: 60.0 s, 21.6 tps, lat 1521.431 ms stddev 253.894, 0 failed, 0 retried, 0 retries
+progress: 70.0 s, 21.0 tps, lat 1535.848 ms stddev 242.029, 0 failed, 0 retried, 0 retries
+progress: 80.0 s, 20.4 tps, lat 1538.089 ms stddev 269.278, 0 failed, 0 retried, 0 retries
+progress: 90.0 s, 20.8 tps, lat 1553.284 ms stddev 270.123, 0 failed, 0 retried, 0 retries
+pgbench: error: client 15 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 29 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 8 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 16 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 7 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 1 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 2 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 21 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 28 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 25 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 27 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 6 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 0 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 4 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 30 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 14 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 9 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 10 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 11 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 17 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 19 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 22 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 23 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 20 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 18 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 5 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 13 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 24 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 26 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+pgbench: error: client 31 script 0 aborted in command 1 query 0: ERROR:  out of shared memory
+HINT:  You might need to increase "max_pred_locks_per_transaction".
+CONTEXT:  while executing command on xcnf14:5446
+progress: 100.0 s, 19.4 tps, lat 426.045 ms stddev 602.780, 0 failed, 0 retried, 0 retries
+progress: 110.0 s, 18.4 tps, lat 109.521 ms stddev 3.948, 0 failed, 0 retried, 0 retries
+progress: 120.0 s, 18.4 tps, lat 108.675 ms stddev 3.044, 0 failed, 0 retried, 0 retries
+progress: 130.0 s, 18.2 tps, lat 108.977 ms stddev 3.415, 0 failed, 0 retried, 0 retries
+progress: 140.0 s, 18.4 tps, lat 108.920 ms stddev 4.093, 0 failed, 0 retried, 0 retries
+progress: 150.0 s, 18.4 tps, lat 109.238 ms stddev 4.051, 0 failed, 0 retried, 0 retries
+progress: 160.0 s, 18.2 tps, lat 109.001 ms stddev 4.177, 0 failed, 0 retried, 0 retries
+progress: 170.0 s, 18.5 tps, lat 108.660 ms stddev 3.829, 0 failed, 0 retried, 0 retries
+progress: 180.0 s, 18.5 tps, lat 108.600 ms stddev 4.125, 0 failed, 0 retried, 0 retries
+progress: 190.0 s, 18.0 tps, lat 110.158 ms stddev 4.040, 0 failed, 0 retried, 0 retries
+progress: 200.0 s, 18.6 tps, lat 108.079 ms stddev 4.263, 0 failed, 0 retried, 0 retries
+progress: 210.0 s, 18.4 tps, lat 108.354 ms stddev 4.539, 0 failed, 0 retried, 0 retries
+progress: 220.0 s, 18.5 tps, lat 108.318 ms stddev 4.350, 0 failed, 0 retried, 0 retries
+progress: 230.0 s, 18.8 tps, lat 106.736 ms stddev 5.806, 0 failed, 0 retried, 0 retries
+progress: 240.0 s, 18.4 tps, lat 108.760 ms stddev 3.739, 0 failed, 0 retried, 0 retries
+progress: 250.0 s, 18.4 tps, lat 108.385 ms stddev 3.820, 0 failed, 0 retried, 0 retries
+progress: 260.0 s, 18.6 tps, lat 107.084 ms stddev 4.182, 0 failed, 0 retried, 0 retries
+progress: 270.0 s, 18.6 tps, lat 107.746 ms stddev 4.012, 0 failed, 0 retried, 0 retries
+progress: 280.0 s, 18.6 tps, lat 107.750 ms stddev 4.339, 0 failed, 0 retried, 0 retries
+progress: 290.0 s, 18.6 tps, lat 107.834 ms stddev 4.110, 0 failed, 0 retried, 0 retries
+progress: 300.0 s, 18.2 tps, lat 109.420 ms stddev 5.674, 0 failed, 0 retried, 0 retries
+progress: 310.0 s, 18.4 tps, lat 108.597 ms stddev 4.185, 0 failed, 0 retried, 0 retries
+progress: 320.0 s, 18.2 tps, lat 110.163 ms stddev 4.523, 0 failed, 0 retried, 0 retries
+progress: 330.0 s, 18.7 tps, lat 107.166 ms stddev 5.977, 0 failed, 0 retried, 0 retries
+progress: 340.0 s, 18.0 tps, lat 110.849 ms stddev 4.549, 0 failed, 0 retried, 0 retries
+progress: 350.0 s, 18.0 tps, lat 110.949 ms stddev 4.727, 0 failed, 0 retried, 0 retries
+progress: 360.0 s, 18.2 tps, lat 109.690 ms stddev 4.702, 0 failed, 0 retried, 0 retries
+progress: 370.0 s, 18.0 tps, lat 110.694 ms stddev 4.085, 0 failed, 0 retried, 0 retries
+progress: 380.0 s, 18.2 tps, lat 110.292 ms stddev 3.793, 0 failed, 0 retried, 0 retries
+progress: 390.0 s, 18.2 tps, lat 110.206 ms stddev 3.966, 0 failed, 0 retried, 0 retries
+progress: 400.0 s, 18.4 tps, lat 109.031 ms stddev 4.048, 0 failed, 0 retried, 0 retries
+progress: 410.0 s, 18.2 tps, lat 109.320 ms stddev 3.902, 0 failed, 0 retried, 0 retries
+progress: 420.0 s, 18.1 tps, lat 110.478 ms stddev 4.391, 0 failed, 0 retried, 0 retries
+progress: 430.0 s, 18.3 tps, lat 109.636 ms stddev 4.452, 0 failed, 0 retried, 0 retries
+progress: 440.0 s, 18.2 tps, lat 109.744 ms stddev 3.964, 0 failed, 0 retried, 0 retries
+progress: 450.0 s, 18.0 tps, lat 110.483 ms stddev 3.512, 0 failed, 0 retried, 0 retries
+progress: 460.0 s, 18.4 tps, lat 109.473 ms stddev 4.028, 0 failed, 0 retried, 0 retries
+progress: 470.0 s, 18.2 tps, lat 109.637 ms stddev 3.842, 0 failed, 0 retried, 0 retries
+progress: 480.0 s, 18.2 tps, lat 109.404 ms stddev 4.016, 0 failed, 0 retried, 0 retries
+progress: 490.0 s, 18.4 tps, lat 109.214 ms stddev 3.496, 0 failed, 0 retried, 0 retries
+progress: 500.0 s, 18.2 tps, lat 109.869 ms stddev 4.127, 0 failed, 0 retried, 0 retries
+progress: 510.0 s, 18.2 tps, lat 109.179 ms stddev 7.314, 0 failed, 0 retried, 0 retries
+progress: 520.0 s, 18.4 tps, lat 108.665 ms stddev 4.341, 0 failed, 0 retried, 0 retries
+progress: 530.0 s, 18.4 tps, lat 109.679 ms stddev 3.831, 0 failed, 0 retried, 0 retries
+progress: 540.0 s, 18.2 tps, lat 109.029 ms stddev 4.120, 0 failed, 0 retried, 0 retries
+progress: 550.0 s, 18.2 tps, lat 109.866 ms stddev 4.095, 0 failed, 0 retried, 0 retries
+progress: 560.0 s, 18.4 tps, lat 109.028 ms stddev 4.146, 0 failed, 0 retried, 0 retries
+progress: 570.0 s, 17.8 tps, lat 112.831 ms stddev 5.868, 0 failed, 0 retried, 0 retries
+progress: 580.0 s, 17.6 tps, lat 113.492 ms stddev 4.172, 0 failed, 0 retried, 0 retries
+progress: 590.0 s, 17.6 tps, lat 113.725 ms stddev 5.465, 0 failed, 0 retried, 0 retries
+progress: 600.0 s, 17.8 tps, lat 111.874 ms stddev 5.256, 0 failed, 0 retried, 0 retries
+transaction type: /home/stuproj/cs14/citus_project/expt_xc_b2/transactions/T6_global_sales.sql
+scaling factor: 1
+query mode: simple
+number of clients: 32
+number of threads: 4
+maximum number of tries: 3
+duration: 600 s
+number of transactions actually processed: 11111
+number of failed transactions: 0 (0.000%)
+number of serialization failures: 0 (0.000%)
+number of deadlock failures: 0 (0.000%)
+number of transactions retried: 0 (0.000%)
+total number of retries: 0
+latency average = 354.177 ms
+latency stddev = 565.364 ms
+initial connection time = 40.224 ms
+tps = 18.517886 (without initial connection time)
+statement latencies in milliseconds, failures and retries:
+         0.110           0          0 BEGIN;
+       342.534           0          0 SELECT
+        11.440           0          0 COMMIT;
+pgbench: error: Run was aborted; the above results are incomplete.
+pgbench_exit_code=2
+tee_exit_code=0
