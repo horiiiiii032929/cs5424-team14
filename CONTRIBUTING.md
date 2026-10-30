@@ -1,8 +1,8 @@
 # Working together on the final report
 
 Use this repository for the shared LaTeX report and experiment evidence. Every
-change goes through a pull request and at least one other person's approval.
-Do not merge your own work before peer review. The Canvas deadline is
+contributors can use pull requests and merge their own changes. Peer review is
+optional. The Canvas deadline is
 **30 October 2026, 23:59 Singapore time**.
 
 ## Current branches and review
@@ -13,9 +13,9 @@ Create new feature branches from `origin/main` and target `main` in your PR.
 The report cleanup is on `codex/maintainable-latex-report`; its PR also contains
 the agreed A selection and the earlier Overleaf handoff changes.
 
-`main` requires one approval from someone other than the author. New commits
-dismiss old approvals; resolve review conversations before merging. CODEOWNERS
-supplies suggested reviewers. GitHub enforces the approval rule.
+`main` does not require approval or resolved review conversations to merge.
+Contributors with write access can merge their own pull requests. CODEOWNERS
+supplies suggested reviewers when a review is helpful.
 
 ## Shared Overleaf report
 
@@ -61,16 +61,13 @@ bash scripts/build_report.sh
 git add submission/report/sections/
 git commit -m "Review A report conclusions and write-path findings"
 git push -u origin codex/kelvin-a-report
-gh pr create --base main --reviewer horiiiiii032929
+gh pr create --base main
 ```
 
 Without the GitHub CLI, use GitHub's **Compare & pull request**, choose the base
-branch above, and select another teammate under **Reviewers**. Desmond can use
-the same workflow with a separate B branch and request Hikaru or Kelvin.
-
-Reviewers should check the diff, evidence and rendered PDF, leave comments where
-needed, and explicitly **Approve** when satisfied. A comment alone is not an
-approval. If you are the PR author, you cannot supply your own required approval.
+branch above. Desmond can use the same workflow with a separate B branch.
+Request a teammate under **Reviewers** when feedback would be useful. Authors
+can merge their own pull requests without waiting for approval.
 
 ## Build and preview
 

@@ -12,9 +12,4 @@ State the report sections or experiment IDs changed and the resulting conclusion
 
 ## Review
 
-- [ ] Requested a teammate other than the author as reviewer.
-- [ ] Review conversations resolved before merging.
-
-Review the source diff and the compiled report. Do not merge before another
-person explicitly approves. Use `codex/workload-a-followup` as the base until
-PR #1 merges; afterward use `main`.
+Peer review is optional. The author may merge this pull request.

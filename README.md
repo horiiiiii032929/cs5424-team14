@@ -19,7 +19,7 @@ edits. Hikaru supplied this project on 29 October; its contents have not been
 synchronized or compared with the local draft in this cleanup. Keep reviewed
 source snapshots in [submission/report/](submission/report/). Use
 `bash scripts/build_report.sh` to build the local PDF and portable source ZIP.
-Follow [CONTRIBUTING.md](CONTRIBUTING.md) for peer review.
+Follow [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution workflow.
 
 Code and evidence were merged into `main` through
 [PR #1](https://github.com/horiiiiii032929/cs5424-team14/pull/1) on 29 October.
