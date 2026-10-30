@@ -105,7 +105,6 @@ with the assignment mapping in
 
 ## Access
 
-Hikaru (`horiiiiii032929`), Kelvin (`ktingit`) and Desmond (`awhdesmond`) have
-repository write access. Xincheng's GitHub username is not known yet; add the
-confirmed account before assigning it as a reviewer or owner. No username is
-guessed from a person's name.
+Hikaru (`horiiiiii032929`), Kelvin (`ktingit`), Desmond (`awhdesmond`) and
+Xincheng (`CXinCheng`) have repository access that allows them to merge their
+own pull requests.
