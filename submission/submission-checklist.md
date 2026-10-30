@@ -41,7 +41,7 @@ days; more than two days is not graded. Partial days round up.
   individual contributions; Tasks 1–4 in Sections 2–5; Section 6 conclusions;
   and references. Each experimental subsection identifies its submitted code.
 - Maximum report length: 20 pages. Minimum font size: 10 points. The reviewed
-  Overleaf PDF is 19 pages, including its cover, with minimum effective text
+  Overleaf PDF is 20 pages, including its cover, with minimum effective text
   size 10.4608 points. Recheck if the team makes further edits.
 - AI PDFs use descriptive `14_X.pdf` names and explain how every tool was used,
   preserving prompts/outputs or interaction records. Consolidate everyone's
@@ -67,5 +67,9 @@ experimental design, analysis/interpretation and the report, not only peak TPS.
 2. Have the designated uploader submit the three files and verify receipts.
 3. Confirm the team's Q&A booking and attendance.
 
-The report and code/results alignment checks are recorded in
-`report-review-2026-10-30.md` and `report-review-validation-2026-10-30.json`.
+The latest report and code/results checks are recorded in
+`multi-agent-submission-check-2026-10-30.json` and
+`overleaf-match-2026-10-30.json`. The subsequent AI-only packaging update is
+`ai-finalization-2026-10-30.json`: Desmond's supplied transcript and the available
+later local interactions are included; unsupplied team records still require
+confirmation. Earlier dated audits describe their original snapshots.

@@ -49,7 +49,8 @@ for dirname in ['cluster-import-20261019','b-branch-review-20261022/raw']:
 archives=['cluster-import-20261019','cluster-smoke-20261019',
           'cluster-diagnostic-original-20261019','cluster-diagnostic-20261019',
           'cluster-full-20261019','cluster-diagnostic-t6-20261020',
-          'cluster-full-a115-20261022','b-branch-review-20261022/raw']
+          'cluster-full-a115-20261022','b-branch-review-20261022/raw',
+          'b6-report-days-20261030/raw']
 for label in archives:
     base=ROOT/'results'/label
     if (base/'citus_project_team_14').exists(): base=base/'citus_project_team_14'
@@ -93,9 +94,10 @@ if supplementary.exists():
 evidence=STAGE/'evidence'
 for folder in ['cluster-import-20261019','cluster-smoke-20261019','cluster-diagnostic-original-20261019',
                'cluster-diagnostic-20261019','cluster-full-20261019','cluster-diagnostic-t6-20261020',
-               'cluster-full-a115-20261022','b-branch-review-20261022','live-status-20261028']:
+               'cluster-full-a115-20261022','b-branch-review-20261022','live-status-20261028',
+               'b6-report-days-20261030']:
     for p in (ROOT/'results'/folder).iterdir():
-        if p.is_file() and p.suffix in {'.md','.json','.csv','.txt'} and p.name!='shared-report-readback.txt':
+        if p.is_file() and p.suffix in {'.md','.json','.csv','.txt','.sha256'} and p.name!='shared-report-readback.txt':
             copy_file(p,evidence/folder/p.name,folder)
 for folder in ['correctness-native-20261014','correctness-verified-20261014','followup-20261019',
                'correctness-deferrable-20261019','correctness-summary-20261019',

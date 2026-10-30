@@ -1,0 +1,59 @@
+2026-10-30 11:00:56.773 +08 [1939045] LOG:  There is no designated Main database.
+2026-10-30 11:00:56.773 +08 [1939045] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-30 11:00:56.773 +08 [1939045] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-30 11:00:56.886 +08 [1939045] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-30 11:00:56.886 +08 [1939045] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-30 11:00:56.886 +08 [1939045] LOG:  listening on IPv6 address "::", port 5446
+2026-10-30 11:00:56.887 +08 [1939045] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-30 11:00:56.890 +08 [1939052] LOG:  database system was shut down at 2026-10-30 11:00:56 +08
+2026-10-30 11:00:56.894 +08 [1939045] LOG:  database system is ready to accept connections
+2026-10-30 11:01:00.131 +08 [1939060] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-30 11:01:00.131 +08 [1939060] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:03:17.253 +08 [1939180] LOG:  skipping vacuum of "order_items_102159" --- lock not available
+2026-10-30 11:03:17.253 +08 [1939180] LOG:  skipping vacuum of "order_items_102155" --- lock not available
+2026-10-30 11:03:17.253 +08 [1939180] LOG:  skipping vacuum of "order_items_102151" --- lock not available
+2026-10-30 11:03:17.253 +08 [1939180] LOG:  skipping vacuum of "order_items_102143" --- lock not available
+2026-10-30 11:03:17.253 +08 [1939180] LOG:  skipping vacuum of "order_items_102147" --- lock not available
+2026-10-30 11:03:17.253 +08 [1939180] LOG:  skipping vacuum of "order_items_102139" --- lock not available
+2026-10-30 11:06:02.947 +08 [1939060] WARNING:  terminating connection due to administrator command
+2026-10-30 11:06:02.947 +08 [1939060] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:04.956 +08 [1939060] WARNING:  connection to the remote node cs14@xcnf11:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-30 11:06:04.956 +08 [1939060] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:04.956 +08 [1939060] WARNING:  terminating connection due to administrator command
+2026-10-30 11:06:04.956 +08 [1939060] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:04.956 +08 [1939060] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-30 11:06:04.956 +08 [1939060] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:06.968 +08 [1939060] WARNING:  connection to the remote node cs14@xcnf12:5446 failed with the following error: Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-30 11:06:06.968 +08 [1939060] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:06.968 +08 [1939060] WARNING:  connection to the remote node cs14@xcnf11:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-30 11:06:06.968 +08 [1939060] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:06.968 +08 [1939060] WARNING:  Connection refused
+		Is the server running on that host and accepting TCP/IP connections?
+2026-10-30 11:06:06.968 +08 [1939060] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:06.968 +08 [1939060] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-30 11:06:06.968 +08 [1939060] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:06.968 +08 [1939060] WARNING:  terminating connection due to administrator command
+2026-10-30 11:06:06.968 +08 [1939060] CONTEXT:  while executing command on xcnf13:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:07.811 +08 [1939045] LOG:  received fast shutdown request
+2026-10-30 11:06:07.812 +08 [1939045] LOG:  aborting any active transactions
+2026-10-30 11:06:07.812 +08 [1939103] FATAL:  terminating connection due to administrator command
+2026-10-30 11:06:07.816 +08 [1939045] LOG:  background worker "logical replication launcher" (PID 1939055) exited with exit code 1
+2026-10-30 11:06:07.818 +08 [1939050] LOG:  shutting down
+2026-10-30 11:06:07.818 +08 [1939050] LOG:  checkpoint starting: shutdown immediate
+2026-10-30 11:06:08.756 +08 [1939050] LOG:  checkpoint complete: wrote 128031 buffers (97.7%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 272 recycled; write=0.891 s, sync=0.005 s, total=0.938 s; sync files=1090, longest=0.001 s, average=0.001 s; distance=4464167 kB, estimate=4464167 kB; lsn=1/11EE8C08, redo lsn=1/11EE8C08
+2026-10-30 11:06:09.043 +08 [1939045] LOG:  database system is shut down

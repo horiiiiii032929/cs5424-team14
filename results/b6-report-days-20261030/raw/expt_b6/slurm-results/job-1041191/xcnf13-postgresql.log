@@ -1,0 +1,43 @@
+2026-10-30 11:00:56.790 +08 [1223933] LOG:  There is no designated Main database.
+2026-10-30 11:00:56.790 +08 [1223933] LOG:  number of prepared transactions has not been configured, overriding
+2026-10-30 11:00:56.790 +08 [1223933] DETAIL:  max_prepared_transactions is now set to 2000
+2026-10-30 11:00:56.947 +08 [1223933] LOG:  starting PostgreSQL 18.6 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-10-30 11:00:56.947 +08 [1223933] LOG:  listening on IPv4 address "0.0.0.0", port 5446
+2026-10-30 11:00:56.947 +08 [1223933] LOG:  listening on IPv6 address "::", port 5446
+2026-10-30 11:00:56.948 +08 [1223933] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5446"
+2026-10-30 11:00:56.953 +08 [1223950] LOG:  database system was shut down at 2026-10-30 11:00:55 +08
+2026-10-30 11:00:56.957 +08 [1223933] LOG:  database system is ready to accept connections
+2026-10-30 11:01:00.070 +08 [1224035] LOG:  starting maintenance daemon on database 16384 user 10
+2026-10-30 11:01:00.070 +08 [1224035] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:03:17.208 +08 [1224241] LOG:  skipping vacuum of "order_items_102162" --- lock not available
+2026-10-30 11:03:17.208 +08 [1224241] LOG:  skipping vacuum of "order_items_102154" --- lock not available
+2026-10-30 11:03:17.208 +08 [1224241] LOG:  skipping vacuum of "order_items_102158" --- lock not available
+2026-10-30 11:03:17.208 +08 [1224241] LOG:  skipping vacuum of "order_items_102150" --- lock not available
+2026-10-30 11:03:17.208 +08 [1224241] LOG:  skipping vacuum of "order_items_102146" --- lock not available
+2026-10-30 11:03:17.208 +08 [1224241] LOG:  skipping vacuum of "order_items_102166" --- lock not available
+2026-10-30 11:03:17.208 +08 [1224241] LOG:  skipping vacuum of "order_items_102138" --- lock not available
+2026-10-30 11:06:02.944 +08 [1224035] WARNING:  terminating connection due to administrator command
+2026-10-30 11:06:02.944 +08 [1224035] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:04.955 +08 [1224035] WARNING:  connection to the remote node cs14@xcnf11:5446 failed with the following error: server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-30 11:06:04.955 +08 [1224035] CONTEXT:  Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:04.955 +08 [1224035] WARNING:  terminating connection due to administrator command
+2026-10-30 11:06:04.955 +08 [1224035] CONTEXT:  while executing command on xcnf12:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:04.955 +08 [1224035] WARNING:  server closed the connection unexpectedly
+		This probably means the server terminated abnormally
+		before or while processing the request.
+2026-10-30 11:06:04.955 +08 [1224035] CONTEXT:  while executing command on xcnf11:5446
+	Citus maintenance daemon for database 16384 user 10
+2026-10-30 11:06:06.037 +08 [1223933] LOG:  received fast shutdown request
+2026-10-30 11:06:06.037 +08 [1223933] LOG:  aborting any active transactions
+2026-10-30 11:06:06.038 +08 [1224130] FATAL:  terminating connection due to administrator command
+2026-10-30 11:06:06.038 +08 [1224066] FATAL:  terminating connection due to administrator command
+2026-10-30 11:06:06.044 +08 [1223933] LOG:  background worker "logical replication launcher" (PID 1223954) exited with exit code 1
+2026-10-30 11:06:06.045 +08 [1223948] LOG:  shutting down
+2026-10-30 11:06:06.046 +08 [1223948] LOG:  checkpoint starting: shutdown immediate
+2026-10-30 11:06:06.968 +08 [1224446] LOG:  PID 1224066 in cancel request did not match any process
+2026-10-30 11:06:07.304 +08 [1223948] LOG:  checkpoint complete: wrote 128066 buffers (97.7%), wrote 4 SLRU buffers; 0 WAL file(s) added, 0 removed, 272 recycled; write=1.210 s, sync=0.006 s, total=1.259 s; sync files=1090, longest=0.001 s, average=0.001 s; distance=4460869 kB, estimate=4460869 kB; lsn=1/11BB0598, redo lsn=1/11BB0598
+2026-10-30 11:06:07.677 +08 [1223933] LOG:  database system is shut down

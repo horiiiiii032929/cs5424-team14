@@ -1,5 +1,12 @@
 # AI records still needed before upload
 
+The 30 October 19:58 Singapore snapshot already includes Desmond's transcript
+from merged PR #7 as `14_desmond_claude_interactions.pdf`, plus 17 recovered
+Codex sessions and three local Claude sessions. Do not ask him to resend the
+same supplied file. See `ai-finalization-2026-10-30.json` for verification.
+The remaining completeness check concerns conversations/tools not supplied,
+including any earlier detail absent from compacted exports.
+
 The local Codex/Claude exports are a timestamped snapshot, not a complete record
 of every team member's AI use. Each member (Hikaru, Kelvin, Desmond and Xincheng)
 must supply or confirm:

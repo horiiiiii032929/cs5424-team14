@@ -140,6 +140,7 @@ A new Citus Reference table, \texttt{merchant\_\allowbreak{}daily\_\allowbreak{}
 \texttt{merchant\_\allowbreak{}daily\_\allowbreak{}sales\_\allowbreak{}cutoff(cutoff\_\allowbreak{}day)}: a one-row plain table on the coordinator that records the first day not in the rollup.\par
 At the end of every load, \texttt{run.sh} records the cutoff, fills the rollup table with one \texttt{INSERT ... SELECT ... GROUP BY} over \texttt{orders}, and runs \texttt{VACUUM} on it.\par
 T6 splits its query window into three parts: the partial first day and the part since the cutoff, both read from orders, plus whole days read from the rollup. This static rollup relies on the supplied workload: T1 inserts current-time orders, while no transaction backdates orders or changes historical order amounts. It would require maintenance if those assumptions changed.\par
+The rollup stores daily totals rather than results for a fixed \texttt{REPORT\_DAYS} value. Each T6 call selects the relevant days from the same rollup and reads uncovered periods from the original orders table, so changing \texttt{REPORT\_DAYS} does not require rebuilding the rollup.\par
 \needspace{4\baselineskip}\subsubsection*{Benchmark Results and Analysis}
 \needspace{10\baselineskip}
 {\fontsize{10.5}{12.5}\selectfont\setlength{\tabcolsep}{2mm}\renewcommand{\arraystretch}{1.15}
@@ -165,3 +166,6 @@ b6 & 108.250 & 4.4 & 56.1 & 61.9 \\
 {\itshape Table 5.6.2: Matched expt\_b0 and expt\_b6 at 1 client (seed 42). Both runs completed without failed records.}\par
 At 1 client, b6 achieved 20.86 times the baseline throughput, with much lower tail latency. At 4 and 16 clients, b6 completed at 394.380 and 554.982 TPS, while b0 either aborted or recorded final serialization failures. b6 also aborted at 8 clients, so these cases cannot be used for direct speedup comparisons.\par
 We selected b6 as the final B design because it combines the earlier placement and indexing optimizations with T6 pre-aggregation, achieving a 20.86\ensuremath{\times} throughput improvement in the matched one-client comparison while passing the separate correctness checks.\par
+
+\paragraph{Seven-day validation.}
+A separate scale-1 diagnostic (\texttt{expt\_b6}, job 1041191) used \texttt{REPORT\_DAYS=7}, one client, a 30-second measurement and no warmup. Before and after the workload, the original and optimized T6 queries returned identical order counts and revenue for all 1,000 merchants, with zero differences in both directions. All 3,988 scripts, including 397 T6 executions, completed without recorded failures or retries. This supplements the 30-day evidence; it does not test per-call window changes or zero-day/boundary cases. Its timing is not a matched performance comparison with the full 30-day runs.\par

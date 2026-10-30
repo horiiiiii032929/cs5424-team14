@@ -10,7 +10,7 @@ evidence are under **expt_b6**. No a10+a112 combined benchmark is claimed.
 
 - `REPRODUCE.md`: running cluster experiments and locating reproduction utilities.
 - `experiment-inventory.json`: all 21 top-level folders and their job associations.
-- `job-source-map.json`: 45 distinct jobs, canonical experiment ownership, copies,
+- `job-source-map.json`: 46 distinct jobs, canonical experiment ownership, copies,
   and available runtime source-hash matches.
 - `supporting-implementation-inventory.json`: eight local-only a103–a110 designs.
 - `checksums.sha256`: final file integrity, excluding the checksum file itself.
@@ -19,7 +19,7 @@ evidence are under **expt_b6**. No a10+a112 combined benchmark is claimed.
 
 Each top-level `expt_aN`/`expt_bN` folder has `run.sh`, nine SQL transactions,
 Slurm job output directories and matching `citus-N.out`/`.err` logs.
-There are **21 folders and 46 job paths, representing 45 distinct jobs**.
+There are **21 folders and 47 job paths, representing 46 distinct jobs**.
 **b201/job-918781** is inherited **b0** baseline evidence, not an additional run.
 b201's later jobs remain separately identified. Its original cluster alias is
 `expt_xc_b1`; names are preserved in provenance and historical logs.
@@ -39,6 +39,12 @@ Check warmup and measurement exits, retries, failed records and configuration
 before comparing TPS. Job 1031186 is a separate b6 correctness run, not a
 replacement for the full performance matrix. Slurm COMPLETED is not proof of
 a clean benchmark. Historical, diagnostic, local and full-scale timings differ.
+
+Job 1041191 is a separate b6 seven-day diagnostic: scale 1, one client,
+30 seconds and no warmup. T6 totals matched for all 1,000 merchants before
+and after the workload; 3,988 scripts completed with no failures or retries.
+See `evidence/b6-report-days-20261030/case-review.json`. This does not test
+per-call window changes, zero-day/boundary cases, or matched performance.
 
 ## Supporting evidence and provenance
 

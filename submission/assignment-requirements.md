@@ -27,7 +27,7 @@ The ZIP has a single `citus_project_team_14/` root, `install_citus_slurm.sh`,
 and a README describing the experiments. Every one of the **21 top-level
 experiment folders** follows `expt_[ab]N` and has `run.sh`, nine transaction SQL
 files, `slurm-results/job-N/`, and matching `citus-N.out` and `citus-N.err` files.
-There are 46 job-directory paths representing 45 distinct Slurm IDs; some
+There are 47 job-directory paths representing 46 distinct Slurm IDs; some
 historical control folders retain the same original job ID and are not counted
 as independent runs.
 
