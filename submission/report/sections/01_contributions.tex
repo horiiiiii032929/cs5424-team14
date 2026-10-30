@@ -2,9 +2,11 @@
 \section{Individual Contributions}
 \label{sec:contributions}
 
+
 Hikaru and Kelvin investigated Workload A, while Desmond and Xincheng
 investigated Workload B. Findings were shared where an optimization could
 apply to both workloads.
+
 
 \begin{table}[htbp]
 \caption{Individual contributions.}
@@ -13,11 +15,7 @@ apply to both workloads.
 \toprule
 \textbf{Member} & \textbf{Contribution} \\
 \midrule
-\Hikaru & Developed A variants involving indexes, placement, transaction
-implementations, settings and summaries. Adapted B placement ideas to A and
-implemented the a111--a115 follow-ups. Developed correctness checks, conducted
-and analysed cluster experiments, reviewed raw evidence and failures, prepared
-figures and A analysis, and organized the report source and submission artifacts. \\
+\Hikaru & Designed and implemented Workload A optimizations involving indexing, data placement, and transaction execution, including the a111--a115 experiments. Conducted benchmark and correctness evaluations, analysed performance and failure results, and jointly selected the final A design with Kelvin. Prepared the Workload A analysis, figures, and report submission materials. \\
 \addlinespace
 \Kelvin & Ran a102 and designed, implemented and evaluated a10, a11, a12 and
 a14. Investigated autocommit, HOT updates, asynchronous commit and maintenance.
@@ -25,15 +23,19 @@ Added update-statistics collection, analysed transaction-level results and
 failures, and drafted the write-path analysis. Jointly evaluated the final A design. \\
 \addlinespace
 \Desmond & Established the initial Citus environment and baseline results.
-Contributed the B b0--b6 experiments and analysis, including placement ideas
+Contributed the B b0--b6 experiments and analysis, including pre-aggregation and placement ideas
 subsequently adapted for A. \\
 \addlinespace
-\Xincheng & Contributed B placement and indexing proposals, supplementary
-experiments, and the investigation of B results. \\
+\Xincheng & Proposed and investigated B placement and indexing optimizations. Executed and analysed the T7-only b0 vs b201 experiment, ran supplementary b0 vs b6 evaluation and b6 correctness checks. \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
+
 Hikaru and Kelvin selected \expt{a112} as the final A design. We retain
 \expt{a115} as follow-up evidence with its failure limitations and report
 \expt{a10} separately: its changes were not benchmarked together with a112.
+
+
+Desmond and Xincheng selected \expt{b6} as the final B design based on its performance improvements and correctness validation.
+

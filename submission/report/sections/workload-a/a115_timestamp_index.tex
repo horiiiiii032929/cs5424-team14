@@ -27,6 +27,13 @@ Seven of twelve cases completed both phases; six also had zero failed records.
 All twelve post-run integrity checks passed, but that does not make aborted
 performance measurements suitable for ranking.
 
+The aborts share one failure mode. In 17 of the 19 client aborts across both
+seeds, pgbench stopped at T1's \texttt{COMMIT} with a Citus ``could not commit
+transaction for shard'' error; the other two occurred in T2 and T9. In these logs, worker
+serialization cancellations surfaced as shard-commit errors that pgbench did
+not retry. Commit failures limited reliable high-concurrency results; the runs
+do not independently isolate their cause.
+
 At one client, a115 achieved $2.13\times$ and $2.07\times$ the throughput of the
 corresponding a112 seeds. The index has promising measured benefits, but neither
 seed produced a complete successful matrix. We retained a115 as follow-up

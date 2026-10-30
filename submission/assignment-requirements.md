@@ -24,19 +24,20 @@ from a team preference or a previous working draft.
 ## Required result-folder structure
 
 The ZIP has a single `citus_project_team_14/` root, `install_citus_slurm.sh`,
-and a README describing the experiments. Every one of the **20 top-level
+and a README describing the experiments. Every one of the **21 top-level
 experiment folders** follows `expt_[ab]N` and has `run.sh`, nine transaction SQL
 files, `slurm-results/job-N/`, and matching `citus-N.out` and `citus-N.err` files.
-There are 44 job-directory paths representing 43 distinct Slurm IDs; some
+There are 46 job-directory paths representing 45 distinct Slurm IDs; some
 historical control folders retain the same original job ID and are not counted
 as independent runs.
 
-Xincheng retired b202–b204 as unused in commit `1a5a2f3`; the rebuilt archive
-excludes them, including their inherited b2 job copies. b201/job-918781 remains
-an explicitly inherited b0 baseline. `job-source-map.json` records canonical
-job ownership and runtime source matches where available. Additional local
-correctness/pilot evidence remains included. The dated 29 October audit records
-the earlier archive; see the 30 October reconciliation for current counts.
+The brief requires all experiment code and outputs even when the report discusses
+only selected findings. b202's actual jobs 993186 and 994341 are retained despite
+its retirement from active development. Unbenchmarked b203/b204 variants and
+their copied b2/job-928583 evidence are separately labelled under
+`supporting_implementations/retired/`. b201/job-918781 remains an inherited b0
+baseline. `job-source-map.json` records canonical ownership and available
+runtime source matches. Earlier removal counts in dated audits are historical.
 
 Eight local-only designs (a103-a110) have no Slurm run. Their code is retained
 under `supporting_implementations/local_only/`, separately from the course
@@ -46,7 +47,7 @@ No missing job output is fabricated. The report discusses these only as
 supporting implementations/validation and focuses its performance findings on
 the available cluster experiments.
 
-The retained b201 alias and excluded b202-b204 aliases are documented in the archive README and
+The retained b201 alias and supporting b203-b204 aliases are documented in the archive README and
 provenance map. Baselines a0/b0 are preserved. Failed and cancelled attempts
 are retained with their actual exit/failure evidence.
 
@@ -59,7 +60,9 @@ recovered local sessions, plus supplemental tool records. **Completeness is not
 established:** earlier cloud conversations and teammates' records/tools must be
 checked. A usage summary alone does not satisfy the interaction requirement.
 
-Upload one team version of each required file to its corresponding assignment:
+Section 11.4 explicitly says to submit as a team and not make multiple
+submissions of each file. One designated uploader should submit one team version
+of each required file to its corresponding assignment:
 `14_files.zip`, `14_report.pdf`, and `14_ai_tool.zip`. No file has been uploaded.
 Deadline: 30 October 2026, 23:59 Singapore time. The overview also requires all
 members at a 20-minute week-13 Q&A, with no presentation; registration remains

@@ -12,10 +12,13 @@ EXTRA_EVIDENCE = (
     'scalable-validator-checks-20261019', 'readonly-pilot-20261019',
     'join-placement-pilot-20261019', 'local-native-20261014',
 )
-# Xincheng retired these in commit 1a5a2f3e380eb93dd8840ec51a34d388c160c49d.
-# Include original cluster aliases so stale snapshots cannot resurrect them.
-RETIRED_EXPERIMENTS = frozenset(('expt_b202', 'expt_b203', 'expt_b204',
-                               'expt_xc_b2', 'expt_b3v_control', 'expt_b3v_cover'))
+# These source variants have only inherited b2 results, not independent runs.
+# Preserve them as supporting source rather than top-level experiments.
+# b202 was also retired from active development, but its two real jobs must be
+# retained under the brief's requirement to submit all experiment outputs.
+RETIRED_EXPERIMENTS = frozenset(('expt_b203', 'expt_b204',
+                               'expt_b3v_control', 'expt_b3v_cover'))
+SOURCE_ONLY_VARIANTS = {'expt_b3v_control': 'expt_b203', 'expt_b3v_cover': 'expt_b204'}
 INHERITED = {('expt_b201', 'job-918781'): 'expt_b0'}
 
 
@@ -52,6 +55,22 @@ def organize(stage):
                 copy_preserved(src, stage / 'evidence/local-only' / folder / src.relative_to(source),
                                'supporting local evidence; not a Slurm benchmark')
 
+    for original, submitted in SOURCE_ONLY_VARIANTS.items():
+        source = ROOT / 'submission/_build/remote-20261028/raw' / original
+        if not source.is_dir():
+            raise RuntimeError(f'Missing historical source variant: {source}')
+        for src in sorted(source.rglob('*')):
+            if src.is_file() and src.name not in ('.DS_Store', 'AGENTS.md') and not src.name.startswith('.env'):
+                copy_preserved(src, stage / 'supporting_implementations/retired' / submitted / src.relative_to(source),
+                               'retired source variant; job 928583 is inherited b2 evidence')
+    (stage / 'supporting_implementations/retired/README.md').write_text(
+        '# Retired source variants\n\n'
+        'b203 (original expt_b3v_control) and b204 (expt_b3v_cover) have no independent '
+        'benchmark. Their job-928583 files are copies of expt_b2 evidence, not measurements '
+        'of these variants. Source and inherited output are retained for completeness; '
+        'count job 928583 only once, under expt_b2. The independently run but unselected '
+        'b202 experiment remains at the archive root with its two actual jobs.\n')
+
     # Retain the starter installer, then apply only the already configured team's
     # notification directive. The installation commands must remain identical.
     installer = stage / 'install_citus_slurm.sh'
@@ -74,6 +93,9 @@ def organize(stage):
     for entry in inventory:
         name = entry['experiment']
         entry['classification'] = 'Slurm experiment; retained failed attempts are not clean results'
+        if name == 'expt_b202':
+            entry['classification'] = 'retired supplementary experiment; actual runs retained for completeness'
+            entry['description'] = 'T6 time-index supplementary experiment, original expt_xc_b2; not selected for the final B design.'
         if name == 'expt_a112':
             entry['description'] = 'Selected A design: a111 plus READ ONLY; retain seed-7/c64 warmup caveat.'
         for job in entry['jobs']:
